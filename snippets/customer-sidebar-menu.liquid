@@ -1,0 +1,110 @@
+{% assign full_url = request.host | append: request.path %}
+<div class="col-12 col-md-2 {% if full_url contains '/wishlist' %}wishlist-page{% endif %}">
+  {% assign address = 'false' %}
+  {% assign order = 'false' %}
+  {% if full_url contains '/account/addresses' %}
+    {% assign address = 'true' %}
+  {% endif %}
+  {% if full_url contains '/account/orders/' %}
+    {% assign address = 'true' %}
+  {% endif %}
+  <div class="customer-mobile-header">
+    <h1 class="account_title mobile-only">{{ 'customer.account.title' | t }}</h1>
+    <a
+      href="#"
+      onclick="window.history.go(-1); return false;"
+      class="underline back_dashboard hidden">{{ 'customer.account.back_dashboard' | t }}</a>
+  </div>
+  <ul class="sidebar-menu desktop-sidebar-menu">
+    {% if customer %}
+      <li class="sidebar-menu__item {% if address != 'true' %}active{% endif %}">
+        <a
+          class="sidebar-menu__link dashboard"
+          data-item="account"
+          href="/account">Account Dashboard</a>
+      </li>
+      <li class="sidebar-menu__item order-link {% if full_url contains '/account/orders/' %}active{% endif %}">
+        <a
+          class="sidebar-menu__link"
+          data-item="order"
+          href="/account#order">My Orders</a>
+      </li>
+    {% endif %}
+    <li class="sidebar-menu__item {% if full_url contains '/wishlist' %}active{% endif %}">
+      <a
+        class="sidebar-menu__link"
+        data-item="wishlist"
+        href="{{ '/pages/wishlist' | prepend: site.baseurl }}">
+        {% if customer %}My
+        {% endif %}Wishlist</a>
+    </li>
+    {% if customer %}
+      <li class="sidebar-menu__item {% if full_url contains '/account/addresses' %}active{% endif %}">
+        <a
+          class="sidebar-menu__link"
+          data-item="addresses"
+          href="{{ '/account/addresses' | prepend: site.baseurl }}">Addresses</a>
+      </li>
+      <li class="sidebar-menu__item">
+        <a
+          class="sidebar-menu__link"
+          data-item="logout"
+          href="{{ '/account/logout' | prepend: site.baseurl }}">Logout</a>
+      </li>
+    {% endif %}
+    {% if customer == blank %}
+      <li class="sidebar-menu__item">
+        <a
+          class="sidebar-menu__link"
+          data-item="logout"
+          href="{{ '/account/login' | prepend: site.baseurl }}">Login</a>
+      </li>
+    {% endif %}
+  </ul>
+  <ul class="sidebar-menu mobile-sidebar-menu">
+    {% if customer %}
+      <li class="sidebar-menu__item">
+        <a
+          class="sidebar-menu__link dashboard"
+          data-item="account"
+          href="/account#dashboard">Account Dashboard</a>
+      </li>
+      <li class="sidebar-menu__item order-link">
+        <a
+          class="sidebar-menu__link"
+          data-item="order"
+          href="/account#order">My Orders</a>
+      </li>
+    {% endif %}
+    <li class="sidebar-menu__item">
+      <a
+        class="sidebar-menu__link"
+        data-item="wishlist"
+        href="{{ '/pages/wishlist' | prepend: site.baseurl }}">
+        {% if customer %}My
+        {% endif %}Wishlist</a>
+    </li>
+    {% if customer %}
+      <li class="sidebar-menu__item">
+        <a
+          class="sidebar-menu__link"
+          data-item="addresses"
+          href="{{ '/account/addresses' | prepend: site.baseurl }}">Addresses</a>
+      </li>
+      <li class="sidebar-menu__item">
+        <a
+          class="sidebar-menu__link"
+          data-item="logout"
+          href="{{ '/account/logout' | prepend: site.baseurl }}">Logout</a>
+      </li>
+    {% endif %}
+    {% if customer == blank %}
+      <li class="sidebar-menu__item">
+        <a
+          class="sidebar-menu__link"
+          data-item="logout"
+          href="{{ '/account/login' | prepend: site.baseurl }}">Login</a>
+      </li>
+    {% endif %}
+  </ul>
+</div>

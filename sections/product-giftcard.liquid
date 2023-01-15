@@ -1,0 +1,212 @@
+<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+  <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+  <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-7 product-images-side mobile-remove-padding">
+      <!--===== PRODUCT IMAGERY =====-->
+      <div class="product-photo-wrapper">
+        <!-- MAIN PHOTO -->
+        <div class="product-photo-slider-wrapper">
+          <div class="product-photo-slider">
+            {% for image in product.images %}
+            {% unless image.alt contains 'lifestyle' or image.alt contains 'tpfilter:image' %}
+            <div class="product-photo">
+              <img class="image-zoom" 
+                  src="{{ image | img_url: 'master' }}" 
+                  data-zoom="{{ featured_image | img_url: 'master' }}" 
+                  title="{% if image.alt %}{{ product.title }}{% else %}{{ image.alt | escape }}{% endif %}" 
+                  alt="{% if image.alt %}{{ product.title }}{% else %}{{ image.alt | escape }}{% endif %}" 
+                /> 
+            </div>
+            {% endunless %}
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-5 product-information-side product-details-wrapper">
+      <!--===== PRODUCT DESCRIPTION =====-->
+      <h1>{{ product.title }}</h1>
+      <div data-price-wrapper class="product-price mt-3">
+        <span data-product-price>
+          {{ current_variant.price | money }}
+        </span>
+        {% if product.compare_at_price_max > product.price %}
+          <s data-compare-price class="rrp-price">
+            {% if current_variant.compare_at_price > current_variant.price %}
+              {{ current_variant.compare_at_price | money }}
+            {% endif %}
+          </s>
+        {% endif %}
+      </div>
+
+    {% render 'product-other-colours' %}
+
+
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+        <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+        <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+
+        <form action="/cart/add" method="post" enctype="multipart/form-data">
+          {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div class="selector-wrapper js">
+                <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                  {{ option.name }}
+                </label>
+
+                <select
+                  id="SingleOptionSelector-{{ forloop.index0 }}"
+                  data-single-option-selector
+                  data-index="option{{ option.position }}"
+                  class="single-option-selector">
+                  {% for value in option.values %}
+                    <option
+                      value="{{ value | escape }}"
+                      {% if option.selected_value == value %}selected="selected"{% endif %}>
+                        {{ value }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          {% endunless %}
+
+          <select name="id" class="no-js" data-product-select>
+            {% for variant in product.variants %}
+              <option
+                {% if variant == current_variant %}selected="selected"{% endif %}
+                {% unless variant.available %}disabled="disabled"{% endunless %}
+                value="{{ variant.id }}">
+                  {{ variant.title }}
+              </option>
+            {% endfor %}
+          </select>
+
+          {% if product.variants.size > 1 %}
+          {% for option in product.options %}
+            {% assign downcased_option = option | handle %}
+            {% render 'dropdown-option-giftcard' %}
+          {% endfor %}
+          {% endif %}
+
+          <div class="stock-info {% if current_variant.inventory_quantity <= 3 and current_variant.inventory_quantity != 0 %}is-visible{% endif %}">
+            {% render 'icon-lowstock' %} Only <span data-stock-amount>{{ current_variant.inventory_quantity }} </span> left in stock
+          </div>
+          <div class="mt-4"></div>
+
+          {% if product.template_suffix == "pre-order" %}
+            <input style="display: none" type="radio" name="properties[Item availability]" value="preorder" checked>
+          {% endif %}
+
+          <div class="cta-line">
+          {% if product.template_suffix == "pre-order" %}
+            <button
+            class="btn btn-primary"
+            type="button"
+            name="add"
+            data-add-to-cart
+            data-variant="{{ product.variants[0].id }}"
+            {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+              <span>
+                  Preorder
+              </span>
+          </button>
+          {% else %}
+            <button
+              class="btn btn-primary"
+              type="button"
+              name="add"
+              data-add-to-cart
+              data-variant="{{ current_variant.id }}" 
+              {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                <span data-add-to-cart-text>
+                  {% if current_variant.available %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% else %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% endif %}
+                </span>
+            </button>
+          {% endif %}
+            <!-- NOTIFY ME BUTTON -->
+            {% assign out_of_stock = false %}
+            {% for variant in product.variants %}
+              {% if variant.inventory_quantity == 0 %}
+                {% assign out_of_stock = true %}
+              {% endif %}
+            {% endfor %}
+
+            {% if out_of_stock == true %}
+              <a href="#" id="BIS_trigger" class="btn btn-border notify-button" {% if current_variant.available %}style="display: none"{% endif %} data-notify-me>Email when back</a>
+            {% endif %}
+
+          </div>
+
+
+        </form>
+
+      </div>
+
+      <div class="short-description mt-3">{{ product.description }}</div>
+
+
+    </div>
+  </div>
+</div>
+
+
+  {% unless product == empty %}
+    <script type="application/json" data-product-json>
+      {{ product | json }}
+    </script>
+    <script type="application/json" data-variants-json>
+      [
+      {%- for variant in product.variants -%}
+        {
+          "id": {{ variant.id }},
+          "inventory_quantity": {{ variant.inventory_quantity }}
+        }
+      {%- unless forloop.last -%}
+        ,
+      {%- endunless -%}
+      {%- endfor -%}
+      ]
+    </script>
+  {% endunless %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      },
+      {
+         "type": "page",
+         "id": "size_guide_page",
+         "label": "Size Guide page"
+      },
+      {
+        "type": "page",
+        "id": "length_size_guide_page",
+        "label": "Length Help page"
+     }
+    ]
+  }
+{% endschema %}

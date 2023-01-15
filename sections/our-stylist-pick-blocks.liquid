@@ -1,0 +1,55 @@
+<div class="our-stylist-blocks-section">
+    <div class="row flex-column align-items-center">
+        <h1 class="container our-stylist-title md-my-3 my-5">{{ section.settings.our_stylist_title_text }}</h1>
+        <div class="container collection-wrapper">
+            <div class="collection-items">
+                {%- assign collection = collections[section.settings.our_stylist_collection] -%}
+                {% for product in collection.products limit: 6 %}
+                    <div class="col-sm-3 col-6 ">
+                        <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-colors-list></div>
+                    </div>
+                {% endfor %}
+                </div>
+        </div>
+        <div class="our-stylist-btn">
+            <a class="btn btn-border" href="{{ section.settings.our_stylist_btn_url }}">{{ section.settings.our_stylist_btn_text }}</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Our Stylist's Blocks",
+  "class": "our-stylist-blocks-section",
+  "tag": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "our_stylist_title_text",
+        "label": "Our Stylist's Title"
+    },
+    {
+        "type": "collection",
+        "id": "our_stylist_collection",
+        "label": "Our Stylist's Collection"
+    },
+    {
+        "type": "text",
+        "id": "our_stylist_btn_text",
+        "label": "Our Stylist's Button Label"
+    },
+    {
+        "type": "url",
+        "id": "our_stylist_btn_url",
+        "label": "Our Stylist's Link"
+    }
+  ],
+ 
+  "presets": [
+    {
+      "name": "Our Stylist's Blocks",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

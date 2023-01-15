@@ -1,0 +1,26 @@
+{% assign set = section.settings %}
+{%- capture product_collections_list -%}
+    {%- for collection in product.collections -%}
+      {{ collection.title | strip }},
+    {%- endfor -%}
+{%- endcapture -%}
+{%- assign product_collections = product_collections_list | split: ',' -%}
+
+
+{% if set.show_product_promo == true and set.show_nhs_promo_1 and product_collections contains 'Trousers'  %} {% assign show_nhs_promo = true %} {% endif %}
+{% if set.show_product_promo == true and set.show_nhs_promo_2 and product_collections contains 'Jackets'  %} {% assign show_nhs_promo = true %} {% endif %}
+{% if set.show_product_promo == true and set.show_nhs_promo_3 and product_collections contains 'Tops'  %} {% assign show_nhs_promo = true %} {% endif %}
+{% if set.show_product_promo == true and set.show_nhs_promo_4 and product_collections contains 'Dresses'  %} {% assign show_nhs_promo = true %} {% endif %}
+{% if set.show_product_promo == true and set.show_nhs_promo_5 and product_collections contains 'Skirts' %} {% assign show_nhs_promo = true %} {% endif %}
+{% if set.show_product_promo == true and set.show_nhs_promo_6 and product_collections contains 'Masks' %} {% assign show_nhs_promo = true %} {% endif %}
+
+{% if show_nhs_promo == true %}
+    <a href="{{ set.nhs_url }}" class="nhs-promo-link" target="_blank">
+        <div class="nhs-promo-wrapper" style="background-color: {{ set.nhs_bg }}; color: {{ set.nhs_color }};">
+            {% if set.nhs_icon != blank %}
+                <div><img src="{{ set.nhs_icon | img_url: '100x' }}" alt=""></div>
+            {% endif %}
+            <div>{{ set.nhs_text }}</div>
+        </div> 
+    </a>
+{% endif %}

@@ -1,0 +1,71 @@
+<div class="dna-header__wrapper">
+    <div class="dna-header__image">
+        {% comment %} Desktop Image {% endcomment %}
+        <img loading="lazy" class="hidden-medium hidden-small lazyload" src="{{ section.settings.image_desktop | img_url: 'master' }}"/>
+        {% comment %} Mobile Image {% endcomment %}
+        <img loading="lazy" class="visible-medium visible-small hidden-lg lazyload" src="{{ section.settings.image_mobile | img_url: 'master' }}"/>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 dna-header__mini-title">
+                {% if section.settings.mini_title != blank %}
+                    <img loading="lazy" class="lazyload" src="{{ section.settings.mini_title | img_url: 'master' }}" alt="{{ section.settings.main_title }}"/>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-12 col-lg-5">
+                <div class="dna-header__text">
+                    {% if section.settings.main_title != blank %}
+                        <h1>{{ section.settings.main_title }}</h1>
+                    {% endif %}
+                    {% if section.settings.text != blank %}
+                        {{ section.settings.text }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "DNA Header",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Images"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_desktop",
+        "label": "Desktop"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Mobile"
+    },
+    {
+        "type": "header",
+        "content": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "mini_title",
+      "label": "Mini Title"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Our DAI,<br/> fit to <em>your</em> DNA."
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+    }
+  ]
+}
+{% endschema %}

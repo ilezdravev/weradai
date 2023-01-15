@@ -1,0 +1,33 @@
+<div class="tff-v2__featured-products-wrapper">
+    <div class="row flex-column align-items-center">        
+        {%- if section.settings.ttf_v2_feature_sub_title != blank -%}<p class="tpfilter-item__slider-sub-title">{{ section.settings.ttf_v2_feature_sub_title}}</p>{%- endif -%}
+        {%- if section.settings.ttf_v2_feature_title != blank -%}<h1 class="tpfilter-item__slider-title">{{ section.settings.ttf_v2_feature_title}}</h1>{%- endif -%}
+        
+               
+    </div>
+</div>
+{% schema %}
+{
+  "name": "TFF V2 - Feature Products",
+  "class": "tff-v2__featured-products",
+  "tag": "section",
+  "settings": [
+   
+    {
+        "id": "ttf_v2_feature_sub_title",
+        "type": "text",
+        "label": "Sub Title"
+    },
+    {
+        "id": "ttf_v2_feature_title",
+        "type": "text",
+        "label": "Title"
+    }, 
+    {
+        "type": "collection",
+        "id": "tff_v2_feature_collection",
+        "label": "Feature Collection"
+    }
+  ]
+}
+{% endschema %}

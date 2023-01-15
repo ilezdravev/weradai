@@ -1,0 +1,123 @@
+<div class="container">
+	{% for block in section.blocks %}
+  	{% assign set = block.settings %}
+  {% if set.widgetid %}<div class="row starter-kit-look-section" id="look-{{ set.widgetid }}"> {% endif %}
+    <div class="starter-kit-look-banner">
+    {% if set.look %}
+    <h4 class="starter-kit-widget__number"> Look {{ set.look }}</h4>
+    {% endif %}
+    {% if set.title %}
+    <h2 class="starter-kit-widget__title">{{ set.title }}</h2>
+    {% endif %}
+    {% if set.text %}
+    <div class="starter-kit-widget__text">{{ set.text }}</div>
+    {% endif %}
+    </div>
+             </div>
+  
+  <div class="row starter-kit-look-gallery">
+    
+   
+    {% if set.img3 != blank %}
+  <div class="col-md-4"> <img src="{{ set.img1 | img_url: 'master' }}" class="img-one-third"></div>
+    	<div class="col-md-4"> <img src="{{ set.img2 | img_url: 'master' }}" class="img-one-third"></div>
+    	<div class="col-md-4"> <img src="{{ set.img3 | img_url: 'master' }}" class="img-one-third"></div> 
+    {% else %} 
+           <div class="col-md-4"> <img src="{{ set.img1 | img_url: 'master' }}" class="img-one-third"></div>
+    	  <div class="col-md-8"> <img src="{{ set.img2 | img_url: 'master' }}" class="img-two-third"></div>
+    {% endif %}
+  
+  </div>
+  <div class="row starter-kit-buy-the-look">
+    <div class="col-md-4 buy-the-look"> 
+
+      <div class="stylist-block"> <div>
+        {% if set.img4 %}
+         <img src="{{ set.img4 | img_url: 'master' }}" class="img-one-third">{% endif %}
+
+      <h2 class="look-breakdown">{% if set.title %}{{ set.title }}{% endif %}: The Fine Print </h2>
+        {% if set.text2 %} <div class="fine-print"> {{ set.text2 }}{% endif %} </div>
+        <p class="checkout-discount"> Your discount will be automatically applied at the last step of checkout. </p>
+        <p class="need-help"> Love the kit? Not your colour  <br> Need fit advice? <br></p>
+         	 <a class="starter-kit-whatsapp" href="https://api.whatsapp.com/send/?phone=447501383648&text=Hey%20Dai!%20I%20have%20a%20question%20about%20the%20Dai%27namic%20Kits.%20Can%20you%20help?">
+         	  <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/whatsapp_b9a9b080-4b2f-480f-a35a-4ddc8d652aa9_50x.png" width="20px"><span> Chat with us </span></a>
+        
+        </div></div>
+    </div>
+   
+    <div class="col-md-8 kit-widget"> 
+      <p class="look-{% if set.widgetid %}{{ set.widgetid }}">    {% endif %}</p> <hr class="widget-divider">
+       <p class="look-{% if set.widgetid %}{{ set.widgetid }}-B">    {% endif %}</p>
+      <div class="back-to-top"> <a href="#MainContent"> &#8593; Back to the top </a></div>
+    </div>
+
+  </div>
+	{% endfor %}
+  
+	 <div class="col-12 text-center shop-all">
+       <h2> Prefer to shop à la cart instead? </h2>
+       <div class="lookbook-button">
+         <a href="/" class="btn btn-border">SHOP ALL</a>
+         </div>
+      </div>
+
+</div>
+
+           
+{% schema %}
+{
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Widget",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "look",
+          "label": "Look"
+        },
+  		{
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "img1",
+          "label": "Image 1"
+        },
+ 		{
+          "type": "image_picker",
+          "id": "img2",
+          "label": "Image 2"
+        },
+ 		{
+          "type": "image_picker",
+          "id": "img3",
+          "label": "Image 3"
+        },
+ 		{
+          "type": "image_picker",
+          "id": "img4",
+          "label": "Buy the look Image"
+        },
+		{
+          "type": "richtext",
+          "id": "text2",
+          "label": "Buy the look Text"
+        },
+        {
+          "type": "text",
+          "id": "widgetid",
+          "label": "Widget ID"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+{% for image in product.images %}
+    {% if image.alt contains 'lifestyle' %}
+      {% assign has_lifestyle = true %}
+    {% endif %}
+{% endfor %}
+
+{% if has_lifestyle == true %}
+    <div class="container lifestyle-images-wrapper section-padding">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="lifestyle-images">
+            {% for image in product.images %}
+              {% if image.alt contains 'lifestyle' %}
+                <div>
+                  <img src="{{ image.src | img_url: '1600x1600' }}" alt="{{ product.title }}">
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+{% endif %}

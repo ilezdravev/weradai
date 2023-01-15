@@ -1,0 +1,87 @@
+<div class="blog-container article-section article-lookbook py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-5">
+                <a href="#section-{{ section.id }}" class="cd-popup-trigger">
+                    <img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.look-image.width }}" src="{{ section.settings.look-image | img_url: 'master' }}" alt="{{ shop.name }}"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cd-popup" role="alert" id="section-{{ section.id }}">
+    <div class="cd-popup-container">
+      <div class="popup-content">
+        <!-- CONTAINER -->
+        {% assign product_one = section.settings.featured_product_one %}
+        {% assign product_two = section.settings.featured_product_two %}
+        {% assign product_three = section.settings.featured_product_three %}
+
+
+        <div class="row justify-content-center">
+          {% if product_one != blank %}
+          <div class="col-6 col-sm-3">
+            {% assign product1 = all_products[product_one] %}
+            {% render 'product-grid', product: product1 %}
+          </div>
+          {% endif %}
+          {% if product_two != blank %}
+          <div class="col-6 col-sm-3">
+            {% assign product2 = all_products[product_two] %}
+            {% render 'product-grid', product: product2 %}
+          </div>
+          {% endif %}
+          {% if product_three != blank %}
+          <div class="col-6 col-sm-3">
+            {% assign product3 = all_products[product_three] %}
+            {% render 'product-grid', product: product3 %}
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+      <a href="#section-{{ section.id }}" class="cd-popup-close img-replace">Close</a>
+    </div> <!-- cd-popup-container -->
+  </div> <!-- cd-popup -->
+
+{% schema %}
+  {
+    "name": "Article Lookbook",
+    "tag": "section",
+    "settings": [
+    {
+        "id": "look-image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+
+     {
+       "type": "header",
+       "content": "Products"
+     },
+     {
+        "type": "product",
+        "id": "featured_product_one",
+        "label": "Product #1"
+     },
+     {
+        "type": "product",
+        "id": "featured_product_two",
+        "label": "Product #2"
+     },
+     {
+        "type": "product",
+        "id": "featured_product_three",
+        "label": "Product #3"
+     }
+    ],
+    "presets": [
+      {
+        "name": "Article Lookbook",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,73 @@
+{%- capture sizes -%}
+  {%- for variant in product.variants -%}
+    {{ variant.id }}@{{ variant.title }}:
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture option1 -%}
+  {%- assign option1_values = '' -%}
+  {%- assign option1_array = '' -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.option1 != blank -%}
+      {%- assign option1_values = option1_values | append: variant.option1 | append: ', ' -%}
+      {%- assign option1_array = option1_values | split: ", " -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {{ option1_array | uniq | join: ", " }}
+{%- endcapture -%}
+
+{%- capture option2 -%}
+  {%- assign option2_values = '' -%}
+  {%- assign option2_array = '' -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.option2 != blank -%}
+      {%- assign option2_values = option2_values | append: variant.option2 | append: ', ' -%}
+      {% assign option2_array = option2_values | split: ", " %}
+    {%- endif -%}
+  {%- endfor -%}
+  {{ option2_array | uniq | join: ", " }}
+{%- endcapture -%}
+
+{%- assign compare_at_price = product.compare_at_price | money_without_currency -%}
+
+{%- capture badge -%}
+  {%- for productTags in product.tags -%}
+    {%- if productTags contains 'badge:' -%}
+      {{- productTags | remove: 'badge:' -}}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture colors -%}
+  {%- for tag in product.tags -%}
+    {%- if tag contains 'color:' -%}
+
+      {%- for tag in product.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- product.url -}}:{{- color_tag -}}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+
+{%- assign length = 'false' -%}
+{% if option2 != blank %}
+  {%- assign length = 'true' -%}
+{%- endif -%}
+
+{%- assign shopUrl = 'https://daiwear.com' -%}
+<button
+  id="product_{{ product.id }}"
+  class="product_{{ product.id }} swym-add-to-wishlist-view-product"
+  data-iu="{{ product.featured_image.src }}"
+  data-length="{{- length -}}"
+  data-colors="{{- colors -}}"
+  data-badge="{{- badge -}}"
+  data-compare-price="{{ compare_at_price }}"
+  data-sizes="{{ sizes }}"
+  data-product-id="{{ product.id | json }}"
+  data-variant-id="{{ product.variants[0].id }}"
+  data-product-url="{{ shopUrl }}{{ product.url }}"></button>

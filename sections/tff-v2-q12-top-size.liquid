@@ -1,0 +1,83 @@
+<div class="tpfilter-item top-size is-hidden" data-tpfilter-item="q12">
+  <div class="container">
+    <div class="tpfilter-item__inner">
+      {%- if section.settings.ttf_v2_q12_sub_title != blank -%}<p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_q12_sub_title}}</p>{%- endif -%}
+      {%- if section.settings.ttf_v2_q12_title != blank -%}<h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_q12_title}}</h2>{%- endif -%}
+      <div class="tpfilter-options size-wrapper">
+        {% for block in section.blocks %}
+            <div class="tpfilter-option tpfilter-option--square">
+                <input id="top-size-{{ forloop.index }}" type="{{ section.settings.question_option }}" name="top_size" value="{{ block.settings.ttf_v2_q12 }}" data-tpfilter-answer>
+                <label for="top-size-{{ forloop.index }}">{{ block.settings.ttf_v2_q12 }}</label>
+            </div>
+        {% endfor %}
+      </div>
+      <div class="tff-v2-shape-size">
+        {%- if section.settings.ttf_v2_q12_btn_lbl != blank -%}{% render 'tff-v2-size-guide' %}{%- endif -%}
+      </div>
+      {% render 'tff-v2-button' %}
+    </div>
+  </div>
+  </div>
+
+{% schema %}
+{
+    "name": "TFF V2 - q12 Top Size",
+    "settings": [
+        {
+            "id": "ttf_v2_q12_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_q12_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "type": "select",
+            "id": "question_option",
+            "label": "Question Option",
+            "options": [
+              {
+                "value": "checkbox",
+                "label": "Checkbox"
+              },
+              {
+                "value": "radio",
+                "label": "Radio"
+              }
+            ]
+        },
+        {
+            "id": "ttf_v2_q12_url",
+            "type": "url",
+            "label": "URL"
+        },
+        {
+            "id": "ttf_v2_q12_btn_lbl",
+            "type": "text",
+            "label": "URL - Label"
+        }        ,
+        
+        {
+          "type": "page",
+          "id": "ttf_v2_size_guide_page",
+          "label": "Size Guide page"
+       }
+
+    ],
+    "blocks": [
+        {
+            "type": "question_twelve",
+            "name": "Add Question",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "ttf_v2_q12",
+                    "label": "Add Question"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

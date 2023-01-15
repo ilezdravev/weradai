@@ -1,0 +1,36 @@
+{% for block in section.blocks %}
+<div class="container dna-service-box__wrapper my-4" id="{{ block.id }}" {{ block.shopify_attributes }}>
+    <div class="row flex-column-reverse flex-sm-column-reverse flex-md-row {% if block.settings.image_pos == "left" %}flex-md-row-reverse{% endif %}">
+        <div class="col-md-6">
+            <div class="dna-service-box__text-area">
+                <div>
+                    {% if block.settings.number != blank %}
+                        <span class="section-number text-font-primary">{{ block.settings.number }}</span>
+                    {% endif %}
+                    <h3 class="fz-3 serif text-font-secondary">{{ block.settings.title }}</h3>
+                    {{ block.settings.text }}
+                    <div class="dna-service-box__links-area">
+                    {% if block.settings.link_text_1 != blank %}
+                        <a href="{{ block.settings.link_url_1 }}" class="link">
+                            <img src="{{ block.settings.link_icon_1 | img_url: 'master' }}">
+                            <span>{{ block.settings.link_text_1 }}</span>
+                        </a>
+                    {% endif %}
+                    {% if block.settings.link_text_2 != blank %}
+                        <a href="{{ block.settings.link_url_2 }}" class="link">
+                            <img src="{{ block.settings.link_icon_2 | img_url: 'master' }}">
+                            <span>{{ block.settings.link_text_2 }}</span>
+                        </a>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="dna-service-box__img-area">
+                <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}">
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

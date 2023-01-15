@@ -1,0 +1,216 @@
+<div class="container">
+    {% for block in section.blocks %}
+      {% case block.type %}
+
+        {% when 'fullsize-image' %}
+        <div class="row fullsize-image">
+          <div class="col-12">
+            <img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.full-image.width }}" src="{{ block.settings.full-image | img_url: 'master' }}" alt="{{ shop.name }}"/>
+          </div>
+        </div>
+
+        {% when 'header-text' %}
+        <div class="row">
+          <div class="col-12">
+            <div class="lookbook-header">
+              <h1>{{ block.settings.title }}</h1>
+              <p>{{ block.settings.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        {% when 'shop-look' %}
+        <div class="row shop-look-section" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+          <div class="col-12">
+              {% if block.settings.product_unavailable %}
+                <a href="{{ block.settings.category_link }}">
+              {% else %}
+                <a href="#section-{{ block.id }}" class="cd-popup-trigger">
+              {% endif %}
+              <img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.look-image.width }}" src="{{ block.settings.look-image | img_url: 'master' }}" alt="{{ shop.name }}"/>
+            </a>
+            <div class="text-area {% if block.settings.text-align == 'left' %}text-left{% elsif block.settings.text-align == 'center' %}text-center{% else %}text-right{% endif %}">
+              <h3>{{ block.settings.look-name }}</h3>
+              {% if block.settings.product_unavailable %}
+                <a href="{{ block.settings.category_link }}" class="btn btn-border">Shop the look</a>
+              {% else %}
+                <a href="#section-{{ block.id }}" class="cd-popup-trigger btn btn-border">Shop the look</a>
+              {% endif %}
+              </div>
+          </div>
+        </div>
+
+        <div class="cd-popup" role="alert" id="section-{{ block.id }}">
+        	<div class="cd-popup-container">
+        		<div class="popup-content">
+        			<!-- CONTAINER -->
+              {% assign product_one = block.settings.featured_product_one %}
+              {% assign product_two = block.settings.featured_product_two %}
+              {% assign product_three = block.settings.featured_product_three %}
+              {% assign product_four = block.settings.featured_product_four %}
+
+              <div class="row justify-content-center">
+                {% if product_one != blank %}
+                <div class="col-6 col-sm-3">
+                  {% assign product = all_products[product_one] %}
+                  {% render 'product-grid' %}
+                </div>
+                {% endif %}
+                {% if product_two != blank %}
+                <div class="col-6 col-sm-3">
+                  {% assign product = all_products[product_two] %}
+                  {% render 'product-grid' %}
+                </div>
+                {% endif %}
+                {% if product_three != blank %}
+                <div class="col-6 col-sm-3">
+                  {% assign product = all_products[product_three] %}
+                  {% render 'product-grid' %}
+                </div>
+                {% endif %}
+                {% if product_four != blank %}
+                <div class="col-6 col-sm-3">
+                  {% assign product = all_products[product_four] %}
+                  {% render 'product-grid' %}
+                </div>
+                {% endif %}
+              </div>
+        		</div>
+
+        		<a href="#section-{{ block.id }}" class="cd-popup-close img-replace">Close</a>
+        	</div> <!-- cd-popup-container -->
+        </div> <!-- cd-popup -->
+
+
+        {% when 'button-block' %}
+        <div class="row text-center">
+          <div class="col-12">
+            <div class="lookbook-header">
+              <a href="{{ block.settings.button }}" class="btn btn-primary">{{ block.settings.button-text }}</a>
+            </div>
+          </div>
+        </div>
+
+      {% endcase %}
+    {% endfor %}
+</div>
+
+{% schema %}
+       {
+         "blocks": [
+           {
+             "type": "fullsize-image",
+             "name": "Fullsize image",
+             "settings": [
+               {
+                 "id": "full-image",
+                 "type": "image_picker",
+                 "label": "Image"
+               }
+             ]
+           },
+           {
+             "type": "header-text",
+             "name": "Header text",
+             "settings": [
+                 {
+                   "id": "title",
+                   "type": "text",
+                   "label": "Title"
+                 },
+                 {
+                   "id": "description",
+                   "type": "textarea",
+                   "label": "Description"
+                 }
+             ]
+           },
+           {
+             "type": "shop-look",
+             "name": "Shop look",
+             "settings": [
+             {
+              "type": "header",
+              "content": "Product availability"
+             },
+             {
+                "type": "checkbox",
+                "id": "product_unavailable",
+                "label": "Hide product",
+                "info": "If product is no longer available for sale, please tick this box"
+              },
+              {
+                "id": "category_link",
+                "type": "url",
+                "label": "Category URL"
+              },
+              {
+                "type": "header",
+                "content": "Section content"
+               },
+               {
+                 "id": "look-image",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+               {
+                 "id": "look-name",
+                 "type": "text",
+                 "label": "Look name"
+               },
+               {
+                 "type":      "radio",
+                 "id":        "text-align",
+                 "label":     "Text position",
+                 "options": [
+                   { "value": "left", "label": "Left" },
+                   { "value": "center", "label": "Center" },
+                   { "value": "right", "label": "Right" }
+                 ],
+                 "default":   "left"
+              },
+              {
+                "type": "header",
+                "content": "Products"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_one",
+                 "label": "Product #1"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_two",
+                 "label": "Product #2"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_three",
+                 "label": "Product #3"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_four",
+                 "label": "Product #4"
+              }
+             ]
+           },
+           {
+             "type": "button-block",
+             "name": "Button",
+             "settings": [
+             {
+               "id": "button-text",
+               "type": "text",
+               "label": "Text"
+             },
+               {
+                 "id": "button",
+                 "type": "url",
+                 "label": "URL"
+               }
+             ]
+           }
+         ]
+       }
+     {% endschema %}

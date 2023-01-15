@@ -1,0 +1,64 @@
+{%- for tag in product.tags -%}
+  {%- if tag contains 'color:' -%}
+  <div class="colors-wrapper">
+    <div class="label">
+      Colour
+    </div>
+    <div class="swatch-element">
+      {% render 'color-item', {product: product} %}
+      
+      {%- assign other_colors_1 = all_products[product.metafields.sf_other_colors.other_colors_1] -%}
+      {%- assign other_colors_2 = all_products[product.metafields.sf_other_colors.other_colors_2] -%}
+      {%- assign other_colors_3 = all_products[product.metafields.sf_other_colors.other_colors_3] -%}
+      {%- assign other_colors_4 = all_products[product.metafields.sf_other_colors.other_colors_4] -%}
+      {%- assign other_colors_5 = all_products[product.metafields.sf_other_colors.other_colors_5] -%}
+      {%- assign other_colors_6 = all_products[product.metafields.sf_other_colors.other_colors_6] -%}
+      {%- assign other_colors_7 = all_products[product.metafields.sf_other_colors.other_colors_7] -%}
+      {%- assign other_colors_8 = all_products[product.metafields.sf_other_colors.other_colors_8] -%}
+      {%- assign other_colors_9 = all_products[product.metafields.sf_other_colors.other_colors_9] -%}
+      {%- assign other_colors_10 = all_products[product.metafields.sf_other_colors.other_colors_10] -%}
+
+      {%- unless other_colors_1.empty? -%}
+        {% render 'color-item', {product: other_colors_1} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_2.empty? -%}
+        {% render 'color-item', {product: other_colors_2} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_3.empty? -%}
+        {% render 'color-item', {product: other_colors_3} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_4.empty? -%}
+        {% render 'color-item', {product: other_colors_4} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_5.empty? -%}
+        {% render 'color-item', {product: other_colors_5} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_6.empty? -%}
+        {% render 'color-item', {product: other_colors_6} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_7.empty? -%}
+        {% render 'color-item', {product: other_colors_7} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_8.empty? -%}
+        {% render 'color-item', {product: other_colors_8} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_9.empty? -%}
+        {% render 'color-item', {product: other_colors_9} %}
+      {%- endunless -%}
+
+      {%- unless other_colors_10.empty? -%}
+        {% render 'color-item', {product: other_colors_10} %}
+      {%- endunless -%}
+    </div>
+  </div>
+
+  {%- endif -%}
+{%- endfor -%}

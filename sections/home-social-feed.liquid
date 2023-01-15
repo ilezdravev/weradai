@@ -1,0 +1,45 @@
+<div class="social-footer">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-sm-5">
+        <div class="newsletter-side">
+          <p class="title">{{ section.settings.title }}</p>
+          <p>
+            {{ section.settings.description }}
+          </p>
+       <div class="klaviyo-form-V3sCe4"></div>
+        </div>
+      </div>
+      <div class="col-sm-6 offset-sm-1 instagram-side">
+        <div id="insta-feed"></div>
+        <p class="align-center">
+          Follow our story @dai
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Social & Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Social & Newsletter",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,75 @@
+<div class="ttf-v2__dropdown-content">
+    <div class="row">
+        <div class="ttf-v2__dropdown-left">
+            <h1 class="ttf-v2__dropdown-title">{{ section.settings.ttf_v2_dd_title }}</h1>
+            <p class="ttf-v2__dropdown-description">{{ section.settings.ttf_v2_dd_description }}</p>
+            <div class="ttf-v2__dropdown-btn">
+                <a class="btn btn-border" href="{{ section.settings.ttf_v2_dd_btn_url }}">{{ section.settings.ttf_v2_dd_btn_lbl }}</a>
+            </div>
+        </div>
+        <div class="ttf-v2__dropdown-right">
+            {% for block in section.blocks %}
+                <a href="{{ block.settings.ttf_v2_dd_url }}"><img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.ttf_v2_dd_image.width }}" src="{{ block.settings.ttf_v2_dd_image | image_url: 'master' }}" alt="{{  block.settings.ttf_v2_dd_text }}" /></a>
+                <strong>{{  block.settings.ttf_v2_dd_text }}</strong>
+            {% endfor %}            
+        </div>
+    </div>    
+</div>
+
+{% schema %}
+{
+    "name": "Trouser Fit Finder v2",
+    "settings": [
+        {
+            "id": "ttf_v2_dd_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "id": "ttf_v2_dd_description",
+            "type": "richtext",
+            "label": "Description"
+        },
+        {
+            "id": "ttf_v2_dd_btn_lbl",
+            "type": "text",
+            "label": "Button Label"
+        },
+        {
+            "id": "ttf_v2_dd_btn_url",
+            "type": "url",
+            "label": "Button URL"
+        }
+
+    ],
+    "blocks": [
+        {
+            "type": "block",
+            "name": "TTF V2 - Dropdown",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "ttf_v2_dd_image",
+                    "label": "Image"
+                },
+                {
+                    "id": "ttf_v2_dd_text",
+                    "type": "text",
+                    "label": "Description"
+                },
+                {
+                    "id": "ttf_v2_dd_url",
+                    "type": "url",
+                    "label": "Content URL"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Trouser Fit Finder v2 - Dropdown Content",
+        "category": "content"
+        }
+    ]
+}
+{% endschema %}

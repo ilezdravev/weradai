@@ -1,0 +1,94 @@
+{% assign set = section.settings %}
+<div class="winner-intro" id="top">
+  
+
+    <div class="winner-banner"  {% if set.bgimg %} style="background-image: url({{ set.bgimg | img_url: 'master' }})"> {% endif %}
+    {% if set.logoimg %}
+     <img loading="lazy" class="lazyload" src="{{ set.logoimg | img_url: 'master' }}" class="award-logo" width="400px"> 
+    {% endif %}
+       
+    {% if set.text %}
+      <h1 class="winner-intro-text">{{ set.text }}</h1>
+      <h5 class="club-description">Your Trailblazer™ Award gift package was just the beginning.</h5>
+    {% endif %}
+    </div>
+
+</div>
+
+<div class="club-info">
+<div class="container">
+  <div class="club-welcome">
+    <h3 class="club-welcome-title">Priority at Dai</h3>
+  <p class="club-welcome-text"> Building our global community of Trailblazing women through performance is what we do. The Dai Club membership is naturally our next step with exclusive benefits, rewards and experiences.</p>
+    <p class="club-welcome-text"> By activating your membership now, you will become a Founding Member of the Dai Club. Your first year's membership complimentary, on us.</p>
+  </div> 
+  <div class="club-signup"> 
+
+       <div class="klaviyo-form-T278S2"></div>
+       </div>
+  </div>
+</div>
+<div class="membership-benefits">
+
+
+  <div class="row">
+   
+  	<div class="col-md-6">
+      <div class="club-intro">
+      {% if set.title %}<h3 class="club-title"> {{ set.title }}</h3> {% endif %}
+      {% if set.info %} <div class="club-text">{{ set.info }}</div>{% endif %}
+    </div>
+    </div>
+    
+     <div class="col-md-6">
+        <div class="member-img"  {% if set.img2 %} style="background-image: url({{ set.img2 | img_url: 'master' }})">    </div>{% endif %}
+  
+      </div>
+  </div>
+ <div class="back-to-shopping" style="text-align:center;">
+  	<div class="lookbook-button" style="text-align:center;">
+         <a href="https://daiwear.com/pages/trailblazers" class="btn btn-primary left-btn">READ ABOUT TRAILBLAZERS</a> <a href="https://daiwear.com/collections/all-products" class="btn btn-primary right-btn">BACK TO SHOPPING</a> 
+  	 </div>
+  
+  </div>
+</div>
+
+{% schema %}
+{
+  "settings": [
+	{
+          "type": "image_picker",
+          "id": "bgimg",
+          "label": "Background Image"
+    },
+	{
+          "type": "image_picker",
+          "id": "logoimg",
+          "label": "Logo Image"
+    },  	
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+"default": "We Salute You."
+    },
+	{
+      "type": "text",
+      "id": "title",
+      "label": "Club Title",
+"default": "The Club"
+    },
+	{
+      "type": "html",
+      "id": "info",
+      "label": "Club Info",
+"default": "A few sentences to describe the club. xxxxxxxxxxxxxxxxxxxx"
+    },
+	{
+          "type": "image_picker",
+          "id": "img2",
+          "label": "Member Image"
+    }
+  ]
+}
+{% endschema %}

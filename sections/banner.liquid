@@ -1,0 +1,126 @@
+{%- assign set = section.settings -%}
+<div class="banner">
+  {%- if set.image_left != blank -%}
+    <div class="banner__image hidden-small" 
+      style="background-image: url({{ set.image_left | img_url: '1000x' }})"></div>
+  {%- endif -%}
+  {%- if set.image_right != blank -%}
+    <div class="banner__image hidden-small" 
+      style="background-image: url({{ set.image_right | img_url: '1000x' }})"></div>
+  {%- endif -%}
+  {%- if set.image_mobile != blank -%}
+    <div class="banner__image hidden-medium hidden-lg " 
+      style="background-image: url({{ set.image_mobile | img_url: '1000x' }})"></div>
+  {%- endif -%}
+
+  {%- if set.title != blank or set.text != blank -%}
+    {%- assign content_class = 'm-dark' -%}
+    {%- assign btn_class = 'btn-secondary' -%}
+    {%- if set.content_style == 'light' -%}
+      {%- assign content_class = 'm-light' -%}
+      {%- assign btn_class = 'btn-border' -%}
+    {%- endif -%}
+    <div class="banner__content {{ content_class }}">
+      {%- if set.title != blank -%}
+        <h2 class="banner__title">{{ set.title }}</h2>
+      {%- endif -%}
+      {%- if set.text != blank -%}
+        <div class="banner__text">{{ set.text }}</div>
+      {%- endif -%}
+      
+      {%- if set.btn1_text != blank or set.btn2_text != blank -%}
+        <div class="banner__buttons">
+          {%- if set.btn1_text != blank -%}
+            <a href="{{ set.btn1_url }}" class="btn {{ btn_class }}">{{ set.btn1_text }}</a>            
+          {%- endif -%}
+          {%- if set.btn2_text != blank -%}
+            <a href="{{ set.btn2_url }}" class="btn {{ btn_class }}">{{ set.btn2_text }}</a>            
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>    
+  {%- endif -%}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Banner",
+    "class": "banner-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "btn1_text",
+        "label": "Button #1 text"
+      },
+      {
+        "type": "url",
+        "id": "btn1_url",
+        "label": "Button #1 url"
+      },
+      {
+        "type": "text",
+        "id": "btn2_text",
+        "label": "Button #2 text"
+      },
+      {
+        "type": "url",
+        "id": "btn2_url",
+        "label": "Button #2 url"
+      },
+
+      {
+        "type": "header",
+        "content": "Desktop settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_left",
+        "label": "Image Left"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_right",
+        "label": "Image Right"
+      },
+      {
+        "type": "select",
+        "id": "content_style",
+        "label": "Text box style",
+        "options": [
+          { "value": "dark", "label": "Dark" },
+          { "value": "light", "label": "Light" }
+        ],
+        "default": "dark"
+      },
+
+
+      {
+        "type": "header",
+        "content": "Mobile settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner",
+        "category": "Media"
+      }
+    ]
+  }
+{% endschema %}

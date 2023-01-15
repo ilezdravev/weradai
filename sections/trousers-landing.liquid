@@ -1,0 +1,412 @@
+<!-- .trousers-hero: -->
+<div class="trousers-hero pt-3 pt-md-0">
+  <div class="container text-center">
+    {% if section.settings.hero_title != blank %}
+      <h2 class="fz-4 lt-space-2">{{ section.settings.hero_title }}</h2>
+    {% endif %}
+    {% if section.settings.hero_text != blank %}
+      <div class="utils fz-3 mb-5">{{ section.settings.hero_text }}</div>
+    {% endif %}
+  </div>
+  {% if section.settings.hero_image != blank %}
+    <div class="cover-image cover-image--contain cover-image-3 cover-image--mobile"
+      style="background-image: url({{ section.settings.hero_image | img_url: 'master' }})"></div>
+  {% endif %}
+  {% if section.settings.hero_title_second != blank %}
+    <div class="container text-center p-3">
+      <h2 class="fz-3 lt-space-2 mt-md-5 pt-md-5">{{ section.settings.hero_title_second }}</h2>
+      {% if section.settings.hero_btn_text != blank %}
+        <a href="{{ section.settings.hero_btn_url }}" class="btn btn-primary">{{ section.settings.hero_btn_text }}</a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div> 
+<!-- /.trousers-hero -->
+
+<!-- blocks: -->
+<div class="container py-4 py-md-5 my-md-5">
+  <div class="row no-gutters align-items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    {% if section.settings.block_1_title != blank %}
+      <div class="col-md-6 px-md-5 d-md-flex flex-md-column align-items-md-center order-last order-md-first my-4 pt-md-0">
+        <div class="px-md-3">
+          <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.block_1_title }}</h3>
+          {% if section.settings.block_1_text != blank %}
+            <div class="utils fz-3">{{ section.settings.block_1_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if section.settings.block_1_image != blank %}
+      <div class="col-md-6 order-first order-md-last">
+        <img class="d-block w-100" src="{{ section.settings.block_1_image | img_url: 'master' }}" alt="">
+      </div>
+    {% endif %}
+  </div> 
+  <!-- /.row -->
+  <div class="row no-gutters align-items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    {% if section.settings.block_2_title != blank %}
+      <div class="col-md-6 px-md-5 d-md-flex flex-md-column align-items-md-center order-last my-4 pt-md-0">
+        <div class="px-md-3">
+          <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.block_2_title }}</h3>
+          {% if section.settings.block_2_text != blank %}
+            <div class="utils fz-3">{{ section.settings.block_2_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if section.settings.block_2_image != blank %}
+    <div class="col-md-6 order-first mt-3 mt-md-0">
+      <img class="d-block w-100" src="{{ section.settings.block_2_image | img_url: 'master' }}" alt="">
+    </div>
+    {% endif %}
+  </div> 
+  <!-- /.row -->
+  <div class="row no-gutters align-items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    {% if section.settings.block_3_title != blank %}
+      <div class="col-md-6 px-md-5 d-md-flex flex-md-column align-items-md-center order-last order-md-first my-4 pt-md-0">
+        <div class="px-md-3">
+          <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.block_3_title }}</h3>
+          {% if section.settings.block_3_text != blank %}
+            <div class="utils fz-3">{{ section.settings.block_3_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if section.settings.block_3_image != blank %}
+      <div class="col-md-6 order-first order-md-last mt-3 mt-md-0">
+        <img class="d-block w-100" src="{{ section.settings.block_3_image | img_url: 'master' }}" alt="">
+      </div>
+    {% endif %}
+  </div> 
+  <!-- /.row -->
+</div> 
+<!-- /blocks -->
+
+<!-- .trousers-quote: -->
+{% if section.settings.quote %}
+<div class="trousers-quote py-5 mt-md-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" style="background: #F2F2F2;">
+  <div class="container py-4 text-center">
+    <div class="row justify-content-center">
+      <div class="col-sm-10">
+        <div class="utils fz-3 ff-secondary">{{ section.settings.quote }}</div>
+        {% if section.settings.quote_author %}
+        <h3 class="fw-300 mb-0 mt-5">{{ section.settings.quote_author }}</h3>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- /.trousers-quote -->
+
+<!-- story -->
+{% if section.settings.story_title != blank %}
+  <div class="container mt-5 my-md-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    <div class="row no-gutters align-items-center py-md-5">
+      {% if section.settings.story_image != blank %}
+        <div class="col-md-6">
+          <img class="d-block w-100" src="{{ section.settings.story_image | img_url: 'master' }}" alt="">
+        </div>
+      {% endif %}
+      <div class="col-md-6 pl-md-5  mb-my-0 pt-md-0">
+        <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.story_title }}</h3>
+        {% if section.settings.story_text != blank %}
+          <div class="utils fz-3">{{ section.settings.story_text }}</div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- /.row -->
+  </div> 
+{% endif %}
+<!-- /story -->
+
+<!-- .testimonials -->
+<div class="container section-padding" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <h3 class="fz-2 my-0 color-light text-center lt-space-2">IN THE PRESS</h3>
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div class="testimonials-list">
+        <div class="testimonial-text-container">
+          {% for block in section.blocks %}
+            {% if block.type == "testimonial" %}
+            <div class="testimonial">
+              <div class="testimonial-content">
+                <p class="fz-3">{{ block.settings.text }}</p>
+                {% if block.settings.author != blank %}
+                  <p class="author fz-3">{{ block.settings.author }}</p>
+                {% endif %}
+                {% if block.settings.logo != blank %}
+                  <img src="{{ block.settings.logo | img_url: 'master' }}" />
+                {% endif %}
+              </div>
+            </div>
+            {% endif %} 
+          {% endfor %}
+        </div>
+        <div class="testimonial-thumbs-container hidden-small">
+          {% for block in section.blocks %}
+            {% if block.type == "testimonial" %}
+              <div class="{% if forloop.first %}active{% endif %}">
+                <img src="{{ block.settings.logo | img_url: 'master' }}" />
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.testimonials -->
+
+<!-- slider -->
+<div class="container pb-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <div class="landing-slider" data-landing-slider>
+    {% for block in section.blocks %}
+      {% if block.type == "slide" %}
+        <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<!-- /slider -->
+
+<!-- .landing-discover -->
+<div class="landing-discover py-5 my-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <div class="container py-5 ta-center">
+    <h3 class="fz-3 lt-space-2 color-white mt-0 utils">{{ section.settings.discover_text }}</h3>
+    <a href="{{ section.settings.discover_btn_url }}" class="btn btn-white">{{ section.settings.discover_btn_text }}</a>
+  </div>
+</div>
+<!-- /.landing-discover -->
+
+<!-- instagram -->
+<div class="container mt-5 pt-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <h3 class="fz-2 mb-4 color-light text-center lt-space-2">{{ section.settings.insta_title }}</h3>
+  <div id="instagram-trousers">
+    <script src='https://snapppt.com/widgets/widget_loader/692a5338-4e47-40c8-b4ba-58231ffa20f9/carousel.js' defer class='snapppt-widget'></script>
+  </div>
+</div>
+<!-- /instagram -->
+
+{% schema %}
+  {
+    "name": "Trousers landing",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Hero section"
+      },
+      {
+        "type": "text",
+        "id": "hero_title",
+        "label": "Hero Title"
+      },
+      {
+        "type": "richtext",
+        "id": "hero_text",
+        "label": "Hero Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Image"
+      },
+      {
+        "type": "text",
+        "id": "hero_title_second",
+        "label": "Hero Title Second"
+      },
+      {
+        "type": "text",
+        "id": "hero_btn_text",
+        "label": "Hero Button Text"
+      },
+      {
+        "type": "url",
+        "id": "hero_btn_url",
+        "label": "Hero Button Url"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Blocks section"
+      },
+
+      {
+        "type": "paragraph",
+        "content": "Block 1:"
+      },
+      {
+        "type": "text",
+        "id": "block_1_title",
+        "label": "Block 1 Title"
+      },
+      {
+        "type": "richtext",
+        "id": "block_1_text",
+        "label": "Block 1 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "block_1_image",
+        "label": "Block 1 Image"
+      },
+
+      {
+        "type": "paragraph",
+        "content": "Block 2:"
+      },
+      {
+        "type": "text",
+        "id": "block_2_title",
+        "label": "Block 2 Title"
+      },
+      {
+        "type": "richtext",
+        "id": "block_2_text",
+        "label": "Block 2 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "block_2_image",
+        "label": "Block 2 Image"
+      },
+
+      {
+        "type": "paragraph",
+        "content": "Block 3:"
+      },
+      {
+        "type": "text",
+        "id": "block_3_title",
+        "label": "Block 3 Title"
+      },
+      {
+        "type": "richtext",
+        "id": "block_3_text",
+        "label": "Block 3 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "block_3_image",
+        "label": "Block 3 Image"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Quote section"
+      },
+      {
+        "type": "richtext",
+        "id": "quote",
+        "label": "Quote"
+      },
+      {
+        "type": "text",
+        "id": "quote_author",
+        "label": "Quote Author"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Our Story section"
+      },
+      {
+        "type": "text",
+        "id": "story_title",
+        "label": "Story Title"
+      },
+      {
+        "type": "richtext",
+        "id": "story_text",
+        "label": "Story Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "story_image",
+        "label": "Story Image"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Discover section"
+      },
+      {
+        "type": "richtext",
+        "id": "discover_text",
+        "label": "Discover Text"
+      },
+      {
+        "type": "text",
+        "id": "discover_btn_text",
+        "label": "Discover Button Text"
+      },
+      {
+        "type": "url",
+        "id": "discover_btn_url",
+        "label": "Discover Button Url"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Instagram section"
+      },
+      {
+        "type": "text",
+        "id": "insta_title",
+        "label": "Instagram Title",
+        "default": "ON YOU, #DAINAMICWOMAN"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "limit": 8,
+        "settings": [
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Testimonial"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          }
+        ]
+      },
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Slide Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

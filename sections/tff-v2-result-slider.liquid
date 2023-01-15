@@ -1,0 +1,90 @@
+<div class="tff-v2-slider-section">
+    <div class="row flex-column align-items-center">
+        {%- if section.settings.tff_v2_slider_title_text != blank -%}<h2 class="container tff-v2__title md-my-3 my-5 text-center">{{ section.settings.tff_v2_slider_title_text }}</h2>{%- endif -%}
+        <div class="container collection-wrapper">
+            <div class="tff-v2__slider-collection-items apple is-hidden">
+                {%- assign collection = collections[section.settings.ttf_v2_slider_collection_apple] -%}
+                {% for product in collection.products limit: 4 %}
+                    <div class="col-sm-3 col-6 ">
+                        <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-tpfilter-product-ga="{{ product.title }}" data-colors-list></div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="tff-v2__slider-collection-items pear is-hidden">
+                {%- assign collection = collections[section.settings.ttf_v2_slider_collection_pear] -%}
+                {% for product in collection.products limit: 4 %}
+                    <div class="col-sm-3 col-6 ">
+                        <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-tpfilter-product-ga="{{ product.title }}" data-colors-list></div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="tff-v2__slider-collection-items column is-hidden">
+                {%- assign collection = collections[section.settings.ttf_v2_slider_collection_column] -%}
+                {% for product in collection.products limit: 4 %}
+                    <div class="col-sm-3 col-6 ">
+                        <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-tpfilter-product-ga="{{ product.title }}" data-colors-list></div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="tff-v2__slider-collection-items hourglass is-hidden">
+                {%- assign collection = collections[section.settings.ttf_v2_slider_collection_hourglass] -%}
+                {% for product in collection.products limit: 4 %}
+                    <div class="col-sm-3 col-6 ">
+                        <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-tpfilter-product-ga="{{ product.title }}" data-colors-list></div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="tff-v2__slider-collection-items invertedtriangle is-hidden">
+                {%- assign collection = collections[section.settings.ttf_v2_slider_collection_inverted_triangle] -%}
+                {% for product in collection.products limit: 4 %}
+                    <div class="col-sm-3 col-6 ">
+                        <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-tpfilter-product-ga="{{ product.title }}" data-colors-list></div>
+                    </div>
+                {% endfor %}
+            </div>             
+        </div>        
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": "TFF V2 - Slider",
+    "settings": [       
+        {
+            "type": "text",
+            "id": "tff_v2_slider_title_text",
+            "label": "Slider Title"
+        },
+        {
+            "id": "ttf_v2_slider_collection_apple",
+            "type": "collection",
+            "label": "Slider Collection - Apple"
+        }, 
+        {
+            "id": "ttf_v2_slider_collection_pear",
+            "type": "collection",
+            "label": "Slider Collection - Pear"
+        }, 
+        {
+            "id": "ttf_v2_slider_collection_column",
+            "type": "collection",
+            "label": "Slider Collection - Column"
+        }, 
+        {
+            "id": "ttf_v2_slider_collection_hourglass",
+            "type": "collection",
+            "label": "Slider Collection - Hourglass"
+        }, 
+        {
+            "id": "ttf_v2_slider_collection_inverted_triangle",
+            "type": "collection",
+            "label": "Slider Collection - Inverted Triangle"
+        }
+
+    ]
+}
+{% endschema %}

@@ -1,0 +1,61 @@
+<div class="container" data-slider-container {{ block.shopify_attributes }}>
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="testimonials-list">
+        <div class="testimonial-text-container" data-slider>
+          {% for block in section.blocks %}
+            <div class="testimonial">
+              <div class="testimonial-content">
+                <div>
+                  <h4 class="testimonial-title">
+                    <sup>“</sup> {{ block.settings.text }} <sub>”</sub>
+                  </h4>
+                </div>
+                <div>
+                  {% if block.settings.author != blank %}
+                    <p class="author">{{ block.settings.author }}</p>
+                  {% endif %}
+                  {% if block.settings.logo != blank %}
+                    <img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.logo.width }}" src="{{ block.settings.logo | img_url: 'master' }}" />
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "max_blocks": 8,
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Testimonial"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

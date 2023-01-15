@@ -1,0 +1,64 @@
+<div class="tpfilter-item age is-hidden" data-tpfilter-item="q11">
+  <div class="container">
+    <div class="tpfilter-item__inner">
+      {%- if section.settings.ttf_v2_q11_title != blank -%}<h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_q11_title}}</h2>{%- endif -%}
+      {%- if section.settings.ttf_v2_q11_sub_title != blank -%}<p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_q11_sub_title}}</p>{%- endif -%}
+      <div class="tpfilter-options tpfilter-options--grid">
+        {% for block in section.blocks %}
+            <div class="tpfilter-option tpfilter-option--rect">
+                <input id="customer-choosen-age-{{ forloop.index }}" type="{{ section.settings.question_option }}" name="age" value="{{ block.settings.ttf_v2_q11 }}" data-tpfilter-answer>
+                <label for="customer-choosen-age-{{ forloop.index }}">{{ block.settings.ttf_v2_q11 }}</label>
+            </div>
+        {% endfor %}
+      </div>
+      {% render 'tff-v2-button' %}
+    </div>
+  </div>
+  </div>
+
+{% schema %}
+{
+    "name": "TFF V2 - q11 Age",
+    "settings": [
+        {
+            "id": "ttf_v2_q11_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_q11_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "type": "select",
+            "id": "question_option",
+            "label": "Question Option",
+            "options": [
+              {
+                "value": "checkbox",
+                "label": "Checkbox"
+              },
+              {
+                "value": "radio",
+                "label": "Radio"
+              }
+            ]
+        }
+
+    ],
+    "blocks": [
+        {
+            "type": "question_eleven",
+            "name": "Add Question",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "ttf_v2_q11",
+                    "label": "Add Question"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

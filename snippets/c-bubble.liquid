@@ -1,0 +1,15 @@
+{% assign logo = settings.c_bubble_logo | img_url: 'master' %}
+<div class="c-bubble-wrap {{ settings.c_bubble_position }}" style="font-size: {{ settings.c_bubble_size }}rem;">
+    <div class="c-bubble--speech-bubble push-bubble" style="background-color: {{ settings.c_bubble_speech_bubble_bg }}; color: {{ settings.c_bubble_speech_bubble_text_color }};">
+        <div class="c-bubble--speech-bubble--arrow" style="border-right-color: {{ settings.c_bubble_speech_bubble_bg }}; border-top-color: {{ settings.c_bubble_speech_bubble_bg }}"></div>
+        <span class="c-bubble--speech-bubble--content">{{ settings.c_bubble_speech_bubble_push_text }}</span>
+    </div>
+    <div class="c-bubble--speech-bubble pull-bubble" style="background-color: {{ settings.c_bubble_speech_bubble_bg }}; color: {{ settings.c_bubble_speech_bubble_text_color }}">
+        <div class="c-bubble--speech-bubble--arrow" style="border-right-color: {{ settings.c_bubble_speech_bubble_bg }}; border-top-color: {{ settings.c_bubble_speech_bubble_bg }}"></div>
+        <span class="c-bubble--speech-bubble--content">{{ settings.c_bubble_speech_bubble_pull_text }}</span>
+        <a href="{{ settings.c_bubble_speech_bubble_pull_button_action }}" target="_blank" class="c-bubble--speech-bubble--btn" style="background-color: {{ settings.c_bubble_speech_bubble_pull_button_bg }}; color: {{ settings.c_bubble_speech_bubble_pull_button_text_color }}">
+           <span>{{ settings.c_bubble_speech_bubble_pull_button_label }}</span>
+        </a>
+    </div>
+    <div class="c-bubble" style="background-color: {{ settings.c_bubble_bg }}; background-image: url({{ logo }})"></div>
+ </div>

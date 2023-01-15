@@ -1,0 +1,250 @@
+{%- for block in section.blocks -%}
+    {%- if product.tags contains block.settings.title and block.type == 'text_over_image' -%}
+        {%- assign image = block.settings.image -%}
+        {%- assign image_mobile = block.settings.image_mobile | default: image -%}
+        {%- capture vertical_alignment -%}
+            {% if block.settings.full_width_vertical_alignment == 'middle' %}
+                v-middle
+            {% elsif block.settings.full_width_vertical_alignment == 'bottom' %}
+                v-bottom
+            {% endif %}
+        {%- endcapture -%}
+        {%- capture horizontal_alignment -%}
+            {% if block.settings.full_width_horizontal_alignment == 'center' %}
+                h-center
+            {% elsif block.settings.full_width_horizontal_alignment == 'right' %}
+                h-right
+            {% endif %}
+        {%- endcapture -%}        
+        <div class="slide">
+            <div class="hide--desktop mt-5">
+                <img height="auto" width="{{ image_mobile.width }}" loading="lazy" class="lazyload" src="{{ image_mobile | img_url: '800x' }}"/>
+            </div>
+            <div class="content__full-width mt-4 mt-md-5" style="background: url({{ image | img_url: '2000x' }})">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-area-wrapper {{ vertical_alignment | handleize }} {{ horizontal_alignment | handleize }}">
+                                <div class="text-area {% if block.settings.full_width_center_text == true  -%}text-center{% endif %}">
+                                    <h3>{{ block.settings.heading }}</h3>
+                                    {{ block.settings.text }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%- endif -%}
+{%- endfor -%}
+{%- for block in section.blocks -%}
+    {%- if product.tags contains block.settings.title and block.type == 'columns' -%}
+        <div class="container content__two-cols mt-4 mt-md-5">
+            <div class="row {% if block.settings.image_pos == 'right' %}flex-row-reverse{% endif %}">
+                <div class="col-sm-6">
+                    <div class="">
+                        {%- if block.settings.image != blank -%}
+                            <img height="auto" width="{{ block.settings.image.width }}" loading="lazy" class="lazyload" src="{{ block.settings.image | img_url: '1000x' }}"/>
+                        {%- endif -%}
+                    </div>
+                </div>
+                <div class="col-sm-6 text-block">
+                    <div class="text-area">
+                        {%- if block.settings.heading != blank -%}
+                            <h3>{{ block.settings.heading }}</h3>
+                        {%- endif -%}
+                        {{ block.settings.text }}
+                        {% if block.settings.icon1 != blank %}
+                        <div class="icons-wrapper">
+                            {%- if block.settings.icon1 != blank -%}
+                                <div class="icon-area">
+                                    <img height="auto" width="50" loading="lazy" class="lazyload" src="{{ block.settings.icon1 | img_url: '100x' }}"/>
+                                    <span>{{ block.settings.icon1_text }}</span>
+                                </div>
+                            {%- endif -%}
+                            {%- if block.settings.icon2 != blank -%}
+                                <div class="icon-area">
+                                    <img height="auto" width="50" loading="lazy" class="lazyload" src="{{ block.settings.icon2 | img_url: '100x' }}"/>
+                                    <span>{{ block.settings.icon2_text }}</span>
+                                </div>
+                            {%- endif -%}
+                            {%- if block.settings.icon3 != blank -%}
+                                <div class="icon-area">
+                                    <img height="auto" width="50" loading="lazy" class="lazyload" src="{{ block.settings.icon3 | img_url: '100x' }}"/>
+                                    <span>{{ block.settings.icon3_text }}</span>
+                                </div>
+                            {%- endif -%}
+                            {%- if block.settings.icon4 != blank -%}
+                                <div class="icon-area">
+                                    <img height="auto" width="50" loading="lazy" class="lazyload" src="{{ block.settings.icon4 | img_url: '100x' }}"/>
+                                    <span>{{ block.settings.icon4_text }}</span>
+                                </div>
+                            {%- endif -%}
+                            {%- if block.settings.icon5 != blank -%}
+                                <div class="icon-area">
+                                    <img height="auto" width="50" loading="lazy" class="lazyload" src="{{ block.settings.icon5 | img_url: '100x' }}"/>
+                                    <span>{{ block.settings.icon5_text }}</span>
+                                </div>
+                            {%- endif -%}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>    
+    {%- endif -%}
+{%- endfor -%}
+{% schema %}
+    {
+        "name": "Product (more details)",
+        "settings": [
+
+        ],
+        "blocks":[
+            {
+                "type": "text_over_image",
+                "name": "Text over image",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Product tag"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image_mobile",
+                        "label": "Mobile Image"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "heading",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "select",
+                        "id": "full_width_vertical_alignment",
+                        "options": [
+                           { "value": "top", "label": "Top"},
+                           { "value": "middle", "label": "Middle"},
+                           { "value": "bottom", "label": "Bottom"}
+                        ],
+                        "label": "Text vertical alignment"
+                      },
+                      {
+                        "type": "select",
+                        "id": "full_width_horizontal_alignment",
+                        "options": [
+                           { "value": "left", "label": "Left"},
+                           { "value": "center", "label": "Center"},
+                           { "value": "right", "label": "Right"}
+                        ],
+                        "label": "Text horizontal alignment"
+                      },
+                      {
+                        "type": "checkbox",
+                        "id": "full_width_center_text",
+                        "label": "Center text",
+                        "info": "Tick the box if you want text to be centered",
+                        "default": false
+                      }
+                ]
+            },
+            {
+                "type": "columns",
+                "name": "2 Columns",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Product tag"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "select",
+                        "id": "image_pos",
+                        "label": "Image position",
+                        "options": [
+                            { "value": "left", "label": "Image left / text right" },
+                            { "value": "right", "label": "Image right / text left" }
+                        ],
+                        "default": "left"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "heading",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "icon1",
+                        "label": "Icon 1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "icon1_text",
+                        "label": "Icon 1 Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "icon2",
+                        "label": "Icon 2"
+                    },
+                    {
+                        "type": "text",
+                        "id": "icon2_text",
+                        "label": "Icon 2 Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "icon3",
+                        "label": "Icon 3"
+                    },
+                    {
+                        "type": "text",
+                        "id": "icon3_text",
+                        "label": "Icon 3 Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "icon4",
+                        "label": "Icon 4"
+                    },
+                    {
+                        "type": "text",
+                        "id": "icon4_text",
+                        "label": "Icon 4 Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "icon5",
+                        "label": "Icon 5"
+                    },
+                    {
+                        "type": "text",
+                        "id": "icon5_text",
+                        "label": "Icon 5 Text"
+                    }
+                ]
+            }
+         ]
+    }
+{% endschema %}

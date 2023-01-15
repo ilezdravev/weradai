@@ -1,0 +1,31 @@
+
+{% assign set = section.settings %}
+{% if set.img %}
+<div class="award-JD-block" style="background-image: url({{ set.img | img_url: 'master' }})">
+{% endif %} 
+{% if set.text %}
+  <div class="award-JD-quote">{{ set.text }} {% endif %}
+    <span class="quote-attribution"> - Joanna Dai, Founder & CEO </span></div>
+
+</div>
+  
+
+
+{% schema %}
+{
+  "settings": [
+	{
+          "type": "image_picker",
+          "id": "img",
+          "label": "Joanna Image"
+    },  	
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Quote",
+      "default": "<p> Joanna says something inspirational here - placeholder </p>"
+    }
+
+  ]
+}
+{% endschema %}

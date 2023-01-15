@@ -1,0 +1,42 @@
+{% assign values = '' %}
+{% assign option_index = 1 %}
+
+{% assign current_variant_value = "" %}
+
+{% for option in current_variant.options[forloop.index0] %}
+  {% assign current_variant_value = option %}
+{% endfor %}
+
+<div class="swatch clearfix" data-option-index="{{ option_index }}">
+    <div class="header">Length</div>
+    <select
+    id="SingleOptionSelector-{{ forloop.index0 }}"
+    data-index="option{{ option_index }}" class="length-dropdown">
+        <option value="" selected disabled>Choose your length</option>
+        {% for variant in product.variants %}
+            {% assign value = variant.options[option_index] %}
+            {% unless values contains value %}
+                {% assign values = values | join: ',' %}
+                {% assign values = values | append: ',' | append: value %}
+                {% assign values = values | split: ',' %} 
+                <div data-value="{{ value | escape }}" class="swatch-element {{ value | handle }}">
+                    {% assign original_value = value | handleize | downcase %}
+                    {% assign looped_option = current_variant_value | handleize | downcase %}
+                    <option name="{{ value }}" value="{{ value }}">
+                        {% assign short_variant_value = value | handleize | downcase %}
+                        {% if short_variant_value contains '28' %}
+                            5'4" and below (28" / 71cm)
+                            {% elsif short_variant_value contains '30' %}
+                            5'5" to 5'11" (30" / 76cm)
+                            {% elsif short_variant_value contains '32' %}
+                            6'0" and above (32" / 81cm) 
+                            {% else %}
+                                {{ short_variant_value }}
+                        {% endif %}
+                    </option>
+                </div>
+            {% endunless %}
+        {% endfor %}
+    </select>
+    {% render 'length-size-guide' %}
+</div>

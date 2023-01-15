@@ -1,0 +1,96 @@
+<div class="tpfilter-item is-hidden" data-tpfilter-item="q6">
+  <div class="container">
+    <div class="tpfilter-item__inner">
+      {%- if section.settings.ttf_v2_q6_title != blank -%}<h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_q6_title}}</h2>{%- endif -%}
+      {%- if section.settings.ttf_v2_q6_sub_title != blank -%}<p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_q6_sub_title}}</p>{%- endif -%}
+      <div class="tpfilter-options body-shape">
+        {% for block in section.blocks %}
+            <div class="tpfilter-option tpfilter-option--card">
+                <input id="customer-body-shape-{{ forloop.index }}" type="{{ section.settings.question_option }}" name="body_shape" value="{{ block.settings.ttf_v2_q6 }}" data-tpfilter-answer>
+                <label for="customer-body-shape-{{ forloop.index }}">
+                    <img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.ttf_v2_q6_img.width }}" src="{{ block.settings.ttf_v2_q6_img | img_url: '300x' }}" alt="" class="tpfilter-option__img">
+                    <div class="tpfilter-option__text">{{ block.settings.ttf_v2_q6 }}</div>
+                </label>
+            </div>
+        {% endfor %}
+      </div>
+      <div class="tff-v2-body-shape">
+        {%- if section.settings.ttf_v2_q6_btn_lbl != blank -%}{% render 'tff-v2-body-shape-guide' %}{%- endif -%}
+      </div>
+      {% render 'tff-v2-button' %}
+    </div>
+  </div>
+  </div>
+
+{% schema %}
+{
+    "name": "TFF V2 - q6 Body Shape",
+    "settings": [
+        {
+            "id": "ttf_v2_q6_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_q6_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "type": "select",
+            "id": "question_option",
+            "label": "Question Option",
+            "options": [
+              {
+                "value": "checkbox",
+                "label": "Checkbox"
+              },
+              {
+                "value": "radio",
+                "label": "Radio"
+              }
+            ]
+        },
+        {
+            "id": "ttf_v2_q6_url",
+            "type": "url",
+            "label": "URL"
+        },
+        {
+            "id": "ttf_v2_q6_btn_lbl",
+            "type": "text",
+            "label": "URL - Label"
+        }        ,
+        
+        {
+          "type": "image_picker",
+          "id": "ttf_v2_q6_body_shape_guide_img",
+          "label": "Body Shape Guide Image Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "ttf_v2_q6_body_shape_guide_img_mobile",
+          "label": "Body Shape Guide Image Mobile"
+        }
+
+    ],
+    "blocks": [
+        {
+            "type": "question_six",
+            "name": "Add Question",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "ttf_v2_q6",
+                    "label": "Add Question"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "ttf_v2_q6_img",
+                    "label": "Add Icon"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

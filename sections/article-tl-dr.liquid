@@ -1,0 +1,51 @@
+<div class="blog-container article-section pt-4">
+    <div class="container">
+        <div class="row justify-content-center article-tl-dr">
+            <div class="col-sm-6">
+               <h2 class="content-h2">TL;DR</h2>
+                <ul>
+                    {% for block in section.blocks %}
+                        <li>{{ block.settings.bullet_point }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article TL/DR",
+    "tag": "section",
+    "settings": [
+    {
+        "type": "header",
+        "content": "Header"
+    },
+    {
+        "type": "text",
+        "id": "article_category",
+        "label": "Category"
+    }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Bullet point",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "bullet_point",
+            "label": "Text"
+          }
+        ]
+    }
+    ],
+    "presets": [
+      {
+        "name": "Article TL/DR",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

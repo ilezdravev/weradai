@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "main": {
+      "type": "article-header",
+      "settings": {
+        "article_category": "Category",
+        "article_title": "Title",
+        "article_subtitle": "Subtitle",
+        "article_reading_time": 5,
+        "article_author": "",
+        "article_author_details": ""
+      }
+    },
+    "1636683794a530318d": {
+      "type": "article-tl-dr",
+      "blocks": {
+        "2d368562-5da3-4991-a319-a9c8d3527f40": {
+          "type": "block",
+          "settings": {
+            "bullet_point": "<p>Test<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "2d368562-5da3-4991-a319-a9c8d3527f40"
+      ],
+      "settings": {
+        "article_category": "Categor"
+      }
+    },
+    "163668383361429f41": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "Category",
+        "article_text": "<p>Test<\/p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1636683794a530318d",
+    "163668383361429f41"
+  ]
+}

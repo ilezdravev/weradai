@@ -1,0 +1,145 @@
+{%- capture sizes -%}
+  {%- for variant in product.variants -%}
+    {{ variant.id }}@{{ variant.title }}:
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture option1 -%}
+  {%- assign option1_values = '' -%}
+  {%- assign option1_array = '' -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.option1 != blank -%}
+      {%- assign option1_values = option1_values | append: variant.option1 | append: ', ' -%}
+      {%- assign option1_array = option1_values | split: ", " -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {{ option1_array | uniq | join: ", " }}
+{%- endcapture -%}
+
+{%- capture option2 -%}
+  {%- assign option2_values = '' -%}
+  {%- assign option2_array = '' -%}
+  {%- for variant in product.variants -%}
+    {%- if variant.option2 != blank -%}
+      {%- assign option2_values = option2_values | append: variant.option2 | append: ', ' -%}
+      {% assign option2_array = option2_values | split: ", " %}
+    {%- endif -%}
+  {%- endfor -%}
+  {{ option2_array | uniq | join: ", " }}
+{%- endcapture -%}
+
+{%- assign compare_at_price = product.compare_at_price | money_without_currency -%}
+
+{%- capture badge -%}
+  {%- for productTags in product.tags -%}
+    {%- if productTags contains 'badge:' -%}
+      {{- productTags | remove: 'badge:' -}}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture colors -%}
+  {%- for tag in product.tags -%}
+    {%- if tag contains 'color:' -%}
+      {%- assign other_colors_1 = all_products[product.metafields.sf_other_colors.other_colors_1] -%}
+      {%- assign other_colors_2 = all_products[product.metafields.sf_other_colors.other_colors_2] -%}
+      {%- assign other_colors_3 = all_products[product.metafields.sf_other_colors.other_colors_3] -%}
+      {%- assign other_colors_4 = all_products[product.metafields.sf_other_colors.other_colors_4] -%}
+      {%- assign other_colors_5 = all_products[product.metafields.sf_other_colors.other_colors_5] -%}
+      {%- assign other_colors_6 = all_products[product.metafields.sf_other_colors.other_colors_6] -%}
+      {%- assign other_colors_7 = all_products[product.metafields.sf_other_colors.other_colors_7] -%}
+      {%- assign other_colors_8 = all_products[product.metafields.sf_other_colors.other_colors_8] -%}
+      {%- assign other_colors_9 = all_products[product.metafields.sf_other_colors.other_colors_9] -%}
+      {%- assign other_colors_10 = all_products[product.metafields.sf_other_colors.other_colors_10] -%}
+
+      {%- for tag in product.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- product.url -}}:{{- color_tag -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_1.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_1 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_1.url -}}:{{- color_tag_1 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_2.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_2 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_2.url -}}:{{- color_tag_2 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_3.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_3 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_3.url -}}:{{- color_tag_3 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_4.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_4 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_4.url -}}:{{- color_tag_4 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_5.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_5 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_5.url -}}:{{- color_tag_5 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_6.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_6 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_6.url -}}:{{- color_tag_6 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_7.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_7 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_7.url -}}:{{- color_tag_7 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_8.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_8 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_8.url -}}:{{- color_tag_8 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_9.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_9 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_9.url -}}:{{- color_tag_9 -}}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for tag in other_colors_10.tags -%}
+        {%- if tag contains 'color:' -%}
+          {% assign color_tag_10 = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+          {{- other_colors_10.url -}}:{{- color_tag_10 -}}
+        {%- endif -%}
+      {%- endfor -%}
+
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+
+{%- assign length = 'false' -%}
+{% if option2 != blank %}
+  {%- assign length = 'true' -%}
+{%- endif -%}
+
+{%- assign shopUrl = 'https://daiwear.com' -%}
+<button
+  id="product_{{ product.id }}"
+  class="product_{{ product.id }} swym-add-to-wishlist-view-product"
+  data-iu="{{ product.featured_image.src }}"
+  data-length="{{- length -}}"
+  data-colors="{{- colors -}}"
+  data-badge="{{- badge -}}"
+  data-compare-price="{{ compare_at_price }}"
+  data-sizes="{{ sizes }}"
+  data-product-id="{{ product.id | json }}"
+  data-variant-id="{{ product.variants[0].id }}"
+  data-swaction="addToWishlist"
+  data-product-url="{{ shopUrl }}{{ product.url }}"></button>

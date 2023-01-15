@@ -1,0 +1,44 @@
+
+
+{% assign set = section.settings %}
+
+
+<div class="winner-intro" id="top">
+  
+
+    <div class="winner-banner"  {% if set.bgimg %} style="background-image: url({{ set.bgimg | img_url: 'master' }})"> {% endif %}
+    {% if set.logoimg %}
+     <img src="{{ set.logoimg | img_url: 'master' }}" class="award-logo" width="400px"> 
+    {% endif %}
+       
+    {% if set.text %}
+      <h1 class="winner-intro-text">{{ set.text }}</h1>
+    {% endif %}
+    </div>
+
+</div>
+
+
+
+{% schema %}
+{
+  "settings": [
+	{
+          "type": "image_picker",
+          "id": "bgimg",
+          "label": "Background Image"
+    },
+	{
+          "type": "image_picker",
+          "id": "logoimg",
+          "label": "Logo Image"
+    },  	
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+"default": "We Salute You."
+    }
+  ]
+}
+{% endschema %}

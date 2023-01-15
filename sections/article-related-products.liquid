@@ -1,0 +1,73 @@
+{% assign subtitle = shop.metafields.sf_articles_related_.subtitle %}
+{% assign title = shop.metafields.sf_articles_related_.title %}
+{% assign related_product_one = all_products[shop.metafields.sf_articles_related_.product_1] %}
+{% assign related_product_two = all_products[shop.metafields.sf_articles_related_.product_2] %}
+{% assign related_product_three = all_products[shop.metafields.sf_articles_related_.product_3] %}
+{% assign related_product_four = all_products[shop.metafields.sf_articles_related_.product_4] %}
+{% assign button_text = shop.metafields.sf_articles_related_.button_text %}
+{% assign button_url = shop.metafields.sf_articles_related_.button_url %}
+
+{% if related_product_one != blank %}
+<div class="complete-look-wrapper article-section mt-5 pt-5 py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% if subtitle != blank %}
+          <h3>{{ subtitle }}</h3>
+        {% endif %}
+        {% if title != blank %}
+          <h4>{{ title }}</h4>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      {% if related_product_one != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_one %}
+        {% render 'product-grid' %}
+      </div>
+      {% endif %}
+      {% if related_product_two != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_two %}
+        {% render 'product-grid' %}
+      </div>
+      {% endif %}
+      {% if related_product_three != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_three %}
+        {% render 'product-grid' %}
+      </div>
+      {% endif %}
+      {% if related_product_four != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_four %}
+        {% render 'product-grid' %}
+      </div>
+      {% endif %}
+    </div>
+    {% if button_text != blank %}
+    <div class="row text-center my-4">
+        <div class="col-12">
+            <a href="{{ button_url }}" class="btn btn-primary">{{ button_text }}</a>
+        </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Article Related Products",
+    "tag": "section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Article Related Products",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

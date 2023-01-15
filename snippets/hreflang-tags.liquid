@@ -1,0 +1,110 @@
+{% if template contains 'product' %}
+    {% assign lang_page_url = product.url %}
+        {% if product.url contains 'parallel-pants' %}
+            {% if shop.domain == 'us.daiwear.com' %}
+                <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+            {% else %}
+                <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+            {% endif %}
+        {% else %}
+            {% if shop.domain == 'us.daiwear.com' %}
+                <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url | replace: 'pant', 'trousers' }}" />
+            {% else %}
+                <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url | replace: 'trousers', 'pant' }}" />
+            {% endif %}
+        {% endif %}
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+    
+{% elsif template contains 'collection' %}
+    {% assign lang_page_url = collection.url %}
+        {% if shop.domain == 'us.daiwear.com' %}
+            <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url | replace: 'pants', 'trousers' }}" />
+            <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+            <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url | replace: 'pants', 'trousers' }}" />
+        {% else %}
+            <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+            <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url | replace: 'trousers', 'pants' }}" />
+            <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+        {% endif %}
+        
+
+{% elsif template contains 'page' %}
+    {% assign lang_page_url = page.url %}
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+
+{% elsif template contains 'blog' %}
+    {% assign lang_page_url = blog.url %}
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+{% elsif template contains 'blog' %}
+    {% assign lang_page_url = blog.url %}
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+
+{% elsif template contains 'article' %}
+    {% assign lang_page_url = article.url %}
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+
+{% elsif template contains 'cart' %}
+    {% assign lang_page_url = '/cart' %}
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+    
+{% elsif template contains 'customers/login' %}
+    {% assign lang_page_url = '/account/login' %}
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+    
+{% elsif template contains 'customers/account' %}
+    {% assign lang_page_url = '/account' %}
+        <link rel="alternate" hreflang="en-gb" href="hhttps://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+
+{% elsif template contains 'customers/register' %}
+    {% assign lang_page_url = '/account/register' %}
+        <link rel="alternate" hreflang="en-gb" href="hhttps://daiwear.com{{ lang_page_url }}" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com{{ lang_page_url }}" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com{{ lang_page_url }}" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com{{ lang_page_url }}" />
+
+{% else %} 
+        <link rel="alternate" hreflang="en-gb" href="https://daiwear.com" />
+        <link rel="alternate" hreflang="en-us" href="https://us.daiwear.com" />
+        {% comment %}
+        <link rel="alternate" hreflang="en" href="https://eu.daiwear.com" />
+        {% endcomment %}
+        <link rel="alternate" hreflang="x-default" href="https://daiwear.com" />
+{% endif %}

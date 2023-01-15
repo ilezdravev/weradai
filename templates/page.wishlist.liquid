@@ -1,0 +1,72 @@
+<div class="container customer-page-wrapper">
+  {% assign full_url = request.host | append: request.path %}
+  <div class="row">
+    {% render 'customer-sidebar-menu' %}
+    <div class="col-12 col-sm-10">
+      <div class="page-width swym-wishlist-page">
+        <div class="grid">
+          <div class="grid__item">
+            <div class="section-header text-left">
+              <h1>
+                {% if customer %}
+                  {{ customer.first_name }}'s
+                {% endif %}
+                {{ page.title }}</h1>
+              <a href="/account" class="underline back_dashboard">{{ 'customer.account.back_dashboard' | t }}</a>
+            </div>
+
+            <div class="container collection__wrapper">
+              {{ page.content }}
+              <div id="wishlist-items-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{{ 'swym-wishlist-page.js' | asset_url }}" async="async"></script>
+<script type="text/javascript">
+  (function pollFor() {
+  if (document.querySelector('#wishlist-items-container .col-6')) {      
+                      try {
+              			if($(window).width() < 768){
+                            $('#wishlist-items-container .col-6').each(function(i){
+                              if($(this).find('.swatch').hasClass('view-select-selected') && $(this).next().find('.swatch').hasClass('view-select-selected')){
+                               $(this).find('.swatch').addClass('hidden');
+                               $(this).next().find('.swatch').addClass('hidden');
+                              } 
+                            });
+                          }
+              		} catch (error) {
+              		  console.log("Initialization Error->", error);
+              		}
+                  } else {
+                      setTimeout(pollFor, 25);
+                  }
+              })();
+              
+              (function pollForMoreThanTwoLengthProds() {
+                  if (document.querySelector('#wishlist-items-container .col-6')) {      
+                      try {
+              			if($(window).width() < 768){
+                            var consecutiveVal = 0;
+                            $('#wishlist-items-container .col-6').each(function(i){
+                              if($(this).find('.swatch').hasClass('view-select-selected')){
+                                consecutiveVal++;
+                              }
+                              
+                              if($(this).find('.swatch').hasClass('view-select-selected') && !$(this).next().find('.swatch').hasClass('view-select-selected') && (consecutiveVal % 2 !== 0)) {
+                                $(this).find('.swatch').removeClass('hidden');
+                              }
+                            });
+                          }
+              		} catch (error) {
+              		  console.log("Initialization Error->", error);
+              		}
+                  } else {
+                      setTimeout(pollForMoreThanTwoLengthProds, 50);
+                  }
+              })();</script>
+<!-- Swym Custom Page CSS  -->
+{% include 'swym-custom-wishlist-page-css' %}

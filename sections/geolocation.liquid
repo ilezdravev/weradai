@@ -1,0 +1,82 @@
+{% if section.settings.enabled %}
+  <div class="popup js-popup hide" data-popup="location">
+    <div class="popup-window js-popup-window">
+      <div class="popup-body geo">
+        <h3 class="geo__title">{{ section.settings.title }}</h3>
+        <h4 class="geo__subtitle">{{ section.settings.subtitle }}</h4>
+
+        {% if shop.domain == 'daiwear.com' %}
+          <div class="geo__item">
+            <a href="javascript:void(0)" id="location_gb" class="btn btn-border geo__btn js-popup-close" data-code="gb" data-location-picker>
+              {% render 'icon' with 'uk' %} United Kingdom
+            </a>
+          </div>
+          <div class="geo__item">
+            <a href="https://us.daiwear.com" id="location_us" class="btn btn-border geo__btn" data-code="us" data-location-picker>
+              {% render 'icon' with 'us' %} United States
+            </a>
+          </div>
+          <div class="geo__item">
+            <a href="javascript:void(0)" id="location_gb" class="btn btn-border geo__btn js-popup-close" data-code="gb" data-location-picker>
+              {% render 'icon' with 'row' %} Rest of the world
+            </a>
+          </div>
+        {% else %}
+          <div class="geo__item">
+            <a href="javascript:void(0)" id="location_us" class="btn btn-border geo__btn js-popup-close" data-code="us" data-location-picker>
+              {% render 'icon' with 'us' %} United States
+            </a>
+          </div>
+          <div class="geo__item">
+            <a href="https://daiwear.com" id="location_gb" class="btn btn-border geo__btn" data-code="gb" data-location-picker>
+              {% render 'icon' with 'uk' %} United Kingdom
+            </a>
+          </div>
+          <div class="geo__item">
+            <a href="https://daiwear.com" id="location_gb" class="btn btn-border geo__btn js-popup-close" data-code="gb" data-location-picker>
+              {% render 'icon' with 'row' %} Rest of the world
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="popup-bg js-popup-bg"></div>
+  </div>
+
+  <script>
+    window.GEO_API = "{{ section.settings.api }}";
+  </script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Geolocation",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enabled",
+        "label": "Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Are you in the right place?"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub-title",
+        "default": "Please select a store"
+      },
+      {
+        "type": "text",
+        "id": "api",
+        "label": "GeoIP API url",
+        "default": "https://freegeoip.live/json/"
+      }
+    ]
+  }
+
+{% endschema %}

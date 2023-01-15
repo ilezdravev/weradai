@@ -1,0 +1,118 @@
+<div class="tpfilter-item is-hidden" data-tpfilter-item="q13">
+    <div class="container">
+    <div class="tpfilter-item__inner">
+        {%- if section.settings.ttf_v2_q13_title != blank -%}
+            <h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_q13_title}}</h2>
+        {%- endif -%}
+        {%- if section.settings.ttf_v2_q13_sub_title != blank -%}
+            <p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_q13_sub_title}}</p>
+        {%- endif -%}
+        <div class="tpfilter-options">
+            <form action="//manage.kmail-lists.com/subscriptions/subscribe" class="klaviyo_gdpr_embed_Y4ETwt email-capture__form" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" data-signin-form id="tff_signup" method="GET" novalidate="novalidate" target="_blank">
+                <input name="g" type="hidden" value="Y4ETwt">                
+                <div class="klaviyo_messages">
+                    <!-- <div class="success_message" style="display:none;"></div> -->
+                    <p class="error_message tpfilter-email__error" style="display:none;"></p>
+                </div>
+                <div class="tff-v2__name">
+                    <input class="bodysize-capture__input tpfilter-bodysize__input" name="title" id="k_id_body_size" type="hidden" value="">
+                    <input class="bodyshape-capture__input tpfilter-bodyshape__input" name="country" id="k_id_body_shape" type="hidden" value="">
+                    <input class="bodylength-capture__input tpfilter-bodylength__input" name="city" id="k_id_body_length" type="hidden" value="">
+                    <input class="firstname-capture__input tpfilter-firstname__input" data-default-value="" data-tpfilter-answer id="k_id_firstname" name="first_name" placeholder="{{ section.settings.ttf_v2_q13_firstname_placeholder}}" tpfilter-firstname type="text" value=""/>
+                    <input class="lastname-capture__input tpfilter-lastname__input" data-default-value="" data-tpfilter-answer id="k_id_lastname" name="last_name" placeholder="{{ section.settings.ttf_v2_q13_lastname_placeholder}}" tpfilter-lastname type="text" value=""/>
+                </div>
+                <input class="email-capture__input tpfilter-email__input" data-default-value="" data-tpfilter-answer id="k_id_email" name="email" placeholder="{{ section.settings.ttf_v2_q13_email_placheholder}}" tpfilter-email type="text" value=""/>
+                <button class="klaviyo_submit_button hide" type="submit">Subscribe</button>
+            </form>
+
+            <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+
+            {% comment %}
+            Can include this in JS files
+            {% endcomment %}
+            <script type="text/javascript">
+              KlaviyoSubscribe.attachToForms('#tff_signup', {
+                extra_properties: {
+                   $source: 'TFFV2',
+                   body_size: $('#k_id_body_size').val(),
+                   body_shape: $('#k_id_body_shape').val(),
+                   body_length: $('#k_id_body_length').val()
+                },
+                success: function() {
+                  $(document).trigger('klaviyo_email_sent');
+                }
+              });
+            </script>
+
+            {%- if section.settings.ttf_v2_q13_exclusive_offers != blank -%}
+                <div class="tpfilter-email__checkbox"><input checked data-signin-checkbox id="sign" name="" type="checkbox">
+                    <label for="sign">{{ section.settings.ttf_v2_q13_exclusive_offers }}</label>
+                </div>
+            {%- endif -%}
+            {%- if section.settings.ttf_v2_q13_submit_btn != blank -%}
+                <div class="tpfilter-email__form-submit">
+                    <button class="btn-primary tpfilter-item__btn--submit mt-4" data-tpfilter-submit type="button">{{ section.settings.ttf_v2_q13_submit_btn }}</button>
+                </div>
+            {%- endif -%}
+        </div>
+        {% render 'tff-v2-button' %}
+    </div>
+</div>
+</div>
+<script>
+    var invalidEmail = "{{ section.settings.ttf_v2_q13_invalid_email }}";
+</script>
+
+{% schema %}
+{
+    "name": "TFF V2 - q13 Email",
+    "settings": [
+        {
+            "id": "ttf_v2_q13_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "id": "ttf_v2_q13_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_q13_firstname_placeholder",
+            "type": "text",
+            "label": "First Name Placheholder Text"
+        },
+        {
+            "id": "ttf_v2_q13_lastname_placeholder",
+            "type": "text",
+            "label": "Last Name Placheholder Text"
+        },        
+        {
+            "id": "ttf_v2_q13_email",
+            "type": "text",
+            "label": "Email"
+        },
+        {
+            "id": "ttf_v2_q13_email_placheholder",
+            "type": "text",
+            "label": "Email Placheholder"
+        },
+        {
+            "id": "ttf_v2_q13_exclusive_offers",
+            "type": "text",
+            "label": "Exclusive Offers Text"
+        },
+        {
+            "id": "ttf_v2_q13_invalid_email",
+            "type": "text",
+            "label": "Invalid Email Text"
+        },
+        {
+            "id": "ttf_v2_q13_submit_btn",
+            "type": "text",
+            "label": "Submit Button Label"
+        }
+
+    ]
+}
+{% endschema %}

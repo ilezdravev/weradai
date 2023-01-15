@@ -1,0 +1,88 @@
+{% assign set = section.settings %}
+
+
+<div class="container">
+  
+
+    <div class="signup-banner"  {% if set.bgimg %} style="background-image: url({{ set.bgimg | img_url: 'master' }})"> {% endif %} </div>
+	<div class="mob-signup-banner"  {% if set.mobileimg %} style="background-image: url({{ set.mobileimg | img_url: 'master' }})"> {% endif %} <div class="signup-content"> </div></div>
+ 
+	<div class="signup-intro">
+     {% if set.description %} <div class="signup-terms">{{ set.description }} </div> {% endif %}
+  		<a href="#signup" class="btn btn-border cd-popup-trigger btn-bottom">JOIN THE DAI'ALOGUE</a>
+      {% if set.fineprint %} <p class="mt-5">{{ set.fineprint }}</p>{% endif %}
+ 	 </div>
+  
+  	<div class="row">
+      <div class="col-md-6">{% if set.giveaway1 %} <img loading="lazy" class="lazyload" height="auto" width="{{ set.giveaway1.width }}" src="{{ set.giveaway1 | img_url: 'master' }}"> {% endif %}</div>
+      <div class="col-md-6">{% if set.giveaway2 %} <img loading="lazy" class="lazyload" height="auto" width="{{ set.giveaway2.width }}" src="{{ set.giveaway2 | img_url: 'master' }}"> {% endif %}</div>
+  	</div>
+  
+    	<div class="row mt-3">
+      <div class="col-md-6">{% if set.giveaway3 %} <img loading="lazy" class="lazyload" height="auto" width="{{ set.giveaway3.width }}" src="{{ set.giveaway3 | img_url: 'master' }}"> {% endif %}</div>
+      <div class="col-md-6">{% if set.giveaway4 %} <img loading="lazy" class="lazyload" height="auto" width="{{ set.giveaway4.width }}" src="{{ set.giveaway4 | img_url: 'master' }}"> {% endif %}</div>
+  	</div>
+  
+</div>
+
+<div class="cd-popup" role="alert" id="signup">
+    <div class="cd-popup-container square-popup">
+        <div class="popup-content">
+            {% if set.form %} {{ set.form }} {% endif %}
+        </div>
+        <a href="#signup" class="cd-popup-close img-replace">Close</a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+
+
+{% schema %}
+{
+  "settings": [
+	{
+          "type": "image_picker",
+          "id": "bgimg",
+          "label": "Background Image"
+    },{
+          "type": "image_picker",
+          "id": "mobileimg",
+          "label": "Mobile Image"
+    },
+	{
+          "type": "text",
+          "id": "form",
+          "label": "Klaviyo Form Link"
+    },
+	{
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+    },
+	{
+        "type": "textarea",
+        "id": "fineprint",
+        "label": "Fineprint",
+		"default": "Terms testing paragraph"
+      },
+	{
+          "type": "image_picker",
+          "id": "giveaway1",
+          "label": "Giveaway 1 Image"
+    },
+	{
+          "type": "image_picker",
+          "id": "giveaway2",
+          "label": "Giveaway 2 Image"
+    },
+	{
+          "type": "image_picker",
+          "id": "giveaway3",
+          "label": "Giveaway 3 Image"
+    },
+	{
+          "type": "image_picker",
+          "id": "giveaway4",
+          "label": "Giveaway 4 Image"
+    }
+  ]
+}
+{% endschema %}

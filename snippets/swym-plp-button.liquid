@@ -1,0 +1,8 @@
+<!-- Swym Wishlist Plus EPI Button-->
+{% capture sizes %}
+    {% for variant in product.variants %}
+        {{ variant.title }}
+    {% endfor %}
+{% endcapture %}
+<button data-with-epi="true" class="swym-button swym-add-to-wishlist-view-product product_{{ product.id }}" data-swaction="addToWishlist" data-variants="{{ sizes | json }}" data-product-id="{{ product.id | json }}" data-variant-id="{{ product.variants[0].id }}" data-product-url="{{ shop.url }}{{ product.url }}"></button>
+<!-- Swym Wishlist Plus EPI Button-->

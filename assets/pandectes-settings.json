@@ -1,0 +1,1159 @@
+{
+  "store": {
+    "plan": "plus",
+    "theme": "TFF + Wishlist + Customer (02-01-2023)",
+    "primaryLocale": "en",
+    "adminMode": false
+  },
+  "tsPublished": 1673349533,
+  "declaration": {
+    "showPurpose": false,
+    "showProvider": false,
+    "showDateGenerated": true
+  },
+  "language": {
+    "languageMode": "Single",
+    "fallbackLanguage": "en",
+    "languageDetection": "browser",
+    "languagesSupported": []
+  },
+  "texts": {
+    "managed": {
+      "headerText": {
+        "en": "We respect your privacy"
+      },
+      "consentText": {
+        "en": "This website uses cookies to ensure you get the best experience."
+      },
+      "dismissButtonText": {
+        "en": "Ok"
+      },
+      "linkText": {
+        "en": "Learn more"
+      },
+      "imprintText": {
+        "en": "Imprint"
+      },
+      "preferencesButtonText": {
+        "en": "Preferences"
+      },
+      "allowButtonText": {
+        "en": "Accept"
+      },
+      "denyButtonText": {
+        "en": "Decline"
+      },
+      "leaveSiteButtonText": {
+        "en": "Leave this site"
+      },
+      "cookiePolicyText": {
+        "en": "Cookie policy"
+      },
+      "preferencesPopupTitleText": {
+        "en": "Manage consent preferences"
+      },
+      "preferencesPopupIntroText": {
+        "en": "We use cookies to optimize website functionality, analyze the performance, and provide personalized experience to you. Some cookies are essential to make the website operate and function correctly. Those cookies cannot be disabled. In this window you can manage your preference of cookies."
+      },
+      "preferencesPopupCloseButtonText": {
+        "en": "Close"
+      },
+      "preferencesPopupAcceptAllButtonText": {
+        "en": "Accept all"
+      },
+      "preferencesPopupRejectAllButtonText": {
+        "en": "Reject all"
+      },
+      "preferencesPopupSaveButtonText": {
+        "en": "Save preferences"
+      },
+      "accessSectionTitleText": {
+        "en": "Data portability"
+      },
+      "accessSectionParagraphText": {
+        "en": "You have the right to request access to your data at any time."
+      },
+      "rectificationSectionTitleText": {
+        "en": "Data Rectification"
+      },
+      "rectificationSectionParagraphText": {
+        "en": "You have the right to request your data to be updated whenever you think it is appropriate."
+      },
+      "erasureSectionTitleText": {
+        "en": "Right to be forgotten"
+      },
+      "erasureSectionParagraphText": {
+        "en": "You have the right to ask all your data to be erased. After that, you will no longer be able to access your account."
+      }
+    },
+    "categories": {
+      "strictlyNecessaryCookiesTitleText": {
+        "en": "Strictly necessary cookies"
+      },
+      "functionalityCookiesTitleText": {
+        "en": "Functional cookies"
+      },
+      "performanceCookiesTitleText": {
+        "en": "Performance cookies"
+      },
+      "targetingCookiesTitleText": {
+        "en": "Targeting cookies"
+      },
+      "unclassifiedCookiesTitleText": {
+        "en": "Unclassified cookies"
+      },
+      "strictlyNecessaryCookiesDescriptionText": {
+        "en": "These cookies are essential in order to enable you to move around the website and use its features, such as accessing secure areas of the website. The website cannot function properly without these cookies."
+      },
+      "functionalityCookiesDescriptionText": {
+        "en": "These cookies enable the site to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages. If you do not allow these cookies then some or all of these services may not function properly."
+      },
+      "performanceCookiesDescriptionText": {
+        "en": "These cookies enable us to monitor and improve the performance of our website. For example, they allow us to count visits, identify traffic sources and see which parts of the site are most popular."
+      },
+      "targetingCookiesDescriptionText": {
+        "en": "These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.    They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising."
+      },
+      "unclassifiedCookiesDescriptionText": {
+        "en": "Unclassified cookies are cookies that we are in the process of classifying, together with the providers of individual cookies."
+      }
+    },
+    "auto": {
+      "declName": {
+        "en": "Name"
+      },
+      "declPath": {
+        "en": "Path"
+      },
+      "declType": {
+        "en": "Type"
+      },
+      "declDomain": {
+        "en": "Domain"
+      },
+      "declPurpose": {
+        "en": "Purpose"
+      },
+      "declProvider": {
+        "en": "Provider"
+      },
+      "declRetention": {
+        "en": "Retention"
+      },
+      "declFirstParty": {
+        "en": "First-party"
+      },
+      "declThirdParty": {
+        "en": "Third-party"
+      },
+      "cookiesDetailsText": {
+        "en": "Cookies details"
+      },
+      "preferencesPopupAlwaysAllowedText": {
+        "en": "Always allowed"
+      },
+      "submitButton": {
+        "en": "Submit"
+      },
+      "submittingButton": {
+        "en": "Submitting..."
+      },
+      "cancelButton": {
+        "en": "Cancel"
+      },
+      "guestsSupportInfoText": {
+        "en": "Please login with your customer account to further proceed."
+      },
+      "guestsSupportEmailPlaceholder": {
+        "en": "E-mail address"
+      },
+      "guestsSupportEmailValidationError": {
+        "en": "Email is not valid"
+      },
+      "guestsSupportEmailSuccessTitle": {
+        "en": "Thank you for your request"
+      },
+      "guestsSupportEmailFailureTitle": {
+        "en": "A problem occurred"
+      },
+      "guestsSupportEmailSuccessMessage": {
+        "en": "If you are registered as a customer of this store, you will soon receive an email with instructions on how to proceed."
+      },
+      "guestsSupportEmailFailureMessage": {
+        "en": "Your request was not submitted. Please try again and if problem persists, contact store owner for assistance."
+      },
+      "confirmationSuccessTitle": {
+        "en": "Your request is verified"
+      },
+      "confirmationFailureTitle": {
+        "en": "A problem occurred"
+      },
+      "confirmationSuccessMessage": {
+        "en": "We will soon get back to you as to your request."
+      },
+      "confirmationFailureMessage": {
+        "en": "Your request was not verified. Please try again and if problem persists, contact store owner for assistance"
+      },
+      "consentSectionTitleText": {
+        "en": "Your cookie consent"
+      },
+      "consentSectionNoConsentText": {
+        "en": "You have not consented to the cookies policy of this website."
+      },
+      "consentSectionConsentedText": {
+        "en": "You consented to the cookies policy of this website on"
+      },
+      "consentStatus": {
+        "en": "Consent preference"
+      },
+      "consentDate": {
+        "en": "Consent date"
+      },
+      "consentId": {
+        "en": "Consent ID"
+      },
+      "consentSectionChangeConsentActionText": {
+        "en": "Change consent preference"
+      },
+      "accessSectionGDPRRequestsActionText": {
+        "en": "Data subject requests"
+      },
+      "accessSectionAccountInfoActionText": {
+        "en": "Personal data"
+      },
+      "accessSectionOrdersRecordsActionText": {
+        "en": "Orders"
+      },
+      "accessSectionDownloadReportActionText": {
+        "en": "Request export"
+      },
+      "rectificationCommentPlaceholder": {
+        "en": "Describe what you want to be updated"
+      },
+      "rectificationCommentValidationError": {
+        "en": "Comment is required"
+      },
+      "rectificationSectionEditAccountActionText": {
+        "en": "Request an update"
+      },
+      "erasureSectionRequestDeletionActionText": {
+        "en": "Request personal data deletion"
+      }
+    }
+  },
+  "library": {
+    "previewMode": false,
+    "fadeInTimeout": 0,
+    "defaultBlocked": 0,
+    "showLink": true,
+    "showImprintLink": false,
+    "enabled": true,
+    "cookie": {
+      "name": "_pandectes_gdpr",
+      "expiryDays": 365,
+      "secure": true
+    },
+    "dismissOnScroll": false,
+    "dismissOnWindowClick": false,
+    "dismissOnTimeout": false,
+    "palette": {
+      "popup": {
+        "background": "#FFFFFF",
+        "backgroundForCalculations": {
+          "a": 1,
+          "b": 255,
+          "g": 255,
+          "r": 255
+        },
+        "text": "#000000"
+      },
+      "button": {
+        "background": "transparent",
+        "backgroundForCalculations": {
+          "a": 1,
+          "b": 255,
+          "g": 255,
+          "r": 255
+        },
+        "text": "#000000",
+        "textForCalculation": {
+          "a": 1,
+          "b": 0,
+          "g": 0,
+          "r": 0
+        },
+        "border": "#000000"
+      }
+    },
+    "content": {
+      "href": "https:\/\/daiwear.myshopify.com\/policies\/privacy-policy",
+      "imprintHref": "\/",
+      "close": "&#10005;",
+      "target": "",
+      "logo": "<img class=\"cc-banner-logo\" height=\"40\" width=\"40\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0225\/7023\/8016\/t\/206\/assets\/pandectes-logo.png?v=1673348713\" alt=\"Dai\" \/>"
+    },
+    "window": "<div role=\"dialog\" aria-live=\"polite\" aria-label=\"cookieconsent\" aria-describedby=\"cookieconsent:desc\" id=\"pandectes-banner\" class=\"cc-window-wrapper cc-bottom-wrapper\"><div class=\"pd-cookie-banner-window cc-window {{classes}}\"><!--googleoff: all-->{{children}}<!--googleon: all--><\/div><\/div>",
+    "compliance": {
+      "custom": "<div class=\"cc-compliance cc-highlight\">{{preferences}}{{allow}}<\/div>"
+    },
+    "type": "custom",
+    "layouts": {
+      "basic": "{{logo}}{{messagelink}}{{compliance}}{{close}}"
+    },
+    "position": "bottom",
+    "theme": "wired",
+    "revokable": true,
+    "animateRevokable": false,
+    "revokableReset": false,
+    "revokableLogoUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0225\/7023\/8016\/t\/206\/assets\/pandectes-reopen-logo.png?v=1673348714",
+    "revokablePlacement": "bottom-left",
+    "revokableMarginHorizontal": 15,
+    "revokableMarginVertical": 15,
+    "static": false,
+    "autoAttach": true,
+    "hasTransition": true,
+    "blacklistPage": [
+      ""
+    ]
+  },
+  "geolocation": {
+    "brOnly": false,
+    "caOnly": false,
+    "euOnly": false,
+    "jpOnly": false,
+    "thOnly": false,
+    "canadaOnly": false,
+    "globalVisibility": true
+  },
+  "dsr": {
+    "guestsSupport": false,
+    "accessSectionDownloadReportAuto": false
+  },
+  "banner": {
+    "resetTs": 1673348712,
+    "extraCss": "        .cc-banner-logo {max-width: 24em!important;}    @media(min-width: 768px) {.cc-window.cc-floating{max-width: 24em!important;width: 24em!important;}}    .cc-message, .cc-header, .cc-logo {text-align: left}    .cc-window-wrapper{z-index: 2147483647;}    .cc-window{z-index: 2147483647;font-family: inherit;}    .cc-header{font-family: inherit;}    .pd-cp-ui{font-family: inherit; background-color: #FFFFFF;color:#000000;}    .pd-cp-btn{}    input + .pd-cp-preferences-slider{background-color: rgba(0, 0, 0, 0.3)}    .pd-cp-scrolling-section::-webkit-scrollbar{background-color: rgba(0, 0, 0, 0.3)}    input:checked + .pd-cp-preferences-slider{background-color: rgba(0, 0, 0, 1)}    .pd-cp-scrolling-section::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 1)}    .pd-cp-ui-close{color:#000000;}    .pd-cp-preferences-slider:before{background-color: #FFFFFF}    .pd-cp-title:before {border-color: #000000!important}    .pd-cp-preferences-slider{background-color:#000000}    .pd-cp-toggle{color:#000000!important}    @media(max-width:699px) {.pd-cp-ui-close-top svg {fill: #000000}}    .pd-cp-toggle:hover,.pd-cp-toggle:visited,.pd-cp-toggle:active{color:#000000!important}    .pd-cookie-banner-window {box-shadow: 0 0 18px rgb(0 0 0 \/ 20%);}  ",
+    "customJavascript": null,
+    "showPoweredBy": false,
+    "isActive": true,
+    "implicitSavePreferences": true,
+    "cookieIcon": false,
+    "blockBots": false,
+    "showCookiesDetails": true,
+    "cookiesBlockedByDefault": "0",
+    "hasTransition": true,
+    "blockingPage": false,
+    "showOnlyLandingPage": false,
+    "leaveSiteUrl": "https:\/\/www.google.com",
+    "linkRespectStoreLang": false
+  },
+  "cookies": {
+    "0": [
+      {
+        "name": "secure_customer_sig",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used in connection with customer login."
+        }
+      },
+      {
+        "name": "cart_currency",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "15 day(s)",
+        "purpose": {
+          "en": "Used in connection with shopping cart."
+        }
+      },
+      {
+        "name": "localization",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Shopify store localization"
+        }
+      },
+      {
+        "name": "shopify_pay_redirect",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "60 minute(s)",
+        "purpose": {
+          "en": "Used in connection with checkout."
+        }
+      },
+      {
+        "name": "keep_alive",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "31 minute(s)",
+        "purpose": {
+          "en": "Used in connection with buyer localization."
+        }
+      },
+      {
+        "name": "_secure_session_id",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": "Used in connection with navigation through a storefront."
+        }
+      }
+    ],
+    "1": [
+      {
+        "name": "_orig_referrer",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "14 day(s)",
+        "purpose": {
+          "en": "Tracks landing pages."
+        }
+      },
+      {
+        "name": "_landing_page",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "14 day(s)",
+        "purpose": {
+          "en": "Tracks landing pages."
+        }
+      },
+      {
+        "name": "_y",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Shopify analytics."
+        }
+      },
+      {
+        "name": "_s",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "31 minute(s)",
+        "purpose": {
+          "en": "Shopify analytics."
+        }
+      },
+      {
+        "name": "_shopify_y",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Shopify analytics."
+        }
+      },
+      {
+        "name": "_shopify_s",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "31 minute(s)",
+        "purpose": {
+          "en": "Shopify analytics."
+        }
+      },
+      {
+        "name": "_shopify_sa_t",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": "Shopify analytics relating to marketing & referrals."
+        }
+      },
+      {
+        "name": "_shopify_sa_p",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Shopify",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": "Shopify analytics relating to marketing & referrals."
+        }
+      },
+      {
+        "name": "_hjSessionUser_528396",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Hotjar",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used by Hotjar to store a unique user ID."
+        }
+      },
+      {
+        "name": "_hjSession_528396",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Hotjar",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": "Used by Hotjar to provide functions across pages."
+        }
+      }
+    ],
+    "2": [
+      {
+        "name": "__cf_bm",
+        "domain": ".boldapps.net",
+        "path": "\/",
+        "provider": "CloudFlare",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": "Used to manage incoming traffic that matches criteria associated with bots."
+        }
+      },
+      {
+        "name": "_ga_NG1T767GVQ",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Google",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Cookie is set by Google Analytics with unknown functionality"
+        }
+      },
+      {
+        "name": "__cf_bm",
+        "domain": ".shappify-cdn.com",
+        "path": "\/",
+        "provider": "CloudFlare",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": "Used to manage incoming traffic that matches criteria associated with bots."
+        }
+      },
+      {
+        "name": "_ga",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Google",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Cookie is set by Google Analytics with unknown functionality"
+        }
+      },
+      {
+        "name": "_gid",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Google",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": "Cookie is placed by Google Analytics to count and track pageviews."
+        }
+      },
+      {
+        "name": "_gat",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Google",
+        "firstParty": true,
+        "retention": "31 second(s)",
+        "purpose": {
+          "en": "Cookie is placed by Google Analytics to filter requests from bots."
+        }
+      }
+    ],
+    "4": [
+      {
+        "name": "MUID",
+        "domain": ".bing.com",
+        "path": "\/",
+        "provider": "Microsoft",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Cookie is placed by Microsoft to track visits across websites."
+        }
+      },
+      {
+        "name": "_uetsid",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Bing",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": "This cookie is used by Bing to determine what ads should be shown that may be relevant to the end user perusing the site."
+        }
+      },
+      {
+        "name": "_uetvid",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Bing",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used to track visitors on multiple websites, in order to present relevant advertisement based on the visitor's preferences."
+        }
+      },
+      {
+        "name": "_gcl_au",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Google",
+        "firstParty": true,
+        "retention": "90 day(s)",
+        "purpose": {
+          "en": "Cookie is placed by Google Tag Manager to track conversions."
+        }
+      },
+      {
+        "name": "test_cookie",
+        "domain": ".doubleclick.net",
+        "path": "\/",
+        "provider": "Google",
+        "firstParty": true,
+        "retention": "15 minute(s)",
+        "purpose": {
+          "en": "To measure the visitors’ actions after they click through from an advert. Expires after each visit."
+        }
+      },
+      {
+        "name": "__kla_id",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Klaviyo",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Tracks when someone clicks through a Klaviyo email to your website"
+        }
+      },
+      {
+        "name": "_fbp",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Facebook",
+        "firstParty": true,
+        "retention": "90 day(s)",
+        "purpose": {
+          "en": "Cookie is placed by Facebook to track visits across websites."
+        }
+      },
+      {
+        "name": "_pin_unauth",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Pinterest",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used to group actions for users who cannot be identified by Pinterest."
+        }
+      },
+      {
+        "name": "swym-session-id",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Swym",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": "Used by the SWYM Wishlist Plus Shopify plugin."
+        }
+      },
+      {
+        "name": "swym-pid",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Swym",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used by swym application."
+        }
+      },
+      {
+        "name": "swym-o_s",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Swym",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": "Used by swym application."
+        }
+      },
+      {
+        "name": "swym-swymRegid",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Amazon",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used by swym application."
+        }
+      },
+      {
+        "name": "swym-cu_ct",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Swym",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used by swym application."
+        }
+      },
+      {
+        "name": "swym-instrumentMap",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Swym",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "Used by swym application."
+        }
+      },
+      {
+        "name": "IDE",
+        "domain": ".doubleclick.net",
+        "path": "\/",
+        "provider": "Google",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": "To measure the visitors’ actions after they click through from an advert. Expires after 1 year."
+        }
+      }
+    ],
+    "8": [
+      {
+        "name": "MR",
+        "domain": ".bat.bing.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "7 day(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_ttp",
+        "domain": ".tiktok.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "boldmc-localized",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "15 minute(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "boldCurrencyCookie",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "14 day(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "li_sugr",
+        "domain": ".linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "90 day(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "boldmc-initial-conversion",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "15 minute(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "lang",
+        "domain": ".ads.linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "Session",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "lidc",
+        "domain": ".linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "bcookie",
+        "domain": ".linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_hjFirstSeen",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_hjIncludedInSessionSample",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "2 minute(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_hjIncludedInPageviewSample",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "2 minute(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_hjAbsoluteSessionInProgress",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "30 minute(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "UserMatchHistory",
+        "domain": ".linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "30 day(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "AnalyticsSyncHistory",
+        "domain": ".linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "30 day(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "ln_or",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "lang",
+        "domain": ".linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "Session",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_ttp",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_picky.widget.discounts.sessionId",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "Session",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "goodappsfStartDatePerMonth",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "25 day(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "goodappsfStartDatePerDay",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "swym-email",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_picky.widget.discounts.isDiscountActive",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "goodappsfCurrentShownPerMonth",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "25 day(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "goodappsfCurrentShownPerDay",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "24 hour(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "goodapps_free_gifts_session",
+        "domain": "gifts.good-apps.co",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "Session",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "discount_code",
+        "domain": "daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "Session",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "XSRF-TOKEN",
+        "domain": "filter-v6.globosoftware.net",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "2 hour(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "smart_product_filter_search_session",
+        "domain": "filter-v6.globosoftware.net",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "2 hour(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "bscookie",
+        "domain": ".www.linkedin.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": ""
+        }
+      },
+      {
+        "name": "_tt_enable_cookie",
+        "domain": ".daiwear.com",
+        "path": "\/",
+        "provider": "Unknown",
+        "firstParty": true,
+        "retention": "1 year(s)",
+        "purpose": {
+          "en": ""
+        }
+      }
+    ]
+  },
+  "blocker": {
+    "isActive": false,
+    "googleConsentMode": {
+      "id": "",
+      "analyticsId": "",
+      "isActive": false,
+      "adStorageCategory": 4,
+      "analyticsStorageCategory": 2,
+      "personalizationStorageCategory": 1,
+      "functionalityStorageCategory": 1,
+      "customEvent": true,
+      "securityStorageCategory": 0,
+      "redactData": true,
+      "urlPassthrough": false
+    },
+    "facebookPixel": {
+      "id": "",
+      "isActive": false,
+      "ldu": false
+    },
+    "rakuten": {
+      "isActive": false,
+      "cmp": false,
+      "ccpa": false
+    },
+    "defaultBlocked": 0,
+    "patterns": {
+      "whiteList": [],
+      "blackList": {
+        "1": [],
+        "2": [],
+        "4": [],
+        "8": []
+      },
+      "iframesWhiteList": [],
+      "iframesBlackList": {
+        "1": [],
+        "2": [],
+        "4": [],
+        "8": []
+      },
+      "beaconsWhiteList": [],
+      "beaconsBlackList": {
+        "1": [],
+        "2": [],
+        "4": [],
+        "8": []
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{% assign set = section.settings %}
+<div class="rental-faq">
+
+	<div class="container">
+  	<h3 class="rental-how-this-works"> Rental 101 </h3>
+      <div class="row rental-faq">
+      <div class="col-md-4 faq-left">
+       {% if set.faqlefttitle %}
+        <div class="rental-faq-subtitle">{{ set.faqlefttitle }}</div>
+        {% endif %}
+        {% if set.faqleft %}
+    	 <div class="rental-faq-text">{{ set.faqleft }}</div>
+   		 {% endif %}
+        </div>
+      <div class="col-md-4 faq-mid">
+         {% if set.faqmidtitle %}
+        <div class="rental-faq-subtitle">{{ set.faqmidtitle }}</div>
+        {% endif %}
+       {% if set.faqmid %}
+    	 <div class="rental-faq-text">{{ set.faqmid }}</div>
+   		 {% endif %}
+      </div>
+      <div class="col-md-4 faq-right">
+        {% if set.faqrighttitle %}
+        <div class="rental-faq-subtitle">{{ set.faqrighttitle }}</div>
+        {% endif %}
+       {% if set.faqright %}
+    	 <div class="rental-faq-text">{{ set.faqright }}</div>
+   		 {% endif %}
+      </div>
+      </div>
+      
+  	</div>
+</div>
+
+ <div class="col-12 text-center shop-all">
+       <h2> Prefer to shop à la cart instead? </h2>
+       <div class="lookbook-button">
+         <a href="/" class="btn btn-border">SHOP ALL</a>
+         </div>
+      </div>
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "faqlefttitle",
+      "label": "FAQ Left Title"
+    },
+	{
+      "type": "richtext",
+      "id": "faqleft",
+      "label": "FAQ Left Block",
+	"default": "<p>xxxxx</p>"
+    },
+	{
+      "type": "text",
+      "id": "faqmidtitle",
+      "label": "FAQ Mid Title"
+    },
+	{
+      "type": "richtext",
+      "id": "faqmid",
+      "label": "FAQ Mid Block",
+      "default": "<p>xxxxx</p>"
+    },
+	{
+      "type": "text",
+      "id": "faqrighttitle",
+      "label": "FAQ Right Title"
+    },
+	{
+      "type": "richtext",
+      "id": "faqright",
+      "label": "FAQ Right Block",
+      "default": "<p>xxxxx</p>"
+    }
+ ]
+}
+{% endschema %}

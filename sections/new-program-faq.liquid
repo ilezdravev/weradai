@@ -1,0 +1,57 @@
+{% assign set = section.settings %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="london-store-title">{{ set.title }}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <section id="faq-content">
+                <div id="accordion" class="accordion-container">
+                    {% for block in section.blocks %}
+                    {% assign set = block.settings %}
+                        <article class="content-entry">
+                            <h4 class="article-title">{{ set.title }}<i></i></h4>
+                            <div class="accordion-content">
+                                {{ set.answer }}
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+                <!--/#accordion-->
+            </section>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Our global series of pop-up concept spaces is here."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq-block",
+        "name": "Question/Answer",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

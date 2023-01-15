@@ -1,0 +1,404 @@
+<div data-section-id="{{ section.id }}" data-section-type="header-section" class="primary-header-wrapper">
+  <!--=========================== GREY TOP BAR =========================== -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+         {%- comment -%}Header Text Variations{%- endcomment -%}
+                {% assign desktop_blocks = section.blocks | where: 'type', 'text' %}                             
+                    <div class="col-12 col-md-6 message-bar hidden-small">
+                      {% for block in desktop_blocks %}   
+                      <span {% if forloop.first == true %} class="active" {% endif %}>
+                          {% if block.settings.message_url != blank %}
+                              <a href="{{ block.settings.message_url }}">
+                                  {{ block.settings.title }}
+                              </a>
+                          {% else %}
+                              {{ block.settings.title }}
+                          {% endif %}
+                      </span>
+                    {% endfor %}
+                  </div>
+                  {% assign mobile_blocks = section.blocks | where: 'type', 'mobile' %}   
+                    <div class="message-bar-mobile hidden-lg">
+                      {% for block in mobile_blocks %}   
+                      <span {% if forloop.first == true %} class="active" {% endif %}>
+                          {% if block.settings.message_url_mobile != blank %}
+                              <a href="{{ block.settings.message_url_mobile }}">
+                                  {{ block.settings.title_mobile }}
+                              </a>
+                          {% else %}
+                              {{ block.settings.title_mobile }}
+                          {% endif %}
+                      </span>
+                      {% endfor %}
+                  </div>
+        {%- comment -%}Header Text Variations{%- endcomment -%}
+        <div class="col-md-6 align-right topbar-ecomm-link hidden-small">
+          <!--===== MY ACCOUNT =====-->
+          {% if shop.customer_accounts_enabled %}
+              {% if customer %}
+                  <a href="/account">{{ 'layout.customer.account' | t }}</a>
+              {% else %}
+                  {{ 'layout.customer.log_in' | t | customer_login_link }}
+              {% endif %}
+          {% endif %}
+          <!--===== Wishlist =====-->
+          {%- render 'swym-header-button-desktop' -%}
+          <!--===== Wishlist =====-->
+          <!--===== CURRENCY =====-->
+          <a class="currency-convertor">{%- render 'bold-currency-picker-mount', openDirection: 'up' -%}</a>
+          <!--===== CART =====-->
+          <a href="/cart" class="desktop-cart" data-widget-toggle="minicart">
+            {% render 'icon-bag' %}
+            <span data-cart-count>{{ cart.item_count }}</span>&nbsp;{{ 'layout.cart.items_count' | t: count: cart.item_count }}
+          </a>
+          {% unless shop.domain == 'us.daiwear.com' %}
+            <!--===== FACEBOOK =====-->
+            {% if section.settings.fb_enable %}
+              <a href="{{ section.settings.fb_link }}" class="topbar-icon-link" target="_blank"><img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.fb_icon.width }}" src="{{ section.settings.fb_icon | img_url: '30x' }}" alt=""></a>
+            {% endif %}
+            <!--===== WHATSAPP =====-->
+            {% if section.settings.wa_enable %}
+              <a href="{{ section.settings.wa_link }}" class="topbar-icon-link no-left-margin" target="_blank"><img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.wa_icon.width }}" src="{{ section.settings.wa_icon | img_url: '30x' }}" alt=""><span>{{ section.settings.wa_text }}</span></a>
+            {% endif %}
+          {% endunless %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--=========================== MINICART WIDGET =========================== -->
+  {% render 'minicart' %}
+  <!--=========================== WHITE NAVIGATION BAR =========================== -->
+  <div class="nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 no-relative">
+          <div class="navigation-bar">
+            <!--===== LEFT NAV =====-->
+            <div class="left-nav">
+              <nav role="navigation" class="navigation hidden-medium hidden-small">
+                <ul>
+                  {% if template.name == 'blog' or template.name == 'article' %}
+                    {% for link in linklists[section.settings.blogs_linklist].links %}
+                      <li class="primary-nav-link">
+                        <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                      </li>
+                    {% endfor %}
+                  {% else %}
+                    {% for link in linklists[section.settings.main_linklist].links %}
+                      <li class="primary-nav-link">
+                        <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              </nav>
+              {% render 'mobile-menu' %}
+            </div>
+            <!--===== LOGO =====-->
+            <div class="logo align-center">
+              {% if template.name == 'index' %}
+                <h1 itemscope itemtype="http://schema.org/Organization">
+              {% else %}
+                <div class="h1" itemscope itemtype="http://schema.org/Organization">
+              {% endif %}
+
+              {% if template.name == 'blog' or template.name == 'article' %}
+                <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+                  <img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.logo_blogs.width }}" src="{{ section.settings.logo_blogs | img_url: 'master' }}"
+                  srcset="{{ section.settings.logo_blogs | img_url: 'master' }} 1x, {{ section.settings.logo_blogs | img_url: 'master', scale: 2 }} 2x"
+                  alt="{{ section.settings.logo_blogs.alt | default: shop.name }}"
+                  itemprop="logo">
+                </a>
+              {% else %}
+                <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+                    <img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.logo.width }}" id="logo" src="{{ section.settings.logo | img_url: 'master' }}"
+                    srcset="{{ section.settings.logo | img_url: 'master' }} 1x, {{ section.settings.logo | img_url: 'master', scale: 2 }} 2x"
+                    alt="{{ section.settings.logo.alt | default: shop.name }}"
+                    itemprop="logo">
+                </a>
+              {% endif %}
+              {% if template.name == 'index' %}
+                </h1>
+              {% else %}
+                </div>
+              {% endif %}
+            </div>
+            <!--===== RIGHT NAV =====-->
+            <div class="right-nav align-right">
+              <nav role="navigation" class="navigation hidden-small hidden-medium">
+                <ul>
+                  {% for link in linklists[section.settings.right_linklist].links %}
+                    <li class="primary-nav-link">
+                      <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                    </li>
+                  {% endfor %}
+                  <!--===== SEARCH =====-->
+                  <li>
+                    <div class="btn-search show-search-btn">
+                      {% render 'icon-search' %}
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <div class="desktop-search">
+                <form action="/search" method="get" role="search">
+                  <input type="search"
+                          name="q"
+                          id="Search"
+                          value="{{ search.terms | escape }}"
+                          placeholder="{{ 'general.search.placeholder' | t }}" autofocus>
+                <input type="hidden" name="type" value="product" />
+                  <div class="close-search">
+                    {% render 'icon-close' %}
+                  </div>
+                </form>
+              </div>
+              {% unless shop.domain == 'us.daiwear.com' %}
+                <!--===== FACEBOOK =====-->
+                {% if section.settings.fb_enable %}
+                  <a href="{{ section.settings.fb_link }}" class="topbar-icon-link hidden-lg hidden-medium">
+                    <img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.fb_icon.width }}" src="{{ section.settings.fb_icon | img_url: '30x' }}" alt="">
+                  </a>
+                {% endif %}
+                <!--===== WHATSAPP =====-->
+                {% if section.settings.wa_enable %}
+                  <a href="{{ section.settings.wa_link }}" class="topbar-icon-link hidden-lg hidden-medium">
+                    <img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.wa_icon.width }}" src="{{ section.settings.wa_icon | img_url: '30x' }}" alt="">
+                  </a>
+                {% endif %}
+              {% endunless %}
+              <!--===== MOBILE CART =====-->
+              <div class="medium-search btn btn-search show-search-btn hidden-small hidden-lg">
+                {% render 'icon-search' %}
+              </div>
+              {%- render 'swym-header-button' -%}
+              <a href="/cart" class="mobile-cart hidden-lg hidden-medium {% if cart.item_count == 0 %}empty-bag{% endif %}" data-widget-toggle="minicart">
+                {% render 'icon-bag' %}
+                <span class="cart-item-number" data-cart-count>{{ cart.item_count }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "max_blocks": 8,
+    "settings": [
+    {
+      "type": "header",
+      "content": "Logos"
+    },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (Main)"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_blogs",
+        "label": "Logo (Blogs)"
+      },
+      {
+        "type": "header",
+        "content": "Menus"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile_linklist",
+        "label": "Mobile Menu"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile_secondary_linklist",
+        "label": "Mobile Menu (secondary)",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Left Side Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "right_linklist",
+        "label": "Right Side Menu"
+      },
+      {
+        "type": "link_list",
+        "id": "blogs_linklist",
+        "label": "Blogs Menu (left side)"
+      },
+      {
+        "type": "header",
+        "content": "Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "fb_enable",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "fb_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "url",
+        "id": "fb_link",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "WhatsApp"
+      },
+      {
+        "type": "checkbox",
+        "id": "wa_enable",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "wa_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "url",
+        "id": "wa_link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "wa_text",
+        "label": "Text"
+      },
+	  {
+        "type": "text",
+        "id": "promo_title",
+        "label": "Discount Promo Title"
+      },
+      {
+        "type": "text",
+        "id": "promo_subject_text",
+        "label": "Promo subject label"
+      },
+      {
+        "type": "text",
+        "id": "promo_page_text",
+        "label": "Promo Page Name"
+      },
+      {
+        "type": "url",
+        "id": "promo_page_url",
+        "label": "Promo Page Link"
+      },
+      {
+        "type": "text",
+        "id": "promo_discount_percentage",
+        "label": "Promo Discount Percentage"
+      },
+      {
+        "type": "text",
+        "id": "promo_collection_text",
+        "label": "Promo Collection Name",
+        "default": "Eco Luxe Essentials"
+      },
+      {
+        "type": "url",
+        "id": "promo_collection_link",
+        "label": "Promo Collection Link"
+      },
+      {
+        "type": "text",
+        "id": "promo_discount_number",
+        "label": "Promo Discount Number"
+      },
+      {
+        "type": "text",
+        "id": "promo_discount_message",
+        "label": "Promo Discount Notice"
+      }
+      , {
+            "type": "text",
+            "id": "minicart_upsell_title",
+            "label": "Minicart Upsell Title"
+        }, {
+            "type": "collection",
+            "id": "upsell_collection",
+            "label": "Upsell Collection"
+        }, {
+            "type": "text",
+            "id": "mobile_search_view_all_product_lbl",
+            "label": "Mobile Search View All Product Label"
+        }, {
+            "type": "text",
+            "id": "mobile_search_product_title",
+            "label": "Mobile Product Title"
+        }, {
+            "type": "text",
+            "id": "mobile_search_collection_title",
+            "label": "Mobile Collection Title"
+        }, {
+            "type": "text",
+            "id": "mobile_search_page_title",
+            "label": "Mobile Page Title"
+        }, {
+            "type": "text",
+            "id": "mobile_search_suggestion_title",
+            "label": "Mobile Suggestion Title"
+        }, {
+            "type": "text",
+            "id": "mobile_search_not_found",
+            "label": "Mobile Search Not Found Text"
+        }, {
+            "type": "text",
+            "id": "mobile_search_article_title",
+            "label": "Mobile Search Article Title"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Desktop - Top messages",
+            "settings": [
+                {
+                    "id": "title",
+                    "type": "text",
+                    "label": "Text"
+                }, {
+                    "id": "message_url",
+                    "type": "url",
+                    "label": "URL"
+                }
+            ]
+        }, 
+        {
+            "type": "mobile",
+            "name": "Mobile - Top messages",
+            "settings": [
+                {
+                    "id": "title_mobile",
+                    "type": "text",
+                    "label": "Text for Mobile"
+                }, {
+                    "id": "message_url_mobile",
+                    "type": "url",
+                    "label": "URL for mobile"
+                }
+            ]
+        }
+    ]
+  }
+{% endschema %}

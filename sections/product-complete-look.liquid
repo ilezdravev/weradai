@@ -1,0 +1,66 @@
+{% assign related_product_one = all_products[product.metafields.sf_complete_look.related_product_1] %}
+{% assign related_product_two = all_products[product.metafields.sf_complete_look.related_product_2] %}
+{% assign related_product_three = all_products[product.metafields.sf_complete_look.related_product_3] %}
+{% assign related_product_four = all_products[product.metafields.sf_complete_look.related_product_4] %}
+
+{% if product.metafields.sf_complete_look.related_product_1 != blank %}
+<div class="complete-look-wrapper mt-5 py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% if section.settings.subtitle != blank %}
+          <h3>{{ section.settings.subtitle }}</h3>
+        {% endif %}
+        {% if section.settings.title != blank %}
+          <h4>{{ section.settings.title }}</h4>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      {% if related_product_one != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_one %}
+        {% include 'product-grid' %}
+      </div>
+      {% endif %}
+      {% if related_product_two != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_two %}
+        {% include 'product-grid' %}
+      </div>
+      {% endif %}
+      {% if related_product_three != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_three %}
+        {% include 'product-grid' %}
+      </div>
+      {% endif %}
+      {% if related_product_four != blank %}
+      <div class="col-6 col-sm-6 col-md-3">
+        {% assign product = related_product_four %}
+        {% include 'product-grid' %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+{% schema %}
+    {
+        "name": "You'll also love",
+        "settings": [
+            {
+                "type": "text",
+                "id": "subtitle",
+                "label": "Subtitle"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title"
+            }
+        ]
+    }
+{% endschema %}

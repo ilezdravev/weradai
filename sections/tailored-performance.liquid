@@ -1,0 +1,106 @@
+{%- assign set = section.settings -%}
+<div class="tailored-performance-section">
+    <div class="container" {%- if set.tailored_text_position == 'right' -%} style="flex-direction: row-reverse;text-align: right;" {%- endif -%}>
+        <div class="tailored-performance__txt-wrapper">
+            {%- if set.tailored_performance_title != blank -%}<p class="tailored-performance__title">{{ set.tailored_performance_title }}</p>{%- endif -%}
+            {%- if set.tailored_powered_by != blank -%}<p class="tailored-performance__title powered_by">{{ set.tailored_powered_by }}</p>{%- endif -%}
+            {%- if set.tailored_performance_text != blank -%}{{ set.tailored_performance_text }}{%- endif -%}
+            {%- if set.tailored_powered_by != blank -%}<a href="{{ set.tailored_btn_url }}" class="btn btn-border desktop">{{ set.tailored_btn_text }}</a>{%- endif -%}
+        </div>
+        <div class="tailored-performance__slider-wrapper" data-slider-container>
+            <div class="tailored-performance-items" data-tailored-performance-slider>
+                {% for block in section.blocks %}
+                    {%- assign blck = block.settings -%}
+                    <div class="tailored-performance-item">
+                        <div class="ij oy">
+                            <a class="tailored-performance-item-link" href="{{ blck.tailored_url }}">
+                                <img loading="lazy" class="lazyload" height="auto" data-src="{{ blck.tailored_img | img_url: 'master' }}" alt="{{ blck.tailored_title }}" class="tailored__img" />
+                                <div class="tailored-performance-item-txt">{{ blck.tailored_title }}</div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}               
+            </div>
+        </div>
+        {%- if set.tailored_powered_by != blank -%}<a href="{{ set.tailored_btn_url }}" class="btn btn-border mobile">{{ set.tailored_btn_text }}</a>{%- endif -%}
+    </div>
+</div>    
+{% schema %}
+{
+    "name": "Tailored Performance",
+    "class": "tailored-performance-feature-section",
+  	"tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "tailored_performance_title",
+            "label": "Performance Title"
+        },
+        {
+            "type": "text",
+            "id": "tailored_powered_by",
+            "label": "Powered By"
+        },
+        {
+            "type": "richtext",
+            "id": "tailored_performance_text",
+            "label": "Performance Description"
+        },
+        {
+            "type": "text",
+            "id": "tailored_btn_text",
+            "label": "Button Text",
+            "default": "Shop All"
+        },
+        {
+            "type": "url",
+            "id": "tailored_btn_url",
+            "label": "Button Url"
+        },
+        {
+            "type": "select",
+            "id": "tailored_text_position",
+            "label": "Text Alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Tailored Performance Item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "tailored_img",
+                    "label": "Tailored Performance Image"
+                },                
+                {
+                    "id": "tailored_title",
+                    "type": "richtext",
+                    "label": "Tailored Performance Title"
+                }, 
+                {
+                    "id": "tailored_url",
+                    "type": "url",
+                    "label": "Tailored Performance URL"
+                }
+            ]
+        }
+    ], 
+    "presets": [
+    {
+        "name": "Tailored Performance",
+        "category": "Banner"
+    }
+    ]
+}
+{% endschema %}

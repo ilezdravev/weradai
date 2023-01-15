@@ -1,0 +1,63 @@
+<nav class="nav-dropdown" data-dropdown-parent id="{{ block.id }}">
+    <div class="container {% if block.type == 'dropdown_banner' %}m-banner{% endif %}">
+
+      <div class="row">
+        {%- assign counter = 0 -%}
+        {%- for i in (1..6) -%}
+          {%- capture list_title -%}list{{ i }}_title{%- endcapture -%}
+          {%- capture menu_list -%}link{{ i }}_list{%- endcapture -%}
+          {%- capture image_block -%}image{{ i }}_image{%- endcapture -%}
+
+          {%- capture image -%}image{{ i }}_image{%- endcapture -%}
+          {%- capture title -%}image{{ i }}_title{%- endcapture -%}
+          {%- capture text -%}image{{ i }}_text{%- endcapture -%}
+          {%- capture url -%}image{{ i }}_url{%- endcapture -%}
+
+          <div class="col-2 {% if block.settings.image4_image != blank and i == 4 %}border-left{% endif %}">
+            {% if block.settings[menu_list] != blank and block.settings[image_block] == blank%}
+              {% comment %} Menu Linklist layout {% endcomment %}
+              {%- assign menu = block.settings[menu_list] -%}
+              {% if block.settings[list_title] != blank %}
+                <h4 class="nav-dropdown__title">{{ block.settings[list_title] }}</h4>
+              {% endif %}
+              <div class="nav m-level-2">
+                <ul class="nav__items m-level-2">
+                  {% for link_level_2 in linklists[menu].links %}
+                    <li class="nav__item m-level-2">
+                      <a class="nav__link m-level-2" href="{{ link_level_2.url }}">{{ link_level_2.title }}</a>
+                      {%- if link_level_2.links != blank -%}
+                        <ul class="nav__items m-vertical m-level-3">
+                          {% for link_level_3 in link_level_2.links %}
+                            <li class="nav__item m-level-3">
+                              <a class="nav__link m-level-3" href="{{ link_level_3.url }}">{{ link_level_3.title }}</a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                        {% comment %} / .nav__items.m-level-3 {% endcomment %}
+                      {%- endif -%}
+                    </li>
+                  {% endfor %}
+                </ul>
+                {% comment %} / .nav__items.m-level-2 {% endcomment %}
+              </div>
+            {% elsif block.settings[image_block] != blank and block.settings[menu_list] == blank %}
+              {% comment %} Image block layout {% endcomment %}
+              <div class="image-link-col">
+                <a class="image-link no-hover-link lazyload" href="{{ block.settings[url] }}" {{ block.shopify_attributes }}>
+                  {%- assign ratio = 4 | divided_by: 3.00 | times: 100 -%}
+                  <div class="image-link__image" style="background-image: url({{ block.settings[image] | img_url: '1000x' }}); padding-top: {{ ratio }}%"></div>
+                  <h4 class="image-link__title"> {{ block.settings[title] }} {% render 'icon-arrow-right-thin' %}</h4>
+                  <div class="image-link__text"> {{ block.settings[text] }}</div>
+                </a>
+              </div>
+            {% else %}
+            {% endif %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+
+    </div>
+  </nav> <!-- /.nav-dropdown -->
+  
+  

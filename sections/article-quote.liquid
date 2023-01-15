@@ -1,0 +1,42 @@
+<div class="blog-container article-section">
+    <div class="container">
+        <div class="row justify-content-center article-quote">
+            <div class="col-sm-6">
+                <blockquote>
+                    <p class="text-font-secondary">{{ section.settings.article_quote }}</p>
+                    <footer class="text-font-secondary">{% if section.settings.article_quote_link != blank %}<a href="/">{% endif %}- {{ section.settings.article_quote_author }}{% if section.settings.article_quote_link != blank %}</a>{% endif %}</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article Quote",
+    "tag": "section",
+    "settings": [
+    {
+        "type": "textarea",
+        "id": "article_quote",
+        "label": "Quote"
+    },
+    {
+        "type": "text",
+        "id": "article_quote_author",
+        "label": "Author"
+    },
+    {
+        "type": "url",
+        "id": "article_quote_link",
+        "label": "Author"
+    }
+    ],
+    "presets": [
+      {
+        "name": "Article Quote",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

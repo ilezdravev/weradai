@@ -1,0 +1,105 @@
+<div class="tpfilter-item__inner {% if collection.handle == 'popup-store-trouser-finder' %}pt-0{% endif %}">
+  <div class="tpfilter-products">
+    <h2 class="tpfilter-item__title mb-2">High-performance never looked and felt so good.</h2>
+    <p class="tpfilter-item__subtitle mt-0 mb-5">Don’t just take our word for it. Here’s 10% off your first order. Use
+      code <b>“PERFECTFIT”</b></p>
+    {% comment %} HIDE FILTERS <div class="tpfilter-tags"></div>{% endcomment %}
+    <div class="tpfilter-noresults text-center" data-tpfilter-noResults>
+      <p class="tpfilter-item__subtitle mt-5 mx-5">Our algorithm is smart but not nearly as smart as our stylists. We'll be in touch to find your best fit. In the meantime, let's go shopping.</p>
+      {% comment %} Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
+      {% if collection.handle != 'popup-store-trouser-finder' %}
+        <a href="/collections/all-products" target="_blank" class="btn btn-primary tpfilter-product__btn">Shop all</a>
+      {% endif %}
+      {% comment %} END of Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
+    </div>
+    {% for product in collection.products %}
+    {% comment %} Product: {% endcomment %}
+    {% render 'tpfilter-product' %}
+    {% comment %} End product {% endcomment %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="tpfilter-item__innerAccent">
+  <div class="tpfilter-products tpfilter-products--extra">
+    <h2 class="tpfilter-item__title mb-2">Looking for more comfort?</h2>
+    <p class="tpfilter-item__subtitle">These look good on everyone.</p>
+    {% comment %} Hardcoded products: {% endcomment %}
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        {% assign product = all_products[settings.tff_extra_product_one] %}
+        {% render 'tpfilter-extra-product', extraProduct: true %}
+      </div>
+      <div class="col-md-6">
+        {% assign product = all_products[settings.tff_extra_product_two] %}
+        {% render 'tpfilter-extra-product', extraProduct: true %}
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        {% assign product = all_products[settings.tff_extra_product_three] %}
+        {% render 'tpfilter-extra-product', extraProduct: true %}
+      </div>
+      <div class="col-md-6">
+        {% assign product = all_products[settings.tff_extra_product_four] %}
+        {% render 'tpfilter-extra-product', extraProduct: true %}
+      </div>
+    </div>
+  </div>
+</div> 
+
+{% comment %} Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
+{% if collection.handle == 'popup-store-trouser-finder' %}
+  <button type="button" data-tpfilter-again class="btn btn-primary tpfilter-item__btn--next mt-5">START AGAIN</button>
+{% endif %}
+{% comment %} END of Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
+
+
+{% comment %} Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
+{% if collection.handle != 'popup-store-trouser-finder' %}
+<div class="tpfilter-item__moreHelpSection my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <h2 class="tpfilter-item__title mb-2">Need further fit help?</h2>
+          <p class="tpfilter-item__subtitle mt-0 mb-5">Our stylists are here.</p>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm-6 col-xl-3">
+        {% comment %} Chat {% endcomment %}
+        <div class="option-box">
+          {% render 'icon-chat' %}
+          <p class="tpfilter-item__subtitle mt-0">Chat</p>
+          <a href="javascript:$zopim.livechat.window.show();" class="btn btn-primary">Chat with us</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+        {% comment %} Email {% endcomment %}
+        <div class="option-box">
+          {% render 'icon-email' %}
+          <p class="tpfilter-item__subtitle mt-0">experience@daiwear.com</p>
+          <a href="mailto:experience@daiwear.com?subject=Stylist%20Fit%20Assistance" class="btn btn-primary">Email us</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+        {% comment %} Call {% endcomment %}
+        <div class="option-box">
+          {% render 'icon-call' %}
+          <p class="tpfilter-item__subtitle mt-0">+44 7501 383648</p>
+          <a href="tel:447501383648" class="btn btn-primary">Call us</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+        {% comment %} Visit {% endcomment %}
+        <div class="option-box">
+          {% render 'icon-location' %}
+          <p class="tpfilter-item__subtitle mt-0">Dai Showroom</p>
+          <a href="/pages/contact-us" class="btn btn-primary">Visit us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% comment %} END of Disable for Pop Up Store Trouser Fit Finder {% endcomment %}

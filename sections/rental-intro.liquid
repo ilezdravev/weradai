@@ -1,0 +1,193 @@
+{% assign set = section.settings %}
+<div class="rental-intro" id="top">
+  <div class="container text-center">
+    {% if set.supertitle %}
+    <h5 class="rental-intro__supertitle">{{ set.supertitle }} </h5>
+    {% endif %}
+    {% if set.title %}
+      <h1 class="rental-intro__title">{{ set.title }}</h1>
+    {% endif %}
+        {% if set.subtitle %}
+      <h4 class="rental-intro__subtitle">{{ set.subtitle }}</h4>
+    {% endif %}
+    {% if set.text %}
+      <div class="rental-intro__text">{{ set.text }}</div>
+    {% endif %}
+     {% if set.img %}
+    <div class="rental-intro__photo" style="background-image: url({{ set.img | img_url: 'master' }})"> <p></p></div>   {% endif %}  
+   <h3 class="rental-how-this-works"> How this works: </h3>
+    
+    <div class="row rental-steps">
+     
+      <div class="col-md-4 rental-step1">
+        <h4 class="rental-step-title">  STEP 1 </h4>
+        <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/t/90/assets/DAI_Suit.png?v=1612380791" width="75px">
+        <h4 class="rental-step-title">  {% if set.step1title %} {{ set.step1title }} {% endif %}</h4>
+        
+        
+        {% if set.step1text %}
+      <div class="rental-step-text">{{ set.step1text }}</div>
+   	 {% endif %}
+        <p></p>
+        <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/t/90/assets/DAI_Rentals.gif?v=1612367620" width="280px" style="margin-top:10px;"> 
+        
+      </div>
+      <div class="col-md-4 rental-step2"> 
+        <h4 class="rental-step-title">  STEP 2 </h4> 
+                <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/t/90/assets/DAI_Styling-01.png?v=1612380785" width="75px">
+
+        <h4 class="rental-step-title">  {% if set.step2title %} {{ set.step2title }} {% endif %}</h4>
+            {% if set.step2atext %}
+      <div class="rental-step-text">{{ set.step2atext }}</div>
+   	 {% endif %}
+        
+        <p style="margin-bottom:10px">&#8212;</p>
+  
+         {% if set.step2btext %}
+      <div class="rental-step-text">{{ set.step2btext }}</div>
+   	 {% endif %}
+        
+     <a href="#studentpromo" class="btn btn-border cd-popup-trigger">Get Student Promo</a>
+        
+          <div class="cd-popup" role="alert" id="studentpromo">
+            <div class="cd-popup-container studentpromo">
+              <div class="popup-content studentpromo">
+                <!-- CONTAINER -->
+     			<div class="klaviyo-form-VgXuWK"></div>
+ 
+              </div>
+  
+              <a href="#section-{{ block.id }}" class="cd-popup-close img-replace">Close</a>
+            </div> <!-- cd-popup-container -->
+          </div> <!-- cd-popup -->
+  
+        
+        
+      </div>
+      <div class="col-md-4 rental-step3"> 
+            <h4 class="rental-step-title">  STEP 3 </h4> 
+                <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/t/90/assets/DAI_PepTalk.png?v=1612380798" width="75px">
+
+         <h4 class="rental-step-title">  {% if set.step3title %} {{ set.step3title }} {% endif %}</h4>
+        {% if set.step3text %}  {% endif %}
+     	 <div class="rental-step-text">{{ set.step3text }}</div>
+ 		{% if set.btn_text != blank %}
+                  <a href="{{ set.btn_url }}" class="btn btn-border cd-popup-trigger">{{ set.btn_text }}</a>
+                {% endif %}
+        
+   		
+        
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
+
+<div class="cd-popup" role="alert" id="book-appointment-popup">
+    <div class="cd-popup-container square-popup">
+        <div class="popup-content">
+            <iframe src="https://calendly.com/daiwear/online-stylist-consult" width="100%" height="650" frameborder="0" id="book_showroom"></iframe>
+        </div>
+        <a href="#book-appointment-popup" class="cd-popup-close img-replace">Close</a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+
+
+{% schema %}
+{
+  "settings": [
+  	{
+      "type": "text",
+      "id": "supertitle",
+      "label": "Title Header",
+      "default": "Introducing..."
+    },   
+	{
+      "type": "text",
+      "id": "title",
+      "label": "Title Primary",
+      "default": "DAI Rentals"
+    },
+	{
+      "type": "text",
+      "id": "subtitle",
+      "label": "Title Secondary",
+      "default": "Performance, Rented"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p> Intro text xxxxxxxxxx </p>"
+    },
+ 	{
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+    },
+  	{
+      "type": "text",
+      "id": "step1title",
+      "label": "Step 1",
+      "default": "01. Choose your suit"
+    },	
+	{
+      "type": "richtext",
+      "id": "step1text",
+      "label": "Step 1 Text",
+      "default": "<p> <strong>3 powerful kits</strong> from <br> our most tried-and-tested look </p>"
+    },
+	{
+          "type": "image_picker",
+          "id": "step1img",
+          "label": "Step 1 Image"
+    },
+	{
+      "type": "text",
+      "id": "step2title",
+      "label": "Step 2 Title",
+      "default": "02. Pick your plan"
+    },
+	{
+      "type": "html",
+      "id": "step2atext",
+      "label": "Step 2 Text Rent",
+	  "default": "<p> <strong>Rent for 1, 2, or 4 weeks</strong><br> Wear it. Flaunt it. No tags. <br>Let us worry about the cleaning. <br>Option to buy later at special rate. <br> Free return within 24hrs </p>"
+    },
+	{
+      "type": "html",
+      "id": "step2btext",
+      "label": "Step 2 Text Buy",
+	  "default": "<p> <strong>Buy now</strong> <br>20% off for students with a valid educational email address. <br>30 day stress-free returns</p>"
+    },
+	{
+      "type": "text",
+      "id": "step3title",
+      "label": "Step 3 Title",
+      "default": "03. Get a free pep talk"
+    },
+	{
+      "type": "richtext",
+      "id": "step3text",
+      "label": "Step 3 Text",
+"default": "<p> First time in a suit? Or just need a pep talk? We got you.</p><p><strong>Schedule a styling session </strong> virtually.<br> Only 30 mins investment for looks that will last your career </p>"
+	},
+		{
+        "type": "header",
+        "content": "Calendly Button"
+      },
+      {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button Url"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Calendly Button Text"
+      }
+
+  ]
+}
+{% endschema %}

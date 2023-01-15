@@ -1,0 +1,442 @@
+<div itemscope itemtype="http://schema.org/Product" class="tff-v2__product-details">
+
+    {% assign product = all_products[section.settings.tff_v2_product] %}
+    {% render with product %}
+    
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+    {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+  
+    <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+    <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+    <meta itemprop="brand" content="{{ product.vendor }}">
+    <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+    <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+    
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-7 product-images-side mobile-remove-padding">
+            <!--===== PRODUCT IMAGERY =====-->
+            <div class="product-photo-wrapper">
+              <!-- MAIN PHOTO -->
+              <div class="product-photo-slider-wrapper">
+                <div class="product-photo-slider">
+                  {% for image in product.images %}
+                  {% unless image.alt contains 'lifestyle' or image.alt contains 'tpfilter:image' %}
+                  <div class="product-photo">
+                    <img
+                        loading="lazy" class="lazyload image-zoom" height="auto" width="{{ image.width }}" 
+                        src="{{ image | img_url: 'master' }}" 
+                        data-zoom="{{ featured_image | img_url: 'master' }}" 
+                        title="{% if image.alt %}{{ product.title }}{% else %}{{ image.alt | escape }}{% endif %}" 
+                        alt="{% if image.alt %}{{ product.title }}{% else %}{{ image.alt | escape }}{% endif %}" 
+                      /> 
+                  </div>
+                  {% endunless %}
+                {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-5 product-information-side product-details-wrapper" data-product-details-wrapper>
+            <!--===== PRODUCT DETAILS =====-->
+            <div class="product-details" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" data-product-details>
+              <h1>{{ product.title }}</h1>
+              <div class="short-description">{{ product.description }}</div>
+              <div data-price-wrapper class="product-price">
+                <div class="product-price-discount d-flex mb-1">
+                  <span data-product-price>
+                    {{ current_variant.price | money }}
+                  </span>
+                  {% for tag in product.tags %}              
+                      {% if tag contains 'promo:' %}
+                        <div class="product-promo-discount d-flex align-items-center ml-2">
+                            {{ section.settings.promo_discount_text_btn }}
+                        </div>
+                      {% endif %}
+                  {% endfor %} 
+                
+                
+                {% if product.compare_at_price_max > product.price %}
+                  <s data-compare-price class="rrp-price">
+                    {% if current_variant.compare_at_price > current_variant.price %}
+                      {{ current_variant.compare_at_price | money }}
+                    {% endif %}
+                  </s>
+                {% endif %}
+                </div>
+              </div>
+              {% comment %} / product heading {% endcomment %}
+              
+              {% include 'product-other-colours' %}
+    
+              <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+                <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+                <form action="/cart/add" method="post" enctype="multipart/form-data">
+                  <input type="hidden" class="pid" value="{{product.id}}">
+                  <input type="hidden" class="ptitle" value="{{product.title | remove: "'" | remove: '"'}}">
+                  <input type="hidden" class="pprice" value="{{product.variants.first.price | times: 0.01}}">
+                  <input type="hidden" class="pbrand" value="{{product.vendor | remove: "'" | remove: '"'}}">
+                  <input type="hidden" class="ptype" value="{{product.type | remove: "'" | remove: '"'}}">
+                  <input type="hidden" class="pcollection" value="{{ product.collections.last.title | remove: "'" | remove: '"' }}">
+                  {% comment %} product swatches: {% endcomment %}
+                  <div class="product-swatches">
+                    {% unless product.has_only_default_variant %}
+                      {% for option in product.options_with_values %}
+                        <div class="selector-wrapper js">
+                          <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                            {{ option.name }}
+                          </label>
+                          <select
+                            id="SingleOptionSelector-{{ forloop.index0 }}"
+                            data-single-option-selector="{{ product.handle }}"
+                            data-index="option{{ option.position }}"
+                            class="single-option-selector">
+                            {% for value in option.values %}
+                              <option
+                                value="{{ value | escape }}"
+                                {% if option.selected_value == value %}selected="selected"{% endif %}>
+                                  {{ value }}
+                              </option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      {% endfor %}
+                    {% endunless %}
+                    <select name="id" class="no-js" data-product-select>
+                      {% for variant in product.variants %}
+                        <option
+                          {% if variant == current_variant %}selected="selected"{% endif %}
+                          {% unless variant.available %}disabled="disabled"{% endunless %}
+                          value="{{ variant.id }}">
+                            {{ variant.title }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                    {% if product.variants.size > 1 %}
+                      {% for option in product.options %}
+                        {% assign downcased_option = option | handle %}
+                        {% if downcased_option contains 'inseam' %}
+                            {% include 'dropdown-option-legging' %}
+                         {% elsif downcased_option contains 'length' %}
+                            {% include 'dropdown-option' %}
+                          {% elsif downcased_option contains 'qty' %}
+                            {% include 'dropdown-option-dropdown' %}
+                          {% else %}
+                            {% include 'swatch' with option %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                  {% comment %} / product swatches {% endcomment %}
+    
+                  <div class="stock-info {% if current_variant.inventory_quantity <= 3 and current_variant.inventory_quantity != 0 %}is-visible{% endif %}">
+                    {% render 'icon-lowstock' %} Only <span data-stock-amount>{{ current_variant.inventory_quantity }} </span> left in stock
+                  </div>
+                  {% comment %} /.stock-info {% endcomment %}
+                  
+                  <div class="shipping-message">
+                      <p>
+                      {% assign ship_date = product.metafields.sf_preorders.expected_ship_date %}
+                      {% if ship_date %}
+                        {% render 'icon-box' %} <span style="font-weight:700;"> Expected to ship {{ ship_date  }}</span>
+                      {% else %}
+                          {% render 'icon-box' %}
+                          {% if shop.domain == 'us.daiwear.com' %}
+                            Free shipping above $250, easy returns
+                          {% else %}
+                            Free delivery above &pound;250, free UK returns
+                          {% endif %}
+              
+                      {% endif %}
+                    </p>
+                  </div>
+                  {% comment %} /.shipping-message {% endcomment %}
+                  {% if product.template_suffix == "pre-order" %}
+                    <input style="display: none" type="radio" name="properties[Item availability]" value="preorder" checked>
+                  {% endif %}
+                  <div class="cta-line">
+                  {% if product.template_suffix == "pre-order" %}
+                    <button
+                    class="btn btn-primary pre-order-add-cta"
+                    type="button"
+                    name="add"
+                    data-add-to-cart
+                    data-variant="{{ product.variants[0].id }}"
+                    {% unless current_variant.available %}disabled="disabled"{% endunless %}
+                    {% if current_variant.options[1] != blank %}disabled="disabled"{% endif %}>
+                      <span>
+                          Preorder
+                      </span>
+                  </button>
+                  {% else %}
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      name="add"
+                      data-add-to-cart
+                      data-variant="{{ current_variant.id }}"
+                      {% unless current_variant.available %}disabled="disabled"{% endunless %}
+                      {% if current_variant.options[1] != blank %}disabled="disabled"{% endif %}>
+                        <span data-add-to-cart-text>
+                          {% if current_variant.available or current_variant.options[1] != blank %}
+                            {{ 'products.product.add_to_cart' | t }}
+                          {% else %}
+                            {{ 'products.product.sold_out' | t }}
+                          {% endif %}
+                        </span>
+                    </button>
+                  {% endif %}
+                  </div>
+                </form>
+              </div>
+              {% unless product == empty %}
+                <script type="application/json" data-product-json>
+                  {{ product | json }}
+                </script>
+                <script type="application/json" data-variants-json>
+                  [
+                  {%- for variant in product.variants -%}
+                    {
+                      "id": {{ variant.id }},
+                      "inventory_quantity": {{ variant.inventory_quantity }}
+                    }
+                  {%- unless forloop.last -%}
+                    ,
+                  {%- endunless -%}
+                  {%- endfor -%}
+                  ]
+                </script>
+              {% endunless %}
+            </div>
+            {% comment %} /.product-details {% endcomment %}
+    
+            <div class="highlights">
+              {%- if product.metafields.sf_highlights.title != blank -%}
+                <h3 class="highlights__title ta-center">{{ product.metafields.sf_highlights.title }}</h3>
+              {%- endif -%}
+              <div class="row">
+                {%- if product.metafields.sf_highlights.icon_1 != blank -%}
+                  <div class="col-md-4">
+                    <div class="highlights__icon" style="background-image: url({{ product.metafields.sf_highlights.icon_1 }})"></div>
+                    <div class="highlights__text">{{ product.metafields.sf_highlights.icon_1_text }}</div>
+                  </div>
+                {%- endif -%}
+                {%- if product.metafields.sf_highlights.icon_2 != blank -%}
+                  <div class="col-md-4">
+                    <div class="highlights__icon" style="background-image: url({{ product.metafields.sf_highlights.icon_2 }})"></div>
+                    <div class="highlights__text">{{ product.metafields.sf_highlights.icon_2_text }}</div>
+                  </div>
+                {%- endif -%}
+                {%- if product.metafields.sf_highlights.icon_3 != blank -%}
+                  <div class="col-md-4">
+                    <div class="highlights__icon" style="background-image: url({{ product.metafields.sf_highlights.icon_3 }})"></div>
+                    <div class="highlights__text">{{ product.metafields.sf_highlights.icon_3_text }}</div>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+    
+            {% include 'product-tabs' %}
+    
+            {% comment %}
+            {% render 'product-badges' %}
+            {% endcomment %}
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  
+  {% schema %}
+    {
+      "name": "Product pages",
+      "settings": [
+        {
+            "type": "product",
+            "id": "tff_v2_product",
+            "label": "Product"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_share_buttons",
+          "label": "Show social sharing buttons",
+          "default": true
+        },
+        {
+           "type": "page",
+           "id": "size_guide_page",
+           "label": "Size Guide page"
+        },
+          {
+           "type": "page",
+           "id": "denim_size_guide_page",
+           "label": "Denim Size Guide page"
+        },
+        {
+          "type": "page",
+          "id": "length_size_guide_page",
+          "label": "Length Help page"
+       },
+      {
+          "type": "page",
+          "id": "legging_size_guide_page",
+          "label": "Legging Length Help page"
+       },
+       {
+         "type": "header",
+         "content": "Product Promo"
+       },
+       {
+        "type": "checkbox",
+        "id": "show_product_promo",
+        "label": "Enabled promo",
+        "default": true,
+        "info": "When enabled, this promo message will appear in selected product pages"
+        },
+        {
+          "type": "image_picker",
+          "id": "nhs_icon",
+          "label": "Icon"
+        },
+        {
+          "type": "color",
+          "id": "nhs_bg",
+          "label": "Background color",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "nhs_color",
+          "label": "Text color",
+          "default": "#fff"
+        },
+       {
+        "type": "richtext",
+        "id": "nhs_text",
+        "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "nhs_url",
+          "label": "URL"
+       },
+       {
+        "type": "checkbox",
+        "id": "show_nhs_promo_1",
+        "label": "Trousers",
+        "default": true
+        },
+       {
+        "type": "checkbox",
+        "id": "show_nhs_promo_2",
+        "label": "Jackets",
+        "default": true
+        },
+       {
+        "type": "checkbox",
+        "id": "show_nhs_promo_3",
+        "label": "Tops",
+        "default": true
+        },
+       {
+        "type": "checkbox",
+        "id": "show_nhs_promo_4",
+        "label": "Dresses",
+        "default": true
+        },
+       {
+        "type": "checkbox",
+        "id": "show_nhs_promo_5",
+        "label": "Skirts",
+        "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_nhs_promo_6",
+          "label": "Masks",
+          "default": true
+        },
+      {
+        "type": "header",
+        "content": "WhatsApp Chat"
+      },
+      {
+        "type": "checkbox",
+        "id": "wa_enable",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "wa_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "wa_text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "wa_link",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "WhatsApp Button"
+      },
+      {
+        "type": "checkbox",
+        "id": "wa_btn_enable",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "wa_btn_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "wa_btn_text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "wa_btn_link",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Complete the look links"
+      },
+      {
+        "type": "text",
+        "id": "ctl_link_1_text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "ctl_link_1_url",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "ctl_link_2_text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "ctl_link_2_url",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "promo_discount_text_btn",
+        "label": "Promo Discount Text"
+      }
+      ]
+    }
+  {% endschema %}

@@ -1,0 +1,111 @@
+<script type="application/json" data-cart-json>
+  {{ cart | json }}
+</script>
+<aside data-widget="minicart" data-minicart class="widget minicart hide">
+  <div class="minicart__header"><span>Shopping bag ({ cart.item_count })</span>  <a href="#" class="minicart__close cd-popup-close" data-widget-toggle="minicart"></a></div>
+  <div class="minicart__body">
+     <div class="minicart__items">
+      <div class="minicart__item" rv-each-item="cart.items">
+        <a rv-href="item.url" class="minicart__item-image"><img class="minicart__item-image" rv-src="item.image" alt=""></a>
+        <div class="minicart__item-info">
+          <p class="minicart__item-title"><a rv-href="item.url">{ item.product_title }</a></p>
+          <p class="minicart__item-options" rv-unless="item.variant_options.0 | isDefaultTitle">
+            { item.variant_options.0 } { item.variant_options.1 }
+          </p>
+          <div class="minicart__item-price">
+            <div>{ item.quantity } x <span class="price money">{ item.original_price | formatMoney }</span></div>
+          </div>
+          <div class="minicart__add-remove d-flex justify-content-between">
+            <div class="e-buttons d-flex">
+              <button
+                class="e-btn m-decr"
+                rv-data-id="item.id"
+                type="button"
+                onclick="qty('decr', 'minicart')">-</button>                
+              <input rv-id="item.id" rv-value="item.quantity" class="e-input js-qty" rv-data-line="index" rv-data-qty="item.quantity" rv-data-id="item.id" name="quantity" readonly />
+              <button
+                class="e-btn"
+                rv-data-id="item.id"
+                type="button"
+                onclick="qty('incr', 'minicart')">+</button>
+            </div>
+            <button class="btn-remove btn btn-underline btn-small" data-remove-from-cart rv-data-line="index"><small>Remove</small></button>
+          </div>
+          <div rv-error-id="item.id" class="error hide" data-qty-error></div>
+        </div>
+      </div>
+    </div>
+
+    {%- if section.settings.promo_title != blank -%}
+      <div class="minicart__promo-notice">
+          <div class="minicart__promo-title"><span>{{ section.settings.promo_title | replace: '@collection_name@', section.settings.promo_collection_text }}</span>
+              {% render 'icon-close' %}</div>
+        {%- if section.settings.promo_discount_message != blank -%}
+          {% capture collection_name %}
+            <a href="{{ section.settings.promo_collection_link }}">{{ section.settings.promo_collection_text }}</a>
+          {% endcapture %}
+          {% capture discount_percentage %}
+            <strong>{{ section.settings.promo_discount_percentage }}</strong>
+          {% endcapture %}
+          <div class="minicart__promo-message">{{ section.settings.promo_discount_message | replace: '@number_of_amount@', section.settings.promo_discount_number | replace: '@collection_name@', collection_name | replace: '@percentage@', discount_percentage }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.promo_subject_text != blank -%}
+          {% capture promo_link %}
+            <a href="{{ section.settings.promo_page_url }}">{{ section.settings.promo_page_text }}</a>
+          {% endcapture %}
+          <div class="minicart__promo-link">{{ section.settings.promo_subject_text | replace: '@promo_page_link@', promo_link }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    
+    
+    {% comment %}Mobile and Desktop: Add a Perfect Match{% endcomment %}
+    {%- assign upsell_collection = collections[section.settings.upsell_collection].products -%}
+    
+    {% assign upsell_products = '' %}  
+    {% for item in cart.items %}
+      {% assign upsell_products = upsell_products | append: item.product.handle | append: ',' %}  
+    {% endfor %}
+    
+    <div class="minicart__loader"></div>
+    <div class="minicart__upsell"> 
+      <h4 class="minicart__upsell-title">{{ section.settings.minicart_upsell_title | upcase }}</h4>        
+      <div class="minicart__perfect-matchs-list">
+        <div class="minicart__perfect-match-text-container loaded" data-slider>
+        {% for product in upsell_collection limit: 5 %}             
+          <div data-quick-add-handle="{{ product.title | downcase | replace: " ", "-" }}">
+              <div class="minicart__perfect-match">                    
+                <div class="minicart__perfect-match-content">
+                  <div data-quick-add-place="{{ product.url }}?view=quickAdd-minicart"></div>
+                </div>
+              </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% comment %}Mobile and Desktop: Add a Perfect Match{% endcomment %}
+
+  </div>
+  
+  
+    
+  
+  
+  <div class="minicart__footer">
+    <div class="minicart__subtotal" rv-unless="cart.total_price">Subtotal: 
+      <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>
+      <span class="">0</span>
+    </div>
+    <div class="minicart__subtotal" rv-if="cart.total_price">Subtotal: 
+      <span class="Bold-theme-hook-DO-NOT-DELETE bold_cart_total" style="display:none !important;"></span>
+      <span class="">{ cart.total_price | formatMoney }</span>
+    </div>
+    <div class="d-flex justify-content-between minicart__buttons">
+      <a href="/cart" class="minicart__btn btn-white">VIEW CART</a>
+      <a rv-href="'/checkout'" class="minicart__btn m-checkout">CHECKOUT</a>
+    </div>
+  </div>
+</aside>
+<div class="minicart-bg"></div>

@@ -1,0 +1,66 @@
+<div class="container section-padding image-content-block" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <div class="row align-items-center">
+    <div class="col-sm-6 {% if section.settings.image_position == 'image-right' %}order-last{% endif %}">
+      <img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.image_placeholder.width }}" src="{{ section.settings.image_placeholder | img_url: 'master' }}" alt="{{ section.settings.title }}" title="{{ section.settings.title }}">
+    </div>
+    <div class="col-sm-6">
+      <div class="text-area {% if section.settings.image_position == 'image-right' %}align-right{% endif %}">
+        <h2>{{ section.settings.title }}</h2>
+        <p>{{ section.settings.description }}</p>
+        {% if section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Content Block",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "URL"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_placeholder",
+        "label": "Image Placeholder",
+        "info": "Image that will be shown until video is fully loaded and also on mobile devices"
+      },
+      {
+         "type":      "radio",
+         "id":        "image_position",
+         "label":     "Image Position",
+         "options": [
+           { "value": "image-left", "label": "Left" },
+           { "value": "image-right", "label": "Right" }
+         ],
+         "default":   "image-left"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image Block",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

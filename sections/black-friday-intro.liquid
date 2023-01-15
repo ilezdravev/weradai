@@ -1,0 +1,39 @@
+{% assign set = section.settings %}
+<div class="pop-stores-intro">
+  <div class="container text-center">
+    {% if set.title2 %}
+      <h3 class="pop-stores-intro__subtitle">{{ set.title2 }}</h3>
+    {% endif %}
+    {% if set.title %}
+      <h1 class="pop-stores-intro__title">{{ set.title }}</h1>
+    {% endif %}
+    {% if set.text %}
+      <div class="pop-stores-intro__text">{{ set.text }}</div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Title Secondary",
+      "default": "Introducing"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title Primary",
+      "default": "Performance Spaces"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Our global pop-up series of experience spaces to discover our performance fabrics, find your perfect fit, and explore the science behind our latest innovative eco developments. Experience performance.</p>"
+    }
+  ]
+}
+{% endschema %}

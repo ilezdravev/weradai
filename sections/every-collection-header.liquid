@@ -1,0 +1,119 @@
+<div class="container-fluid every-collection-wrapper" style="background: url({{ section.settings.image | img_url: 'master' }});">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{{ section.settings.main_title }}</h1>
+                <div class="body-section">
+                  <h2>{{ section.settings.sub_title }}</h2>
+                  <p>{{ section.settings.description }}</p>
+                  <div class="buttons-area">
+                      <a href="{{ section.settings.button_one_url }}" class="btn btn-primary {% if section.settings.button_one_url contains '#signup-email'%}cd-popup-trigger{% endif %}" {% if section.settings.button_one_new_window %}target="_blank"{% endif %}>
+                        {{ section.settings.button_one_text }}
+                      </a>
+                      {% if section.settings.button_two_text != blank %}
+                        <span>or</span>
+                        <a href="https://api.whatsapp.com/send/?phone=447501383648&text=Hey%20Dai,%20I%20want%20early%20to%20the%20Every%20Collection%20please!"  loading="lazy" class="btn btn-primary lazyload" {% if section.settings.button_two_new_window %}target="_blank"{% endif %}>
+                          {{ section.settings.button_two_text }} <img loading="lazy" class="lazyload" src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/whatsapp-white.png?v=1600947256"/>
+                        </a>
+                      {% endif %}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container every-collection-mobile-wrapper">
+  <div class="row">
+      <div class="col-sm-12">
+        <h2>{{ section.settings.sub_title }}</h2>
+          <p>{{ section.settings.description }}</p>
+          <div class="buttons-area">
+              <a href="{{ section.settings.button_one_url }}" class="btn btn-primary {% if section.settings.button_one_url contains '#signup-email'%}cd-popup-trigger{% endif %}" {% if section.settings.button_one_new_window %}target="_blank"{% endif %}>
+                {{ section.settings.button_one_text }}
+              </a>
+              {% if section.settings.button_two_text != blank %}
+                <span>or</span>
+                <a href="https://api.whatsapp.com/send/?phone=447501383648&text=Hey%20Dai,%20I%20want%20early%20to%20the%20Every%20Collection%20please!" class="btn btn-primary" {% if section.settings.button_two_new_window %}target="_blank"{% endif %}>
+                  {{ section.settings.button_two_text }} <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/whatsapp-white.png?v=1600947256"/>
+                </a>
+              {% endif %}
+          </div>
+      </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Page Header",
+    "settings": [
+    {
+        "type": "header",
+        "content": "Text"
+    },
+      {
+        "type": "richtext",
+        "id": "main_title",
+        "label": "Main Title"
+      },
+      {
+        "type": "richtext",
+        "id": "sub_title",
+        "label": "Sub Title"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background image"
+      },
+      {
+          "type": "header",
+          "content": "Buttons"
+      },
+      {
+        "type": "text",
+        "id": "button_one_text",
+        "label": "Button #1 Text",
+        "placeholder": "Sign up via email"
+      },
+      {
+        "type": "url",
+        "id": "button_one_url",
+        "label": "Button #1 URL"
+      },
+      {
+        "type":      "checkbox",
+        "id":        "button_one_new_window",
+        "label":     "Open in a new window?",
+        "default":   false
+      },
+      {
+        "type": "text",
+        "id": "button_two_text",
+        "label": "Button #2 Text",
+        "placeholder": "Sign up via whatsapp"
+      },
+      {
+        "type": "url",
+        "id": "button_two_url",
+        "label": "Button #2 URL"
+      },
+      {
+        "type":      "checkbox",
+        "id":        "button_two_new_window",
+        "label":     "Open in a new window?",
+        "default":   false
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,285 @@
+<div class="container">
+  {% for block in section.blocks %}
+    {% case block.type %}
+
+    {% when 'header' %}
+    <div class="row">
+      <div class="col-12">
+        <div class="lookbook-two-header" style="background: url({{ block.settings.header-image | img_url: 'master' }})">
+          <h1>{{ block.settings.title }}</h1>
+        </div>
+      </div>
+    </div>
+
+      {% when 'full-width-one-product' %}
+      <!-- FULL WITH ONE IMAGE -->
+      <div class="row">
+        <div class="col-12 direction-row {% if block.settings.text-align == 'left' %}row-reverse{% endif %}">
+          {% assign product_one = block.settings.featured_product_one %}
+          {% render 'product-lookbook-one' %}
+        </div>
+      </div>
+
+      {% when 'half-width-two-products' %}
+      <!-- TWO PRODUCTS SIDE BY SIDE -->
+      <div class="row">
+        <div class="col-6">
+          {% assign product_one = block.settings.featured_product_one %}
+          {% render 'product-lookbook-one' %}
+        </div>
+        <div class="col-6">
+          {% assign product_two = block.settings.featured_product_two %}
+          {% render 'product-lookbook-two' %}
+        </div>
+      </div>
+
+    {% when 'half-width-one-product' %}
+    <!-- FULL WITH ONE IMAGE -->
+    <div class="row justify-content-center">
+      <div class="col-7">
+        {% assign product_one = block.settings.featured_product_one %}
+        {% render 'product-lookbook-one' %}
+      </div>
+    </div>
+
+    {% when 'full-width-two-products' %}
+    <!-- TWO PRODUCTS SIDE BY SIDE -->
+    <div class="row">
+      <div class="col-12 direction-row {% if block.settings.text-align == 'left' %}row-reverse{% endif %}">
+        {% assign product_one = block.settings.featured_product_one %}
+        {% render 'product-lookbook-one-two' %}
+      </div>
+    </div>
+
+    {% when 'button-block' %}
+    <div class="row text-center">
+      <div class="col-12">
+        <div class="lookbook-header">
+          <a href="{{ block.settings.button }}" class="btn btn-primary">{{ block.settings.button-text }}</a>
+        </div>
+      </div>
+    </div>
+
+  {% endcase %}
+{% endfor %}
+</div>
+
+{% schema %}
+       {
+         "blocks": [
+           {
+             "type": "header",
+             "name": "Header",
+             "settings": [
+               {
+                 "id": "header-image",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+               {
+                 "id": "title",
+                 "type": "text",
+                 "label": "Title"
+               }
+             ]
+           },
+           {
+             "type": "full-width-one-product",
+             "name": "One product (1/1)",
+             "settings": [
+             {
+              "type": "header",
+              "content": "Product availability"
+             },
+             {
+                "type": "checkbox",
+                "id": "product_unavailable",
+                "label": "Hide product",
+                "info": "If product is no longer available for sale, please tick this box"
+              },
+              {
+                "id": "category_link",
+                "type": "url",
+                "label": "Category URL"
+              },
+              {
+                "type": "header",
+                "content": "Section content"
+               },
+               {
+                 "id": "look-image-one",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+               {
+                 "type":      "radio",
+                 "id":        "text-align",
+                 "label":     "Text position",
+                 "options": [
+                   { "value": "left", "label": "Left" },
+                   { "value": "right", "label": "Right" }
+                 ],
+                 "default":   "right"
+              },
+              {
+                "type": "header",
+                "content": "Products"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_one",
+                 "label": "Product #1"
+              }
+             ]
+           },
+           {
+             "type": "half-width-one-product",
+             "name": "One product (1/2)",
+             "settings": [
+             {
+              "type": "header",
+              "content": "Product availability"
+             },
+             {
+                "type": "checkbox",
+                "id": "product_unavailable",
+                "label": "Hide product",
+                "info": "If product is no longer available for sale, please tick this box"
+              },
+              {
+                "id": "category_link",
+                "type": "url",
+                "label": "Category URL"
+              },
+              {
+                "type": "header",
+                "content": "Section content"
+               },
+               {
+                 "id": "look-image-one",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+              {
+                "type": "header",
+                "content": "Products"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_one",
+                 "label": "Product #1"
+              }
+             ]
+           },
+           {
+             "type": "full-width-two-products",
+             "name": "Two products (1/1)",
+             "settings": [
+             {
+              "type": "header",
+              "content": "Product availability"
+             },
+             {
+                "type": "checkbox",
+                "id": "product_unavailable",
+                "label": "Hide product",
+                "info": "If product is no longer available for sale, please tick this box"
+              },
+              {
+                "id": "category_link",
+                "type": "url",
+                "label": "Category URL"
+              },
+              {
+                "type": "header",
+                "content": "Section content"
+               },
+               {
+                 "id": "look-image-one",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+              {
+                "type": "header",
+                "content": "Products"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_one",
+                 "label": "Product #1"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_two",
+                 "label": "Product #2"
+              }
+             ]
+           },
+           {
+             "type": "half-width-two-products",
+             "name": "Two products (1/2)",
+             "settings": [
+             {
+              "type": "header",
+              "content": "Product availability"
+             },
+             {
+                "type": "checkbox",
+                "id": "product_unavailable",
+                "label": "Hide product",
+                "info": "If product is no longer available for sale, please tick this box"
+              },
+              {
+                "id": "category_link",
+                "type": "url",
+                "label": "Category URL"
+              },
+              {
+                "type": "header",
+                "content": "Section content"
+               },
+               {
+                 "id": "look-image-one",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+               {
+                 "id": "look-image-two",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+              {
+                "type": "header",
+                "content": "Products"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_one",
+                 "label": "Product #1"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_two",
+                 "label": "Product #2"
+              }
+             ]
+           },
+           {
+             "type": "button-block",
+             "name": "Button",
+             "settings": [
+             {
+               "id": "button-text",
+               "type": "text",
+               "label": "Text"
+             },
+               {
+                 "id": "button",
+                 "type": "url",
+                 "label": "URL"
+               }
+             ]
+           }
+         ]
+       }
+     {% endschema %}

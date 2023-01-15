@@ -1,0 +1,145 @@
+<style>
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url({{ section.settings.image_placeholder | img_url: 'master' }}) center center / cover no-repeat!important;
+  }
+}
+</style>
+
+<div class="video-banner" style="background: url({{ section.settings.image_placeholder | img_url: 'master' }}) center center / cover no-repeat!important;">
+  <div class="fullscreen-bg">
+    <video id="myVideo" loop muted autoplay class="fullscreen-bg__video">
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+      <!-- add .ogv and .webm to cover all compatible devices  -->
+    </video>
+  </div>
+  <div class="home-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>{{ section.settings.title }}</h1>
+          <h2>{{ section.settings.subtitle }}</h2>
+          <div class="extra-text">
+            {{ section.settings.extra_description }}
+          </div>
+          {% if section.settings.button_link != blank %}
+            <a href="{{ section.settings.button_link }}" class="btn btn-secondary first">{{ section.settings.button_text  }}</a>
+          {% endif %}
+          {% if section.settings.button_link_two != blank %}
+            <a href="{{ section.settings.button_link_two }}" class="btn btn-secondary">{{ section.settings.button_text_two  }}</a>
+          {% endif %}
+          <div class="small-print">{{ section.settings.small_print }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ------------------------- HOMEPAGE VIDEO FADE IN EFFECT ON LOAD -------------------------
+  var e = document.getElementById("myVideo");
+  e.style.opacity = 0;
+
+  var vid = document.getElementById("myVideo");
+  vid.oncanplaythrough = function() {
+  var e = document.getElementById('myVideo');
+    fade(e);
+  };
+
+  function fade(element) {
+    var op = 0;
+    var timer = setInterval(function() {
+        if (op >= 1) clearInterval(timer);
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1 || 0.1;
+    }, 20);
+  }
+</script>
+
+
+{% schema %}
+  {
+    "name": "Video",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      },
+      {
+        "type": "header",
+        "content": "Extra text"
+      },
+      {
+        "type": "richtext",
+        "id": "extra_description",
+        "label": "Text"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "URL"
+      },
+      {
+        "type": "text",
+        "id": "button_text_two",
+        "label": "Button"
+      },
+      {
+        "type": "url",
+        "id": "button_link_two",
+        "label": "URL"
+      },
+      {
+        "type": "header",
+        "content": "Small Print"
+      },
+      {
+        "type": "richtext",
+        "id": "small_print",
+        "label": "Text"
+      },
+      {
+        "type": "header",
+        "content": "Video Settings"
+      },
+      {
+        "type": "text",
+        "id": "video_url",
+        "label": "Video URL",
+        "info": "Upload video to Settings > Files and copy/paste URL here"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_placeholder",
+        "label": "Image Placeholder",
+        "info": "Image that will be shown until video is fully loaded and also on mobile devices"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video",
+        "category": "Main Banner"
+      }
+    ]
+  }
+{% endschema %}

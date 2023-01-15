@@ -1,0 +1,101 @@
+{% render 'dna-service-box' %}
+
+{% schema %}
+  {
+    "name": "DNA Service Box (Area #2)",
+    "settings": [],
+    "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Service Box",
+      "settings": [
+        {
+            "type": "header",
+            "content": "Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "select",
+            "id": "image_pos",
+            "label": "Image position",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "header",
+            "content": "Section number"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+        },
+        {
+            "type": "header",
+            "content": "Link #1"
+        },
+        {
+            "type": "url",
+            "id": "link_url_1",
+            "label": "URL"
+        },
+        {
+            "type": "text",
+            "id": "link_text_1",
+            "label": "Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "link_icon_1",
+            "label": "Icon"
+        },
+        {
+            "type": "header",
+            "content": "Link #2"
+        },
+        {
+            "type": "url",
+            "id": "link_url_2",
+            "label": "URL"
+        },
+        {
+            "type": "text",
+            "id": "link_text_2",
+            "label": "Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "link_icon_2",
+            "label": "Icon"
+        }
+      ]
+      }
+    ]
+  }
+{% endschema %}

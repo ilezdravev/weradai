@@ -1,0 +1,433 @@
+<style class="custom-swym-wishlist-css">
+  .swym-wishlist-page .section-header {
+    border-bottom: 1px solid #707070;
+    margin: 44px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .swym-wishlist-page .section-header .underline.back_dashboard {
+    display: none;
+  }
+  .swym-wishlist-page .section-header h1{    
+    padding-bottom: 24px;
+    margin: 0;
+  }
+  #wishlist-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;    
+  }
+  .no-js:not(html) {
+    display: none;
+  }
+  .swym-selector-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  #wishlist-items-container .swym-wishlist-grid {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+  .swym-wishlist-page .product-grid-block .size-guide-button, .swym-wishlist-page .product-grid-block .cd-popup {
+    display: block !important;
+    width: 100% !important;
+  }
+  .swym-wishlist-page .product-grid-block .size-guide-button {
+    text-decoration: underline;
+  }
+  #wishlist-items-container .view-select-selected {
+    min-height: 41px;
+    margin-top: 1rem;
+  }
+  
+
+  .swym-wishlist-grid .swym-is-anchor {
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: none;
+    touch-action: manipulation;
+  }
+  .swym-wishlist-grid * {
+    font-size: 100%;
+    font: inherit;
+    font-family: "HelveticaNeue",Helvetica,Verdana,Arial,sans-serif;
+    line-height: 1.4em;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    border: 0;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-transform: none;
+  }
+
+  a.swym-wishlist-item.swym-is-anchor {
+    background: #fff;
+    border: 1px solid #333;
+    width: 21%;
+    margin: 0 4% 4% 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  button.swym-delete-btn.swym-nav.swym-nav-1.swym-is-button {
+    position: relative;
+  }
+  button.btn.btn-primary {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+
+  .swym-wishlist-grid .swym-wishlist-image-wrapper {
+    overflow: hidden !important;
+    height: 180px;
+  }
+
+  .swym-wishlist-grid .swym-wishlist-image-wrapper img {
+    max-width: 100%;
+  }
+
+  .swym-wishlist-grid .swym-is-button {
+    text-align: left;
+    background: inherit;
+    width: auto;
+    z-index: auto;
+    display: inline-block;
+    background: 0;
+    border: 0;
+    text-transform: none;
+    bottom: auto;
+    box-shadow: none;
+    clear: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: medium;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: auto;
+    left: auto;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    min-height: 0;
+    min-width: 0;
+    opacity: 1;
+    padding: 0;
+    position: static;
+    right: auto;
+    text-align: inherit;
+    text-decoration: none;
+    text-transform: none;
+    top: auto;
+    transform: none;
+    visibility: visible;
+  }
+
+ 
+
+  button.swym-add-to-cart-btn.swym-button.swym-button-1.swym-is-button.swym-is-button {
+    z-index : 5;
+    font-weight: bold;
+  }
+  button.swym-add-to-cart-btn.swym-button.swym-button-1.swym-is-button.swym-is-button.out-of-stock {
+    background-color: #ccc;
+  }
+
+  button.swym-delete-btn.swym-nav.swym-nav-1.swym-is-button {
+    z-index : 1000;
+    width: 100%;
+  }
+  .swym-is-button .swym-title.swym-title-1 {
+    font-weight: bold;
+    font-size: 16px;
+    color: #4f4f4f;
+    margin: 12px 15px 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .swym-wishlist-grid .swym-wishlist-item .swym-variant-title {
+    font-size: 14px;
+    line-height: 16px;
+    color: #333;
+    margin: 0 15px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .compare-price {
+    margin-left: 12px;
+    text-decoration: line-through;
+    color: #999;
+  }
+
+  .swym-wishlist-grid .swym-wishlist-item .swym-product-price {
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 15px 13px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .swym-wishlist-grid .swym-product-price .swym-product-final-price {
+    display: inline-block;
+    margin-right: .4em;
+  }
+
+  .swym-wishlist-grid .swym-wishlist-item .swym-add-to-cart-btn {
+    background: #dc3b1a;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 6px;
+    display: block;
+    color: #fff;
+  }
+  .cart-error, .size-guide-img-mobile {
+    display: none;
+  }
+  .template-page .cd-popup-container .popup-content {
+    overflow: scroll;
+    max-height: 85vh;
+  }
+  #wishlist-items-container .product-grid-block .product-badge {
+    left: 28px;
+  }
+  #wishlist-items-container .product-grid-block span.product-badge.product-badge-New {
+    left: 10px !important;
+  }
+  #wishlist-items-container .product-grid-block .view-btn {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font: inherit;
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    vertical-align: middle;
+    letter-spacing: 2px;
+    transition: all .3s ease;
+    white-space: normal;
+    font-weight: bold;
+  }
+  #wishlist-items-container .product-grid-block .view-btn:hover, #wishlist-items-container .product-grid-block .view-btn:focus {
+    background: white;
+    color: #000;
+    border: 2px solid black;
+    padding: 10px 20px;
+    
+  }
+  .swym-wishlist-page .collection__wrapper .product-grid-block .product-name a {
+    min-height: 44px;
+  }
+ 
+  /* Custom Dropdown */
+  .product-grid-block {
+    overflow: initial;
+  }
+  .size-selector {
+    position: relative;
+    font-family: 'Lato';
+    width: 100%;
+  }
+  
+  .size-selector select {
+    display: none; 
+  }
+  
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: solid #000;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  
+ .select-selected {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 16px;    
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #000;
+    width: 100%;
+  }
+  
+  .select-items {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #000;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  .select-items div {
+    padding: 6px 10px;
+    font-weight: 500;
+  }
+  
+  .select-hide, .swym-wishlist-page .product-grid-block .quick-add .close-dropdown {
+    display: none;
+  }
+  
+  .selected-size, .select-items div:hover {
+    background-color: #e7c8be;
+  }
+
+    .length-selector .select-selected {
+      display: none;
+    }
+
+
+  /*   Mobile Screens   */
+
+
+  /*   Ipad   */
+  @media only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (-webkit-min-device-pixel-ratio: 1) {
+      .swym-wishlist-grid .swym-wishlist-image-wrapper {
+        overflow: hidden !important;
+        height: 280px;
+      }
+    }
+
+  /* Landscape */
+  @media only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (orientation: landscape) 
+    and (-webkit-min-device-pixel-ratio: 1) {
+      .swym-wishlist-grid .swym-wishlist-image-wrapper {
+        overflow: hidden !important;
+        height: 100px;
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .swym-wishlist-page .collection__wrapper .product-grid-block .product-name a {
+        min-height: 52px;
+      }
+      #wishlist-items-container .product-grid-block .view-btn {
+        font-size: 9px;
+        padding: 6px;
+        max-height: 30px;
+        margin-top: 14px;
+      }
+      .swym-wishlist-page .section-header .underline.back_dashboard {
+        display: block;
+        text-decoration: underline;
+      }
+      .size-guide-img-mobile {
+        display: block;
+      }
+      .size-guide-img-desktop {
+        display: none;
+      }
+      .page-width {
+        padding: 0 20px;
+      }
+      .grid__item {
+        padding-left: 20px;
+      }
+      .container.collection__wrapper {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .col-6 {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      .btn.btn-border, .btn.btn-primary {
+        font-size: 9px;
+        padding: 4px;
+      }
+      .select-selected {
+        font-size: 9px;
+      }
+      .select-selected:after {
+        top: 8px;
+      }
+      .select-items {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        min-height: 28vh;
+      }
+      .select-items div {
+        text-align: center;
+      }
+      .select-items div:first-child {
+        margin-top: 40px;
+      }
+      .swym-wishlist-page .product-grid-block .quick-add .size-guide-button {
+          display: block !important;
+          width: 26%;
+          position: fixed;
+          top: 72%;
+          text-decoration: underline;
+      }
+      .swym-wishlist-page .product-grid-block .quick-add .close-dropdown {
+        display: block;
+        position: fixed;
+        width: 8px;
+        top: 74%;
+        right: 40px;
+      }
+      .swym-wishlist-page .product-grid-block .quick-add .close-dropdown:before, .swym-wishlist-page .product-grid-block .quick-add .close-dropdown:after {
+        right: -20px;
+        content: "";
+        position: absolute;       
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+      }
+      .close-dropdown:before {
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+          left: 8px;
+      }
+      .close-dropdown:after {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        right: 8px;
+      }
+    }
+
+  button#swym-custom-add-toCartBtn[data-state-cart="swym-added"]{
+    background : #e7c8be;
+  }
+</style>

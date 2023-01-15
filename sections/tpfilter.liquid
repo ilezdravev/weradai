@@ -1,0 +1,66 @@
+<div class="tff-v2-loader"></div>
+<div class="tpfilter" data-tpfilter id="tff-quiz">
+    {% comment %} Welcome: {% endcomment %}
+    <div class="tpfilter-item welcome" data-tpfilter-item="welcome">
+        <div class="tpfilter-welcome__wrapper">
+          <img src="{{ section.settings.tff_bg_image_desktop | img_url: 'master' }}" width="{{ section.settings.tff_bg_image_desktop.width }}" height="auto" class="lazyload tpfilter-welcome-bg desktop" loading="lazy" />
+          <img src="{{ section.settings.tff_bg_image_mobile | img_url: 'master' }}" width="{{ section.settings.tff_bg_image_mobile.height }}" height="auto" class="lazyload tpfilter-welcome-bg mobile" loading="lazy" />
+          <div class="tpfilter-item__inner">
+              <div class="container tpfilter-welcome__content">
+                  <h2 class="tpfilter-item__title">{{ section.settings.tff_title_text }}</h2>
+                  <h4 class="tpfilter-item__subtitle">{{ section.settings.tff_sub_title_text }}</h4>
+                  <p class="tff-v2__welcome-text">{{ section.settings.tff_btn_description }}</p>
+                  <button class="btn btn-primary tpfilter-item__btn--next mt-5" data-tpfilter-next type="button">{{ section.settings.tff_btn_text }}</button>
+              </div>
+          </div>
+        </div>
+    </div>
+    {% comment %} End Welcome {% endcomment %}
+
+
+</div>
+{%- comment -%} End Tpfilter {%- endcomment -%}
+
+
+{% schema %}
+{
+  "name": "Trouser Fit Finder",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "tff_bg_image_desktop",
+      "label": "Background Image For Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "tff_bg_image_mobile",
+      "label": "Background Image For Mobile"
+    },
+    {
+      "type": "text",
+      "id": "tff_title_text",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "tff_sub_title_text",
+      "label": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "tff_btn_description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "tff_btn_text",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "tff_btn_url",
+      "label": "URL"
+    }
+  ]
+}
+{% endschema %}

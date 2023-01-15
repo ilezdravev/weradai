@@ -1,0 +1,57 @@
+<div class="container section-padding icons-section" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <div class="row">
+    <div class="col-12 align-center">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row usp-section">
+        {% for block in section.blocks %}
+        <div class="col-6 col-md-3 icon-wrapper">
+          <img height="auto" width="{{ block.settings.icon.width }}" loading="lazy" class="lazyload" src="{{ block.settings.icon | img_url: 'master' }}" alt="{{ block.settings.text }}" title="{{ block.settings.text }}" />
+          <span>{{ block.settings.icon_text }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Icons Section",
+    "max_blocks": 8,
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icons",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

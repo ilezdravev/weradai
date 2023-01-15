@@ -1,0 +1,46 @@
+{% assign set = section.settings %}
+<div class="pop-stores-intro london-store-intro"
+  style= "{% if set.img %} background-image: url({{ set.img | img_url: 'master' }}); {% endif %} color: {{ set.color }}">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 offset-md-6">
+        {% if set.title %}
+          <h1 class="pop-stores-intro__title">{{ set.title }}</h1>
+        {% endif %}
+        {% if set.title2 %}
+          <h3 class="pop-stores-intro__subtitle">{{ set.title2 }}</h3>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title Primary",
+      "default": "DAI PERFORMANCE SPACE"
+    },
+    {
+      "type": "textarea",
+      "id": "title2",
+      "label": "Title Secondary",
+      "default": "18 JUNE – 15 JULY <br> MARYLEBONE, LONDON"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Title Color",
+      "default": "#000"
+    },
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

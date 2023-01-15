@@ -1,0 +1,13 @@
+{% section 'product' %}
+{% section 'product-dynamic-content' %}
+{% section 'product-complete-look' %}
+{% section 'product-usp-sections' %}
+{%- assign _collections = product.collections | map: 'handle' | join: ',' -%}
+{% if _collections contains 'trousers' or _collections contains 'pants' %}
+  {% section 'product-fit-finder' %}
+{% endif %}
+
+{% comment %}
+{% section 'product-icons' %}
+{% section 'product-lifestyle-images' %}
+{% endcomment %}

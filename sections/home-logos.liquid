@@ -1,0 +1,40 @@
+<div class="container section-padding" {{ block.shopify_attributes }}>
+    <div class="row justify-content-center">
+      <div class="col-sm-12">
+          <div class="testimonial-logos-container" data-logo-slider>
+            {% for block in section.blocks %}
+                <div class="testimonials-thumb">
+                <img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.logo.width }}" src="{{ block.settings.logo | img_url: 'master' }}" />
+                </div>
+            {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  {% schema %}
+    {
+      "name": "Logos",
+      "max_blocks": 6,
+      "blocks": [
+        {
+          "type": "text",
+          "name": "Logos",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "logo",
+              "label": "Logo"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Logos",
+          "category": "Content"
+        }
+      ]
+    }
+  {% endschema %}
+  

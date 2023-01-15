@@ -1,0 +1,344 @@
+<footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 about-site">
+          <img loading="lazy" class="lazyload" height="auto" width="{{ section.settings.logo.width }}" src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" title="{{ shop.name }}" />
+          <p>{{ section.settings.about_company }}</p>
+          {%- assign social_accounts = 'Instagram, Facebook, Twitter, Pinterest, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+          <ul class="social-links">
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                    {% render social_icon %}
+                    <span class="icon-fallback-text">{{ social }}</span>
+                  </a>
+                </li>
+              {% endif %}
+
+            {% endfor %}
+          </ul>
+          {% if section.settings.show_country_switcher == true %}
+            {% render 'change-country-select' %}
+          {% endif %}
+      </div>
+      <div class="col-sm-12 col-md-2 b-corp-logo">
+        <img loading="lazy" class="lazyload" height="auto" width="225" src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/2018-B-Corp-Logo-Black-S-Edited.png?v=1605789313" />
+      </div>
+      <div class="col-sm-12 col-md-2">
+        {%- assign footer_linklist_one = section.settings.footer_linklist_one -%}
+        {% if linklists[footer_linklist_one].links.size > 0 %}
+        <h3>{{ linklists[footer_linklist_one].title }}</h3>
+          <ul class="footer-links">
+            {% for link in linklists[footer_linklist_one].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="col-sm-12 col-md-2">
+        {%- assign footer_linklist_two = section.settings.footer_linklist_two -%}
+        {% if linklists[footer_linklist_two].links.size > 0 %}
+        <h3>{{ linklists[footer_linklist_two].title }}</h3>
+          <ul class="footer-links">
+            {% for link in linklists[footer_linklist_two].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="col-sm-12 col-md-3 order-first order-lg-last newsletter-block">
+        <h3>{{ section.settings.newsletter_title }}</h3>
+        <p>{{ section.settings.newsletter_text }}</p>
+
+       <div class="klaviyo-form-UGvBxR"></div>
+
+      </div>
+    </div>
+    <div class="row copyright">
+      <div class="col-sm-12 col-md-9">
+        &copy; {{ 'now' | date: "%Y" }} Joanna Dai Limited. Registered company number: 10409375
+      </div>
+      <div class="col-sm-12 col-md-3">
+        {% if section.settings.show_payment_icons %}
+            {%- assign payment_icons_available = 'apple_pay,amazon_payments,american_express,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' -%}
+            <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+            <ul class="payment-icons">
+              <li>{% render 'icon-apple_pay' %}</li>
+              <li>{% render 'icon-american_express' %}</li>
+              <li>{% render 'icon-visa' %}</li>
+              <li>{% render 'icon-master' %}</li>
+              <li>{% render 'icon-maestro' %}</li>
+              <li>{% render 'icon-paypal' %}</li>
+            </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "About Company"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "textarea",
+        "id": "about_company",
+        "label": "Text"
+      },
+      {
+        "type": "header",
+        "content": "Link list #1"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_one",
+        "label": "Menu"
+      },
+      {
+        "type": "header",
+        "content": "Link list #2"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_two",
+        "label": "Menu"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "newsletter_text",
+        "label": "Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Country Switcher"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_country_switcher",
+        "label": "Show country switcher",
+        "default": false
+      }
+    ]
+  }
+
+{% endschema %}
+
+
+<script>
+  ms_view_all_product_lbl = "{{ section.settings.mobile_search_view_all_product_lbl }}";
+  ms_product_title = "{{ section.settings.mobile_search_product_title }}";
+  ms_collection_title = "{{ section.settings.mobile_search_collection_title }}";
+  ms_article_title = "{{ section.settings.mobile_search_article_title }}";
+  ms_page_title = "{{ section.settings.mobile_search_page_title }}";
+  ms_suggestion_title = "{{ section.settings.mobile_search_suggestion_title }}";
+  ms_not_found = "{{ section.settings.mobile_search_not_found }}";
+</script>
+
+<script>
+            
+    document.getElementById("search-mbl").addEventListener("keyup", debounce(function (e) {
+        const inputText = e.target.value;
+        search_data(inputText)
+    }, 300));
+
+    
+    function search_data(input){
+        
+        let previousData = '';
+                
+        if(input && input.length >= 4 && input.length > previousData.length){
+            fetch(window.Shopify.routes.root + "search/suggest.json?q="+ input +"&resources[type]=product,page,article,collection")
+            .then((response) => response.json())
+            .then((data) => {
+
+                let searchResultDiv = document.querySelector('.mobile-search.active');
+                let searchContainer = document.querySelector('.container-search');
+                let searchResultWrapper = document.createElement("div");
+                searchResultWrapper.setAttribute('class', 'search-result-wrapper')
+
+                searchContainer.classList.remove("inactive");
+                
+                let products = data.resources.results.products;
+                let collections = data.resources.results.collections;
+                let pages = data.resources.results.pages;
+                let articles = data.resources.results.articles;
+                
+                if(document.querySelector('.search-result-wrapper') !== null){
+                    document.querySelector('.search-result-wrapper').remove();
+                }
+                
+                //if (document.getElementsByClassName('search-result-wrapper').length == 0){
+                   //---------------- Collection ---------------------------
+                    showItem('collection', searchResultWrapper, collections, ms_collection_title);
+                    //---------------- Page ---------------------------
+                    showItem('page', searchResultWrapper, pages, ms_page_title);
+                    //---------------- Article ---------------------------
+                    showItem('article', searchResultWrapper, articles, ms_article_title);
+
+                    //---------------- Product ---------------------------
+                    let headerContainer = document.createElement('div');
+                    headerContainer.setAttribute('class', 'container-header');
+
+                    let prodHeading = document.createElement('h3');
+                    let prodViewLink = document.createElement('a');
+                    prodHeading.innerText = ms_product_title ? ms_product_title : 'Products';
+                    prodViewLink.setAttribute('href', '/search?q='+input);
+                    //prodViewLink.innerText = 'View all products('+ products.length +')'
+                    prodViewLink.innerText = ms_view_all_product_lbl ? ms_view_all_product_lbl : 'View all products';
+                    headerContainer.appendChild(prodHeading);
+                    headerContainer.appendChild(prodViewLink);
+                    
+                    let itemContainerDiv = document.createElement('div')
+                    itemContainerDiv.setAttribute('class', 'container-item-wrapper')
+                    let displayProducts = products.length > 4 ? products.slice(0,4) : products;
+                    
+                    if(displayProducts.length > 0){
+                        displayProducts.forEach(product => {
+                        let prodDiv = document.createElement('div');
+                        prodDiv.setAttribute('class', 'item');
+                        let prodImg = document.createElement('img');
+                        let prodTitle = document.createElement('p');
+                        let prodPrice = document.createElement('span');
+                        prodImg.src = product.featured_image.url;
+                        prodImg.alt = product.featured_image.alt; //price, title, url
+
+                        prodTitle.innerHTML = product.title;
+                        prodPrice.innerHTML = product.price;
+
+                        prodDiv.appendChild(prodImg);
+                        prodDiv.appendChild(prodTitle);
+                        prodDiv.appendChild(prodPrice);
+
+
+                        let prodtLink = document.createElement('a');
+                        prodtLink.setAttribute('href', product.url)
+                        prodtLink.setAttribute('class', 'item-wrapper')
+                        prodtLink.appendChild(prodDiv);
+
+                        itemContainerDiv.setAttribute('class', 'container-item-wrapper border-bottom')
+                        itemContainerDiv.appendChild(prodtLink);
+                        
+                        });
+                    }else{
+                        let noProdFound = document.createElement('p')
+                        noProdFound.innerText = ms_not_found ? ms_not_found : "No product is found!";
+                        itemContainerDiv.appendChild(noProdFound);
+                    }
+                    searchResultWrapper.appendChild(headerContainer);
+                    searchResultWrapper.appendChild(itemContainerDiv);
+
+                    
+                    searchContainer.appendChild(searchResultWrapper);
+                    searchResultDiv.insertAdjacentElement('afterend', searchContainer);                
+
+                //}
+            }
+            ).catch(function(err){
+                console.log('Fetch api error-', err)
+            });
+        } else {
+            previousData= input || '';
+
+        }
+    }
+    function showItem(elem, parentNode, data, title){
+      let elemContainerDiv = document.createElement('div');
+      let showElements = data.length > 5 ? data.slice(0,5) : data;
+      if(showElements.length > 0){            
+          let elemHeading = document.createElement('h3');
+          elemHeading.innerText = title ? title : elem   
+
+          elemContainerDiv.setAttribute('class', 'container-'+ elem +'-wrapper')
+          elemContainerDiv.appendChild(elemHeading);
+          showElements.forEach(element => {
+            let elemItem = document.createElement('a');
+            elemItem.setAttribute('class', ''+ elem +'-item');
+            elemItem.setAttribute('href', element.url);
+            elemItem.innerHTML = element.title; 
+
+            // create svg right arrow icon
+            let arrowIcon = document.createElement('i')
+            arrowIcon.setAttribute('class', 'fa fa-long-arrow-right')
+            var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svg.setAttribute('class', 'h-6 w-6');
+                svg.setAttribute('width', '24');
+                svg.setAttribute('height', '24');
+                svg.setAttribute('fill', 'none');
+                svg.setAttribute('viewBox', '0 0 24 24');
+                svg.setAttribute('stroke', 'currentColor');
+                svg.setAttribute('stroke-width', '2');
+                
+                var pathElement = document.createElementNS("http://www.w3.org/2000/svg", 'path'); //Create a path in SVG's namespace
+                pathElement.setAttribute("d","M17 8l4 4m0 0l-4 4m4-4H3"); //Set path's data
+                pathElement.setAttribute("stroke-linecap", "round");
+                pathElement.setAttribute("stroke-linejoin", "round");
+                svg.appendChild(pathElement);
+            
+            elemItem.appendChild(svg)
+            
+            elemContainerDiv.appendChild(elemItem);
+          });
+          parentNode.appendChild(elemContainerDiv);
+      }
+    }
+ 
+    function debounce(callback, ms) {
+        let timer = 0;
+        return function() {
+            let context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                callback.apply(context, args);
+            }, ms || 0);
+        };
+    }
+
+    const mblSearch = document.querySelector(".mobile-search");
+    const mblSearchWrapper = document.querySelector(".container-search");
+
+    addEventListener("click", (e) => {
+        if (!e.target.closest(".btn-search-mbl") && !e.target.closest(".mobile-search") && !e.target.closest(".search-result-wrapper")){
+            mblSearch.classList.remove("active");
+            mblSearchWrapper.classList.add("inactive");
+            document.getElementById('search-mbl').value = '';
+        } 
+    });
+
+    const mblSrchCloseBtn = document.querySelector(".mobile-search .icon-close");
+    mblSrchCloseBtn.addEventListener("click", (e) => {
+      mblSearch.classList.remove("active");
+      mblSearchWrapper.classList.add("inactive");
+      document.getElementById('search-mbl').value = '';
+    });
+
+</script>

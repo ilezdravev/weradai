@@ -1,0 +1,72 @@
+<div class="blog-container article-section py-4">
+    <div class="container">
+        {% if section.settings.title != blank %}
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="fz-3">{{ section.settings.title }}</h2>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row justify-content-center article-related-articles">
+            {% for block in section.blocks %}
+            <div class="col-sm-4">
+                <a href="/">
+                    <div class="related__image">
+                        <img loading="lazy" class="lazyload" height="auto" width="{{ articles[block.settings.featured_article].image.src.width }}" src="{{ articles[block.settings.featured_article].image.src | img_url: '500x' }}"/>
+                    </div>
+                    <span class="label-text mb-1">{{ block.settings.article_category }}</span>
+                    <p>{{ block.settings.article_title }} <span>{{ block.settings.article_subtitle }}</span></p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article Related Articles",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Article",
+        "settings": [
+            {
+                "type": "article",
+                "id": "featured_article",
+                "label": "Featured article"
+            },
+            {
+                "type": "text",
+                "id": "article_category",
+                "label": "Category"
+            },
+            {
+                "type": "textarea",
+                "id": "article_title",
+                "label": "Title"
+            },
+            {
+                "type": "textarea",
+                "id": "article_subtitle",
+                "label": "Subtitle"
+            }
+        ]
+    }
+    ],
+    "presets": [
+      {
+        "name": "Article Related Articles",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

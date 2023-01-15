@@ -1,0 +1,82 @@
+<div class="container">
+    <h3 class="rental-our-kits"> The Kits: </h3>
+     {% for block in section.blocks %}
+       {% assign set = block.settings %}
+   
+       {% if set.widgetid %}
+    <div class="rental-wrapper-{{ set.widgetid }}"> 
+     <div class="rental-bundle-{{ set.widgetid }}"> {% endif %}
+       {% if set.bundleintro %} <h4 class="rental-bundle-intro"> {{ set.bundleintro }}</h4>{% endif %}
+       {% if set.bundlename %} <h2 class="rental-bundle-name">{{ set.bundlename }}</h2>{% endif %}
+        {% if set.bundletext %}
+       <div class="rental-bundle-text">
+      {{ set.bundletext }}
+       </div>{% endif %}
+        {% if set.bundleprice %}
+       <div class="rental-bundle-price">{{ set.bundleprice }}</div>
+       {% endif %}
+        {% if set.bundledescription %}
+       <div class="rental-bundle-description">{{ set.bundledescription }}</div>
+       {% endif %}
+       
+     </div>
+      {% if set.widgetid %}
+      <div class="bundle-wrapper bundle-wrapper-{{ set.widgetid }}" {% endif %}{% if set.img %} style="background-image: url({{ set.img | img_url: 'master' }})"> {% endif %} </div>
+     </div>
+    {% if set.widgetid %}
+   <div class="rental-widget-{{ set.widgetid }} rental-widget"><p></p></div>{% endif %}
+   <div class="discount-reminder">Your discount will be automatically applied at the <strong>final step </strong> of checkout</div>
+         <div class="back-to-top"> <a href="#MainContent"> &#8593; Back to the top </a></div>
+ 
+      {% endfor %}
+   
+ </div>
+ 
+ {% schema %}
+ {
+   "blocks": [
+     {
+       "type": "block",
+       "name": "widgets",
+       "settings": [
+         {
+           "type": "text",
+           "id": "widgetid",
+           "label": "Widget ID"
+         },
+         {
+           "type": "image_picker",
+           "id": "img",
+           "label": "Image"
+         },
+         {
+           "type": "text",
+           "id": "bundleintro",
+           "label": "Bundle Intro"
+         },
+         {
+           "type": "text",
+           "id": "bundlename",
+           "label": "Bundle Name"
+         },
+         {
+           "type": "richtext",
+           "id": "bundletext",
+           "label": "Bundle Text"
+         },
+         {
+           "type": "text",
+           "id": "bundleprice",
+           "label": "Bundle Price"
+         },
+     {
+           "type": "html",
+           "id": "bundledescription",
+           "label": "Bundle Description"
+         }
+       ]
+     }
+   ]
+ }
+ {% endschema %}
+ 

@@ -1,0 +1,29 @@
+{% section 'tpfilter' %}
+<div class="tff-v2-question-wrapper">
+{% render 'tff-v2-progress-bar' %}
+{% section 'tff-v2-q1-brings-today' %}
+{% section 'tff-v2-q2-recently-changed' %}
+{% section 'tff-v2-q3-preferred-style' %}
+{% section 'tff-v2-q4-brand' %}
+{% section 'tff-v2-q5-height' %}
+{% section 'tff-v2-q6-body-shape' %}
+{% section 'tff-v2-q7-trouser-size' %}
+{% section 'tff-v2-q8-tweener' %}
+{% section 'tff-v2-q9-trouser-cut' %}
+{% comment %} {% section 'tff-v2-q10-preferred-length' %} {% endcomment %}
+{% section 'tff-v2-q11-age' %}
+{% section 'tff-v2-q12-top-size' %}
+{% section 'tff-v2-q13-email' %}
+{% section 'tff-v2-preloader' %}
+</div>
+<div class="tff-v2__result-wrapper is-hidden" data-tpfilter-item="products">
+    {% section 'tff-v2-result-popup' %}
+    {% section 'tff-v2-result-summery' %}
+    {% section 'tff-v2-result-featured-products' %}
+    {% section 'tff-v2-result-product-details' %}
+    {% section 'tff-v2-result-slider' %}
+    {% section 'tff-v2-result-filter' %}
+</div>
+<script>
+    trouser_fit_finder_collection = "{{ settings.trouser_fit_finder_collection }}";
+</script>

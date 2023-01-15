@@ -1,0 +1,47 @@
+<div class="tpfilter-product {% if collection.handle == 'popup-store-trouser-finder' %}disable-links{% endif %}">
+  <div class="tpfilter-product__images" {% unless extraProduct %}data-tpfilter-slider{% endunless %}>
+    {% assign noImage = true %}
+    {% unless extraProduct %}
+      {% for image in product.images %}
+        {% if image.alt contains 'tpfilter:image' %}
+          <a class="tpfilter-product__link-img" target="_blank" href="{{ product.url }}" data-tpfilter-product-ga="{{ product.title }}"><img src="{{ image | img_url: '800x' }}" alt=""></a>
+          {% assign noImage = false %}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <a class="tpfilter-product__link-img" target="_blank" href="{{ product.url }}" data-tpfilter-product-ga="{{ product.title }}"><img src="{{ product.images[0] | img_url: '800x' }}"
+          alt=""></a>
+      {% assign noImage = false %}
+    {% endunless %}
+    {% if noImage %}
+      <a class="tpfilter-product__link-img" target="_blank" href="{{ product.url }}" data-tpfilter-product-ga="{{ product.title }}"><img src="{{ '' | img_url: 'master' }}" alt=""></a>
+    {% endif %}
+  </div>
+  <div class="product-details-wrapper">
+    <h1><a target="_blank" href="{{ product.url }}" data-tpfilter-product-ga="{{ product.title }}">{{ product.title }}</a></h1>
+    {% unless extraProduct %}<div class="short-description">{{ product.description }}</div>{% endunless %}
+    <div data-price-wrapper class="product-price {% if extraProduct %}mt-2{% endif %}">
+      <span data-product-price>
+        {{ product.variants[0].price | money }}
+      </span>
+      {% if product.compare_at_price_max > product.price %}
+        <s data-compare-price class="rrp-price">
+          {% if product.variants[0].compare_at_price > product.variants[0].price %}
+            {{ product.variants[0].compare_at_price | money }}
+          {% endif %}
+        </s>
+      {% endif %}
+    </div>
+    <div data-color-picker data-url="{{ product.url }}?view=ajax"></div>
+    {% comment %} Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
+    {% if collection.handle != 'popup-store-trouser-finder' %}
+    <div class="tpfilter-product_buttons">
+      <a target="_blank" href="{{ product.url }}" data-tpfilter-product-ga="{{ product.title }}" class="btn btn-primary tpfilter-product__btn">SHOP NOW</a>
+      {% unless extraProduct %}
+        <a target="_blank" href="https://daiwear.com/collections/trousers" class="btn btn-border tpfilter-product__btn" data-tpfilter-product-ga="View All">VIEW ALL</a>
+      {% endunless %}
+    </div>
+    {% endif %}
+    {% comment %} END of Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
+  </div>
+</div>

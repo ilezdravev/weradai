@@ -1,0 +1,114 @@
+{% layout none %}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+<form class="quick-add"
+data-section-id="product-minicart" 
+data-section-type="quickAdd-minicart" 
+data-section-registered="false"
+data-enable-history-state="false" 
+action="/cart/add" 
+method="post" 
+enctype="multipart/form-data"
+
+>
+
+  <div class="minicart__item no-border">
+    <a href="{{ product.url }}" class="minicart__item-image">
+      <img height="auto" width="{{ product.featured_image.src.width }}" loading="lazy" class="minicart__item-image lazyload" src="{{ product.featured_image.src | img_url: '1x1' }}" data-src="{{ product.featured_image.src | img_url: '700x' }}" data-sizes="auto" alt="" >
+    </a>
+
+
+    <div class="minicart__item-info">
+      <p class="minicart__item-title"><a href="{{ product.url }}">{{ product.title }}</a></p>
+      <div class="minicart__item-price"><span class="price money">{{ product.price | money }}</span></div>
+      
+      {%- comment -%}{% render 'product-other-colours', product: product %}{%- endcomment -%}
+
+      {% unless product.has_only_default_variant %}
+        {% for option in product.options_with_values %}
+          <div class="selector-wrapper js">
+            <label for="SingleOptionSelector-{{ forloop.index0 }}">
+              {{ option.name }}
+            </label>
+            <select
+              id="SingleOptionSelector-{{ forloop.index0 }}"
+              data-single-option-selector="{{ product.handle }}"
+              data-index="option{{ option.position }}"
+              class="single-option-selector">
+              {% for value in option.values %}
+                <option
+                  value="{{ value | escape }}"
+                  {% if option.selected_value == value %}selected="selected"{% endif %}>
+                    {{ value }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        {% endfor %}
+      {% endunless %}
+
+      <select name="id" class="no-js" data-product-select>
+        {% for variant in product.variants %}
+          <option
+            {% if variant == current_variant %}selected="selected"{% endif %}
+            {% unless variant.available %}disabled="disabled"{% endunless %}
+            value="{{ variant.id }}">
+              {{ variant.title }}
+          </option>
+        {% endfor %}
+      </select>
+
+      {% if product.variants.size > 1 %}
+        {% for option in product.options %}
+          {% assign downcased_option = option | handle %}
+          {% if downcased_option contains 'length' %}
+            {% render 'dropdown-option', product: product %}
+          {% elsif downcased_option contains 'size' %}
+            {% render 'dropdown-option-size', product: product %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <p>
+        <button
+          class="btn btn-primary"
+          type="button"
+          name="add"
+          data-add-to-cart
+          data-add-text="{{ 'products.product.quick_add' | t }}"
+          data-sold-text="{{ 'products.product.quick_sold_out' | t }}"
+          data-variant="{{ current_variant.id }}" 
+          disabled="disabled">
+            <span data-add-to-cart-text>
+              {% if current_variant.available or current_variant.options[1] != blank %}
+                {{ 'products.product.quick_add' | t }}
+              {% else %}
+                {{ 'products.product.quick_sold_out' | t }}
+              {% endif %}
+            </span>
+        </button>
+      </p>
+    </div>
+  </div>
+  
+  {% unless product == empty %}
+    <script type="application/json" data-product-json>
+      {{ product | json }}
+    </script>
+    <script type="application/json" data-variants-json>
+      [
+      {%- for variant in product.variants -%}
+        {
+          "id": {{ variant.id }},
+          "inventory_quantity": {{ variant.inventory_quantity }}
+        }
+      {%- unless forloop.last -%}
+        ,
+      {%- endunless -%}
+      {%- endfor -%}
+      ]
+    </script>
+  {% endunless %}
+  
+</form>

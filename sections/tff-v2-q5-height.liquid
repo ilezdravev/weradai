@@ -1,0 +1,122 @@
+<div class="tpfilter-item is-hidden customer-height-wrapper" data-tpfilter-item="q5">
+    <div class="container">
+    <div class="tpfilter-item__inner">
+      {%- if section.settings.ttf_v2_q5_title != blank -%}<h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_q5_title}}</h2>{%- endif -%}
+      {%- if section.settings.ttf_v2_q5_sub_title != blank -%}<p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_q5_sub_title}}</p>{%- endif -%}
+      <div class="tpfilter-options height-wrapper">
+        <div class="tpfilter-option tpfilter-option--square">
+            <input id="customer-height-1" type="radio" name="height_type" value="{{ section.settings.ttf_v2_q5_radio_ft }}" checked="checked">
+            <label for="customer-height-1">{{ section.settings.ttf_v2_q5_radio_ft }}</label>
+        </div>
+        <div class="tpfilter-option tpfilter-option--square">
+            <input id="customer-height-2" type="radio" name="height_type" value="{{ section.settings.ttf_v2_q5_radio_cm }}">
+            <label for="customer-height-2">{{ section.settings.ttf_v2_q5_radio_cm }}</label>
+        </div>       
+      </div>
+      <div class="ft-input-wrapper">
+        <div class="tpfilter-option tpfilter-option--rect ft-input">
+            <div>
+                <input id="customer-height-ft" type="number" placeholder="{{ section.settings.ttf_v2_q5_input_ft }}" name="height_in_ft" min="4" max="8" value="{{ section.settings.ttf_v2_q5_input_ft }}" data-tpfilter-answer> 
+                <span>{{ section.settings.ttf_v2_q5_ft_lbl }}</span>
+                {%- if section.settings.ttf_v2_q5_min_ft_lbl != blank -%}<p>{{ section.settings.ttf_v2_q5_min_ft_lbl }}</p>{%- endif -%}
+            </div>
+            <div>
+                <input id="customer-height-inch" type="number" placeholder="{{ section.settings.ttf_v2_q5_input_inch_placheholder }}" name="height_in_inch" min="0" max="11" value="{{ section.settings.ttf_v2_q5_input_inch_placheholder }}" data-tpfilter-answer>           
+                <span>{{ section.settings.ttf_v2_q5_in_lbl }}</span>
+                {%- if section.settings.ttf_v2_q5_max_ft_lbl != blank -%}<p>{{ section.settings.ttf_v2_q5_max_ft_lbl }}</p>{%- endif -%}
+            </div>
+        </div>
+        <div class="tpfilter-option tpfilter-option--rect">
+            <div class="tff-v2__centimeter is-hidden">
+                <input id="customer-height-centimeter" type="number" placeholder="{{ section.settings.ttf_v2_q5_input_centimeter_placheholder }}" name="height_in_centimeter" min="150" max="210" value="{{ section.settings.ttf_v2_q5_input_centimeter_placheholder }}" data-tpfilter-answer> 
+                <span>{{ section.settings.ttf_v2_q5_centimeter_lbl }}</span>
+                <div>
+                    {%- if section.settings.ttf_v2_q5_min_cm_lbl != blank -%}<p>{{ section.settings.ttf_v2_q5_min_cm_lbl }}</p>{%- endif -%}
+                    {%- if section.settings.ttf_v2_q5_max_cm_lbl != blank -%}<p>{{ section.settings.ttf_v2_q5_max_cm_lbl }}</p>{%- endif -%}
+                </div>
+            </div>
+        </div>
+      </div>
+      {% render 'tff-v2-button' %}
+    </div>
+    </div>
+  </div>
+
+{% schema %}
+{
+    "name": "TFF V2 - q5 Height",
+    "settings": [
+        {
+            "id": "ttf_v2_q5_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "id": "ttf_v2_q5_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_q5_radio_ft",
+            "type": "text",
+            "label": "FT"
+        },
+        {
+            "id": "ttf_v2_q5_radio_cm",
+            "type": "text",
+            "label": "CM"
+        },       
+        {
+            "id": "ttf_v2_q5_input_ft",
+            "type": "text",
+            "label": "Customer Height in FT"
+        },
+        {
+            "id": "ttf_v2_q5_input_inch_placheholder",
+            "type": "text",
+            "label": "Customer Height in INCH"
+        },
+        {
+            "id": "ttf_v2_q5_input_centimeter_placheholder",
+            "type": "text",
+            "label": "Customer Height in CM"
+        },
+        {
+            "id": "ttf_v2_q5_min_ft_lbl",
+            "type": "text",
+            "label": "Customer Minimum Height"
+        },
+        {
+            "id": "ttf_v2_q5_max_ft_lbl",
+            "type": "text",
+            "label": "Customer Maximum Height"
+        },
+        {
+            "id": "ttf_v2_q5_min_cm_lbl",
+            "type": "text",
+            "label": "Customer Minimum CM"
+        },
+        {
+            "id": "ttf_v2_q5_max_cm_lbl",
+            "type": "text",
+            "label": "Customer Maximum CM"
+        },
+        {
+            "id": "ttf_v2_q5_ft_lbl",
+            "type": "text",
+            "label": "Input FT Placheholder"
+        },
+        {
+            "id": "ttf_v2_q5_in_lbl",
+            "type": "text",
+            "label": "Input Inch placeholder"
+        },
+        {
+            "id": "ttf_v2_q5_centimeter_lbl",
+            "type": "text",
+            "label": "Input CM placeholder"
+        }         
+
+    ]
+}
+{% endschema %}

@@ -1,0 +1,156 @@
+{%- assign set = section.settings -%}
+<div class="image-text-blocks">
+  <div class="container">
+    <div class="row">
+
+      {% style %}
+        #shopify-section-{{ section.id }} .image-text-block__image {
+          height: {{ set.image_height }}px;
+        }
+        @media (min-width: 767px) and (max-width: 1024px) {
+          #shopify-section-{{ section.id }} .image-text-block__image {
+            height: {{ set.image_height_tablet }}px;
+          }
+        } 
+        @media only screen and (max-width: 767px) {
+          #shopify-section-{{ section.id }} .image-text-block__image {
+            height: {{ set.image_height_mobile }}px;
+          }
+        } 
+      {% endstyle %}
+
+      {%- for block in section.blocks -%}
+        {%- assign bset = block.settings -%}
+
+        <a href="{{ bset.url | default: '/' }}" id="block-{{ block.id }}" class="col image-text-block">
+          {% style %}
+            {%- assign image_desktop = bset.image -%}
+            {%- assign image_mobile = bset.image_mobile | default: image_desktop -%}
+            #shopify-section-{{ section.id }} #block-{{ block.id }} .image-text-block__image.lazy {
+              background-image: none;
+              background-color: #F1F1FA;
+            }
+            #shopify-section-{{ section.id }} #block-{{ block.id }} .image-text-block__image {
+              background-image: url({{ image_desktop  | img_url: '1000x' }});
+            }
+            @media only screen and (max-width: 767px) {
+              #shopify-section-{{ section.id }} #block-{{ block.id }} .image-text-block__image {
+                background-image: url({{ image_mobile  | img_url: '800x' }});
+              }
+            }
+          {% endstyle %}
+          {%- if bset.image != blank -%}
+            <div class="image-text-block__image lazy">
+              {%- if bset.btn_text != blank or bset.btn_text != blank -%}
+                <div class="image-text-block__overlay">
+                  {%- if bset.btn_text != blank -%}
+                    <span class="btn btn-secondary">{{ bset.btn_text }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if bset.title != blank or bset.text != blank -%}
+            <div class="image-text-block__content {{ content_class }}">
+              {%- if bset.title != blank -%}
+                <h3 class="image-text-block__title">{{ bset.title }}</h3>
+              {%- endif -%}
+              {%- if bset.text != blank -%}
+                <div class="image-text-block__text">{{ bset.text }}</div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Image with text blocks",
+    "class": "image-text-blocks-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "range",
+        "id": "image_height",
+        "min": 200,
+        "max": 800,
+        "step": 10,
+        "unit": "px",
+        "label": "Image height",
+        "default": 400
+      },
+      {
+        "type": "range",
+        "id": "image_height_tablet",
+        "min": 200,
+        "max": 800,
+        "step": 10,
+        "unit": "px",
+        "label": "Image height tablet",
+        "default": 400
+      },
+      {
+        "type": "range",
+        "id": "image_height_mobile",
+        "min": 200,
+        "max": 800,
+        "step": 10,
+        "unit": "px",
+        "label": "Image height mobile",
+        "default": 400
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Block url"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text"
+          },
+
+
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image desktop"
+          },
+
+          
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Image mobile"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text blocks",
+        "category": "Media"
+      }
+    ]
+  }
+{% endschema %}

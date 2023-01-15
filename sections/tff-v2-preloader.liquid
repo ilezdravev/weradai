@@ -1,0 +1,40 @@
+<div class="tpfilter-item preloader is-hidden" data-tpfilter-item="preloader">
+    <div class="tpfilter-item__inner">
+        <img loading="lazy" height="144" width="144" src="{{ section.settings.ttf_v2_preloader_img | img_url: 'master' }}" alt="" class="tpfilter-item__preloader lazyload">
+        {%- if section.settings.ttf_v2_preloader_title != blank -%}
+            <h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_preloader_title}}</h2>
+        {%- endif -%}
+        {%- if section.settings.ttf_v2_preloader_sub_title != blank -%}
+            <p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_preloader_sub_title}}</p>
+        {%- endif -%}
+    </div>
+    <div class="tpfilter-item__buttons">
+        <button class="btn btn-border tpfilter-item__btn--prev" data-tpfilter-prev type="button">{% render 'icon' with 'chevronLeft' %}</button>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "TFF V2 - Preloader",
+    "settings": [       
+        {
+            "id": "ttf_v2_preloader_title",
+            "type": "text",
+            "label": "Title"
+        }, 
+        {
+            "id": "ttf_v2_preloader_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_preloader_img",
+            "type": "image_picker",
+            "label": "Preloader Image Icon"
+        }
+
+    ]
+}
+{% endschema %}

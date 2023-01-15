@@ -1,0 +1,65 @@
+<div class="tpfilter-item preferred-length is-hidden" data-tpfilter-item="q10">
+  <div class="container">
+    <div class="tpfilter-item__inner">
+      {%- if section.settings.ttf_v2_q10_title != blank -%}<h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_q10_title}}</h2>{%- endif -%}
+      {%- if section.settings.ttf_v2_q10_sub_title != blank -%}<p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_q10_sub_title}}</p>{%- endif -%}
+      <div class="tpfilter-options">
+        {% for block in section.blocks %}
+            <div class="tpfilter-option tpfilter-option--rect">
+                <input id="customer-preferred-length-{{ forloop.index }}" type="{{ section.settings.question_option }}" name="preferred_length" value="{{ block.settings.ttf_v2_q10 }}" data-tpfilter-answer>
+                <label for="customer-preferred-length-{{ forloop.index }}">{{ block.settings.ttf_v2_q10 }}</label>
+                {% render 'icon-checkmark' %}
+            </div>
+        {% endfor %}
+      </div>
+      {% render 'tff-v2-button' %}
+    </div>
+  </div>
+  </div>
+
+{% schema %}
+{
+    "name": "TFF V2 - q10 Pref Length",
+    "settings": [
+        {
+            "id": "ttf_v2_q10_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_q10_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "type": "select",
+            "id": "question_option",
+            "label": "Question Option",
+            "options": [
+              {
+                "value": "checkbox",
+                "label": "Checkbox"
+              },
+              {
+                "value": "radio",
+                "label": "Radio"
+              }
+            ]
+        }
+
+    ],
+    "blocks": [
+        {
+            "type": "question_ten",
+            "name": "Add Question",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "ttf_v2_q10",
+                    "label": "Add Question"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

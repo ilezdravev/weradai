@@ -1,0 +1,24 @@
+<div class="age-popup" data-age-popup>
+  <div class="age-pupop__wrapper">    
+    <div class="age-pupop__left-content">
+      <div class="age-pupop__length">
+        {%- if section.settings.ttf_v2_popup_title != blank -%}<h2 class="age-popup__title" data-age-popup-title>{{ section.settings.ttf_v2_popup_title}}</h2>{%- endif -%}
+        {%- if section.settings.ttf_v2_popup_sub_title != blank -%}<div class="age-popup__text" data-age-popup-text>{{ section.settings.ttf_v2_popup_sub_title}}</div>{%- endif -%}
+        <p class="age-popup__customer-size">UK 8 / S</p>
+        {%- if section.settings.ttf_v2_popup_length_txt != blank -%}<p class="age-popup__length-text">{{ section.settings.ttf_v2_popup_length_txt | replace: '@length@', "5’4”" | replace: '@below_length@', '28”/71 cm'}}</p>{%- endif -%}
+        {%- if section.settings.ttf_v2_popup_body_shape_txt != blank -%}<p class="age-popup__discount-text">{{ section.settings.ttf_v2_popup_body_shape_txt}} <span class="selected_body_shape"></span></p>{%- endif -%}
+      </div>
+      <div class="age-pupop__discount-code">        
+        {%- if section.settings.ttf_v2_popup_performance_txt != blank -%}<h3 class="age-popup__title">{{ section.settings.ttf_v2_popup_performance_txt}}</h3>{%- endif -%}
+        {%- if section.settings.ttf_v2_popup_discount_text != blank -%}<div class="age-popup__discount-text">{{ section.settings.ttf_v2_popup_discount_text | replace: '@discount_code@', section.settings.ttf_v2_popup_discount_code }}</div>{%- endif -%}
+        {%- comment -%} <button class="age-popup__btn btn btn-primary" data-age-popup-cta>{{ section.settings.ttf_v2_popup_btn}}</button> {%- endcomment -%}
+        <a href="" class="fiter-result-page-url age-popup__btn btn btn-primary" data-age-popup-cta>{{ section.settings.ttf_v2_popup_btn}}</a>
+      </div>
+    </div>
+    <div class="age-pupop__right-content">      
+      <a href="" class="fiter-result-page-url">{% render 'icon-close' %}</a>
+      <img src="{{ section.settings.ttf_v2_popup_img | img_url: 'master' }}" alt="" class="tpfilter-item__popup-img">
+    </div>   
+  </div>  
+</div>
+<div class="age-popup-overlay" data-age-popup-overlay></div>

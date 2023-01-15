@@ -1,0 +1,30 @@
+<div class="product-upsell">
+  {%- if product.metafields.sf_upsell.title != blank -%}
+    <h3 class="product-upsell__title">{{ product.metafields.sf_upsell.title }}</h3>
+  {%- endif -%}
+  <div class="row">
+    {%- assign product_1 = all_products[product.metafields.sf_upsell.product_1] -%}
+    {%- assign product_2 = all_products[product.metafields.sf_upsell.product_2] -%}
+    {%- if product_1 != blank -%}
+      <div class="col-6 col-md-6">
+        <div class="product-grid-block" data-quick-add-place="{{ product_1.url }}?view=quickAdd-grid-item" data-colors-list></div>
+      </div>
+    {%- endif -%}
+    {%- if product_2 != blank -%}
+      <div class="col-6 col-md-6">
+        <div class="product-grid-block" data-quick-add-place="{{ product_2.url }}?view=quickAdd-grid-item" data-colors-list></div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="row">
+    <div class="col-12 product-upsell__links">
+      {% if section.settings.ctl_link_1_text != blank %}
+        <a href="{{ section.settings.ctl_link_1_url }}">{{ section.settings.ctl_link_1_text }}</a>
+      {% endif %}
+      {% if section.settings.ctl_link_2_text != blank %}
+        <a href="{{ section.settings.ctl_link_2_url }}">{{ section.settings.ctl_link_2_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>

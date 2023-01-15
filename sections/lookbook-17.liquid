@@ -1,0 +1,198 @@
+<div class="container lookbook-17">
+  <div class="row justify-content-center">
+    {% for block in section.blocks %}
+      {% case block.type %}
+
+        {% when 'fullsize-image' %}
+        <div class="col-12 fullsize-image">
+            {% if block.settings.fullsize-title != blank %}
+              <h2 class="title">{{ block.settings.fullsize-title }}</h2>
+            {% endif %}
+            <img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.full-image.width }}" src="{{ block.settings.full-image | img_url: 'master' }}" alt="{{ shop.name }}"/>
+          </div>
+
+
+        {% when 'header-text' %}
+          <div class="col-12">
+            <div class="lookbook-header lookbook-7 text-center">
+              <h1>{{ block.settings.title }}</h1>
+            </div>
+          </div>
+          
+        {% when 'description-text' %}
+        <div class="col-12 col-sm-10 mb-3">
+            {{ block.settings.description }}
+        </div>
+
+        {% when 'shop-look' %}
+        <div class="col-12 col-sm-6 shop-look-section" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+          {% if block.settings.product_unavailable %}
+            <a href="{{ block.settings.category_link }}">
+          {% else %}
+            <a href="#section-{{ block.id }}" class="cd-popup-trigger">
+          {% endif %}
+            <img loading="lazy" class="lazyload" height="auto" width="{{ block.settings.look-image.width }}" src="{{ block.settings.look-image | img_url: 'master' }}" alt="{{ shop.name }}"/>
+            </a>
+        </div>
+
+        <div class="cd-popup" role="alert" id="section-{{ block.id }}">
+          <div class="cd-popup-container">
+            <div class="popup-content">
+              <!-- CONTAINER -->
+              {% assign product_one = block.settings.featured_product_one %}
+              {% assign product_two = block.settings.featured_product_two %}
+              {% assign product_three = block.settings.featured_product_three %}
+
+
+              <div class="lookbook-popup">
+                {% if product_one != blank %}
+                <div class="lookbook-image-block">
+                  {% assign product = all_products[product_one] %}
+                  <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-colors-list></div>
+                </div>
+                {% endif %}
+                {% if product_two != blank %}
+                <div class="lookbook-image-block">
+                  {% assign product = all_products[product_two] %}
+                  <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-colors-list></div>
+                </div>
+                {% endif %}
+                {% if product_three != blank %}
+                <div class="lookbook-image-block">
+                  {% assign product = all_products[product_three] %}
+                  <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-colors-list></div>
+                </div>
+                {% endif %}
+
+              </div>
+            </div>
+
+            <a href="#section-{{ block.id }}" class="cd-popup-close img-replace">Close</a>
+          </div> <!-- cd-popup-container -->
+        </div> <!-- cd-popup -->
+
+
+        {% when 'button-block' %}
+
+          <div class="col-12 text-center">
+            <div class="lookbook-button">
+              <a href="{{ block.settings.button }}" class="btn btn-border">{{ block.settings.button-text }}</a>
+            </div>
+          </div>
+
+
+      {% endcase %}
+    {% endfor %}
+      </div>
+</div>
+
+{% schema %}
+       {
+         "blocks": [
+           {
+             "type": "fullsize-image",
+             "name": "Fullsize image",
+             "settings": [
+               {
+                 "id": "full-image",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+               {
+                "id": "fullsize-title",
+                "type": "text",
+                "label": "Title"
+              }
+             ]
+           },
+           {
+             "type": "header-text",
+             "name": "Header text",
+             "settings": [
+                 {
+                   "id": "title",
+                   "type": "text",
+                   "label": "Title"
+                 }
+             ]
+           },
+           {
+            "type": "description-text",
+            "name": "Description text",
+            "settings": [
+                {
+                  "id": "description",
+                  "type": "richtext",
+                  "label": "Description"
+                }
+            ]
+          },
+           {
+             "type": "shop-look",
+             "name": "Shop look",
+             "settings": [
+             {
+              "type": "header",
+              "content": "Product availability"
+             },
+             {
+                "type": "checkbox",
+                "id": "product_unavailable",
+                "label": "Hide product",
+                "info": "If product is no longer available for sale, please tick this box"
+              },
+              {
+                "id": "category_link",
+                "type": "url",
+                "label": "Category URL"
+              },
+              {
+                "type": "header",
+                "content": "Section content"
+               },
+               {
+                 "id": "look-image",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+
+              {
+                "type": "header",
+                "content": "Products"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_one",
+                 "label": "Product #1"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_two",
+                 "label": "Product #2"
+              },
+              {
+                 "type": "product",
+                 "id": "featured_product_three",
+                 "label": "Product #3"
+              }
+             ]
+           },
+           {
+             "type": "button-block",
+             "name": "Button",
+             "settings": [
+             {
+               "id": "button-text",
+               "type": "text",
+               "label": "Text"
+             },
+               {
+                 "id": "button",
+                 "type": "url",
+                 "label": "URL"
+               }
+             ]
+           }
+         ]
+       }
+     {% endschema %}

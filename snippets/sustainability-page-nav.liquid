@@ -1,0 +1,58 @@
+{% assign intro_link = '/pages/our-vision' %}
+{% assign planet_link = '/pages/planet' %}
+{% assign people_link = '/pages/people' %}
+{% assign prosperity_link = '/pages/prosperity' %}
+
+<div class="container">
+    {% comment %} Main Menu {% endcomment %}
+    <div class="row">
+    <div class="col-12">
+        <div class="main-menu">
+            <a href="/pages/about">Our story</a>
+            <a href="/pages/vision" class="active">Our impact</a>
+        </div>
+    </div>
+    </div>
+    {% comment %} Sub Menu {% endcomment %}
+    <div class="row hide-mobile">
+        <div class="col-12">
+            <div class="sub-menu">
+                <a href="{{ intro_link }}" class="intro-link {% if intro_link == page.url %}active{% endif %}"><span>Introduction</span></a>
+                <a href="{{ planet_link }}" class="planet-link {% if planet_link == page.url %}active{% endif %}"><span>Planet</span></a>
+                <a href="{{ people_link }}" class="people-link {% if people_link == page.url %}active{% endif %}"><span>People</span></a>
+                <a href="{{ prosperity_link }}" class="prosperity-link {% if prosperity_link == page.url %}active{% endif %}"><span>Prosperity</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="row show-mobile">
+        <div class="col-12">
+            <div class="sub-menu sub-menu__mobile">
+                <div class="link">
+                    {% if page.url == intro_link %}
+                        <span>Introduction {{ chevron }}</span>
+                    {% elsif page.url == planet_link %}
+                        <span>Planet {{ chevron }}</span>
+                    {% elsif page.url == people_link %}
+                        <span>People {{ chevron }}</span>
+                    {% elsif page.url == prosperity_link %}
+                        <span>Prosperity {{ chevron }}</span>
+                    {% endif %}
+                    <div class="dropdown-content">
+                        {% unless page.url == intro_link %}
+                            <a href="{{ intro_link }}" class="intro-link"><span>Introduction</span></a>
+                        {% endunless %}
+                        {% unless page.url == planet_link %}
+                            <a href="{{ planet_link }}" class="planet-link"><span>Planet</span></a>
+                        {% endunless %}
+                        {% unless page.url == people_link %}
+                            <a href="{{ people_link }}" class="people-link"><span>People</span></a>
+                        {% endunless %}
+                        {% unless page.url == prosperity_link %}
+                            <a href="{{ prosperity_link }}" class="prosperity-link"><span>Prosperity</span></a>
+                        {% endunless %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

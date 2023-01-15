@@ -1,0 +1,84 @@
+<div class="product-grid-block">
+    {% if product.featured_image != blank %}
+      <div class="reveal">
+        <a href="{{ product.url | within: collection }}">
+          <img 
+            height="auto" 
+            width="{{ product.featured_image.src.width }}" 
+            loading="lazy"
+            class="lazyload" 
+            src="{{ product.featured_image.src | img_url: '700x700' }}"
+            title="{% if product.featured_image.alt %}{{ product.title }}{% else %}{{ product.featured_image.alt | escape }}{% endif %}" 
+            alt="{% if product.featured_image.alt %}{{ product.title }}{% else %}{{product.featured_image.alt | escape }}{% endif %}"
+          />
+          {% unless product.images[1].alt contains 'lifestyle' %}
+          <img 
+            height="auto" 
+            width="{{ product.featured_image.src.width }}" 
+            loading="lazy"
+            class="hidden lazyload"   
+            src="{{ product.images[1] | img_url: '700x700' }}"
+            title="{% if product.images[1].alt %}{{ product.title }}{% else %}{{ product.images[1].alt| escape }}{% endif %}" 
+            alt="{% if product.images[1].alt %}{{ product.title }}{% else %}{{ product.images[1].alt | escape }}{% endif %}"
+          />
+          {% endunless %}
+        </a>
+      </div>
+    {% endif %}
+
+    {% assign soldout = false %}
+    {% assign preorder = false %}
+    {% if product.template_suffix == 'pre-order'  %}
+      {% assign preorder = true %}
+    {% elsif product.available == false %}
+      {% assign soldout = true %}
+    {% endif %}
+
+    {% unless product.available %}
+    <span class="product-badge">
+        {{ 'products.product.sold_out' | t }}
+    </span>
+    {% endunless %}
+
+    {% comment %} Add custom product badge using product tags (badge:name) {% endcomment %}
+    {% unless soldout or preorder %}
+      {% for productTags in product.tags %}
+        {% if productTags contains 'badge:' %}     
+        <span class="product-badge {{ productTags | replace: 'badge:', 'product-badge-' | downcase }}">
+            {{ productTags | remove: 'badge:' }}
+          </span>
+        {% endif %}
+      {% endfor %}
+    {% endunless %}
+
+    <p class="product-name">
+      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+    </p>
+    <p class="product-price">
+      {% if product.compare_at_price > product.price %}
+
+        {% if product.price_varies %}
+          {%- assign sale_price = product.price | money -%}
+          {{ sale_price }}
+        {% else %}
+          {{ product.price | money }}
+        {% endif %}
+
+      {% else %}
+
+        {% if product.price_varies %}
+          {%- assign price = product.price | money -%}
+          {{ 'products.product.from_text_html' | t: price: price }}
+        {% else %}
+          {{ product.price | money }}
+        {% endif %}
+
+      {% endif %}
+
+      {% if product.compare_at_price > product.price %}
+        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+        <s>{{ product.compare_at_price | money }}</s>
+      {% endif %}
+
+    </p>
+  </div>

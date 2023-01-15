@@ -1,0 +1,139 @@
+<div class="container ec-product-block-wrapper">
+    {% for block in section.blocks %}
+    <div class="row justify-content-sm-center ec-product-block-container" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <div class="col-sm-5">
+            <img loading="lazy" class="lazyload" src="{{ block.settings.product_image | img_url: 'master' }}" />
+        </div>
+        <div class="col-sm-5 product-details-wrapper">
+            <div class="product-details-container">
+                {% if block.settings.product_name != blank %}
+                    <h3>{{ block.settings.product_name }}</h3>
+                {% endif %}
+                {% if block.settings.product_descr != blank %}
+                    <p>{{ block.settings.product_descr }}</p>
+                {% endif %}
+                <div class="color-swatches">
+                    {% unless block.settings.swatch_color_one contains 'rgba(0,0,0,0)' %}
+                        <div class="swatch" style="background-color: {{ block.settings.swatch_color_one }}"></div>
+                    {% endunless %}
+                    {% unless block.settings.swatch_color_two contains 'rgba(0,0,0,0)' %}
+                        <div class="swatch" style="background-color: {{ block.settings.swatch_color_two }}"></div>
+                    {% endunless %}
+                    {% unless block.settings.swatch_color_three contains 'rgba(0,0,0,0)' %}
+                        <div class="swatch" style="background-color: {{ block.settings.swatch_color_three }}"></div>
+                    {% endunless %}
+                </div>
+                {% if block.settings.product_price != blank %}
+                <div class="price">
+                    {{ block.settings.product_price }}
+                </div>
+                {% endif %}
+                <div class="buttons-area">
+                    <span>Get 24-hour early access</span>
+                    <a href="#signup-email" class="btn btn-primary cd-popup-trigger ec-button" data-product="{{ block.settings.product_name }}">
+                        Sign up via email
+                    </a>
+                    <span>or</span>
+                    <a href="https://api.whatsapp.com/send/?phone=447501383648&text=Hey%20Dai,%20I%20want%20early%20access%20to%20shop%20the%20{{ block.settings.product_name | replace: ' ', '%20' }}%20from%20the%20Every%20Collection!" class="btn btn-primary" target="_blank" data-product="{{ block.settings.product_name }}">
+                        Sign up via whatsapp <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/whatsapp-white.png?v=1600947256"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+    "name": "Product Blocks",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "id": "product_name",
+                    "type": "text",
+                    "label": "Name"
+                },
+                {
+                    "id": "product_descr",
+                    "type": "textarea",
+                    "label": "Description"
+                },
+                {
+                    "id": "product_price",
+                    "type": "text",
+                    "label": "Price"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "product_image",
+                    "label": "Image"
+                },
+                {
+                    "type": "header", 
+                    "content": "Colour swatches"
+                },
+                {
+                    "type": "color",
+                    "id": "swatch_color_one",
+                    "label": "Swatch color #1"
+                },
+                {
+                    "type": "color",
+                    "id": "swatch_color_two",
+                    "label": "Swatch color #2"
+                },
+                {
+                    "type": "color",
+                    "id": "swatch_color_three",
+                    "label": "Swatch color #3"
+                },
+                {
+                    "type": "header",
+                    "content": "Buttons"
+                },
+                {
+                    "type": "text",
+                    "id": "button_one_text",
+                    "label": "Button #1 Text",
+                    "default": "Sign up via email",
+                    "placeholder": "Sign up via email"
+                  },
+                  {
+                    "type": "url",
+                    "id": "button_one_url",
+                    "label": "Button #1 URL"
+                  },
+                  {
+                    "type":      "checkbox",
+                    "id":        "button_one_new_window",
+                    "label":     "Open in a new window?",
+                    "default":   false
+                  },
+                  {
+                    "type": "text",
+                    "id": "button_two_text",
+                    "label": "Button #2 Text",
+                    "default": "Sign up via whatsapp",
+                    "placeholder": "Sign up via whatsapp"
+                  },
+                  {
+                    "type": "url",
+                    "id": "button_two_url",
+                    "label": "Button #2 URL"
+                  },
+                  {
+                    "type":      "checkbox",
+                    "id":        "button_two_new_window",
+                    "label":     "Open in a new window?",
+                    "default":   false
+                  }
+            ]
+        }
+      ]
+    }
+{% endschema %}

@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "main": {
+      "type": "article-header",
+      "settings": {
+        "article_category": "",
+        "article_title": "How-To-Style",
+        "article_subtitle": "with Step Up Club Founder Alice Bundle",
+        "article_reading_time": 4,
+        "article_author": "<p>By Dai Design<\/p>",
+        "article_author_details": ""
+      }
+    },
+    "1638366709fcad090f": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/IMG_9571.jpg",
+        "featured_product_one": "trail-blazer-textured-grey",
+        "featured_product_two": "shimmy-blouse-ivory",
+        "featured_product_three": "high-rise-pleat-pant-black"
+      }
+    },
+    "1638443394a1ec7f85": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/IMG_9557.jpg",
+        "featured_product_one": "sleeveless-forget-me-knot-blouse-ivory",
+        "featured_product_two": "vested-in-me-vest-dark-oatmeal",
+        "featured_product_three": "liberty-trouser-shiitake"
+      }
+    },
+    "1638443310fb1dc53c": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/IMG_9524.jpg",
+        "featured_product_one": "360-cashmere-sweater-midnight",
+        "featured_product_two": "line-up-trouser-scarlet",
+        "featured_product_three": ""
+      }
+    },
+    "1647536657dc730fdf": {
+      "type": "home-logos",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "1638366709fcad090f",
+    "1638443394a1ec7f85",
+    "1638443310fb1dc53c",
+    "1647536657dc730fdf"
+  ]
+}

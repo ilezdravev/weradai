@@ -1,0 +1,96 @@
+<div class="container content__usp-section my-5">
+    <div class="row">
+        {%- for block in section.blocks -%}
+            {%- assign bset = block.settings -%}
+            <div class="col-sm-3">
+                <div class="usp-block">
+                    <img loading="lazy" class="lazyload" height="auto" width="{{ bset.icon.width }}" src="{{ bset.icon | img_url: '300x' }}"/>
+                    <div class="text-area">
+                        {%- if bset.title != blank -%}                            
+                            <h4>{{ bset.title }}</h4>
+                        {%- endif -%}
+                        {{ bset.text }}
+                    </div>
+                </div>
+                <div class="links-area">
+                    {%- if bset.link1 != blank -%}
+                        <a href="{{ bset.link1 }}" class="link">
+                            <img loading="lazy" class="lazyload" height="auto" width="16" src="{{ bset.link1_icon | img_url: '100x' }}"/>
+                            <span>{{ bset.link1_text }}</span>
+                        </a>
+                    {%- endif -%}
+
+                    {%- if bset.link2 != blank -%}
+                        <a href="{{ bset.link2 }}" class="link">
+                            <img loading="lazy" class="lazyload" height="auto" width="16" src="{{ bset.link2_icon | img_url: '100x' }}"/>
+                            <span>{{ bset.link2_text }}</span>
+                        </a>
+                    {%- endif -%}
+                </div>
+            </div>
+        {%- endfor -%}      
+    </div>
+</div>
+
+
+{% schema %}
+    {
+        "name": "Product USP",
+        "settings": [
+
+        ],
+        "blocks":[
+            {
+                "type": "USP",
+                "name": "USP",
+                "settings": [
+                    {
+                        "type": "richtext",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "icon",
+                        "label": "Icon"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link1",
+                        "label": "Link 1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "link1_text",
+                        "label": "Link 1 Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "link1_icon",
+                        "label": "Link 1 Icon"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link2",
+                        "label": "Link 2"
+                    },
+                    {
+                        "type": "text",
+                        "id": "link2_text",
+                        "label": "Link 2 Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "link2_icon",
+                        "label": "Link 2 Icon"
+                    }
+                ]
+            }
+         ]
+    }
+{% endschema %}

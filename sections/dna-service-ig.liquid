@@ -1,0 +1,106 @@
+<div class="dna-service-ig__wrapper my-md-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-4 mb-lg-5">
+                <span class="section-number text-font-primary">06. DAI DNA™ REELS</span>
+                {% if section.settings.section_title != blank %}
+                    <h2 class="fz-3 serif text-font-secondary">{{ section.settings.section_title }}</h2>
+                {% endif %}
+                {% if section.settings.section_subtitle != blank %}
+                    <h3 class="subtitle">{{ section.settings.section_subtitle }}</h3>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="dna-service-ig__videos" data-instagram-slider>
+                    {% for block in section.blocks %}
+                    <div>
+                        <div class="dna-service-ig__post">
+                            <span class="play-icon">{% render 'icon-play' %}</span>
+                            <video class="reel-video" width="400" controlsList="nodownload nofullscreen noremoteplayback" preload="none" poster="{{ block.settings.image | img_url: 'master' }}">
+                                {% if block.settings.video_mp4 != blank %}
+                                    <source src="{{ block.settings.video_mp4 }}" type="video/mp4">
+                                {% endif %}
+                                {% if block.settings.video_ogg != blank %}
+                                    <source src="{{ block.settings.video_ogg }}" type="video/ogg">
+                                {% endif %}
+                                Your browser does not support HTML5 video.
+                            </video>
+                            {% if block.settings.title != blank %}
+                                <h4>{{ block.settings.title }}</h4>
+                            {% endif %}
+                            {% if block.settings.date != blank %}
+                                <p class="post-date">{{ block.settings.date }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "DNA Video Reels",
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "section_subtitle",
+            "label": "Subtitle"
+        }
+    ],
+    "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Video",
+      "settings": [
+        {
+            "type": "header",
+            "content": "Poster image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "header",
+            "content": "Video"
+        },
+        {
+          "type": "text",
+          "id": "video_mp4",
+          "label": "MP4 URL"
+        },
+        {
+            "type": "text",
+            "id": "video_ogg",
+            "label": "OGG URL"
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "date",
+            "label": "Date"
+        }
+      ]
+      }
+    ]
+  }
+{% endschema %}

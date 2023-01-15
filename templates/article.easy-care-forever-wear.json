@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main": {
+      "type": "article-header",
+      "settings": {
+        "article_category": "SUSTAINABILITY",
+        "article_title": "Easy Care = Long Wear",
+        "article_subtitle": "Care for the clothes and the planet.",
+        "article_reading_time": 2,
+        "article_author": "",
+        "article_author_details": ""
+      }
+    },
+    "1636723680298948d7": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "",
+        "article_text": "<p>Though our materials are high-quality and durable, we always recommend taking proper care to keep your high-performing wardrobe fresh, now and forever.<\/p>"
+      }
+    },
+    "166005202854886d07": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/DAI_SL_ECO-CREW-copy_91e88602-64a1-4290-8f18-2adbb0bf34e8.jpg",
+        "featured_product_one": "eco-crew-top-breton-stripe",
+        "featured_product_two": "eco-crew-top-crimson-breton-stripe",
+        "featured_product_three": "eco-crew-top-black"
+      }
+    },
+    "1660052082c18dcee7": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "Our Fool-proof guide FOR CLOTHES THAT LAST A LIFETIME",
+        "article_text": "<p>Our <a href=\"\/collections\/bestsellers\" title=\"Bestsellers\">bestselling<\/a> and classic styles are mostly made of Italian medium-weight, double-bonded knit jersey that’s made to last. <br\/><br\/>With countless interchangeable styles, we’ve got all the tops, bottoms, and layering pieces you’ll need to have a lifelong eco-friendly wardrobe.<\/p><p><\/p><p><strong>01. Separate colours and fabrics<\/strong><\/p><p>Always separate your laundry according to colour and fabric.<\/p><p><\/p><p><strong>02. Full load or nothing<\/strong><\/p><p>Minimise your water and energy consumption by waiting to have a full load. 75% of the energy consumption in clothes happens during the after-purchase use phase.<\/p><p><\/p>"
+      }
+    },
+    "1660052537404e0c4e": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/DAI_SL_DRESS-copy.jpg",
+        "featured_product_one": "a-line-sleeveless-dress-black",
+        "featured_product_two": "",
+        "featured_product_three": ""
+      }
+    },
+    "1660052569b1650137": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "",
+        "article_text": "<p><strong>03. 30°C or below<\/strong><\/p><p>Set you machine at 30° or below. By washing at 30°, you are saving 40% more energy than if you were to wash at 40°.<\/p><p><\/p><p><strong>04. Love for your clothes<\/strong><\/p><p>Add an eco-friendly detergent that’s good for your skin and the environment. Not only will you save resources, but your clothes will look newer for longer. Basically, find a soul mate for your clothing.<\/p><p><\/p><p><strong>05. Air Dry<\/strong><\/p><p>Discard the tumble dryer and become a humble dryer. Simply lay flat to dry in the energy-saving room temperature - it's free.<\/p><p><\/p>"
+      }
+    },
+    "1660053780bbf51d58": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "",
+        "article_text": "<p>Shop our machine washable and breathable styles <a href=\"\/collections\/all-products\" title=\"Technical. Tailored. Sustainable.\">here<\/a>.<\/p>"
+      }
+    },
+    "16600530817b654993": {
+      "type": "home-video",
+      "settings": {
+        "title": "Our guide to caring for your clothes",
+        "subtitle": "By Art Director Toni Caroline",
+        "extra_description": "",
+        "button_text": "",
+        "button_link": "",
+        "button_text_two": "PLAY NOW",
+        "button_link_two": "https:\/\/www.instagram.com\/p\/Cgq8BPqoSPS\/",
+        "small_print": "",
+        "video_url": "https:\/\/www.instagram.com\/p\/Cgq8BPqoSPS\/",
+        "image_placeholder": "shopify:\/\/shop_images\/SALE2_HPH_MOBILE.jpg"
+      }
+    },
+    "1640268619c8289242": {
+      "type": "home-logos",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "1636723680298948d7",
+    "166005202854886d07",
+    "1660052082c18dcee7",
+    "1660052537404e0c4e",
+    "1660052569b1650137",
+    "1660053780bbf51d58",
+    "16600530817b654993",
+    "1640268619c8289242"
+  ]
+}

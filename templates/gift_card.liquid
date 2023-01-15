@@ -1,0 +1,90 @@
+{% comment %}
+  QR code is rendered in `#QrCode`
+
+  `gift_card.pass_url` is true if apple wallet is enabled for the shop
+{% endcomment %}
+
+{% layout 'gift_card' %}
+<main class="giftcard {% if gift_card.expired or gift_card.enabled != true %} giftcard--disabled{% endif %}">
+<div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+          <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/DAI-LIFESTYLE_PRUSSIAN_6-EXTENDED_81badea9-4448-4b94-ad3b-c3b1ee4661e3.jpg?v=1654708651" alt="DAI Gift Voucher"/>
+      </div>
+
+      <div class="col-sm-7">
+          <h1>{{ 'gift_cards.issued.subtext' | t }}</h1>
+          <p>
+              {{ 'gift_cards.issued.introtext' | t }}
+          </p>
+
+          <!-----==================== MONEY ====================-->
+          {% assign formatted_initial_value = gift_card.initial_value | money_without_trailing_zeros: gift_card.currency %}
+          {% assign formatted_current_balance = gift_card.balance | money %}  
+
+          {% if gift_card.balance != gift_card.initial_value %}
+            <p>{{ 'gift_cards.issued.remaining_html' | t: balance: formatted_current_balance }}</p>
+          {% endif %}
+          <p class="card_amount">
+              {{ 'gift_cards.issued.initial_value' | t }}
+              <strong>
+                  {{ formatted_current_balance }}
+              </strong>
+          </p>
+
+          {% unless gift_card.enabled %}
+            <span class="giftcard-tag">{{ 'gift_cards.issued.disabled' | t }}</span>
+          {% endunless %}
+
+          <!-----==================== CODE ====================-->
+          <p class="text_code"><strong>Code:</strong></p>
+          {%- assign code_size = gift_card.code | format_code | size -%}
+          <span id="GiftCardDigits" class="giftcard__code">{{ gift_card.code | format_code }}</span>
+
+          <div id="QrCode" class="giftcard-qr" data-identifier="{{ gift_card.qr_identifier }}"></div>
+
+
+          {%- assign gift_card_expiry_date = gift_card.expires_on | date: "%d/%m/%y" -%}
+
+          {% if gift_card.expired and gift_card.enabled %}
+            <span class="giftcard-tag">{{ 'gift_cards.issued.expired' | t: expiry: gift_card_expiry_date }}</span>
+          {% endif %}
+
+          {% if gift_card.expired != true and gift_card.expires_on and gift_card.enabled %}
+            <span class="giftcard-tag giftcard-tag--active">{{ 'gift_cards.issued.active' | t: expiry: gift_card_expiry_date }}</span>
+          {% endif %}
+
+          <!-----==================== HELP TEXT ====================-->
+          <div class="help_text">
+              <p>
+                  <strong>Have any product, fit, or styling questions? Get in touch! You can:</strong>
+              </p>
+              <ol>
+                <li>
+                    Email our expert stylists at <a href="mailto:stylist@daiwear.com">stylist@daiwear.com</a>
+                </li>
+                <li>
+                    <a href="https://daiwear.com/pages/our-store">Book</a> a personalised styling appointment at our London Showroom
+                </li>
+              </ol>
+          </div>
+
+          <!-----==================== CTA ====================-->
+          <a href="{{ shop.url }}" class="btn btn-primary" target="_blank">{{ 'gift_cards.issued.shop_link' | t }}</a>
+
+          {% if gift_card.pass_url %}
+            <a href="{{ gift_card.pass_url }}" class="apple-wallet">
+              <img class="apple-wallet-image" src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="120" height="40" alt="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}">
+            </a>
+          {% endif %}
+
+          <a href="#" id="PrintGiftCard" class="btn btn-border print-giftcard">
+            {{ 'gift_cards.issued.print' | t }}
+          </a>
+          
+          
+          
+</div>
+</div>
+</div>
+</main>

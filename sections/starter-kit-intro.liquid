@@ -1,0 +1,30 @@
+{% assign set = section.settings %}
+<div class="starter-kit-intro" id="top">
+  <div class="container text-center">
+    {% if set.title %}
+      <h1 class="starter-kit-intro__title">{{ set.title }}</h1>
+    {% endif %}
+    {% if set.text %}
+      <div class="starter-kit-intro__text">{{ set.text }}</div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title Primary",
+      "default": "Starter Kits"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p> Intro text xxxxxxxxxx </p>"
+    }
+  ]
+}
+{% endschema %}

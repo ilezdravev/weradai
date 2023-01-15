@@ -1,0 +1,61 @@
+<div class="cd-popup" role="alert" id="signup-email">
+    <div class="cd-popup-container square-popup">
+        <div class="popup-content ec-collection-popup">
+            <div class="ec-collection-container">
+                <h1>I want 24-hour early access</h1>
+                <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/dai-access-icon.png?v=1603846072" class="icon-dai"/>
+                <div class="newsletter-form signup-form" id="mc_embed_signup">
+                    
+                    <form action="https://www.elformo.com/forms/a9287951-76bd-40bd-a0c2-bb983f3b7542" method="post" accept-charset="UTF-8" id="entry-form">
+                        
+                        <input type="text" value="" name="Name" class="form-control required" id="mce-FNAME" placeholder="First Name" required="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                        <input type="email" value="" name="Email" class="form-control required email" id="mce-EMAIL" placeholder="Your Email" required="">
+                        <input type="hidden" value="{{ product_name }}" name="Product" id="mce-EVERYCOLL">
+                        
+                        
+                        <input id="submit" name="submit" type="Submit" class="btn btn-primary btn-full" />
+                    </form>
+                    <p id="success-msg">You're on the list! Watch your inbox/spam for your exclusive access.</p>
+
+                    {% comment %}
+                    <form action="https://daiwear.us16.list-manage.com/subscribe/post-json?u=dcc7684ff8cf3c2241611e9ee&amp;id=61da4e08d4&c=?" method="post" id="mc-embedded-subscribe-form-4" name="mc-embedded-subscribe-form" class="validate js-landing-forms" target="_blank" novalidate>
+                      <input type="text" value="" name="FNAME" class="form-control required" id="mce-FNAME" placeholder="First Name" required="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                      <input type="email" value="" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="Your Email" required="">
+                      <input type="hidden" value="{{ product_name }}" name="EVERYCOLL" id="mce-EVERYCOLL">
+                      <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none">Please enter a valid email address</div>
+                            <div class="response" id="mce-success-response" style="display:none">You're on the list! Watch your inbox/spam for your exclusive access.</div>
+                        </div>
+                      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_dcc7684ff8cf3c2241611e9ee_61da4e08d4" tabindex="-1" value=""></div>
+                      <div class="clear"><input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-full"></div>
+                    </form>
+                    {% endcomment %}
+                  </div>
+            </div>
+        </div>
+        <a href="#signup-email" class="cd-popup-close img-replace">Close</a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+
+<script type="text/javascript">
+    var frm = $('#entry-form');
+
+    frm.submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+        $('#entry-form').hide();
+        $('#success-msg').show();
+    });
+</script>

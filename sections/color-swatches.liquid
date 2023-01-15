@@ -1,0 +1,31 @@
+<style>
+{% for block in section.blocks %}
+    {% assign colour_name = block.settings.title | replace: ' ', '-' | downcase %}
+    {% assign swatch_image = block.settings.swatch_image %}
+    .color-{{ colour_name }} .color-circle {background: #ececec url({{ swatch_image | img_url: '100x' }});}
+{% endfor %}
+</style>
+
+{% schema %}
+{
+  "settings": [],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Color",
+      "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Tag name (Colour)"
+        },
+        {
+            "type": "image_picker",
+            "id": "swatch_image",
+            "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,221 @@
+{% if section.settings.disabled == false %} 
+  {% render 'slider' %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Slider",
+    "settings": [
+      {
+        "id": "disabled",
+        "type": "checkbox",
+        "label": "Hide this section",
+        "default": false
+      },
+      {
+        "id": "speed",
+        "type": "text",
+        "label": "Slider Speed",
+        "default": "6000",
+        "info": "Default is 6000"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Slide",
+        "type": "slide",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Content"
+          },
+          {
+            "id": "disabled",
+            "type": "checkbox",
+            "label": "Hide it",
+            "default": false
+          },
+          {
+            "id": "image_desktop",
+            "type": "image_picker",
+            "label": "Desktop image"
+          },
+          {
+            "type": "range",
+            "id": "desktop_img_position_vertical",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "%",
+            "label": "Image Position - Vertical",
+            "default": 50
+          },
+          {
+            "type": "color",
+            "id": "desktop_overlay_color",
+            "label": "Desktop Overlay Color",
+            "default": "#000"
+          },
+          {
+            "type": "range",
+            "id": "desktop_overlay_color_opacity",
+            "min": 0,
+            "max": 1,
+            "step": 0.1,
+            "unit": "%",
+            "label": "Opacity",
+            "default": 0.5
+          },
+          {
+            "id": "image_mobile",
+            "type": "image_picker",
+            "label": "Mobile image"
+          },
+          {
+            "type": "color",
+            "id": "mobile_overlay_color",
+            "label": "Mobile Overlay Color",
+            "default": "#000"
+          },
+          {
+            "type": "range",
+            "id": "mobile_overlay_color_opacity",
+            "min": 0,
+            "max": 1,
+            "step": 0.1,
+            "unit": "%",
+            "label": "Opacity",
+            "default": 0.5
+          },
+          {
+            "type": "header",
+            "content": "Title"
+          },
+          {
+            "type": "text", 
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Sub Title"
+          },
+          {
+            "type": "header",
+            "content": "Description"
+          },
+          {
+            "type": "richtext",
+            "id": "extra_description",
+            "label": "Text"
+          },
+          {
+            "type": "header",
+            "content": "Buttons"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "button_text_two",
+            "label": "Button"
+          },
+          {
+            "type": "url",
+            "id": "button_link_two",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Small Print"
+          },
+          {
+            "type": "richtext",
+            "id": "small_print",
+            "label": "Text"
+          },
+          {
+            "type": "header",
+            "content": "Text Colour"
+          },
+          {
+            "type": "select",
+            "id": "text_color",
+            "label": "Desktop",
+            "options": [
+              {
+                "value": "dark",
+                "label": "Dark"
+              },
+              {
+                "value": "light",
+                "label": "Light"
+              }
+            ],
+            "default":   "light"
+          },
+          {
+            "type": "select",
+            "id": "text_color_mob",
+            "label": "Mobile",
+            "options": [
+              {
+                "value": "dark",
+                "label": "Dark"
+              },
+              {
+                "value": "light",
+                "label": "Light"
+              }
+            ],
+            "default":   "light"
+          },
+          {
+            "type": "header",
+            "content": "Text Position (Desktop)"
+          },
+          {
+            "type": "select",
+            "id": "halign_desktop",
+            "label": "Horizontal alignment",
+            "options": [
+              {
+                "value": "justify-content-start",
+                "label": "Left"
+              },
+              {
+                "value": "justify-content-center",
+                "label": "Center"
+              },
+              {
+                "value": "justify-content-end",
+                "label": "Right"
+              }
+            ],
+            "default":   "justify-content-start"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slider",
+        "category": "Media",
+        "blocks": [
+          {
+            "type": "slide"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

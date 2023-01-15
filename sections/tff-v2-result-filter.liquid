@@ -1,0 +1,27 @@
+<button type="button" class="btn btn-primary tpfilter-item__btn--filter mt-5">{{ section.settings.ttf_v2_filter_btn_text }}</button>
+<div class="container collection__wrapper tff-v2__filter">
+    <div class="row" id="gf-products">
+        <div class="preload"><img  loading="lazy" class="lazyload" height="auto" width="{{ section.settings.ttf_v2_filter_img.width }}" src="{{ section.settings.ttf_v2_filter_img }}"></div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "TFF V2 - Filter",
+    "settings": [       
+        {
+            "id": "ttf_v2_filter_btn_text",
+            "type": "text",
+            "label": "Filter Text Label"
+        },
+        {
+            "type": "image_picker",
+            "id": "ttf_v2_filter_img",
+            "label": "Add Preloader Icon"
+        }
+
+    ]
+}
+{% endschema %}

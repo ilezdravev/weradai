@@ -1,0 +1,144 @@
+
+  
+<div class="container">
+    <div> 
+      <div class="winner-block-intro">
+      <p class="winner-intro-para"> Through the past 12 months, we persevered, we built resilience, we transcended. That's why this International Women's Day, we want to celebrate all women.</p>
+    <p class="winner-intro-para">Read a selection of inspirational stories from our Trailblazers below. </p>
+      </div>
+    
+    {% for block in section.blocks %}
+      {% assign set = block.settings %}
+           <div id="story{% if set.number %}{{ set.number }}{% endif %}"></div>
+        <div class="row">
+          {% if set.img_pos == "right" %}
+          <div class="col-md-4 TB-quote-box">
+              <div class="TB-quote-block">
+                     <span class="quotation-mark-left">“</span>
+                <div class="TB-quote" >
+                {% if set.quote %} <h3 class="TB-quote" >{{ set.quote }}   <span class="quotation-mark-right">”</span></h3>{% endif %}
+                </div>
+                </div>
+          </div>
+          {% if set.img %}
+                            <div class="col-md-4 TB-story-box">
+                              <div class="TB-text-block">
+                                {% if set.number %}<p class="TB-story">{{ set.number }}</p>{% endif %}
+                              {% if set.text %}<p class="TB-story">{{ set.text }}</p>{% endif %}
+                              {% if set.name %}<span class="TB-name">- {{ set.name }}</span>{% endif %}
+                              </div>
+                            </div>
+                            <div class="col-md-4 TB-photo">
+                              <div class="TB-img-block">
+                               <img src="{{ set.img | img_url: 'master' }}"> 
+                                {% if set.model %} <span class="IWDmodelname">{{ set.model }}</span>{% endif %}
+                              </div>
+                            </div>
+            {% else %}
+                            <div class="col-md-8 TB-story-box">
+                              <div class="TB-text-block">
+                              {% if set.number %}<p class="TB-story">{{ set.number }}</p>{% endif %}
+                              {% if set.text %}<p class="TB-story">{{ set.text }}</p>{% endif %}
+                              {% if set.name %}<span class="TB-name">- {{ set.name }}</span>{% endif %}
+                              </div>
+                            </div>
+                 {% endif %}
+          {% else %}
+          <div class="col-md-4 TB-photo">
+            <div class="TB-img-block">
+            {% if set.img %}
+             <img src="{{ set.img | img_url: 'master' }}"> {% endif %}
+              {% if set.model %} <span class="IWDmodelname">{{ set.model }}</span>{% endif %}
+            </div>
+          </div>
+          <div class="col-md-4 TB-quote-box" data-scroll data-scroll-speed="6" data-scroll-direction="horizontal">
+              <div class="TB-quote-block">
+                     <span class="quotation-mark-left">“</span>
+                <div class="TB-quote">
+                {% if set.quote %} <h3 class="TB-quote">{{ set.quote }}   <span class="quotation-mark-right">”</span></h3>{% endif %}
+                </div>
+                </div>
+          </div>
+          <div class="col-md-4 TB-story-box">
+            <div class="TB-text-block">
+            {% if set.number %}<p class="TB-story">{{ set.number }}</p>{% endif %}
+            {% if set.text %}<p class="TB-story">{{ set.text }}</p>{% endif %}
+            {% if set.name %}<span class="TB-name">- {{ set.name }}</span>{% endif %}
+            </div>
+          </div>
+  
+          {% endif %}
+          
+     </div>
+      {% endfor %}
+  
+          </div>
+   
+    <div class="col-12 text-center shop-all">
+         <h2> Do you also have a story to share? </h2>
+         <div class="lookbook-button">
+           <a href="https://daiwear.com/pages/trailblazer-award" class="btn btn-border">ENTER NOW</a>
+           </div>
+        </div>
+    <div>
+    
+  </div>
+  
+  
+  {% schema %}
+  {
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Full Quote"
+          },
+          {
+            "type": "textarea",
+            "id": "number",
+            "label": "Story Number"
+          },
+          {
+            "type": "textarea",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+             {
+            "type": "textarea",
+            "id": "model",
+            "label": "Model Name"
+          },
+          {
+            "type": "select",
+            "id": "img_pos",
+            "label": "Image position",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

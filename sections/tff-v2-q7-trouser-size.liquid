@@ -1,0 +1,134 @@
+<div class="tpfilter-item trouser-size is-hidden" data-tpfilter-item="q7">
+  <div class="container">
+    <div class="tpfilter-item__inner">
+      {%- if section.settings.ttf_v2_q7_sub_title != blank -%}<p class="tpfilter-item__sub-title">{{ section.settings.ttf_v2_q7_sub_title}}</p>{%- endif -%}
+      {%- if section.settings.ttf_v2_q7_title != blank -%}<h2 class="tpfilter-item__title">{{ section.settings.ttf_v2_q7_title}}</h2>{%- endif -%}
+      <div class="tpfilter-options customer-trouser-size">
+        <div class="tpfilter-option tpfilter-option--square">
+            <input id="customer-trouser-size-1" type="radio" name="country_code" value="{{ section.settings.ttf_v2_q7_radio_uk }}" checked="checked" data-tpfilter-answer>
+            <label for="customer-trouser-size-1">{{ section.settings.ttf_v2_q7_radio_uk }}</label>
+        </div>
+        <div class="tpfilter-option tpfilter-option--square">
+            <input id="customer-trouser-size-2" type="radio" name="country_code" value="{{ section.settings.ttf_v2_q7_radio_us }}" data-tpfilter-answer>
+            <label for="customer-trouser-size-2">{{ section.settings.ttf_v2_q7_radio_us }}</label>
+        </div>       
+      </div>
+      <div class="tpfilter-options trouser-size-wrapper uk">
+        {% for block in section.blocks %}
+          {% assign country_code = block.settings.ttf_v2_country_q7 | downcase %}
+          {% if country_code == 'uk' %}
+            <div class="tpfilter-option tpfilter-option--square">
+                <input id="typical-trouser-size-{{ forloop.index }}" type="{{ section.settings.question_option }}" name="trouser_size" value="{{ block.settings.ttf_v2_q7 }}" data-tpfilter-answer>
+                <label for="typical-trouser-size-{{ forloop.index }}">{{ block.settings.ttf_v2_q7 }}</label>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="tpfilter-options trouser-size-wrapper us is-hidden">
+        {% for block in section.blocks %}
+          {% assign country_code = block.settings.ttf_v2_country_q7 | downcase %}
+          {%if country_code == 'us' %}
+            <div class="tpfilter-option tpfilter-option--square">
+              <input id="typical-trouser-size-{{ forloop.index }}" type="{{ section.settings.question_option }}" name="trouser_size" value="{{ block.settings.ttf_v2_q7 }}" data-tpfilter-answer>
+              <label for="typical-trouser-size-{{ forloop.index }}">{{ block.settings.ttf_v2_q7 }}</label>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="tff-v2-trouser-shape-size">
+        {%- if section.settings.ttf_v2_q7_btn_lbl != blank -%}{% render 'tff-v2-trouser-size-guide' %}{%- endif -%}
+      </div>
+      {% render 'tff-v2-button' %}
+    </div>
+  </div>
+  </div>
+
+{% schema %}
+{
+    "name": "TFF V2 - q7 Trouser Size",
+    "settings": [
+        {
+            "id": "ttf_v2_q7_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_q7_title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "type": "select",
+            "id": "question_option",
+            "label": "Question Option",
+            "options": [
+              {
+                "value": "checkbox",
+                "label": "Checkbox"
+              },
+              {
+                "value": "radio",
+                "label": "Radio"
+              }
+            ]
+        },
+        {
+          "id": "ttf_v2_q7_radio_uk",
+          "type": "text",
+          "label": "Country Code - UK"
+        },
+        {
+            "id": "ttf_v2_q7_radio_us",
+            "type": "text",
+            "label": "Country Code - US"
+        },  
+        {
+            "id": "ttf_v2_q7_url",
+            "type": "url",
+            "label": "URL"
+        },
+        {
+            "id": "ttf_v2_q7_btn_lbl",
+            "type": "text",
+            "label": "URL - Label"
+        }        ,
+        
+        {
+          "type": "page",
+          "id": "ttf_v2_size_guide_page",
+          "label": "Size Guide page"
+       }
+
+    ],
+    "blocks": [
+        {
+            "type": "question_seven",
+            "name": "Add Question",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "ttf_v2_q7",
+                    "label": "Add Question"
+                },
+                {
+                  "type": "select",
+                  "id": "ttf_v2_country_q7",
+                  "label": "Select Country",
+                  "options": [
+                    {
+                      "value": "uk",
+                      "label": "UK"
+                    },
+                    {
+                      "value": "us",
+                      "label": "US"
+                    }
+                  ]
+                }
+
+            ]
+        }
+    ]
+}
+{% endschema %}

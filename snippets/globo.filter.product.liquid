@@ -1,0 +1,10 @@
+{% raw %}
+{% assign images_count = product.images | size %}
+{% assign variants_count = product.variants | size %}
+{% assign options_count   = product.options | size %}
+{% assign current_variant = product.first_available_variant %}
+
+<div class="col-6 col-sm-4">
+  <div class="product-grid-block" data-quick-add-place="{{ product.url }}?view=quickAdd-grid-item" data-colors-list></div>
+</div>
+{% endraw %}

@@ -1,0 +1,122 @@
+
+<div class="container">
+  {% for block in section.blocks %}
+    {% assign set = block.settings %}
+    <div class="pop-stores-block">
+      <div class="row">
+        <div class="col-md-6 {% if set.img_pos == "right" %}order-md-last{% endif %}">
+          {% if set.img %}
+            <div class="pop-stores-block__img {% if set.img_pos == "right" %} pl-md-3 {% else %} pr-md-3 {% endif %}">
+              <img height="auto" width="{{ set.img.width }}" loading="lazy" class="lazyload"  src="{{ set.img | img_url: 'master' }}" alt="{{ set.title }}">
+            </div>
+          {% endif %}
+        </div>
+        <div class="col-md-6 {% if set.img_pos == "right" %}order-md-first{% endif %}">
+          <div class="pop-stores-block__info {% if set.img_pos == "right" %} pr-md-3 {% else %} pl-md-3 {% endif %}">
+            {% if set.title %}
+              <h2 class="pop-stores-block__title">{{ set.title }}</h2>
+            {% endif %}
+            {% if set.date %}
+              <p class="pop-stores-block__date">{{ set.date }}</p>
+            {% endif %}
+            {% if set.text %}
+              <div class="pop-stores-block__text">{{ set.text }}</div>
+            {% endif %}
+            {% if set.form != blank %}
+              <div class="pop-stores-block__form newsletter-form" id="mc_embed_signup">
+                <form
+                  action="https://daiwear.us16.list-manage.com/subscribe/post-json?u=dcc7684ff8cf3c2241611e9ee&id={{ set.form }}&c=?"
+                  class="js-landing-forms"
+                  method="post" id="mc-embedded-subscribe-form-{{ block.id }}" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+                  novalidate>
+                  {% if set.form_location %}
+                    <label for="mce-LOCATION-{{ block.id }}">City and Neighborhood</label>
+                    <input type="text" value="" name="LOCATION" class="form-control required" id="mce-LOCATION-{{ block.id }}"
+                    required>
+                    {% else %} 
+                    <input type="text" value="{{ set.title }}" name="MMERGE3" class="visually-hidden" id="mce-MMERGE3">
+                  {% endif %}
+                  <label for="mce-FNAME-{{ block.id }}">First Name</label>
+                  <input type="text" value="" name="FNAME" class="form-control required" id="mce-FNAME-{{ block.id }}"
+                    required>
+                  <label for="mce-EMAIL-{{ block.id }}">Your Email</label>
+                  <input type="email" value="" name="EMAIL" class="form-control required email" id="mce-EMAIL-{{ block.id }}"
+                    required>
+                    
+                  <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none">Please enter a valid email address</div>
+                    <div class="response" id="mce-success-response" style="display:none">Thanks! Please check your email to confirm
+                      subscription</div>
+                  </div>
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                      name="b_dcc7684ff8cf3c2241611e9ee_{{ set.form }}" tabindex="-1" value=""></div>
+                  <div class="clear"><input type="submit" value="Join Us" name="subscribe" id="mc-embedded-subscribe"
+                      class="btn btn-primary"></div>
+                </form>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "date",
+          "label": "Date"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "form",
+          "label": "Form ID"
+        },
+        {
+          "type": "checkbox",
+          "id": "form_location",
+          "label": "Enable Location Field",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "img_pos",
+          "label": "Image position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

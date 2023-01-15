@@ -1,0 +1,81 @@
+<div class="tff-v2__summery">
+    <div class="container">
+        <div class="row tff-v2__summery-desktop">
+            <div class="col-4 ttf-v2__summery-left">
+                {%- if section.settings.ttf_v2_summery_title != blank -%}<h2 class="tff-v2__summery-title" data-age-popup-title>{{ section.settings.ttf_v2_summery_title}}</h2>{%- endif -%}
+                {%- if section.settings.ttf_v2_summery_sub_title != blank -%}<div class="tff-v2__summery-text" data-age-popup-text>{{ section.settings.ttf_v2_summery_sub_title}}</div>{%- endif -%}
+                <p class="tff-v2__summery-customer-size"</p>
+                {%- if section.settings.ttf_v2_summery_length_txt != blank -%}<p class="tff-v2__summery-length-text desktop"></p>{%- endif -%}
+                {%- if section.settings.ttf_v2_summery_body_shape_txt != blank -%}<p class="tff-v2__summery-discount-text">{{ section.settings.ttf_v2_summery_body_shape_txt}} <span class="selected_body_shape"></span></p>{%- endif -%}
+            </div>
+            <div class="col-8 ttf-v2__summery-right">
+                {%- if section.settings.ttf_v2_summery_performance_txt != blank -%}<h3 class="tff-v2__summery-title">{{ section.settings.ttf_v2_summery_performance_txt}}</h3>{%- endif -%}
+                {%- if section.settings.ttf_v2_summery_discount_text != blank -%}<div class="tff-v2__summery-discount-text">{{ section.settings.ttf_v2_summery_discount_text | replace: '@discount_code@', section.settings.ttf_v2_summery_discount_code }}</div>{%- endif -%}
+                <div class="tff-v2__icon-retake">{% render 'icon-retake' %} {{ section.settings.ttf_v2_summery_quiz_retake}}</div>
+            </div>
+        </div> 
+        <div class="row tff-v2__summery-mobile">
+            <div class="ttf-v2__summery-left">
+                {%- if section.settings.ttf_v2_summery_title != blank -%}<h2 class="tff-v2__summery-title" data-age-popup-title>{{ section.settings.ttf_v2_summery_title}}</h2>{%- endif -%}
+                {%- if section.settings.ttf_v2_summery_sub_title != blank -%}<div class="tff-v2__summery-text" data-age-popup-text>{{ section.settings.ttf_v2_summery_sub_title}}</div>{%- endif -%}
+                <p class="tff-v2__summery-customer-size"></p>
+                {%- if section.settings.ttf_v2_summery_length_txt != blank -%}<p class="tff-v2__summery-length-text mobile"></p>{%- endif -%}
+                {%- if section.settings.ttf_v2_summery_body_shape_txt != blank -%}<p class="tff-v2__summery-discount-text">{{ section.settings.ttf_v2_summery_body_shape_txt}} <span class="selected_body_shape"></span></p>{%- endif -%}
+            </div>
+            <div class="ttf-v2__summery-right">
+                {%- if section.settings.ttf_v2_summery_performance_txt != blank -%}<h3 class="tff-v2__summery-title">{{ section.settings.ttf_v2_summery_performance_txt}}</h3>{%- endif -%}
+                {%- if section.settings.ttf_v2_summery_discount_text != blank -%}<div class="tff-v2__summery-discount-text">{{ section.settings.ttf_v2_summery_discount_text | replace: '@discount_code@', section.settings.ttf_v2_summery_discount_code }}</div>{%- endif -%}
+                <div class="tff-v2__icon-retake">{% render 'icon-retake' %} {{ section.settings.ttf_v2_summery_quiz_retake}}</div>
+            </div>
+        </div> 
+    </div> 
+</div>
+{% schema %}
+{
+    "name": "TFF V2 - Summery",
+    "settings": [       
+        {
+            "id": "ttf_v2_summery_sub_title",
+            "type": "text",
+            "label": "Sub Title"
+        },
+        {
+            "id": "ttf_v2_summery_title",
+            "type": "text",
+            "label": "Title"
+        }, 
+        
+        {
+            "id": "ttf_v2_summery_length_txt",
+            "type": "text",
+            "label": "Length Text"
+        },
+        {
+            "id": "ttf_v2_summery_body_shape_txt",
+            "type": "text",
+            "label": "Body Shape Text"
+        },
+        {
+            "id": "ttf_v2_summery_performance_txt",
+            "type": "text",
+            "label": "Performance Text"
+        },
+        {
+            "id": "ttf_v2_summery_discount_text",
+            "type": "text",
+            "label": "Discount Text"
+        },
+        {
+            "id": "ttf_v2_summery_discount_code",
+            "type": "text",
+            "label": "Discount Code"
+        },
+        {
+            "id": "ttf_v2_summery_quiz_retake",
+            "type": "text",
+            "label": "Quiz Retake"
+        }
+
+    ]
+}
+{% endschema %}

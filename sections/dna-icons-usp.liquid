@@ -1,0 +1,71 @@
+<div class="container my-4 my-lg-5">
+  {% if section.settings.section_title != blank %}
+  <div class="row mb-5">
+      <div class="col-12 text-center">
+          <h2 class="fz-4 serif text-font-secondary">{{ section.settings.section_title }}</h2>
+      </div>
+  </div>
+  {% endif %}
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="dna-icons-usp__wrapper">
+                {% for block in section.blocks %}
+                <div class="dna-icons-usp__block">
+                    {% comment %}<span class="block-number">{{ forloop.index }}</span>{% endcomment %}
+                    <a href="{{ block.settings.icon_url }}" class="js-scroll">
+                        <div class="dna-icons-usp__icon">
+                          <img loading="lazy" class="lazyload" src="{{ block.settings.icon | img_url: 'master'}}"/>
+                        </div>
+                        <div class="text-area">
+                            <h3>{{ block.settings.icon_title }} {% render 'icon-arrow-right-thin' %}</h3>
+                            {{ block.settings.icon_text }}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "DNA Icons",
+    "max_blocks": 6,
+    "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title"
+    }
+    ],
+    "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Icon",
+      "settings": [
+        {
+            "type": "url",
+            "id": "icon_url",
+            "label": "URL"
+        },
+        {
+          "type": "text",
+          "id": "icon_title",
+          "label": "Title"
+        },
+        {
+            "type": "textarea",
+            "id": "icon_text",
+            "label": "Text"
+          },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+      ]
+      }
+    ]
+  }
+{% endschema %}

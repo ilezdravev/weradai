@@ -1,0 +1,25 @@
+<div class="blog-container article-section">
+    <div class="container">
+        <div class="row justify-content-center article-text">
+            <div class="col-sm-6">
+              {% assign joanna_signature = "https://cdn.shopify.com/s/files/1/0225/7023/8016/files/joanna-sign.png?v=1636407013" %}
+                <img loading="lazy" height="auto" width="{{ joanna_signature.width }}" class="joanna-signature lazyload" src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/joanna-sign.png?v=1636407013" alt="Joanna Dai, Founder" title="Joanna Dai, Founder"/>            
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article Signature",
+    "tag": "section",
+    "settings": [
+    ],
+    "presets": [
+      {
+        "name": "Article Signature",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,103 @@
+
+<div class="container">
+    <div class="starter-kit-menu">
+        <div class="row">
+          {% for block in section.blocks %}
+             {% assign set = block.settings %}
+             <div class="col-md-4 {% if set.img_pos %} order-{{ set.img_pos }} {% endif %} starter-kit-look">
+              <div class="starter-kit-look__img">
+                 {% if set.img %}
+                 <img src="{{ set.img | img_url: 'master' }}" width="420"> 
+              </div>
+              <div class="starter-kit-look__banner">
+                {% if set.title %}
+                 <h2 class="starter-kit-look__title">{{ set.title }}</h2>
+               {% endif %}
+               {% if set.text %}
+                 <div class="starter-kit-block__text">{{ set.text }}</div>
+               {% endif %}
+               {% if set.btn_text != blank %}
+                  <a href="{{ set.btn_url }}" class="btn btn-primary starter-kit-btn">{{ set.btn_text }}</a>
+                 {% endif %}
+ 
+              </div>
+      {% endif %}
+ 
+          
+            
+        
+         </div>
+     {% endfor %}
+       </div>
+ 
+     </div>
+ </div>
+ 
+ {% schema %}
+ {
+   "blocks": [
+     {
+       "type": "block",
+       "name": "Block",
+       "settings": [
+         {
+           "type": "textarea",
+           "id": "title",
+           "label": "Title"
+         },
+         {
+           "type": "richtext",
+           "id": "text",
+           "label": "Text"
+         },
+         {
+           "type": "image_picker",
+           "id": "img",
+           "label": "Image"
+         },
+         {
+           "type": "select",
+           "id": "img_pos",
+           "label": "Image position",
+           "options": [
+             {
+               "value": "1",
+               "label": "1"
+             },
+                {
+               "value": "2",
+               "label": "2"
+             },
+             {
+               "value": "3",
+               "label": "3"
+             },
+             {
+               "value": "4",
+               "label": "4"
+             },
+                {
+               "value": "5",
+               "label": "5"
+             },
+             {
+               "value": "6",
+               "label": "6"
+             }
+           ]
+         },
+           {
+           "type": "text",
+           "id": "btn_text",
+           "label": "Button Text"
+         },
+         {
+           "type": "url",
+           "id": "btn_url",
+           "label": "Button Url"
+         }
+       ]
+     }
+   ]
+ }
+ {% endschema %}

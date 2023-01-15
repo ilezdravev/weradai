@@ -1,0 +1,109 @@
+<div class="container contact-blocks">
+  {% for block in section.blocks %}
+    {% case block.type %}
+
+    {% when 'image-text' %}
+    <div class="row align-items-center">
+      <div class="col-sm-6 {% if block.settings.text-align == 'left' %}order-sm-2{% endif %}">
+        <img loading="lazy" class="lazyload" src="{{ block.settings.block-image | img_url: 'master' }}" />
+      </div>
+      <div class="col-sm-6 {% if block.settings.text-align == 'left' %}order-sm-1{% endif %} text-area">
+        <h1>{{ block.settings.block-title }}</h1>
+        {{ block.settings.text-area }}
+
+        {% if block.settings.enable_social == true %}
+          {%- assign social_accounts = 'Instagram, Facebook, Twitter, Pinterest, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+          <ul class="social-links">
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                    {% render social_icon %}
+                    <span class="icon-fallback-text">{{ social }}</span>
+                  </a>
+                </li>
+              {% endif %}
+
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </div>
+    </div>
+
+    {% when 'html-block' %}
+    <div class="row align-items-center html-block">
+      <div class="col-sm-6">
+        {{ block.settings.html-block-one }}
+      </div>
+      <div class="col-sm-6">
+        {{ block.settings.html-block-two }}
+      </div>
+    </div>
+
+  {% endcase %}
+{% endfor %}
+</div>
+
+{% schema %}
+       {
+         "blocks": [
+           {
+             "type": "image-text",
+             "name": "Image/Text",
+             "settings": [
+               {
+                 "id": "block-image",
+                 "type": "image_picker",
+                 "label": "Image"
+               },
+               {
+                 "id": "block-title",
+                 "type": "text",
+                 "label": "Title"
+               },
+               {
+                 "id": "text-area",
+                 "type": "richtext",
+                 "label": "Content"
+               },
+               {
+                 "type":      "radio",
+                 "id":        "text-align",
+                 "label":     "Text position",
+                 "options": [
+                   { "value": "left", "label": "Left" },
+                   { "value": "right", "label": "Right" }
+                 ],
+                 "default":   "right"
+              },
+              {
+                "type": "checkbox",
+                "id": "enable_social",
+                "label": "Show social icons"
+              }
+             ]
+           },
+           {
+             "type": "html-block",
+             "name": "HTML block",
+             "settings": [
+               {
+                 "id": "html-block-one",
+                 "type": "html",
+                 "label": "Embed HTML"
+               },
+               {
+                 "id": "html-block-two",
+                 "type": "html",
+                 "label": "Embed HTML"
+               }
+             ]
+           }
+         ]
+       }
+     {% endschema %}

@@ -1,0 +1,78 @@
+{% if section.blocks != blank %}
+  <!-- START SLIDER -->
+  <div class="slider homepage-eslide-{{ section.id }} {% if section.blocks.size > 1 %}js-slider{% endif %}">
+    {% for block in section.blocks %}
+      {%- assign bset = block.settings -%}
+      {%- assign overlay_color_desktop = bset.desktop_overlay_color -%}
+      {%- assign desktop_overlay_color_opacity = bset.desktop_overlay_color_opacity -%}
+      {%- assign overlay_color_mobile = bset.mobile_overlay_color -%}
+      {%- assign mobile_overlay_color_opacity = bset.mobile_overlay_color_opacity -%}
+      {% style %}
+        .slider.homepage-eslide-{{ section.id }} {
+          position: relative;
+        }
+        .slider.homepage-eslide-{{ section.id }} .eslide_overlay {
+          position: absolute;
+          width: 100%;
+          top: 0%;
+          bottom: 0%;
+          background-color: {{ overlay_color_desktop | color_modify: 'alpha', desktop_overlay_color_opacity }};
+        }
+        @media only screen and (max-width: 767px) {
+          .slider.homepage-eslide-{{ section.id }} .eslide_overlay {
+            background-color: {{ overlay_color_mobile | color_modify: 'alpha', mobile_overlay_color_opacity }};
+          }
+        }
+      {% endstyle %}
+
+      {% assign hasMobile = false %}
+      {% if block.settings.image_mobile != blank %}
+        {% assign hasMobile = true %}
+      {% endif %}
+      
+      {% if block.settings.disabled == false %}
+        {% assign halign_desktop = block.settings.halign_desktop %}
+        {% assign text_color = block.settings.text_color %}
+        {% assign text_color_mob = block.settings.text_color_mob %}
+        
+        <div class="e-slide text-{{ text_color }} text-{{ text_color_mob }}-mob">
+          <div class="e-image {% if hasMobile %}m-desktop{% endif %}" style="background-image: url({{ block.settings.image_desktop | img_url: 'master' }});background-position-y: {{ block.settings.desktop_img_position_vertical }}%"></div>
+          {%- if hasMobile -%}
+            <div class="e-image m-mobile" style="background-image: url({{ block.settings.image_mobile | img_url: 'master' }})"></div>
+          {%- endif -%}
+
+          <div class="home-content">
+            <div class="container">
+              <div class="row {{ halign_desktop }}">
+                <div class="col-12 col-sm-7 offset-md-1 col-md-6 offset-lg-0 col-lg-5">
+                  <!-- CONTENT -->
+                  <div class="e-info">
+                      <h1>{{ block.settings.title }}</h1>
+                      <h2>{{ block.settings.subtitle }}</h2>
+                      <div class="extra-text">
+                        {{ block.settings.extra_description }}
+                      </div>
+                      {% if block.settings.button_link != blank %}
+                        <a href="{{ block.settings.button_link }}" class="btn btn-secondary first">{{ block.settings.button_text  }}</a>
+                      {% endif %}
+                      {% if block.settings.button_link_two != blank %}
+                        <a href="{{ block.settings.button_link_two }}" class="btn btn-secondary">{{ block.settings.button_text_two  }}</a>
+                      {% endif %}
+                      <div class="small-print">{{ block.settings.small_print }}</div>
+                  </div>
+                  <!-- /end of CONTENT -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <div class="eslide_overlay"></div>
+  </div>
+  <!-- END SLIDER -->
+{% endif %}
+
+<script>
+  window.SECTION_SLIDER_SPEED = {{ section.settings.speed }};
+</script>

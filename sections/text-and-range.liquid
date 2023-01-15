@@ -1,0 +1,112 @@
+{%- assign set = section.settings -%}
+
+<div class="range" style="background: {{ set.bg_color }};">
+  <div class="container">
+
+    {%- if set.title != blank -%}
+      <h3 class="range__title"><a href="{{ set.title_url }}">{{ set.title }}</a></h3>
+    {%- endif -%}
+    {%- if set.text != blank -%}
+      <div class="range__text">{{ set.text }}</div>
+    {%- endif -%}
+    {%- if set.text_delay != blank -%}
+      <div class="range__text range__text-animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true">{{ set.text_delay }}</div>
+    {%- endif -%}
+
+    <div class="range__area" data-range-area>
+      <div class="range__labels">
+        {%- if set.range_left -%}
+          <div class="range__label m-left">{{ set.range_left }}</div>
+        {%- endif -%}
+        {%- if set.range_right -%}
+          <div class="range__label m-right">{{ set.range_right }}</div>
+        {%- endif -%}
+      </div>
+      <div class="range__slider" style="background: {{ set.line_color }};" data-range-slider>
+        <button class="range__shutter" data-range-shutter style="background-image: url({{ set.range_image | img_url: '100x' }})"></button>
+      </div>
+    </div>
+
+    {%- if set.btn_text != blank -%}
+      <a href="{{ set.btn_url }}" class="btn btn-border">{{ set.btn_text }}</a>            
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Text and range",
+    "class": "range-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "#f7f7f7"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "url",
+        "id": "title_url",
+        "label": "Title url"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      },
+      {
+        "type": "richtext",
+        "id": "text_delay",
+        "label": "Text (2nd line delay)"
+      },
+      {
+        "type": "header",
+        "content": "Slider"
+      },
+      {
+        "type": "text",
+        "id": "range_left",
+        "label": "Range left label"
+      },
+      {
+        "type": "text",
+        "id": "range_right",
+        "label": "Range right label"
+      },
+      {
+        "type": "image_picker",
+        "id": "range_image",
+        "label": "Icon"
+      },
+      {
+        "type": "color",
+        "id": "line_color",
+        "label": "Line color",
+        "default": "#cccccc"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button url"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text and range",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

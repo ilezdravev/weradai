@@ -1,0 +1,423 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Slate",
+    "theme_version": "0.11.0",
+    "theme_author": "Shopify",
+    "theme_documentation_url": "https:\/\/shopify.github.io\/slate\/",
+    "theme_support_url": "https:\/\/github.com\/Shopify\/slate"
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "select",
+        "id": "type_base_size",
+        "label": "Base size",
+        "default": "16px",
+        "options": [
+          {
+            "value": "14px",
+            "label": "14px"
+          },
+          {
+            "value": "15px",
+            "label": "15px"
+          },
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General colors"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary color",
+        "default": "#000",
+        "info": "Used for text links, and primary buttons"
+      },
+      {
+        "type": "color",
+        "id": "color_body_text",
+        "label": "Text color",
+        "default": "#000",
+        "info": "Color used for content and paragraph text"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Sharing links"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link"
+      }
+    ]
+  },
+  {
+    "name": "Customer Account Page",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "unsubscription_label",
+        "label": "Unsubscription Label"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Mini cart"
+      },
+      {
+        "type": "text",
+        "id": "cart_product_title",
+        "label": "Upsell section title",
+        "info": "Heading shown above upsell product box"
+      },
+      {
+        "type": "product",
+        "id": "cart_product",
+        "label": "Upsell Product",
+        "info": "Product that will be displayed in mini cart as recommended"
+      },
+      {
+        "type": "header",
+        "content": "Cart"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Product Badge Colours",
+    "settings": [
+      {
+        "type": "color",
+        "id": "product_badge_bg_circular",
+        "label": "Circular background",
+        "default": "#142B00"
+      },
+      {
+        "type": "color",
+        "id": "product_badge_text_circular",
+        "label": "Circular text color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "product_badge_bg_bestseller",
+        "label": "Bestseller background",
+        "default": "#DEEBF7"
+      },
+      {
+        "type": "color",
+        "id": "product_badge_text_bestseller",
+        "label": "Bestseller text color",
+        "default": "#1a2843"
+      }
+    ]
+  },
+  {
+    "name": "Localization (SEO)",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_localization",
+        "label": "Enable",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "All Product Page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "all_products_title",
+        "label": "Page title"
+      },
+      {
+        "type": "textarea",
+        "id": "all_products_description",
+        "label": "Page description"
+      },
+      {
+        "type": "image_picker",
+        "id": "all_products_image",
+        "label": "Background image"
+      }
+    ]
+  },
+  {
+    "name": "Charles Bubble",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "checkbox",
+        "id": "c_bubble_enabled",
+        "label": "Enable bubble",
+        "default": false,
+        "info": "Globally show or hide the bubble"
+      },
+      {
+        "type": "select",
+        "id": "c_bubble_position",
+        "label": "Bubble position",
+        "options": [
+          {
+            "value": "c-bubble-left",
+            "label": "Left"
+          },
+          {
+            "value": "c-bubble-right",
+            "label": "Right"
+          }
+        ],
+        "default": "c-bubble-right"
+      },
+      {
+        "type": "color",
+        "id": "c_bubble_bg",
+        "label": "Bubble Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "image_picker",
+        "id": "c_bubble_logo",
+        "label": "Bubble logo image"
+      },
+      {
+        "type": "range",
+        "id": "c_bubble_size",
+        "min": 1,
+        "max": 10,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "Bubble size",
+        "default": 4
+      },
+      {
+        "type": "header",
+        "content": "Speech bubble"
+      },
+      {
+        "type": "color",
+        "id": "c_bubble_speech_bubble_bg",
+        "label": "Speech bubble background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "c_bubble_speech_bubble_text_color",
+        "label": "Speech bubble text color",
+        "default": "#221F20"
+      },
+      {
+        "type": "header",
+        "content": "Push speech bubble"
+      },
+      {
+        "type": "text",
+        "id": "c_bubble_speech_bubble_push_text",
+        "label": "Push Bubble Text",
+        "info": "Text shown within the push bubble that automatically opens",
+        "default": "Hey! You look great again",
+        "placeholder": "Hey! You look great again"
+      },
+      {
+        "type": "range",
+        "id": "c_bubble_speech_bubble_push_timer",
+        "min": 0,
+        "max": 20,
+        "step": 0.5,
+        "unit": "sec",
+        "label": "Push bubble timer",
+        "default": 1.5,
+        "info": "Automatically opens the push bubble after this time, if the user has not clicked on the bubble yet."
+      },
+      {
+        "type": "range",
+        "id": "c_bubble_speech_bubble_push_close_timer",
+        "min": 0,
+        "max": 20,
+        "step": 0.5,
+        "unit": "sec",
+        "label": "Push bubble close timer",
+        "default": 5,
+        "info": "Automatically closes the push bubble after this time."
+      },
+      {
+        "type": "header",
+        "content": "Pull speech bubble"
+      },
+      {
+        "type": "text",
+        "id": "c_bubble_speech_bubble_pull_text",
+        "label": "Pull Bubble Text",
+        "info": "Text shown within the pull bubble",
+        "default": "Now it’s time for your first order via WhatsApp"
+      },
+      {
+        "type": "text",
+        "id": "c_bubble_speech_bubble_pull_button_label",
+        "label": "Pull Bubble Button Label",
+        "default": "Order now!"
+      },
+      {
+        "type": "url",
+        "id": "c_bubble_speech_bubble_pull_button_action",
+        "label": "Pull Bubble Action URL",
+        "info": "Enter the url that will open when the user clicks on the pull bubble CTA"
+      },
+      {
+        "type": "color",
+        "id": "c_bubble_speech_bubble_pull_button_bg",
+        "label": "Pull Bubble CTA Background",
+        "default": "#00C40A"
+      },
+      {
+        "type": "color",
+        "id": "c_bubble_speech_bubble_pull_button_text_color",
+        "label": "Pull Bubble CTA Text Color",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  {
+    "name": "Trouser Fit Finder",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "trouser_fit_finder_collection",
+        "label": "Trouser Fit Finder Collection"
+      },
+      {
+        "type": "header",
+        "content": "Looking for more comfort"
+      },
+      {
+        "type": "product",
+        "id": "tff_extra_product_one",
+        "label": "Product #1"
+      },
+      {
+        "type": "product",
+        "id": "tff_extra_product_two",
+        "label": "Product #2"
+      },
+      {
+        "type": "product",
+        "id": "tff_extra_product_three",
+        "label": "Product #3"
+      },
+      {
+        "type": "product",
+        "id": "tff_extra_product_four",
+        "label": "Product #4"
+      }
+    ]
+  }
+]

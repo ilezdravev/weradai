@@ -1,0 +1,41 @@
+<div class="blog-container article-section">
+    <div class="container">
+        <div class="row justify-content-center article-text">
+            <div class="col-sm-6">
+                {% if section.settings.article_title != blank %}
+                    <h2 class="content-h2">{{ section.settings.article_title }}</h2>
+                {% endif %}
+                {{ section.settings.article_text }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article Text",
+    "tag": "section",
+    "settings": [
+    {
+        "type": "header",
+        "content": "Header"
+    },
+    {
+        "type": "text",
+        "id": "article_title",
+        "label": "Heading"
+    },
+    {
+        "type": "richtext",
+        "id": "article_text",
+        "label": "Text"
+    }
+    ],
+    "presets": [
+      {
+        "name": "Article Text",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

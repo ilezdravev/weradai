@@ -1,0 +1,64 @@
+{% assign related_product_1 = all_products[product.metafields.sf_complete_look.related_product_1] %}
+{% assign related_product_2 = all_products[product.metafields.sf_complete_look.related_product_2] %}
+{% assign related_product_3 = all_products[product.metafields.sf_complete_look.related_product_3] %}
+{% assign related_product_4 = all_products[product.metafields.sf_complete_look.related_product_4] %}
+{% assign related_product_5 = all_products[product.metafields.sf_complete_look.related_product_5] %}
+{% assign related_product_6 = all_products[product.metafields.sf_complete_look.related_product_6] %}
+{% assign related_product_7 = all_products[product.metafields.sf_complete_look.related_product_7] %}
+{% assign related_product_8 = all_products[product.metafields.sf_complete_look.related_product_8] %}
+
+{% if product.metafields.sf_complete_look.related_product_1 != blank %}
+<div class="container" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <h3 class="fz-4 fw-700 lt-space-2 text-center">Complete your wardrobe:</h3>
+  <div class="landing-slider mt-3" data-landing-slider>
+    {% if related_product_1 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_1 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+    {% if related_product_2 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_2 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+    {% if related_product_3 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_3 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+    {% if related_product_4 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_4 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+    {% if related_product_5 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_5 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+    {% if related_product_6 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_6 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+    {% if related_product_7 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_7 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+    {% if related_product_8 != blank %}
+      <div class="landing-slider__product">
+        {% assign product = related_product_8 %}
+        {% render 'product-grid' %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}

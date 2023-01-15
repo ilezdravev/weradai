@@ -1,0 +1,18 @@
+
+
+<div class="lookbook-product-wrapper">
+  <div class="image-area">
+    <img src="{{ block.settings.look-image-two | img_url: 'master' }}" alt="{{ all_products[product_two].title }}" />
+  </div>
+  <div class="text-area">
+    <h3>{{ all_products[product_two].title }}</h3>
+    <div class="product-swatches">
+    </div>
+    <p class="product-price">{{ all_products[product_two].price | money }}</p>
+    {% if block.settings.product_unavailable %}
+      <a href="{{ block.settings.category_link }}" class="btn btn-border">Shop now</a>
+    {% else %}
+      <a href="{{ all_products[product_two].url }}" class="btn btn-border">Shop now</a>
+    {% endif %}
+  </div>
+</div>

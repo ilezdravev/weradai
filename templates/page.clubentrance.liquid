@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    // PASSWORD PROTECTION SCRIPT
+    
+    function TheLogin() {
+    
+    var password = 'dainamic';
+    
+    if (this.document.login.pass.value == password) {
+      window.location.href="https://daiwear.com/pages/club";
+    }
+    else {
+      window.alert("Incorrect password, please try again.");
+      }
+    }
+      
+    </script>
+     
+      
+    
+    <div class="club-banner" style="background-image: url(https://cdn.shopify.com/s/files/1/0225/7023/8016/files/WinnersIntro.jpg?v=1614290820)">
+      
+     
+    <form name="keeper" action="javascript:location.href =
+    'https://daiwear.com/pages/club-' + window.document.keeper.pass.value" style="margin:0;">
+    <input type="text" name="pass" id="pass" class="password-input-btn" style="width: 250px;margin:0px" placeholder="Enter your password"><br/>
+    <input type="submit" class="btn btn-secondary" style="width: 250px; margin:10px 0 0 0px"  value="Enter">
+      </form>
+      
+    </div>
+     
+    
+    

@@ -1,0 +1,156 @@
+{
+  "sections": {
+    "main": {
+      "type": "article-header",
+      "settings": {
+        "article_category": "Issue - 01",
+        "article_title": "Welcome to the “She-cession”",
+        "article_subtitle": "Wait, how did we get here?",
+        "article_reading_time": 5,
+        "article_author": "<p>By <span style=\"text-decoration:underline\">Amy Tai<\/span> | Photos by <span style=\"text-decoration:underline\">Bex Aston<\/span><\/p>",
+        "article_author_details": "<p>Amy is a writer and Dai brand editor who focuses on all things women, work & culture.<\/p>"
+      }
+    },
+    "1636726572d6222f08": {
+      "type": "article-tl-dr",
+      "blocks": {
+        "dfebd3de-6e03-485f-a7af-84b2f10ddb4b": {
+          "type": "block",
+          "settings": {
+            "bullet_point": "<p>Women’s economic gains keep unravelling. Heard of the “she-cession”? It’s no surprise that<a href=\"https:\/\/www.businesswire.com\/news\/home\/20211018006003\/en\/Egon-Zehnder-Survey-Reveals-Pandemic-Fueled-%E2%80%9CShe-cession%E2%80%9D-Has-Stunted-Female-Progress-in-the-Workplace\"> <span style=\"text-decoration:underline\">76%<\/span><\/a> of business leaders believe women are disproportionately dealing with more personal and professional responsibilities than men.<\/p>"
+          }
+        },
+        "5d32143e-44e7-44e7-97a3-686caf3116a1": {
+          "type": "block",
+          "settings": {
+            "bullet_point": "<p>The workforce keeps shedding workers. You know the saying: Quitters never win. But is it a personal failure, or a systems failure? Is the Great Resignation – as<a href=\"https:\/\/www.theatlantic.com\/ideas\/archive\/2021\/10\/great-resignation-accelerating\/620382\/\"> <span style=\"text-decoration:underline\"><em>The Atlantic<\/em><\/span><\/a> puts it –  “really an expression of optimism”?<\/p>"
+          }
+        },
+        "89ca8af2-ef6b-4427-bc20-ee853d45c8b5": {
+          "type": "block",
+          "settings": {
+            "bullet_point": "<p>So what are we wearing? If WWI saw the demise of corsets, and the corporate ‘80s gave us the power suit – WFH\/WNH\/WFA (take your acronym pick) is accelerating the rise of “workleisure”. Also, we demand pockets. Always pockets.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "dfebd3de-6e03-485f-a7af-84b2f10ddb4b",
+        "5d32143e-44e7-44e7-97a3-686caf3116a1",
+        "89ca8af2-ef6b-4427-bc20-ee853d45c8b5"
+      ],
+      "settings": {
+        "article_category": "IN A NUT SHELL"
+      }
+    },
+    "1636723680298948d7": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "",
+        "article_text": "<p>So, dear reader, we’re in November. Are you thinking what we’re thinking? As in – wait, how did I get here?<\/p><p>If 2020 was the year that didn’t end, 2021 feels like the one that never happened.<\/p><p>As we round the bend on Q4, and our minds turn to thoughts of good tidings, it’s high time to take stock of where women are at.  <\/p>"
+      }
+    },
+    "163672671931d3ddde": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "THANK U, NEXT",
+        "article_text": "<p><strong> <\/strong>Just as 2008 became synonymous with the Great Recession, will this year be known forevermore as the Great Resignation?<\/p><p>Although the worst of the pandemic is (hopefully) in the rearview mirror, the workforce continues to shed workers. Nothing like a plague to reset your priorities, amiright.<\/p><p>But for so many women, there wasn’t really ever a choice.<\/p><p>In a typical recession, it’s men who lose jobs at higher rates – which is what<a href=\"https:\/\/www.economist.com\/britain\/2021\/10\/02\/in-britain-young-women-got-more-work-during-the-pandemic\"> <span style=\"text-decoration:underline\">happened<\/span><\/a> in the UK. But nothing’s been typical about Covid-19. The gender gap has become a<a href=\"https:\/\/www.nytimes.com\/2021\/05\/28\/us\/shecession-america-europe-child-care.html\"> <span style=\"text-decoration:underline\">chasm<\/span><\/a> in Canada and the U.S., where women – mothers and<a href=\"https:\/\/www.nytimes.com\/2021\/05\/28\/us\/shecession-america-europe-child-care.html\"> <span style=\"text-decoration:underline\">otherwise<\/span><\/a> – account for more than<a href=\"https:\/\/www.washingtonpost.com\/business\/2021\/10\/14\/budgeting-advice-women-fidelity\/\"> <span style=\"text-decoration:underline\">50%<\/span><\/a> of employment decline.<\/p><p>The “she-cession” – thanks<a href=\"https:\/\/www.pwc.com\/gx\/en\/news-room\/press-releases\/2021\/women-in-work-index-2021.html\"> <span style=\"text-decoration:underline\">PwC<\/span><\/a> – shows no signs of abating, with repercussions reverberating from the streets to the C-suite. A recent international study of execs shows that<a href=\"https:\/\/www.businesswire.com\/news\/home\/20211018006003\/en\/Egon-Zehnder-Survey-Reveals-Pandemic-Fueled-%E2%80%9CShe-cession%E2%80%9D-Has-Stunted-Female-Progress-in-the-Workplace\"> <span style=\"text-decoration:underline\">76%<\/span><\/a> of leaders believe women are juggling more professional and personal responsibilities than men.<\/p>"
+      }
+    },
+    "163673020591915a49": {
+      "type": "article-quote",
+      "settings": {
+        "article_quote": "“Quitting is a concept typically associated with losers and loafers. But this level of quitting is really an expression of optimism that says, We can do better,”",
+        "article_quote_author": "Derek Thompson in The Atlantic.",
+        "article_quote_link": ""
+      }
+    },
+    "16367267816fae678b": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/Grey.jpg",
+        "featured_product_one": "jumpstart-jumpsuit",
+        "featured_product_two": "trail-blazer-textured-grey",
+        "featured_product_three": ""
+      }
+    },
+    "1636726961062dc007": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "HOW TO FAIL",
+        "article_text": "<p>Being resigned to one’s fate is a passive position. But resigning one’s position: that’s a radical vote for personal purpose.<\/p><p>“Quitting is a concept typically associated with losers and loafers. But this level of quitting is really an expression of optimism that says, <em>We can do better<\/em>,” wrote Derek Thompson in<a href=\"https:\/\/www.theatlantic.com\/ideas\/archive\/2021\/10\/great-resignation-accelerating\/620382\/\"> <span style=\"text-decoration:underline\"><em>The Atlantic<\/em><\/span><\/a><em>.<\/em><\/p><p>Not to get bigger than our newsletter britches, but sometimes we like to ponder the big thoughts. Is failure actually another form of success? Are women socialised and conditioned to believe their success is always at someone else’s expense? (Shout out to Dai’namic dream lady\/author\/podcast host Elizabeth Day, who is<a href=\"https:\/\/www.refinery29.com\/en-gb\/elizabeth-day-on-jealousy-power-motherhood-in-her-new-book-magpie\"> <span style=\"text-decoration:underline\">outspoken<\/span><\/a> about her default attitude of feeling guilty).<\/p><p>“Women disproportionately don’t think they can do it. They think they’re not experienced or smart enough, they don’t have the right ideas… or it has to be perfect,”<a href=\"https:\/\/www.nytimes.com\/2021\/06\/12\/style\/breaking-her-way-out-of-the-shecession.html\"> <span style=\"text-decoration:underline\">said<\/span><\/a> Brit Morin, founder of entrepreneurship course Selfmade.<\/p>"
+      }
+    },
+    "163672703101af4099": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/Apres-Ski.jpg",
+        "featured_product_one": "apres-ski-sweater-ivory",
+        "featured_product_two": "the-wide-leg-jean-black",
+        "featured_product_three": ""
+      }
+    },
+    "1636727200df0b1805": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "POLLY POCKET",
+        "article_text": "<p>For all the philosophising – you didn’t really think we’d leave out the clothes, did you?<\/p><p>Looking back at historic moments of economic upheaval, there are inevitable links to shifts in fashion.<\/p><p>The turmoil of WWI introduced the<a href=\"https:\/\/www.fastcompany.com\/90599952\/the-global-crisis-that-changed-fashion-forever-and-gave-women-pockets\"> <span style=\"text-decoration:underline\">demise<\/span><\/a> of corsets and the rise of soft jersey dresses. As the ‘80s saw more women<a href=\"https:\/\/www.theatlantic.com\/technology\/archive\/2017\/12\/the-power-suits-subversive-legacy\/549200\/\"> <span style=\"text-decoration:underline\">enter<\/span><\/a> the corporate workforce, the power suit came into play – the exaggerated shoulders wide enough to carry real responsibility.<strong> <\/strong><\/p><p>Getting dressed has always been about much more than just dresses. “To consider the wardrobe of the working woman in the early-to-middle part of this century is to remember that women in offices existed, at that time, largely as trophies,” wrote Amy Larocca in<a href=\"https:\/\/www.thecut.com\/2016\/05\/evolution-of-womens-workwear.html\"> <span style=\"text-decoration:underline\"><em>New York<\/em><\/span><\/a><em> <\/em>magazine.<strong> <\/strong><\/p><p>Know what womenswear was<a href=\"https:\/\/www.fastcompany.com\/90262598\/pockets\"> <span style=\"text-decoration:underline\">missing<\/span><\/a> for like, 200 years though? Pockets. (Possibly a brand-wide obsession, we’re<a href=\"https:\/\/daiwear.com\/products\/waist-not-shacket-camel\"> <span style=\"text-decoration:underline\">serious<\/span><\/a> about deep and plentiful ones).<\/p>"
+      }
+    },
+    "1636727297cace071a": {
+      "type": "article-lookbook",
+      "settings": {
+        "look-image": "shopify:\/\/shop_images\/Espresso.jpg",
+        "featured_product_one": "trail-blazer-espresso",
+        "featured_product_two": "sharp-shooter-crop-trousers-espresso",
+        "featured_product_three": "eco-layer-on-top-cinnamon"
+      }
+    },
+    "1636728453da233622": {
+      "type": "article-text",
+      "settings": {
+        "article_title": "THE LAST WORD by Joanna Dai",
+        "article_text": "<p>How did we get here, indeed. Nothing was in the plan, or in my realm of imagination, and yet extraordinary events played out in rapid succession.<\/p><p><em>Sales falling off a cliff. Furloughing, un-furloughing, then tripling the team. Closing a store (RIP Spitalfields), opening one, then opening another, moving stores, closing down, then reopening (did you follow?). Inventory planning around three lockdowns.<\/em><\/p><p>Plus Brexit, the gift that keeps on giving.<\/p><p>Oh, and my personal life was full of whiplash too. <em>Separated, divorced, met someone, moved four times, got two cats.<\/em><\/p><p>So speaking of “How To Fail” – most of my experiences throughout the Great Coronavirus Pandemic felt like big failures, and the few “successes” felt like riding a rollercoaster (without straps, dangling precariously).<\/p><p>This September, I hit the reset. I set my first OOO since 2018, and travelled alone to a secluded<a href=\"https:\/\/www.santoshamaine.com\/\"> <span style=\"text-decoration:underline\">retreat<\/span><\/a> on the craggy Maine coastline. The name of the retreat – <em>Santosha<\/em> – means “contentment” in Sanskrit: mastering the art of feeling at peace with yourself. (No, there was no ayahuasca involved).<\/p><p>I know, I know. Could I be more predictable? It’s like I’ve made a play to write the sequel to <em>Eat, Pray, Love<\/em>, fashion start-up style. But humour me for a moment. <\/p><p>The first few days without checking emails, notifications or feeds were filled with anxiety – but then, something started to shift. I stopped running through what happened this past year, what could happen next year, and started just being present.<\/p><p>“Mindfulness” gets thrown around a lot these days. But its benefits are real. Being in the now, seeing today’s gifts for what they are.<\/p><p>Sometimes, that’s all we really need. The end. JK, it’s only the beginning. Amongst new people-focused initiatives including an energy-filled team SoulCycle session in our <a href=\"https:\/\/us.daiwear.com\/products\/dainamic-flow-top-black\"><span style=\"text-decoration:underline\">FLOW Tops<\/span><\/a> and <a href=\"https:\/\/us.daiwear.com\/products\/power-move-flow-legging-black\"><span style=\"text-decoration:underline\">Leggings<\/span><\/a>, we’ve also introduced Half-Off Fridays at Dai. Yup, the weekend just got longer.<\/p><p>As for me? I’m proudly joining <a href=\"https:\/\/triyoga.co.uk\/\"><span style=\"text-decoration:underline\">Triyoga<\/span><\/a>’s teacher training programme. Graduation? 2023<\/p>"
+      }
+    },
+    "1636727907f7137339": {
+      "type": "article-signature",
+      "settings": {}
+    },
+    "1636729580af52bab7": {
+      "type": "article-related-products",
+      "settings": {}
+    },
+    "163672845644d557ea": {
+      "type": "home-social-feed",
+      "settings": {
+        "title": "Join the Dai'alogue",
+        "description": "We’re a community that celebrates high-performing women. In our newsletter, we’ll send you early access, exclusive invites, and real content we’re passionate about."
+      }
+    },
+    "1636729518b0d86730": {
+      "type": "featured-product",
+      "disabled": true,
+      "settings": {
+        "product": "",
+        "show_share_buttons": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1636726572d6222f08",
+    "1636723680298948d7",
+    "163672671931d3ddde",
+    "163673020591915a49",
+    "16367267816fae678b",
+    "1636726961062dc007",
+    "163672703101af4099",
+    "1636727200df0b1805",
+    "1636727297cace071a",
+    "1636728453da233622",
+    "1636727907f7137339",
+    "1636729580af52bab7",
+    "163672845644d557ea",
+    "1636729518b0d86730"
+  ]
+}

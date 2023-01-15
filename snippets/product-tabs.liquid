@@ -1,0 +1,86 @@
+<div class="responsive-tabs">
+
+  <div class="tab_container">
+
+    {% assign product_fit_care = product.metafields.sf_product_descripti.fit_care %}
+    {%- if product_fit_care != blank -%}
+      <!-- FIT  -->
+      <h3 class="d_active tab_drawer_heading" rel="tab1">Fit</h3>
+      <div id="tab1" class="tab_content">
+        <div>{{ product_fit_care }}</div>
+
+        {%- assign fitting_tags = product.tags | where: 'fitting:' -%}
+        {%- assign fit_tags = product.tags | where: 'fit:' -%}
+        {%- assign waist_tags = product.tags | where: 'waist:' -%}
+        {%- assign shape_tags = product.tags | where: 'shape:' -%}
+        {%- assign leglength_tags = product.tags | where: 'leglength:' -%}
+        <ul>
+          {%- if fitting_tags != blank -%}
+            <li><b>Fitting:</b> {%- for tag in fitting_tags -%} <a href="/collections/all/{{ tag | handleize }}" class="tab_tag">{{ tag | replace: 'fitting:', '' }}{% unless forloop.last %},{% endunless %}</a> {%- endfor -%} </li>
+          {%- endif -%}
+          {%- if waist_tags != blank -%}
+            <li><b>Waist:</b> {%- for tag in waist_tags -%} <a href="/collections/all/{{ tag | handleize }}" class="tab_tag">{{ tag | replace: 'waist:', '' }}{% unless forloop.last %},{% endunless %}</a> {%- endfor -%} </li>
+          {%- endif -%}
+          {%- if fit_tags != blank -%}
+            <li><b>Fit:</b> {%- for tag in fit_tags -%} <a href="/collections/all/{{ tag | handleize }}" class="tab_tag">{{ tag | replace: 'fit:', '' }}{% unless forloop.last %},{% endunless %}</a> {%- endfor -%} </li>
+          {%- endif -%}
+          {%- if shape_tags != blank -%}
+            <li><b>Shape:</b> {%- for tag in shape_tags -%} <a href="/collections/all/{{ tag | handleize }}" class="tab_tag">{{ tag | replace: 'shape:', '' }}{% unless forloop.last %},{% endunless %}</a> {%- endfor -%} </li>
+          {%- endif -%}
+          {%- if leglength_tags != blank -%}
+            <li><b>Leg length:</b> {%- for tag in leglength_tags -%} <a href="/collections/all/{{ tag | handleize }}" class="tab_tag">{{ tag | replace: 'leglength:', '' }}{% unless forloop.last %},{% endunless %}</a> {%- endfor -%} </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {% assign why = product.metafields.sf_product_descripti.why %}
+    {%- if why != blank -%}
+      <!-- WHY YOU’LL LOVE IT -->
+      <h3 class="d_active tab_drawer_heading" rel="tab2">WHY YOU’LL LOVE IT</h3>
+      <div id="tab2" class="tab_content">{{ why }}</div>
+    {%- endif -%}
+
+
+    {%- if product.metafields.sf_product_descripti.details_1 != blank -%}
+      <!-- DETAILS, FABRIC & CARE -->
+      <h3 class="tab_drawer_heading" rel="tab3">DETAILS, FABRIC & CARE</h3>
+      <div id="tab3" class="tab_content">
+        {% render 'tab-list', tab_list_content: product.metafields.sf_product_descripti.details_2, tab_list_icon: product.metafields.sf_product_descripti.details_2_icon  %}
+        {% render 'tab-list', tab_list_content: product.metafields.sf_product_descripti.details_1, tab_list_icon: product.metafields.sf_product_descripti.details_1_icon  %}
+        {% render 'tab-list', tab_list_content: product.metafields.sf_product_descripti.details_3, tab_list_icon: product.metafields.sf_product_descripti.details_3_icon  %}
+        {% render 'tab-list', tab_list_content: product.metafields.sf_product_descripti.details_4, tab_list_icon: product.metafields.sf_product_descripti.details_4_icon  %}
+      </div>
+    {%- endif -%}
+
+    {%- if product.metafields.sf_product_descripti.sustainability_1 != blank -%}
+      <!-- SUSTAINABILITY & IMPACT -->
+      <h3 class="tab_drawer_heading" rel="tab4">SUSTAINABILITY & IMPACT</h3>
+      <div id="tab4" class="tab_content">
+        {% render 'tab-list', tab_list_content: product.metafields.sf_product_descripti.sustainability_1, tab_list_icon: product.metafields.sf_product_descripti.sustainability_1_icon  %}
+        {% render 'tab-list', tab_list_content: product.metafields.sf_product_descripti.sustainability_2, tab_list_icon: product.metafields.sf_product_descripti.sustainability_2_icon  %}
+        {% render 'tab-list', tab_list_content: product.metafields.sf_product_descripti.sustainability_3, tab_list_icon: product.metafields.sf_product_descripti.sustainability_3_icon  %}
+      </div>
+    {%- endif -%}
+
+    
+    {% comment %} <h3 class="tab_drawer_heading" rel="tab1">Description</h3>
+    <div id="tab1" class="tab_content">
+      {% assign product_description = product.metafields.sf_product_descripti.description %}
+      {% if product_description %}
+        {{ product_description }}
+      {% endif %}
+    </div>
+    <!-- #tab2 --> {% endcomment %}
+{% comment %}     
+    <h3 class="tab_drawer_heading" rel="tab3">Sourcing</h3>
+    <div id="tab3" class="tab_content">
+      {% assign product_sourcing = product.metafields.sf_product_descripti.sourcing %}
+      {% if product_sourcing %}
+        {{ product_sourcing }}
+      {% endif %}
+    </div>
+    <!-- #tab3 --> {% endcomment %}
+  </div>
+  <!-- .tab_container -->
+</div>

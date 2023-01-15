@@ -1,0 +1,192 @@
+{% layout none %}
+
+{% assign images_count = product.images | size %}
+{% assign variants_count = product.variants | size %}
+{% assign options_count   = product.options | size %}
+{% assign current_variant = product.first_available_variant %}
+
+
+<form class="quick-add"
+  data-section-id="product-grid-form-{{ product.handle }}"
+  data-section-type="quickAdd-grid-item"
+  data-section-registered="false" 
+  data-enable-history-state="false" 
+  action="/cart/add" 
+  method="post" 
+  enctype="multipart/form-data">
+  <input type="hidden" class="pid" value="{{product.id}}">
+  <input type="hidden" class="ptitle" value="{{product.title | remove: "'" | remove: '"'}}">
+  <input type="hidden" class="pprice" value="{{product.variants.first.price | times: 0.01}}">
+  <input type="hidden" class="pbrand" value="{{product.vendor | remove: "'" | remove: '"'}}">
+  <input type="hidden" class="ptype" value="{{product.type | remove: "'" | remove: '"'}}">
+  <input type="hidden" class="pcollection" value="{{ product.collections.last.title | remove: "'" | remove: '"' }}">
+  {% if product.featured_image != blank %}
+    {% assign img = product.featured_image %}
+    <div class="reveal">
+      <a href="{{ product.url | within: collection }}" class="ratio-box" style="padding-bottom: 125%">
+        <img 
+          loading="lazy"
+          class="lazyload" height="auto" width="{{ product.featured_image.src.width }}"
+          data-src="{{ product.featured_image.src | img_url: '700x' }}" 
+          data-sizes="auto" 
+          alt="{{ product.featured_image.alt | escape }}"
+          data-product-image>
+        {% unless product.images[1].alt contains 'lifestyle' %}
+          <img loading="lazy" class="lazyload hidden" height="auto" width="{{ product.images[1].src.width }}"
+            data-src="{{ product.images[1].src | img_url: '700x' }}"
+            data-product-hover>
+        {% endunless %}
+      </a>
+      <div class="quick-add__hover">
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            <div class="selector-wrapper js">
+              <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                {{ option.name }}
+              </label>
+              <select
+                id="SingleOptionSelector-{{ forloop.index0 }}"
+                data-single-option-selector="{{ product.handle }}"
+                data-index="option{{ option.position }}"
+                class="single-option-selector">
+                {% for value in option.values %}
+                  <option
+                    value="{{ value | escape }}"
+                    {% if option.selected_value == value %}selected="selected"{% endif %}>
+                      {{ value }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          {% endfor %}
+        {% endunless %}
+    
+        <select name="id" class="no-js" data-product-select>
+          {% for variant in product.variants %}
+            <option
+              {% if variant == current_variant %}selected="selected"{% endif %}
+              {% unless variant.available %}disabled="disabled"{% endunless %}
+              value="{{ variant.id }}">
+                {{ variant.title }}
+            </option>
+          {% endfor %}
+        </select>
+    
+        {% if product.variants.size > 1 %}
+          {% for option in product.options %}
+            {% assign downcased_option = option | handle %}
+            {% if downcased_option contains 'length' %}
+                {% render 'dropdown-option' %}
+          {% elsif downcased_option contains 'inseam' %}
+                {% render 'dropdown-option-legging' %}
+              {% elsif downcased_option contains 'qty' %}
+                {% render 'dropdown-option-dropdown' %}
+              {% else %}
+                {% render 'swatch' with option %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+  
+        {%- capture addText -%}
+          {%- if product.template_suffix == "pre-order" -%}
+            Preorder
+          {%- elsif product.options.size > 1 -%}
+            {{ 'products.product.quick_add' | t }}
+          {%- else -%}
+            {{ 'products.product.quick_add_long' | t }}
+          {%- endif -%}
+        {%- endcapture -%}
+        <button
+          class="btn btn-primary {% if product.options.size > 1 %}m-small{% endif %} "
+          type="button"
+          name="add"
+          data-add-text="{{ addText }}"
+          data-sold-text="{{ 'products.product.quick_sold_out' | t }}"
+          data-add-to-cart
+          data-variant="{{ current_variant.id }}"
+          {% if product.options.size > 1 %} disabled="disabled" {% endif %}>
+            <span {% unless product.template_suffix == "pre-order" %}data-add-to-cart-text{% endunless %}>
+              {% if current_variant.available or current_variant.options[1] != blank %}
+                {{ addText }}
+              {% else %}
+                {%- if product.template_suffix == "pre-order" -%}
+                  Preorder
+                {%- else -%}                  
+                  {{ 'products.product.quick_sold_out' | t }}
+                {%- endif -%}
+              {% endif %}
+            </span>
+        </button>
+      </div>
+    </div>
+  {% endif %}
+
+  {% assign soldout = false %}
+  {% assign preorder = false %}
+  {% if product.template_suffix == 'pre-order'  %}
+    {% assign preorder = true %}
+  {% elsif product.available == false %}
+    {% assign soldout = true %}
+  {% endif %}
+  <span class="product-badge product-badge-sold-out {% unless soldout %}is-hidden{% endunless %}">
+    Sold Out
+  </span>
+  <span class="product-badge {% unless preorder %}is-hidden{% endunless %}">
+    Preorder
+  </span>
+
+  {% comment %} Add custom product badge using product tags (badge:name) {% endcomment %}
+  {% unless soldout or preorder %}
+    {% for productTags in product.tags %}
+      {% if productTags contains 'badge:' %}     
+        <span class="product-badge {{ productTags | replace: 'badge:', 'product-badge-' | downcase }}">
+          {{ productTags | remove: 'badge:' }}
+        </span>
+      {% endif %}
+    {% endfor %}
+  {% endunless %}
+
+  <div class="product-colors">{% render 'product-other-colours', product: product %}</div>
+  <div class="product-name">
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+    {% render 'swym-custom-button-2', product: product %}
+  </div>
+  <p class="product-price">   
+    <span class="{% if product.compare_at_price_max > product.price %}sale-price{% endif %}">
+      {{ current_variant.price | money }}
+    </span>
+    {% if product.compare_at_price_max > product.price %}
+      <s class="rrp-price">
+        {% if current_variant.compare_at_price > current_variant.price %}{{ current_variant.compare_at_price | money }}{% endif %}
+      </s>
+    {% endif %}
+    {% unless product.available %}
+      <span class="">
+          {{ product.price | money }}
+      </span>
+    {% endunless %}
+  </p>
+
+
+
+  {% unless product == empty %}
+    <script type="application/json" data-product-json>
+      {{ product | json }}
+    </script>
+    <script type="application/json" data-variants-json>
+      [
+      {%- for variant in product.variants -%}
+        {
+          "id": {{ variant.id }},
+          "inventory_quantity": {{ variant.inventory_quantity }}
+        }
+      {%- unless forloop.last -%}
+        ,
+      {%- endunless -%}
+      {%- endfor -%}
+      ]
+    </script>
+  {% endunless %}
+
+</form>
+

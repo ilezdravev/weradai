@@ -1,0 +1,247 @@
+
+<div class="container">
+    <h3 class="london-store-title">{{ section.settings.title }}</h3>
+    {% for block in section.blocks %}
+      {% assign set = block.settings %}
+      {% if block.type == 'block-1' %}
+      <div class="london-store-block">
+        <div class="row">
+          <div class="col-md-6 {% if set.text_pos == "right" %}order-md-last{% endif %}">
+            <div class="{% if set.text_pos == "right" %} pl-md-3 {% else %} pr-md-3 {% endif %}" style="height: 100%">
+              <div class="london-store-block__info">
+                <div>
+                  {% if set.title %}
+                    <h4 class="london-store-block__title">{{ set.title }}</h4>
+                  {% endif %}
+                  {% if set.text %}
+                    <div class="london-store-block__text">{{ set.text }}</div>
+                  {% endif %}
+                  {% if set.btn_text != blank %}
+                    <a href="{{ set.btn_url }}" class="btn btn-border">{{ set.btn_text }}</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 {% if set.text_pos == "right" %}order-md-first{% endif %}">
+            <div class="{% if set.text_pos == "right" %} pr-md-3 {% else %} pl-md-3 {% endif %}">
+              {% if set.custom != blank %}
+                <div class="london-store-block__custom">{{ set.custom }}</div>
+              {% elsif set.image != blank %}
+                <img loading="lazy" class="lazyload" height="auto" width="{{ set.image.width }}" src="{{ set.image | img_url: 'master' }}" alt="{{ set.title }}">
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% elsif block.type == 'block-2' %}
+      <div class="london-store-block">
+        <div class="row">
+          <div class="col-md-6 {% if set.text_pos == "right" %}order-md-last{% endif %}">
+            <div class="{% if set.text_pos == "right" %} pl-md-3 {% else %} pr-md-3 {% endif %}" style="height: 100%">
+              <div class="london-store-block__info">
+                <div>
+                  {% if set.title %}
+                    <h4 class="london-store-block__title">{{ set.title }}</h4>
+                  {% endif %}
+                  {% if set.text %}
+                    <div class="london-store-block__text">{{ set.text }}</div>
+                  {% endif %}
+                  
+                  <div class="form-normal">
+                    {% form 'contact' %}
+
+                    {{ form.errors | default_errors }}
+                    
+                  {% if form.posted_successfully? %}
+                    <p class="success-text">{{ set.success_text }}</p>
+                  {% endif %}
+
+                    <input
+                      type="text"
+                      id="name"
+                      name="contact[name]"
+                      placeholder="Name"
+                      class="border-input"
+                    />
+                    <input
+                      type="email"
+                      id="email"
+                      name="contact[email]"
+                      placeholder="Email"
+                      class="border-input"
+                    />
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="contact[phone]"
+                      placeholder="Contact number"
+                      class="border-input"
+                    />
+                    <div class="checkbox-wrapper">
+                      <p>Who are you nominating?</p>
+                      <input
+                      type="checkbox"
+                      id="nominator_one"
+                      name="contact[nominator]"
+                      value="myself"
+                    /><label for="nominator_one">Myself</label>
+                    <input
+                      type="checkbox"
+                      id="nominator_two"
+                      name="contact[nominator]"
+                      value="friend"
+                    /><label for="nominator_two">Friend</label>
+                    </div>
+                    <textarea
+                      type="textarea"
+                      rows="3" 
+                      id="achievement"
+                      name="contact[achievement]"
+                      placeholder="Tell us about about your achievement! "
+                      class="border-input"
+                    ></textarea>
+
+                    <div class="form-field">
+                      <input type="submit" class="btn btn-primary" value="{{ 'contact.form.send' | t }}">
+                    </div>
+
+                    {% endform %}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 {% if set.text_pos == "right" %}order-md-first{% endif %}">
+            <div class="{% if set.text_pos == "right" %} pr-md-3 {% else %} pl-md-3 {% endif %}">
+              {% if set.custom != blank %}
+                <div class="london-store-block__custom">{{ set.custom }}</div>
+              {% elsif set.image != blank %}
+                <img loading="lazy" class="lazyload" height="auto" width="{{ set.image.width }}" src="{{ set.image | img_url: 'master' }}" alt="{{ set.title }}">
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <div class="cd-popup" role="alert" id="book-appointment-popup">
+      <div class="cd-popup-container square-popup">
+          <div class="popup-content">
+              <iframe src="https://calendly.com/daiwear/studio-appointment?embed_domain=daiwear.com&amp;embed_type=Inline" width="100%" height="650" frameborder="0" id="book_showroom"></iframe>
+          </div>
+          <a href="#book-appointment-popup" class="cd-popup-close img-replace">Close</a>
+      </div> <!-- cd-popup-container -->
+  </div> <!-- cd-popup -->
+  
+  {% schema %}
+  {
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Our global series of pop-up concept spaces is here."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block-1",
+        "name": "Text Block",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text"
+          },
+          {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button Url"
+          },
+          {
+            "type": "select",
+            "id": "text_pos",
+            "label": "Text position",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "textarea",
+            "id": "custom",
+            "label": "Custom Code",
+            "info": "Can be used for Iframe for map, for example"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "block-2",
+        "name": "Form Block",
+        "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "textarea",
+          "id": "success_text",
+          "label": "Success message",
+          "info": "This is a message shown to the customer when the form has been successfully sent."
+        },
+        {
+          "type": "select",
+          "id": "text_pos",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

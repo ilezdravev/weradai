@@ -1,0 +1,90 @@
+<div class="blog-container article-section pt-5">
+    <div class="container">
+        <div class="row align-items-end justify-content-center">
+            <div class="col-sm-5">
+                <div class="article-image">
+                    {% if article.image %}
+                        {{ article | img_url: '1024x1024' | img_tag: article.title }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="article-heading">
+                    <span class="label-text">{{ section.settings.article_category }}</span>
+                    <h1 class="text-font-secondary">{{ section.settings.article_title }}</h1>
+                    <h2>{{ section.settings.article_subtitle }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog-container article-section pt-4">
+    <div class="container">
+        <div class="row justify-content-center article-copyrights">
+            <div class="col-sm-6">
+                <span class="label-text mb-1">{{ section.settings.article_reading_time }} minute read</span>
+                {{ section.settings.article_author }}
+                {{ section.settings.article_author_details }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article Intro",
+    "tag": "section",
+    "settings": [
+    {
+        "type": "header",
+        "content": "Header"
+    },
+    {
+        "type": "text",
+        "id": "article_category",
+        "label": "Category"
+    },
+    {
+        "type": "text",
+        "id": "article_title",
+        "label": "Title"
+    },
+    {
+        "type": "text",
+        "id": "article_subtitle",
+        "label": "Subtitle"
+    },
+    {
+        "type": "header",
+        "content": "Copyrights"
+    },
+    {
+        "type": "range",
+        "id": "article_reading_time",
+        "min": 1,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Reading time",
+        "default": 5
+    },
+    {
+        "type": "richtext",
+        "id": "article_author",
+        "label": "Author/Photos by"
+    },
+    {
+        "type": "richtext",
+        "id": "article_author_details",
+        "label": "Author's info"
+    }
+    ],
+    "presets": [
+      {
+        "name": "Article Intro",
+        "category": "text"
+      }
+    ]
+  }
+{% endschema %}

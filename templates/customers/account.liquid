@@ -1,0 +1,341 @@
+<div class="container customer-page-wrapper"> {% assign full_url = request.host | append: request.path %}
+	<div class="row"> {% render 'customer-sidebar-menu' %}
+		<div class="col-12 col-sm-10">
+			<div class="account-information-wrapper mobile-hidden">
+				<div class="row">
+					<div class="col-12 customer-information">
+						<h1 class="account_title">{{ 'customer.account.title' | t }}</h1>
+						<h2 class="account_sub_title">{{ 'customer.account.sub_title' | t }}</h2>
+						<p class="hidden">{{ customer.first_name }} <span class="divider">|</span> {{ customer.email }} <span class="divider">|</span> {{ 'layout.customer.log_out' | t | customer_logout_link }}</p>
+					</div>
+				</div>
+				<div class="row customer_edit_form customer-change-password hidden"> {% form 'customer' %} {{ form.errors | default_errors }}
+					<div class="col-12 col-md-6">
+						<label for="AddressPassword_{{ form.id }}"> {{ 'customer.addresses.current_password' | t }} </label>
+						<input type="password" name="customer[current_password]" id="CustomerCurrentPassword" value="{{ customer.password }}" autocapitalize="words" class="border-form" /> </div>
+					<div class="col-12 col-md-6">
+						<label for="CustomerPassword"> {{ 'customer.activate_account.password' | t }} </label>
+						<input type="password" name="customer[password]" id="CustomerPassword" class="border-form"> </div>
+					<div class="col-12 col-md-6">
+						<label for="CustomerPasswordConfirmation"> {{ 'customer.activate_account.password_confirm' | t }} </label>
+						<input type="password" name="customer[password_confirmation]" id="CustomerPasswordConfirmation" class="border-form"> </div>
+					<div class="col-12 col-md-6">
+						<label class="update_email hidden" for="customer_email"> {{ 'customer.addresses.new_email' | t }} </label>
+						<input type="text" name="customer[email]" id="customer_email" value="{{ customer.email }}" autocapitalize="words" class="border-form" /> </div>
+					<div class="col-12 col-md-6">
+						<input type="submit" class="btn btn-primary" value="{{ 'customer.addresses.update' | t }}" />
+						<button type="button" class="btn btn-border">{{ 'customer.addresses.cancel' | t }}</button>
+					</div> {% endform %} </div>
+				<h3 class="account_information">{{ 'customer.account.details' | t }}</h3>
+        <div class="row customer_edit_form">
+          <div class="col-12">
+          <div class="default-address"> 
+            {% for address in customer.addresses %} 
+            {% if address == customer.default_address %}
+            <p>{{ customer.name }}</br> {{ customer.email }}</p> <a class="link address-edit-toggle" href="#" data-form-id="{{ address.id }}">{{ 'customer.addresses.edit' | t }}</a>
+            <div id="EditAddress_{{ address.id }}" class="hide"> {% form 'customer_address', address %}              
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <label for="AddressFirstName_{{ form.id }}"> {{ 'customer.addresses.first_name' | t }} </label>
+                  <input type="text" name="address[first_name]" id="AddressFirstName_{{ form.id }}" value="{{ form.first_name }}" autocapitalize="words" class="border-form" /> </div>
+                <div class="col-12 col-md-6">
+                  <label for="AddressLastName_{{ form.id }}"> {{ 'customer.addresses.last_name' | t }} </label>
+                  <input type="text" name="address[last_name]" id="AddressLastName_{{ form.id }}" value="{{ form.last_name }}" autocapitalize="words" class="border-form" /> </div>
+              </div>
+              <div class="row update_email">
+                <div class="col-12 col-md-6">
+                  <label class="email_label" for="AddressEmail_{{ form.id }}"> {{ 'customer.addresses.email' | t }} </label>
+                  <label class="update_email hidden" for="AddressEmail_{{ form.id }}"> {{ 'customer.addresses.new_email' | t }} </label>
+                  <input type="text" name="address[email]" id="AddressEmail_{{ form.id }}" value="{{ form.email }}" autocapitalize="words" class="border-form" /> </div>
+                <!-- 														<div class="col-12 col-md-6 change_link">
+                                <a class="underline change_email" href="/account#change_email">{{ 'customer.addresses.change_email' | t }}</a>
+                              </div> --></div>
+              <div class="row update_password update_email">
+                <div class="col-12 col-md-6">
+                  <label for="AddressPassword_{{ form.id }}"> {{ 'customer.addresses.current_password' | t }} </label>
+                  <input type="password" name="address[password]" id="AddressPassword_{{ form.id }}" value="{{ form.password }}" autocapitalize="words" class="border-form" /> </div>
+                <div class="col-12 col-md-6 change_link"> <a class="underline reset_password" href="/account#reset_password">{{ 'customer.addresses.reset_password' | t }}</a> </div>
+              </div>
+              <div class="row update_password hidden">
+                <div class="col-12 col-md-6">
+                  <label for="AddressNewPassword_{{ form.id }}"> {{ 'customer.addresses.new_password' | t }} </label>
+                  <input type="password" name="address[password]" id="AddressNewPassword_{{ form.id }}" value="" autocapitalize="words" class="border-form" /> </div>
+                <div class="col-12 col-md-6 change_link"> <a class="underline reset_password" href="/account#reset_password">{{ 'customer.addresses.reset_password' | t }}</a> </div>
+              </div>
+              <div class="row update_password hidden">
+                <div class="col-12 col-md-6">
+                  <label for="AddressConfirmPassword_{{ form.id }}"> {{ 'customer.activate_account.password_confirm' | t }} </label>
+                  <input type="password" name="address[password_confirmation]" id="AddressConfirmPassword_{{ form.id }}" value="" autocapitalize="words" class="border-form" /> </div>
+              </div>
+              <div class="row update_password update_email">
+                <div class="col-12 col-md-6">
+                  <input type="submit" class="btn btn-primary" value="{{ 'customer.addresses.update' | t }}" /> </div>
+                <div class="col-12 col-md-6">
+                  <button type="button" class="btn btn-border address-edit-toggle" data-form-id="{{ form.id }}"> {{ 'customer.addresses.cancel' | t }} </button>
+                </div>
+              </div> {% endform %} </div> 
+            {% endif %} 
+            {% endfor %} 
+          </div> 
+            </div> 
+        </div> 
+        {% paginate customer.addresses by 5 %}
+				<!-- ADDED ADDRESSES -->
+				<div class="row address-wrapper">
+					<div class="col-sm-12"> {% if customer.default_address != blank %}
+						<h3 class="address_book">{{ 'customer.addresses.address_book' | t }}</h3> {% for address in customer.addresses %}
+						<div class="row customer_edit_form">
+							<div class="col-12"> {% if address != customer.default_address %} {{ address | format_address }} <a class="link address-edit-toggle" href="#" data-form-id="{{ address.id }}">{{ 'customer.addresses.edit' | t }}</a>
+								<button type="button" class="btn btn-primary btn-border address-delete hidden" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"> {{ 'customer.addresses.delete' | t }} </button>
+								<div id="EditAddress_{{ address.id }}" class="hide"> {% form 'customer_address', address %}
+    							<h4>{{ 'customer.addresses.edit_address' | t }}</h4>	
+                                  <div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressFirstName_{{ form.id }}"> {{ 'customer.addresses.first_name' | t }} </label>
+											<input type="text" name="address[first_name]" id="AddressFirstName_{{ form.id }}" value="{{ form.first_name }}" autocapitalize="words" class="border-form" /> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressLastName_{{ form.id }}"> {{ 'customer.addresses.last_name' | t }} </label>
+											<input type="text" name="address[last_name]" id="AddressLastName_{{ form.id }}" value="{{ form.last_name }}" autocapitalize="words" class="border-form" /> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressCompany_{{ form.id }}"> {{ 'customer.addresses.company' | t }} </label>
+											<input type="text" name="address[company]" id="AddressCompany_{{ form.id }}" value="{{ form.company }}" autocapitalize="words" class="border-form"> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressAddress1_{{ form.id }}"> {{ 'customer.addresses.address1' | t }} </label>
+											<input type="text" name="address[address1]" id="AddressAddress1_{{ form.id }}" value="{{ form.address1 }}" autocapitalize="words" class="border-form"> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressAddress2_{{ form.id }}"> {{ 'customer.addresses.address2' | t }} </label>
+											<input type="text" name="address[address2]" id="AddressAddress2_{{ form.id }}" value="{{ form.address2 }}" autocapitalize="words" class="border-form"> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressCity_{{ form.id }}"> {{ 'customer.addresses.city' | t }} </label>
+											<input type="text" name="address[city]" id="AddressCity_{{ form.id }}" value="{{ form.city }}" autocapitalize="words" class="border-form"> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressCountry_{{ form.id }}"> {{ 'customer.addresses.country' | t }} </label>
+											<select name="address[country]" id="AddressCountry_{{ form.id }}" class="address-country-option border-form" data-form-id="{{ form.id }}" data-default="{{ form.country }}"> {{ country_option_tags }} </select>
+										</div>
+									</div>
+									<div class="row">
+										<div class="AddressProvinceContainer" id="AddressProvinceContainer_{{ form.id }}" style="display: none">
+											<div class="col-12 col-md-6">
+												<label for="AddressProvince_{{ form.id }}"> {{ 'customer.addresses.province' | t }} </label>
+												<select name="address[province]" id="AddressProvince_{{ form.id }}" data-default="{{ form.province }}" class="border-form"> </select>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressZip_{{ form.id }}"> {{ 'customer.addresses.zip' | t }} </label>
+											<input type="text" name="address[zip]" id="AddressZip_{{ form.id }}" value="{{ form.zip }}" autocapitalize="characters" class="border-form"> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label for="AddressPhone_{{ form.id }}"> {{ 'customer.addresses.phone' | t }} </label>
+											<input type="tel" name="address[phone]" id="AddressPhone_{{ form.id }}" value="{{ form.phone }}" pattern="[0-9\-]*" class="border-form"> </div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<label class="checkbox_container">{{ 'customer.addresses.set_default' | t }} {{ form.set_as_default_checkbox }} <span class="checkmark"></span> </label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<input type="submit" class="btn btn-primary" value="{{ 'customer.addresses.update' | t }}" /> </div>
+									</div> {% endform %} </div> {% endif %} </div>
+						</div> {% endfor %} {% endif %} </div>
+				</div>
+				<div class="row new-address-wrapper hidden">
+					<!-- ADD NEW ADDRESS -->
+					<div class="col-sm-6">
+						<button type="button" class="btn btn-primary address-new-toggle">{{ 'customer.addresses.add_new' | t }}</button> <a class="btn btn-border" href="/account">&larr; {{ 'customer.account.return' | t }}</a>
+						<div id="AddressNewForm" class="hide"> {% form 'customer_address', customer.new_address %}
+							<h3>{{ 'customer.addresses.add_new' | t }}</h3>
+							<div class="form-fieldset">
+								<label for="AddressFirstNameNew"> {{ 'customer.addresses.first_name' | t }} </label>
+								<input type="text" name="address[first_name]" id="AddressFirstNameNew" value="{{ form.first_name }}" autocapitalize="words" class="border-form" /> </div>
+							<div class="form-fieldset">
+								<label for="AddressLastNameNew"> {{ 'customer.addresses.last_name' | t }} </label>
+								<input type="text" name="address[last_name]" id="AddressLastNameNew" value="{{ form.last_name }}" autocapitalize="words" class="border-form" /> </div>
+							<div class="form-fieldset">
+								<label for="AddressCompanyNew"> {{ 'customer.addresses.company' | t }} </label>
+								<input type="text" name="address[company]" id="AddressCompanyNew" value="{{ form.company }}" autocapitalize="words" class="border-form" /> </div>
+							<div class="form-fieldset">
+								<label for="AddressAddress1New"> {{ 'customer.addresses.address1' | t }} </label>
+								<input type="text" name="address[address1]" id="AddressAddress1New" value="{{ form.address1 }}" autocapitalize="words" class="border-form" /> </div>
+							<div class="form-fieldset">
+								<label for="AddressAddress2New"> {{ 'customer.addresses.address2' | t }} </label>
+								<input type="text" name="address[address2]" id="AddressAddress2New" value="{{ form.address2 }}" autocapitalize="words" class="border-form" /> </div>
+							<div class="form-fieldset">
+								<label for="AddressCityNew"> {{ 'customer.addresses.city' | t }} </label>
+								<input type="text" name="address[city]" id="AddressCityNew" value="{{ form.city }}" autocapitalize="words" class="border-form" /> </div>
+							<div class="form-fieldset">
+								<label for="AddressCountryNew"> {{ 'customer.addresses.country' | t }} </label>
+								<select name="address[country]" id="AddressCountryNew" data-default="{{ form.country }}" class="border-form"> {{ country_option_tags }} </select>
+							</div>
+							<div id="AddressProvinceContainerNew" style="display: none">
+								<div class="form-fieldset">
+									<label for="AddressProvinceNew"> {{ 'customer.addresses.province' | t }} </label>
+									<select name="address[province]" id="AddressProvinceNew" data-default="{{ form.province }}" class="border-form"> </select>
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<label for="AddressZipNew"> {{ 'customer.addresses.zip' | t }} </label>
+								<input type="text" name="address[zip]" id="AddressZipNew" value="{{ form.zip }}" autocapitalize="characters" class="border-form" /> </div>
+							<div class="form-fieldset">
+								<label for="AddressPhoneNew"> {{ 'customer.addresses.phone' | t }} </label>
+								<input type="tel" name="address[phone]" id="AddressPhoneNew" value="{{ form.phone }}" pattern="[0-9\-]*" class="border-form" /> </div>
+							<div class="form-fieldset checkbox-line"> {{ form.set_as_default_checkbox }}
+								<label for="address_default_address_new"> {{ 'customer.addresses.set_default' | t }} </label>
+							</div> {% endform %} </div>
+					</div>
+				</div> {% if paginate.pages > 1 %} {% render 'pagination' %} {% endif %} {% endpaginate %}
+				<div class="row address_preference">
+					<div class="col-12 "> <a class="link manage_addresses" href="/account/addresses">{{ 'customer.addresses.manage_addresses' | t }}</a>
+						<h3 class="email_preference">{{ 'customer.addresses.email_preference' | t }}</h3> </div>
+				</div>
+				<div class="row">
+					<div class="col-12 ">
+						<label class="checkbox_container">{{ 'customer.addresses.newsletter_subscription' | t }}
+							<input type="checkbox" id="newsletter_subscription" {% if customer.metafields.custom.newsletter_subscribtion==t rue %} checked {% endif %}> <span class="checkmark"></span> </label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 ">
+						<label class="checkbox_container">{{ 'customer.addresses.direct_mail_marketing' | t }}
+							<input type="checkbox" id="direct_mail_marketing" checked> <span class="checkmark"></span> </label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 ">
+						<div class="unsubscription_label">{{ settings.unsubscription_label }}</div>
+					</div>
+				</div>
+			</div>
+			<div class="order-items-wrapper hidden">
+                <div class="order-headline"><h1>{{ 'customer.orders.title' | t: name: order.name }}</h1>
+                      <a href="#" onclick="window.history.go(-1); return false;" class="underline back_dashboard">{{ 'customer.account.back_dashboard' | t }}</a>
+                      </div>
+                <h3>{{ 'customer.orders.sub_history' | t: name: order.name }}</h3>
+				<div class="row">
+					<div class="col-12">
+						<div class="customer-orders__wrapper">
+							<h1>{{ 'customer.order.title' | t: name: order.name }}</h1>
+							<div class="customer-orders__history"> {% paginate customer.orders by 20 %} {% if customer.orders.size != 0 %}
+								<div class="customer-orders__item-head">
+									<div class="customer-orders__number">{{ 'customer.orders.order_number' | t }}</div>
+									<div class="customer-orders__date">{{ 'customer.orders.date' | t }}</div>
+									<div class="customer-orders__payment_status">{{ 'customer.orders.payment_status' | t }}</div>
+									<div class="customer-orders__fulfillment_status">{{ 'customer.orders.fulfillment_status' | t }}</div>
+									<div class="customer-orders__tracking_number">{{ 'customer.order.tracking_number' | t }}</div>
+									<div class="customer-orders__return">{{ 'customer.order.return' | t }}</div>
+									<div class="customer-orders__total">{{ 'customer.order.total' | t }}</div>
+								</div>
+								<div class="customer-orders__item-content"> {% for order in customer.orders %}
+									<div class="customer-orders__item">
+										<div class="customer-orders__number val" data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</div>
+										<div class="customer-orders__date" data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</div>
+										<div class="customer-orders__payment_status" data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</div>
+										<div class="customer-orders__fulfillment_status" data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</div>
+										<div class="customer-orders__tracking_number val" data-label="{{ 'customer.order.tracking_number' | t }}"> {% assign tracking_number = '' %} {% for line_item in order.line_items %} {% if line_item.fulfillment.tracking_number %} {% assign tracking_number = line_item.fulfillment.tracking_number %} {% endif %} {% endfor %} {{ tracking_number }} </div>
+										<div class="customer-orders__return val" data-label="{{ 'customer.order.return' | t }}"><a href="https://returnsportal.co/r/daiwear?s={{ order.name }}" target="_blank">Return or Exchange</a></div>
+										<div class="customer-orders__total" data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</div>
+									</div> {% endfor %} </div> {% for order in customer.orders %}
+								<div class="customer-orders__mobile-wrapper">
+									<div class="customer-orders__item-mobile">
+										<div class="customer-orders__number">{{ 'customer.orders.order_number' | t }}</div>
+										<div class="customer-orders__number val" data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</div>
+									</div>
+									<div class="customer-orders__item-mobile">
+										<div class="customer-orders__date">{{ 'customer.orders.date' | t }}</div>
+										<div class="customer-orders__date" data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</div>
+									</div>
+									<div class="customer-orders__item-mobile">
+										<div class="customer-orders__payment_status">{{ 'customer.orders.payment_status' | t }}</div>
+										<div class="customer-orders__payment_status" data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</div>
+									</div>
+									<div class="customer-orders__item-mobile">
+										<div class="customer-orders__fulfillment_status">{{ 'customer.orders.fulfillment_status' | t }}</div>
+										<div class="customer-orders__fulfillment_status" data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</div>
+									</div>
+									<div class="customer-orders__item-mobile">
+										<div class="customer-orders__tracking_number">{{ 'customer.order.tracking_number' | t }}</div>
+										<div class="customer-orders__tracking_number val" data-label="{{ 'customer.order.tracking_number' | t }}">012929489238</div>
+									</div>
+									<div class="customer-orders__item-mobile">
+										<div class="customer-orders__return">{{ 'customer.order.return' | t }}</div>
+										<div class="customer-orders__return val" data-label="{{ 'customer.order.return' | t }}"><a href="https://returnsportal.co/r/daiwear?s={{ order.name }}" target="_blank">Return or Exchange</a></div>
+									</div>
+									<div class="customer-orders__item-mobile">
+										<div class="customer-orders__total">{{ 'customer.order.total' | t }}</div>
+										<div class="customer-orders__total" data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</div>
+									</div>
+								</div> {% endfor %} {% else %}
+								<p>{{ 'customer.orders.none' | t }}</p> {% endif %} {% if paginate.pages > 1 %} {% render 'pagination' %} {% endif %} {% endpaginate %} </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container login-page">
+	<div class="row justify-content-center">
+		<div class="col-12 col-sm-6">
+			<div class="form-success hide" id="ResetSuccess"> {{ 'customer.recover_password.success' | t }} </div>
+			<div id="RecoverPasswordForm" class="hidden">
+                <div class="order-headline"><h1>{{ 'customer.recover_password.title' | t }}</h1><a href="/account" class="underline back_dashboard">{{ 'customer.account.back_dashboard' | t }}</a></div>
+				<p>{{ 'customer.recover_password.subtext' | t }}</p> {% form 'recover_customer_password' %} {{ form.errors | default_errors }} {% if form.posted_successfully? %} <span class="hide reset-password-success"></span> {% endif %}
+				<div class="form-fieldset">
+					<label for="RecoverEmail" class="label"> {{ 'customer.recover_password.email' | t }} </label>
+					<input type="email" name="email" id="RecoverEmail" placeholder="{{ 'customer.recover_password.email' | t }}" spellcheck="false" autocomplete="off" autocapitalize="off" class="border-form" /> </div>
+				<div class="form-fieldset">
+					<input type="submit" class="btn btn-primary" value="{{ 'customer.recover_password.submit' | t }}" /> </div>
+				<div class="form-fieldset"> <a class="underline" href="/account/login">{{ 'customer.recover_password.back_login' | t }}</a> </div> {% endform %} </div>
+		</div>
+	</div>
+</div>
+<form action="//manage.kmail-lists.com/subscriptions/subscribe" class="klaviyo_gdpr_embed_RcBgxE email-capture__form" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" data-signin-form id="newsletter_signup" method="GET" novalidate="novalidate" target="_blank">
+	<input name="g" type="hidden" value="RcBgxE">
+	<div class="klaviyo_messages">
+		<p class="error_message" style="display:none;"></p>
+	</div>
+	<input class="email-capture__input" id="k_id_email" name="email" type="hidden" value="{{ customer.email }}" />
+	<button class="klaviyo_newsletter_signup_submit_button hide" type="submit">Subscribe</button>
+</form>
+<form action="//manage.kmail-lists.com/subscriptions/unsubscribe" class="klaviyo_gdpr_embed_RcBgxE email-capture__form" data-ajax-submit="//manage.kmail-lists.com/subscriptions/unsubscribe" data-signin-form id="newsletter_unsubscribe" method="GET" novalidate="novalidate" target="_blank">
+	<input name="a" type="hidden" value="TGBPVc">
+	<input name="g" type="hidden" value="RcBgxE">
+	<input type="hidden" name="$consent" id="consent-email" value="email">
+	<div class="klaviyo_messages">
+		<p class="error_message" style=""></p>
+	</div>
+	<input class="email-capture__input" id="email" name="email" type="hidden" value="{{ customer.email }}" />
+	<button class="klaviyo_newsletter_unsubscribe_button hide" type="submit">Unsubscribe</button>
+</form>
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+<script type="text/javascript" src="//static.klaviyo.com/onsite-consent-pages/js/onsiteConsentPages.js"></script> {% comment %} Can include this in JS files {% endcomment %}
+<script type="text/javascript">
+KlaviyoSubscribe.attachToForms('#newsletter_signup', {
+	success: function() {
+		$(document).trigger('klaviyo_email_sent');
+	}
+});
+//  KlaviyoSubscribe.attachToForms('#newsletter_unsubscribe', {
+// success: function() {
+//   console.log('unsubscribed!')
+// },
+//    error: function(err){
+//      console.log('err->', err)
+//    }
+//  });
+</script>

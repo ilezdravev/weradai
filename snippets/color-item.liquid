@@ -1,0 +1,16 @@
+{%- for tag in product.tags -%}
+  {%- if tag contains 'color:' -%}
+  {% assign color_tag = tag | remove: 'color:' | replace: ' ', '-' | downcase %}
+
+    <a class="color-{{ color_tag }}" href="{{ product.url }}" 
+      data-preorder="{% if product.template_suffix == 'pre-order' %}true{% else %}false{% endif %}"
+      data-soldout="{% if product.available == false %}true{% else %}false{% endif %}"
+      data-picker-title="{{ product.title }}"
+      data-picker-image="{{ product.images[0] | img_url: '700x' }}"
+      data-picker-hover="{{ product.images[1] | img_url: '700x' }}" 
+      data-tpfilter-product-ga="{{ product.title }}">
+      <span class="color-name">{{ tag | remove: 'color:' }}</span>
+      <span class="color-circle"></span>
+    </a>
+  {%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,443 @@
+{% assign set = section.settings %}
+
+<div data-section-id="{{ section.id }}" class="hide--mobile hidden-medium secondary-header-wrapper" data-section-type="nav-secondary">
+  <div class="container">
+    <nav class="nav nav--secondary">
+      <ul class="nav__items m-level-1">
+        {% for block in section.blocks %}
+          {%- assign isActive = false -%}
+          {%- if request.path == block.settings.url -%}
+            {%- assign isActive = true -%}
+          {%- endif -%}
+          {% if block.type == 'links_text_blocks' %}
+            <li class="nav__item m-level-1 m-dropdown" data-trigger="parent" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.url }}" class="nav__link m-level-1 m-icon">{{ block.settings.title }}</a>
+              {% render 'nav-dropdown', block: block %}
+            </li>
+          {% elsif block.type == 'custom' %}
+            <li class="nav__item m-level-1 m-dropdown" data-trigger="parent" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+              <a href="{{ block.settings.url }}" class="nav__link m-level-1 m-icon">{{ block.settings.title }}</a>
+              {% render 'nav-dropdown-cols', block: block %}
+            </li>
+          {% elsif block.type == 'link' %}
+            <li class="nav__item m-level-1" data-trigger {{ block.shopify_attributes }}>
+              <a class="nav__link m-level-1" href="{{ block.settings.url }}">
+                {{ block.settings.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Blog Secondary Navigation",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "custom",
+        "name": "1/6 - Links & Images",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Link Text"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #1"
+          },
+          {
+            "type": "text",
+            "id": "list1_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link1_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image1_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image1_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image1_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #2"
+          },
+          {
+            "type": "text",
+            "id": "list2_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link2_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image2_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image2_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image2_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #3"
+          },
+          {
+            "type": "text",
+            "id": "list3_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link3_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image3_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image3_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image3_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image3_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #4"
+          },
+          {
+            "type": "text",
+            "id": "list4_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link4_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image4_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image4_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image4_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image4_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #5"
+          },
+          {
+            "type": "text",
+            "id": "list5_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link5_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image5_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image5_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image5_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image5_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #6"
+          },
+          {
+            "type": "text",
+            "id": "list6_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link6_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image6_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image6_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image6_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image6_url",
+            "label": "URL"
+          }
+        ]
+      },
+      {
+        "type": "links_text_blocks",
+        "name": "3/3 - Links & Text Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Link Text"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #1"
+          },
+          {
+            "type": "text",
+            "id": "list1_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link1_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image1_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image1_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image1_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #2"
+          },
+          {
+            "type": "text",
+            "id": "list2_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link2_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image2_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image2_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image2_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Col #3"
+          },
+          {
+            "type": "text",
+            "id": "list3_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "link3_list",
+            "label": "Menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "image3_image",
+            "label": "Photo"
+          },
+          {
+            "type": "text",
+            "id": "image3_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "image3_text",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "image3_url",
+            "label": "URL"
+          },
+          {
+            "type": "header",
+            "content": "Text Block"
+          },
+          {
+            "type": "select",
+            "id": "reverse_sections",
+            "label": "Block position",
+            "options": [
+              {
+                "value": "links_left_block_right",
+                "label": "Links Left/Text Block Right"
+              },
+              {
+                "value": "links_right_block_left",
+                "label": "Text Block Left/Links Right"
+              }
+            ],
+            "default": "links_left_block_right"
+         },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background",
+            "default": "#ffffff"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text"
+          },
+          {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button url"
+          }
+        ]
+      },
+      {
+        "type": "link",
+        "name": "Regular Link",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Link Text"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link URL"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,358 @@
+<!-- .trousers-hero: -->
+<div class="trousers-hero pt-md-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <div class="container text-center">
+    {% assign field = product.metafields.sf_trousers.intro_title %}
+    {% if field %}
+      <h2 class="fz-4 fw-700 mt-5 mb-0 lt-space-2">{{ field }}</h2>
+      {% assign field = false %}
+    {% endif %}
+
+    {% assign field = product.metafields.sf_trousers.intro %}
+    {% if field %}
+      <div class="utils my-3 mb-md-5 fz-3">{{ field }}</div>
+      {% assign field = false %}
+    {% endif %}
+  </div>
+</div> 
+<!-- /.trousers-hero -->
+
+
+<!-- blocks: -->
+<div class="container py-4 py-md-5 my-md-5">
+  <div class="row no-gutters align-items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    {% if section.settings.block_1_title != blank %}
+      <div class="col-md-6 px-md-5 d-md-flex flex-md-column align-items-md-center order-last order-md-first my-4 pt-md-0">
+        <div class="px-md-3">
+          <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.block_1_title }}</h3>
+          {% if section.settings.block_1_text != blank %}
+            <div class="utils fz-3">{{ section.settings.block_1_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if product.metafields.sf_trousers.block_1_image %}
+      <div class="col-md-6 order-first order-md-last">
+        <img class="d-block w-100" src="{{ product.metafields.sf_trousers.block_1_image }}" alt="">
+      </div>
+    {% endif %}
+  </div> 
+  <!-- /.row -->
+  <div class="row no-gutters align-items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    {% if section.settings.block_2_title != blank %}
+      <div class="col-md-6 px-md-5 d-md-flex flex-md-column align-items-md-center order-last my-4 pt-md-0">
+        <div class="px-md-3">
+          <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.block_2_title }}</h3>
+          {% if section.settings.block_2_text != blank %}
+            <div class="utils fz-3">{{ section.settings.block_2_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if product.metafields.sf_trousers.block_2_image %}
+    <div class="col-md-6 order-first mt-3 mt-md-0">
+      <img class="d-block w-100" src="{{ product.metafields.sf_trousers.block_2_image }}" alt="">
+    </div>
+    {% endif %}
+  </div> 
+  <!-- /.row -->
+  <div class="row no-gutters align-items-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    {% if section.settings.block_3_title != blank %}
+      <div class="col-md-6 px-md-5 d-md-flex flex-md-column align-items-md-center order-last order-md-first my-4 pt-md-0">
+        <div class="px-md-3">
+          <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.block_3_title }}</h3>
+          {% if section.settings.block_3_text != blank %}
+            <div class="utils fz-3">{{ section.settings.block_3_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if section.settings.block_3_image != blank %}
+      <div class="col-md-6 order-first order-md-last mt-3 mt-md-0">
+        <img class="d-block w-100" src="{{ section.settings.block_3_image | img_url: 'master' }}" alt="">
+      </div>
+    {% endif %}
+  </div> 
+  <!-- /.row -->
+</div> 
+<!-- /blocks -->
+
+<!-- .testimonials-slider: -->
+<div class="container ta-center py-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <div class="row justify-content-center">
+    <div class="col-sm-10">
+  <h3 class="fz-2 my-0 color-light fw-700 lt-space-2">CUSTOMER REVIEWS</h3>
+  <div class="testimonials-slider" data-testimonials-slider>
+    {% for block in section.blocks %}
+      {% if block.type == "testimonial" %}
+        <div class="pt-4 py-md-4">
+          <div class="utils lh-4 fz-3">{{ block.settings.text }}</div>
+          {% if block.settings.author %}
+            <h3 class="fw-300 mb-0 mt-3 fz-3">{{ block.settings.author }}</h3>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+  </div>
+</div>
+<!-- /.testimonials-slider -->
+
+
+<!-- slider -->
+<div class="container py-5 text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  {% if section.settings.slider_title != blank %}
+    <h3 class="fz-4 mt-0 fw-700 lt-space-2">{{ section.settings.slider_title }}</h3>
+  {% endif %}
+  <div class="landing-slider" data-landing-slider>
+    {% for block in section.blocks %}
+      {% if block.type == "slide" %}
+      <a href="https://daiwear.com/trouser-fit-finder">
+        <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+      </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<!-- /slider -->
+
+<!-- .discover -->
+<div class="landing-discover py-5 my-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <div class="container py-5 ta-center">
+    <h3 class="fz-3 lt-space-2 color-white mt-0 utils">{{ section.settings.discover_text }}</h3>
+    <a href="{{ section.settings.discover_btn_url }}" class="btn btn-white">{{ section.settings.discover_btn_text }}</a>
+  </div>
+</div>
+<!-- /.discover -->
+
+
+<!-- story -->
+{% if section.settings.story_title != blank %}
+  <div class="container mt-3 my-md-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    <div class="row no-gutters align-items-center py-md-5">
+      {% if section.settings.story_image != blank %}
+        <div class="col-md-6">
+          <img class="d-block w-100" src="{{ section.settings.story_image | img_url: 'master' }}" alt="">
+        </div>
+      {% endif %}
+      <div class="col-md-6 pl-md-5 my-4 pt-md-0">
+        <h3 class="fz-4 fw-400 ff-secondary mt-0 mb-3 mb-md-4">{{ section.settings.story_title }}</h3>
+        {% if section.settings.story_text != blank %}
+          <div class="utils fz-3">{{ section.settings.story_text }}</div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- /.row -->
+  </div> 
+{% endif %}
+<!-- /story -->
+
+<!-- .trousers-quote: -->
+{% if section.settings.quote %}
+<div class="trousers-quote py-5 mt-3 mt-md-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" style="background: #F2F2F2;">
+  <div class="container py-4 text-center">
+    <div class="row justify-content-center">
+      <div class="col-sm-10">
+        <div class="utils fz-3 ff-secondary">{{ section.settings.quote }}</div>
+        {% if section.settings.quote_author %}
+        <h3 class="fw-300 mb-0 mt-5">{{ section.settings.quote_author }}</h3>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- /.trousers-quote -->
+
+{% comment %}
+<!-- instagram -->
+<div class="container mt-5 pt-5" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <h3 class="fz-2 mb-4 color-light text-center lt-space-2">{{ section.settings.insta_title }}</h3>
+  <div id="instagram-trousers">
+    <script src='https://snapppt.com/widgets/widget_loader/692a5338-4e47-40c8-b4ba-58231ffa20f9/carousel.js' defer class='snapppt-widget'></script>
+  </div>
+</div>
+<!-- /instagram -->
+{% endcomment %}
+{% schema %}
+  {
+    "name": "Trousers",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Blocks section"
+      },
+      {
+        "type": "paragraph",
+        "content": "Block 1:"
+      },
+      {
+        "type": "text",
+        "id": "block_1_title",
+        "label": "Block 1 Title"
+      },
+      {
+        "type": "richtext",
+        "id": "block_1_text",
+        "label": "Block 1 Text"
+      },
+
+      {
+        "type": "paragraph",
+        "content": "Block 2:"
+      },
+      {
+        "type": "text",
+        "id": "block_2_title",
+        "label": "Block 2 Title"
+      },
+      {
+        "type": "richtext",
+        "id": "block_2_text",
+        "label": "Block 2 Text"
+      },
+
+      {
+        "type": "paragraph",
+        "content": "Block 3:"
+      },
+      {
+        "type": "text",
+        "id": "block_3_title",
+        "label": "Block 3 Title"
+      },
+      {
+        "type": "richtext",
+        "id": "block_3_text",
+        "label": "Block 3 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "block_3_image",
+        "label": "Block 3 Image"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Slider section",
+        "info": "To add slider images, please scroll to 'Add content', then use 'Slide'"
+      },
+      {
+        "type": "text",
+        "id": "slider_title",
+        "label": "Slider Title"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Discover section"
+      },
+      {
+        "type": "richtext",
+        "id": "discover_text",
+        "label": "Discover Text"
+      },
+      {
+        "type": "text",
+        "id": "discover_btn_text",
+        "label": "Discover Button Text"
+      },
+      {
+        "type": "url",
+        "id": "discover_btn_url",
+        "label": "Discover Button Url"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Our Story section"
+      },
+      {
+        "type": "text",
+        "id": "story_title",
+        "label": "Story Title"
+      },
+      {
+        "type": "richtext",
+        "id": "story_text",
+        "label": "Story Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "story_image",
+        "label": "Story Image"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Quote section"
+      },
+      {
+        "type": "richtext",
+        "id": "quote",
+        "label": "Quote"
+      },
+      {
+        "type": "text",
+        "id": "quote_author",
+        "label": "Quote Author"
+      },
+
+
+
+
+      {
+        "type": "header",
+        "content": "Instagram section"
+      },
+      {
+        "type": "text",
+        "id": "insta_title",
+        "label": "Instagram Title",
+        "default": "ON YOU, #DAINAMICWOMAN"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "limit": 8,
+        "settings": [
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Testimonial"
+          }
+        ]
+      },
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Slide Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

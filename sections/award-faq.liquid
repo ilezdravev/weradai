@@ -1,0 +1,89 @@
+{% assign set = section.settings %}
+<div class="award-faq">
+
+	<div class="container">
+  	<h3 class="rental-how-this-works"> Your Questions, Answered. </h3>
+      <div class="row award-faq">
+      <div class="col-md-4 faq-left">
+       {% if set.faqlefttitle %}
+        <div class="rental-faq-subtitle">{{ set.faqlefttitle }}</div>
+        {% endif %}
+        {% if set.faqleft %}
+    	 <div class="rental-faq-text">{{ set.faqleft }}</div>
+   		 {% endif %}
+        </div>
+      <div class="col-md-4 faq-mid">
+         {% if set.faqmidtitle %}
+        <div class="rental-faq-subtitle">{{ set.faqmidtitle }}</div>
+        {% endif %}
+       {% if set.faqmid %}
+    	 <div class="rental-faq-text">{{ set.faqmid }}</div>
+   		 {% endif %}
+      </div>
+      <div class="col-md-4 faq-right">
+    
+        {% if set.faqrighttitle %}
+        <div class="rental-faq-subtitle">{{ set.faqrighttitle }}</div>
+        {% endif %}
+       {% if set.faqright %}
+    	 <div class="rental-faq-text">{{ set.faqright }}</div>
+        
+   		 {% endif %}
+      </div>
+      </div>
+      
+  	</div>
+</div>
+
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "faqlefttitle",
+      "label": "FAQ Left Title"
+    },
+	{
+      "type": "richtext",
+      "id": "faqleft",
+      "label": "FAQ Left Block",
+	"default": "<p>xxxxx</p>"
+    },
+	{
+      "type": "text",
+      "id": "faqmidtitle",
+      "label": "FAQ Mid Title"
+    },
+	{
+      "type": "richtext",
+      "id": "faqmid",
+      "label": "FAQ Mid Block",
+      "default": "<p>xxxxx</p>"
+    },
+	{
+      "type": "text",
+      "id": "faqrighttitle",
+      "label": "FAQ Right Title"
+    },
+	{
+      "type": "richtext",
+      "id": "faqright",
+      "label": "FAQ Right Block",
+      "default": "<p>xxxxx</p>"
+    },
+	{
+      "type": "text",
+      "id": "stylisttitle",
+      "label": "Stylist Button Header",
+      "default": "Talk to us now"
+    },
+	{
+      "type": "richtext",
+      "id": "stylistintro",
+      "label": "Stylist Button Intro",
+      "default": "<p>Live Mon-Fri 9am-6pm GMT <br> 24 hour response guarantee</p>"
+    }
+ ]
+}
+{% endschema %}

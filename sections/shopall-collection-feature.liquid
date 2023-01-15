@@ -1,0 +1,71 @@
+<div class="collection-feature-section">
+    <div class="container" data-slider-container>
+        <div class="collection-feature-items" data-collection-featur-slider>
+            {% for block in section.blocks %}
+              {% if collection.handle == block.settings.collection_type %}
+                <div class="collection-feature-item">
+                    <a class="collection-feature-item-link" href="{{ block.settings.collection_url }}">
+                    <img loading="lazy" class="lazyload" height="auto" data-src="{{ block.settings.collection_img | img_url: 'master' }}" alt="{{ block.settings.collection_title }}" class="collection-feature__img">
+                    {{ block.settings.collection_title }}</a>
+                </div>
+              {% endif %}
+            {% endfor %}               
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Feature",
+  "class": "collection-feature-section",
+  "tag": "section",
+  "blocks": [
+        {
+            "type": "text",
+            "name": "Collection Feature Item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "collection_img",
+                    "label": "Collection Image"
+                },
+                {
+                    "id": "collection_title",
+                    "type": "richtext",
+                    "label": "Collection Title"
+                }, 
+                {
+                    "id": "collection_url",
+                    "type": "url",
+                    "label": "Collection URL"
+                },
+                {
+                  "type": "select",
+                  "id": "collection_type",
+                  "label": "Collection Name",
+                  "options": [
+                    {
+                      "value": "all-products",
+                      "label": "Shop All"
+                    },
+                    {
+                      "value": "trousers",
+                      "label": "Trousers"
+                    },
+                    {
+                      "value": "tops",
+                      "label": "Tops"
+                    }
+                  ]
+              }
+            ]
+        }
+    ], 
+    "presets": [
+    {
+      "name": "Collection Feature",
+      "category": "Feature"
+    }
+  ]
+}
+{% endschema %}

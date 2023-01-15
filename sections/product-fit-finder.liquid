@@ -1,0 +1,128 @@
+{% assign set = section.settings %}
+<div class="product-fit-finder__wrapper mt-4 mt-md-5 py-4 pb-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-12 product-fit-finder__heading">
+                {%- if set.title != blank -%}
+                    <h3>{{ set.title }}</h3>
+                {%- endif -%}
+                {{ set.text }}
+                {%- if set.button != blank -%}
+                    <a href="{{ set.button_url }}" class="btn btn-border">{{ set.button }}</a>
+                {%- endif -%}
+            </div>
+        </div>
+        <div class="row mt-5 hide--mobile">
+            {%- if set.image1 != blank -%}
+                <div class="col-6 col-sm-3">
+                    <a href="{{ set.image1_url }}" class="product-fit-finder__link"><img src="{{ set.image1 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+            {%- if set.image2 != blank -%}
+                <div class="col-6 col-sm-3">
+                    <a href="{{ set.image2_url }}" class="product-fit-finder__link"><img src="{{ set.image2 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+            {%- if set.image3 != blank -%}
+                <div class="col-6 col-sm-3">
+                    <a href="{{ set.image3_url }}" class="product-fit-finder__link"><img src="{{ set.image3 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+            {%- if set.image4 != blank -%}
+                <div class="col-6 col-sm-3">
+                    <a href="{{ set.image4_url }}" class="product-fit-finder__link"><img src="{{ set.image4 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+        </div>
+        <div class="mt-5 hide--desktop js-slider" data-effect="slide" data-autoplay="false" data-mobile-only="true">
+            {%- if set.image1 != blank -%}
+                <div class="slide">
+                    <a href="{{ set.image1_url }}" class="product-fit-finder__link"><img src="{{ set.image1 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+            {%- if set.image2 != blank -%}
+                <div class="slide">
+                    <a href="{{ set.image2_url }}" class="product-fit-finder__link"><img src="{{ set.image2 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+            {%- if set.image3 != blank -%}
+                <div class="slide">
+                    <a href="{{ set.image3_url }}" class="product-fit-finder__link"><img src="{{ set.image3 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+            {%- if set.image4 != blank -%}
+                <div class="slide">
+                    <a href="{{ set.image4_url }}" class="product-fit-finder__link"><img src="{{ set.image4 | img_url: '600x' }}"/></a>
+                </div>
+            {%- endif -%}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Product TFF",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Description"
+            },
+            {
+                "type": "text",
+                "id": "button",
+                "label": "Button Text"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            },
+            {
+                "type": "image_picker",
+                "id": "image1",
+                "label": "image 1"
+            },
+            {
+                "type": "url",
+                "id": "image1_url",
+                "label": "image 1 URL"
+            },
+            {
+                "type": "image_picker",
+                "id": "image2",
+                "label": "image 2"
+            },
+            {
+                "type": "url",
+                "id": "image2_url",
+                "label": "image 2 URL"
+            },
+            {
+                "type": "image_picker",
+                "id": "image3",
+                "label": "image 3"
+            },
+            {
+                "type": "url",
+                "id": "image3_url",
+                "label": "image 3 URL"
+            },
+            {
+                "type": "image_picker",
+                "id": "image4",
+                "label": "image 4"
+            },
+            {
+                "type": "url",
+                "id": "image4_url",
+                "label": "image 4 URL"
+            }
+        ]
+    }
+{% endschema %}

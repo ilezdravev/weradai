@@ -1,0 +1,114 @@
+{%- assign set = section.settings -%}
+<div class="icon-text-blocks">
+  <div class="container">
+    {%- if set.title != blank -%}
+      <h2 class="icon-text-blocks__title">{{ set.title }}</h2>
+    {%- endif -%}
+    <div class="row">
+
+      {% style %}
+        #shopify-section-{{ section.id }} .icon-text-block__icon {
+          height: {{ set.image_height }}px;
+        }
+        @media only screen and (max-width: 989px) {
+          #shopify-section-{{ section.id }} .icon-text-block__icon {
+            height: {{ set.image_height_mobile }}px;
+          }
+        } 
+      {% endstyle %}
+
+      {%- for block in section.blocks -%}
+        {%- assign bset = block.settings -%}
+
+        <div id="block-{{ block.id }}" class="col icon-text-block">
+          {% style %}
+            {%- assign image_desktop = bset.image -%}
+            #shopify-section-{{ section.id }} #block-{{ block.id }} .icon-text-block__icon {
+              background-image: url({{ image_desktop  | img_url: '1000x' }});
+            }
+          {% endstyle %}
+          {%- if bset.image != blank -%}
+            <div class="icon-text-block__icon"></div>
+          {%- endif -%}
+          {%- if bset.title != blank or bset.text != blank -%}
+            <div class="icon-text-block__content {{ content_class }}">
+              {%- if bset.title != blank -%}
+                <h3 class="icon-text-block__title">{{ bset.title }}</h3>
+              {%- endif -%}
+              {%- if bset.text != blank -%}
+                <div class="icon-text-block__text">{{ bset.text }}</div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Icon with text blocks",
+    "class": "icon-text-blocks-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "range",
+        "id": "image_height",
+        "min": 10,
+        "max": 300,
+        "step": 10,
+        "unit": "px",
+        "label": "Icon height",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "image_height_mobile",
+        "min": 10,
+        "max": 300,
+        "step": 10,
+        "unit": "px",
+        "label": "Icon height mobile",
+        "default": 90
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+
+
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icon with text blocks",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

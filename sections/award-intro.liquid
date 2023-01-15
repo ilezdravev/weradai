@@ -1,0 +1,193 @@
+{% assign set = section.settings %}
+<div class="awards-bg-color">
+<div class="rental-intro" id="top">
+  <div class="container text-center">
+
+    {% if set.logoimg %}
+     <img loading="lazy" class="lazyload award-logo" height="auto" src="{{ set.logoimg | img_url: 'master' }}" width="{{ set.logoimg.width }}"> 
+    {% endif %}
+       
+    {% if set.text %}
+      <div class="award-intro-text">{{ set.text }}</div>
+    {% endif %}
+
+    <div class="row award-intro"> 
+     {% if set.img1 %}
+      <div class="award-photo-col">
+        <div class="col-left">
+          <img loading="lazy" class="lazyload" src="{{ set.img1 | img_url: 'master' }}"> 
+         {% endif %}
+        </div>
+   	{% if set.img2 %}
+        <div class="col-right">
+      <img loading="lazy" class="lazyload" src="{{ set.img2 | img_url: 'master' }}"> 
+     {% endif %}
+      </div>
+      </div>
+      <div class="award-photo-col">
+        <div class="col-left">
+   	{% if set.img3 %}
+       <img loading="lazy" class="lazyload" src="{{ set.img3 | img_url: 'master' }}"> 
+     {% endif %}
+        </div>
+        <div class="col-right">
+   	{% if set.img4 %}
+      <img loading="lazy" class="lazyload" src="{{ set.img4 | img_url: 'master' }}"> 
+     {% endif %}  
+        </div>
+      </div>
+    </div>
+    
+   
+    
+   <h3 class="rental-how-this-works"> How This Works </h3>
+    
+    <div class="row award-steps">
+     
+      <div class="col-md-4 award-step1">
+ 
+        <h4 class="rental-step-title">  {% if set.step1title %} {{ set.step1title }} {% endif %}</h4>
+        
+        {% if set.step1text %}
+      <div class="award-step-text">{{ set.step1text }}</div>
+   	 {% endif %}
+       <div class="lookbook-button">
+         <a href="https://form.typeform.com/to/G6YBgsQl" class="btn btn-border" target="_blank">GO TO FORM NOW</a>
+  	 </div>
+      </div>
+      <div class="col-md-4 award-step2"> 
+ 
+        <h4 class="rental-step-title">  {% if set.step2title %} {{ set.step2title }} {% endif %}</h4>
+            {% if set.step2atext %}
+      <div class="award-step-text">{{ set.step2atext }}</div>
+   	 {% endif %}
+        
+        <p style="margin-bottom:10px">Or</p>
+  
+         {% if set.step2btext %}
+      <div class="award-step-text">{{ set.step2btext }}</div>
+   	 {% endif %}
+       
+        <div class="award-step-text"><p><strong>Submissions are considered on a rolling basis. Too busy now? </strong></p></div>
+        
+         <a href="#studentpromo" class="btn btn-border cd-popup-trigger">Remind me later</a>
+        
+          <div class="cd-popup" role="alert" id="studentpromo">
+            <div class="cd-popup-container awardemail">
+              <div class="popup-content awardemail">
+                <!-- CONTAINER -->
+     			<div class="klaviyo-form-V2bY9j"></div>
+ 
+              </div>
+  
+              <a href="#section" class="cd-popup-close img-replace">Close</a>
+            </div> <!-- cd-popup-container -->
+          </div> <!-- cd-popup -->
+        
+      </div>
+      <div class="col-md-4 award-step3"> 
+         
+         <h4 class="rental-step-title">  {% if set.step3title %} {{ set.step3title }} {% endif %}</h4>
+               
+        {% if set.step3text %}  {% endif %}
+     	 <div class="award-step-text">{{ set.step3text }}</div>
+          {% if set.imgaward %}   <img loading="lazy" class="lazyload" src="{{ set.imgaward | img_url: 'master' }}" width="300px"> {% endif %}
+ 		
+        
+      </div>
+      
+      
+    </div>
+    <div class="typeform-block">
+    <div class="typeform-widget" data-url="https://form.typeform.com/to/G6YBgsQl?typeform-medium=embed-snippet" style="width: 100%; height: 650px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% schema %}
+{
+  "settings": [
+	{
+          "type": "image_picker",
+          "id": "logoimg",
+          "label": "Logo Image"
+    },  	
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p> Intro text xxxxxxxxxx </p>"
+    },
+ 	{
+          "type": "image_picker",
+          "id": "img1",
+          "label": "Image 1"
+    },
+	{
+          "type": "image_picker",
+          "id": "img2",
+          "label": "Image 2"
+    },
+	{
+          "type": "image_picker",
+          "id": "img3",
+          "label": "Image 3"
+    },
+	{
+          "type": "image_picker",
+          "id": "img4",
+          "label": "Image 4"
+    },
+  	{
+      "type": "text",
+      "id": "step1title",
+      "label": "Step 1",
+      "default": "01. Choose your suit"
+    },	
+	{
+      "type": "html",
+      "id": "step1text",
+      "label": "Step 1 Text",
+      "default": "<p> <strong>3 powerful kits</strong> from <br> our most tried-and-tested look </p>"
+    },
+	{
+      "type": "text",
+      "id": "step2title",
+      "label": "Step 2 Title",
+      "default": "02. Pick your plan"
+    },
+	{
+      "type": "html",
+      "id": "step2atext",
+      "label": "Step 2 Text Rent",
+	  "default": "<p> <strong>Rent for 1, 2, or 4 weeks</strong><br> Wear it. Flaunt it. No tags. <br>Let us worry about the cleaning. <br>Option to buy later at special rate. <br> Free return within 24hrs </p>"
+    },
+	{
+      "type": "html",
+      "id": "step2btext",
+      "label": "Step 2 Text Buy",
+	  "default": "<p> <strong>Buy now</strong> <br>20% off for students with a valid educational email address. <br>30 day stress-free returns</p>"
+    },
+	{
+      "type": "text",
+      "id": "step3title",
+      "label": "Step 3 Title",
+      "default": "03. Get a free pep talk"
+    },
+	{
+      "type": "html",
+      "id": "step3text",
+      "label": "Step 3 Text",
+"default": "<p> First time in a suit? Or just need a pep talk? We got you.</p><p><strong>Schedule a styling session </strong> virtually.<br> Only 30 mins investment for looks that will last your career </p>"
+	},
+	{
+          "type": "image_picker",
+          "id": "imgaward",
+          "label": "Award Image"
+    }
+
+  ]
+}
+{% endschema %}

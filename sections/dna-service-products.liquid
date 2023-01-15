@@ -1,0 +1,46 @@
+<div class="dna-service-products__wrapper my-md-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <span class="section-number text-font-primary">03. Our Stylists' Picks</span>
+                <h2 class="fz-3 serif text-font-secondary">{{ section.settings.title }}</h2>
+            </div>
+        </div>
+        <div class="row" data-stylistproducts-slider>
+            {% for block in section.blocks %}
+                <div class="col-6 col-sm-3" {{ block.shopify_attributes }}>
+                    <div class="product-grid-block" data-quick-add-place="/products/{{ block.settings.product }}?view=quickAdd-grid-item" data-colors-list></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "DNA Stylist Products",
+    "max_blocks": 8,
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "What our stylist team are loving, and wearing right now"
+        }
+    ],
+    "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Product",
+      "settings": [
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Product",
+            "info": "Select product to display"
+        }
+      ]
+      }
+    ]
+  }
+{% endschema %}

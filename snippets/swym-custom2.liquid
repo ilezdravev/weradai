@@ -1,0 +1,38 @@
+<script defer>
+  function swymCallbackFn(swat){
+  // your API calls go here
+      myFunction();
+      setTimeout(myFunction,3000);
+      function myFunction () {
+        swat.initializeActionButtons("Body");
+        console.log("Re-initializing swym buttons");
+      }
+      // document.addEventListener("swym:collections-loaded", function(){
+      //   swat.initializeActionButtons("Body");
+      //   console.log("var change detected");
+      //   myFunction();
+      //   setTimeout(myFunction,1000);
+      // })
+  
+      // document.addEventListener("click", function(){
+      //   if(window.location.href.indexOf("wishlist") == -1){
+      //     setTimeout(swymRenderButton,1000);
+      //     window.SwymCallbacks.push(swymRenderButton); 
+      //   }
+      //   function swymRenderButton(){
+      //     window._swat.fetch( function(products) {
+      //       swat.initializeActionButtons("Body");
+      //       products.map(function(product) {           
+      //         var addToWishlistButton = document.getElementById("product_"+product.empi);
+      //         if(addToWishlistButton !== null){
+      //           addToWishlistButton.classList.add('disabled', 'swym-added');
+      //         } 
+      //       });             
+      //     });
+      //   }              
+      // });   
+    }
+    if(!window.SwymCallbacks){
+      window.SwymCallbacks = [];
+    }
+    window.SwymCallbacks.push(swymCallbackFn);</script>

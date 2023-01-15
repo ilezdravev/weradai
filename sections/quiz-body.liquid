@@ -1,0 +1,196 @@
+<div id="quiz-body" class="tpfilter" data-tpfilter>
+  {% comment %} Q-1 {% endcomment %}
+  <div class="tpfilter-item" data-tpfilter-item="q1">
+    <div class="tpfilter-item__inner">
+      <h2 class="tpfilter-item__title">Tell us about your proportions</h2>
+      <div class="tpfilter-options">
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="shoulders-lth-hips" type="radio" name="proportions" value="Shoulders < hips" 
+            data-tpfilter-tag="Shoulders < hips"
+            data-tpfilter-answer>
+          <label for="shoulders-lth-hips">Shoulders < hips</label>
+        </div>
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="hips-eq-shoulders" type="radio" name="proportions" value="Hips = shoulders" 
+            data-tpfilter-tag="Hips = shoulders"
+            data-tpfilter-answer>
+          <label for="hips-eq-shoulders">Hips = shoulders</label>
+        </div>
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="hips-lth-shoulders" type="radio" name="proportions" value="Hips < shoulders" 
+            data-tpfilter-tag="Hips < shoulders"
+            data-tpfilter-answer>
+          <label for="hips-lth-shoulders">Hips < shoulders</label>
+        </div>
+      </div>
+      <div class="tpfilter-item__buttons">        
+        <button type="button" data-tpfilter-next class="btn btn-primary tpfilter-item__btn--next" disabled>NEXT
+          {% render 'icon' with 'chevronRight' %}</button>
+      </div>
+    </div>
+  </div>
+  {% comment %} End Q-1 {% endcomment %}
+
+  {% comment %} Q-2a {% endcomment %}
+  <div class="tpfilter-item is-hidden" data-tpfilter-item="q2a">
+    <div class="tpfilter-item__inner">
+      <h2 class="tpfilter-item__title">Tell us about your waistline</h2>
+      <div class="tpfilter-options">
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="curving-inwards" type="radio" name="waistline" value="Curving inwards" 
+            data-tpfilter-tag="Curving inwards"
+            data-tpfilter-answer>
+          <label for="curving-inwards">Curving inwards</label>
+        </div>
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="most-straight2" type="radio" name="waistline" value="Most straight" 
+            data-tpfilter-tag="Most straight"
+            data-tpfilter-answer>
+          <label for="most-straight2">Most straight</label>
+        </div>
+      </div>
+      <div class="tpfilter-item__buttons">
+        <button type="button" data-tpfilter-prev
+          class="btn btn-border tpfilter-item__btn--prev">{% render 'icon' with 'chevronRight' %} BACK</button>     
+        <button type="button" data-tpfilter-next class="btn btn-primary tpfilter-item__btn--next" disabled>NEXT
+          {% render 'icon' with 'chevronRight' %}</button>
+      </div>
+    </div>
+  </div>
+  {% comment %} End Q-2a {% endcomment %}
+
+  {% comment %} Q-2b {% endcomment %}
+  <div class="tpfilter-item is-hidden" data-tpfilter-item="q2b">
+    <div class="tpfilter-item__inner">
+      <h2 class="tpfilter-item__title">Tell us about your waistline</h2>
+      <div class="tpfilter-options">
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="most-straight" type="radio" name="waistline" value="Most straight" 
+            data-tpfilter-tag="Most straight"
+            data-tpfilter-answer>
+          <label for="most-straight">Most straight</label>
+        </div>
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="curving-outwards" type="radio" name="waistline" value="Curving outwards" 
+            data-tpfilter-tag="Curving outwards"
+            data-tpfilter-answer>
+          <label for="curving-outwards">Curving outwards</label>
+        </div>
+      </div>
+      <div class="tpfilter-item__buttons">
+        <button type="button" data-tpfilter-prev
+          class="btn btn-border tpfilter-item__btn--prev">{% render 'icon' with 'chevronRight' %} BACK</button>     
+        <button type="button" data-tpfilter-next class="btn btn-primary tpfilter-item__btn--next" disabled>NEXT
+          {% render 'icon' with 'chevronRight' %}</button>
+      </div>
+    </div>
+  </div>
+  {% comment %} End Q-2b {% endcomment %}
+
+  {% comment %} Q-3 {% endcomment %}
+  <div class="tpfilter-item is-hidden" data-tpfilter-item="q3">
+    <div class="tpfilter-item__inner">
+      <h2 class="tpfilter-item__title">Tell us about your assets</h2>
+      <div class="tpfilter-options">
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="shapely-bottom" type="radio" name="assets" value="Shapely bottom" 
+            data-tpfilter-tag="Shapely bottom"
+            data-tpfilter-answer>
+          <label for="shapely-bottom">Shapely bottom</label>
+        </div>
+        <div class="tpfilter-option tpfilter-option--rect">
+          <input id="minimal-shape" type="radio" name="assets" value="Minimal shape" 
+            data-tpfilter-tag="Minimal shape"
+            data-tpfilter-answer>
+          <label for="minimal-shape">Minimal shape</label>
+        </div>
+      </div>
+      <div class="tpfilter-item__buttons">
+        <button type="button" data-tpfilter-prev
+          class="btn btn-border tpfilter-item__btn--prev">{% render 'icon' with 'chevronRight' %} BACK</button>     
+        <button type="button" data-tpfilter-next class="btn btn-primary tpfilter-item__btn--next" disabled>NEXT
+          {% render 'icon' with 'chevronRight' %}</button>
+      </div>
+    </div>
+  </div>
+  {% comment %} End Q-3 {% endcomment %}
+
+  {% comment %} Email {% endcomment %}
+  <div class="tpfilter-item is-hidden" data-tpfilter-item="email">
+    <div class="tpfilter-item__inner">
+      <h2 class="tpfilter-item__title">The world is better when women succeed. We simply provide the comfort-empowered
+        confidence. Are you ready for your results?</h2>
+      <p class="tpfilter-item__subtitle">Enter your email for 10% off your first order.</p>
+      <div class="tpfilter-options">
+        {% comment %}
+        Klaviyo Form
+        Note: Replace LIST_ID with actual list ID.
+        {% endcomment %}
+        <form
+          data-signin-form
+          id="tff_signup"
+          class="klaviyo_gdpr_embed_R3GGiw email-capture__form"
+          action="//manage.kmail-lists.com/subscriptions/subscribe"
+          data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe"
+          method="GET" 
+          target="_blank" novalidate="novalidate">
+          
+          <input type="hidden" name="g" value="R3GGiw">
+          <div class="klaviyo_messages">
+            <!-- <div class="success_message" style="display:none;"></div> -->
+            <p class="error_message tpfilter-email__error" style="display:none;"></p>
+          </div>
+          <input class="email-capture__input tpfilter-email__input" type="text" value="" name="email" id="k_id_email"  placeholder="Email Address" tpfilter-email data-tpfilter-answer data-default-value=""/>
+          <button type="submit" class="klaviyo_submit_button hide">Subscribe</button>
+        </form>
+
+        {% comment %}
+        render this before running the 'KlaviyoSubscribe.attachToForms' methods
+        {% endcomment %}
+        <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+
+        {% comment %}
+        Can render this in JS files
+        {% endcomment %}
+        <script type="text/javascript">
+          KlaviyoSubscribe.attachToForms('#tff_signup', {
+            success: function() {
+              $(document).trigger('klaviyo_email_sent');
+            }
+          });
+        </script>
+        <div class="tpfilter-email__checkbox"><input type="checkbox" name="" id="sign" data-signin-checkbox checked>
+          <label for="sign">You’ll like hearing from us, if we do say so ourselves. Get early access invites, exclusive offers and all things Dai’namic.</label>
+        </div>
+      </div>
+      <div class="tpfilter-item__buttons">
+        <button type="button" data-tpfilter-prev
+          class="btn btn-border tpfilter-item__btn--prev tpfilter-item__btn--long">{% render 'icon' with 'chevronRight' %}
+          BACK</button>
+        <button type="button" data-signin-submit class="btn btn-primary tpfilter-item__btn--next">READY WHEN YOU ARE</button>
+        <button type="button" data-tpfilter-next class="hide"></button>
+      </div>
+    </div>
+  </div>
+  {% comment %} End Email {% endcomment %}
+  
+  {% comment %} Results {% endcomment %}
+  <div class="tpfilter-item is-hidden" data-tpfilter-item="results">
+    <div class="tpfilter-item__inner">
+      <h2 class="tpfilter-item__title" data-tpfilter-product data-tpfilter-product-tags="Shoulders < hips,Curving inwards,Shapely bottom">Pear</h2>
+      <h2 class="tpfilter-item__title" data-tpfilter-product data-tpfilter-product-tags="Hips = shoulders,Curving inwards">Hourglass</h2>
+      <h2 class="tpfilter-item__title" data-tpfilter-product data-tpfilter-product-tags="Hips = shoulders,Most straight,Minimal shape">Column</h2>
+      <h2 class="tpfilter-item__title" data-tpfilter-product data-tpfilter-product-tags="Hips < shoulders,Most straight,Minimal shape">Inverse Triangle</h2>
+      <h2 class="tpfilter-item__title" data-tpfilter-product data-tpfilter-product-tags="Hips < shoulders,Curving outwards,Minimal shape">Apple</h2>
+      <div class="tpfilter-noresults text-center" data-tpfilter-noResults>
+        <p class="tpfilter-item__subtitle mt-5 mx-5">Not Determined</p>
+      </div>
+      <div class="tpfilter-item__buttons">
+        <button type="button" data-tpfilter-prev
+          class="btn btn-border tpfilter-item__btn--prev">{% render 'icon' with 'chevronRight' %} BACK</button>
+      </div>
+    </div>
+  </div>
+  {% comment %} End Results {% endcomment %}
+</div>
+{%- comment -%} End Tpfilter {%- endcomment -%}

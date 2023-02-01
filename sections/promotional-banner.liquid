@@ -1,0 +1,55 @@
+<div class="promotional-banner" style="background-color: {{ section.settings.bg_color }};">
+  <div class="banner-content" style="color: {{ section.settings.text_color }};">
+    <div class="eyebrow">{{ section.settings.eyebrow }}</div>
+    <div class="title">{{ section.settings.title }}</div>
+    <div class="subtitle">{{ section.settings.subtitle }}</div>
+    <a href="{{ section.settings.btn_link }}" class="btn btn-border" style="border-color: {{ section.settings.text_color }}; color: {{ section.settings.text_color }};">{{ section.settings.btn_text }}</a>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Promotional Banner",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color"
+      },
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow Text"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Promotional Banner"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,44 +1,35 @@
 {% paginate collection.products by 12 %}
- 
-  {% if collection.handle == 'all' %}
-    {% render 'dump' with collection.title %}
-    <div class="collection-header">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12 col-md-6">
-            <div class="collection-header-img">
-              <img
-                loading="lazy"
-                class="lazyload"
-                height="auto"
-                width="{{ settings.all_products_image.width }}"
-                data-src="{{ settings.all_products_image | img_url: 'master' }}"
-              >
-            </div>
+
+{% if collection.handle == "all" %}
+{% render 'dump' with collection.title %}
+  <div class="collection-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6">
+          <div class="collection-header-img">
+            <img loading="lazy" class="lazyload" height="auto" width="{{ settings.all_products_image.width }}" data-src="{{ settings.all_products_image | img_url: 'master' }}" />
           </div>
-          <div class="collection-description-wrapper col-12 col-md-6">
-            <h1>{{ settings.all_products_title }}</h1>
-            <div class="rte collection-description">
-              {{ settings.all_products_description }}
-            </div>
+        </div>
+        <div class="collection-description-wrapper col-12 col-md-6">
+          <h1>{{ settings.all_products_title }}</h1>
+          <div class="rte collection-description">
+            {{ settings.all_products_description }}
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <h1 class="collection-filter-header-title"></h1>
-    </div>
-  {% elsif collection.handle == 'trouser-fit-finder-1' %}
-    3333
+  </div>
+  <div class="container">
+    <h1 class="collection-filter-header-title"></h1>
+  </div>
+ {% elsif collection.handle == "trouser-fit-finder-1" %}
     <div class="tff-v2__result-wrapper">
       {% section 'tff-v2-result-summery' %}
       {% section 'tff-v2-result-featured-products' %}
       <div class="tff-v2__result-collection-wrapper">
         <div class="container collection__wrapper">
           <div id="gf-products" class="row">
-            <div class="preload">
-              <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/dai-loading-bar.gif?v=1671700052">
-            </div>
+            <div class="preload"><img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/dai-loading-bar.gif?v=1671700052"></div>
           </div>
         </div>
       </div>
@@ -46,153 +37,144 @@
       {% section 'tff-v2-result-slider' %}
     </div>
   {% else %}
-    <div class="collection-header">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12 col-md-6">
-            <div class="collection-header-img">
-              <img
-                height="auto"
-                width="{{ collection.image.width }}"
-                loading="lazy"
-                class="lazyload"
-                src="{{ collection.image | img_url: 'master' }}"
-              >
-            </div>
+  <div class="collection-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6">
+          <div class="collection-header-img">
+            <img height="auto" width="{{ collection.image.width }}" loading="lazy" class="lazyload"  src="{{ collection.image | img_url: 'master' }}" />
           </div>
-          <div class="col-12 col-md-6 collection-header-text">
-            <div class="text-area">
-              {% assign text_colour = collection.metafields.sf_text_colour.colour | default: '#000000' %}
-              <h1 style="color: {{ text_colour }}">{{ collection.title }}</h1>
-              <div class="rte collection-description hidden-small">
-                {% assign desktop_description = collection.metafields.sf_description.desktop_description %}
-                {% if desktop_description %}
-                  <p style="color: {{ text_colour}}">
-                    {{ desktop_description }}
-                  </p>
-                {% endif %}
-              </div>
-              <div class="rte collection-description hidden-medium hidden-lg">
-                {% assign mobile_description = collection.metafields.sf_description.mobile_description %}
-                {% if mobile_description %}
+        </div>
+        <div class="col-12 col-md-6 collection-header-text">
+          <div class="text-area">
+            {% assign text_colour = collection.metafields.sf_text_colour.colour | default: '#000000' %}
+            <h1 style="color: {{ text_colour}}">{{ collection.title }}</h1>
+            <div class="rte collection-description hidden-small">
+              {% assign desktop_description = collection.metafields.sf_description.desktop_description %}
+              {% if desktop_description %}
+                <p style="color: {{ text_colour}}">
+                  {{ desktop_description }}
+                </p>
+              {% endif %}
+            </div>
+            <div class="rte collection-description hidden-medium hidden-lg">
+              {% assign mobile_description = collection.metafields.sf_description.mobile_description %}
+              {% if mobile_description %}
                   <p style="color: {{ text_colour}}">
                     {{ mobile_description }}
                   </p>
-                {% endif %}
-              </div>
+              {% endif %}
             </div>
           </div>
         </div>
       </div>
     </div>
-  {% endif %}
-  {% section 'shopall-collection-feature' %}
-  {% comment %} Loading Bar {% endcomment %}
-
-  {% comment %} End of Loading Bar {% endcomment %}
-  <div class="container collection__wrapper" id="collection_wrapper">
-    <div id="gf-products" class="row">
-      <div class="preload">
-        <img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/loading-bar.gif?v=1636675913">
-      </div>
-    </div>
   </div>
-
-  {%- if collection.metafields.Promotion -%}
-    <style>
-      .promotion-content {
-        position: relative;
-      }
-      .promotion-content-wrapper *{
-        margin: 0px;
-      }
-      .promotion-wrapper {
+{% endif %}
+  {% section 'shopall-collection-feature' %}
+    {% comment %} Loading Bar {% endcomment %}
+    
+    {% comment %} End of Loading Bar {% endcomment %}
+  <div class="container collection__wrapper">
+    <div id="gf-products" class="row">
+      <div class="preload"><img src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/loading-bar.gif?v=1636675913"></div>
+  </div>
+</div>
+{%- if collection.metafields.Promotion -%}
+  <style>
+    .promotion-content {
+      position: relative;
+    }
+    .promotion-content-wrapper *{
+      margin: 0px;
+    }
+    .promotion-wrapper {
+      display: none;
+    }
+    .promotion-wrapper .promotion-title{
+      margin-bottom: 0px;
+      margin-top: 10px;
+    }
+    .promotion-mobile-image{
+      display: none;
+    }
+    .promotion-link{
+      margin-top: 20px;
+      display: block;
+      text-decoration: underline;
+    }
+    @media (max-width: 575px){
+      .promotion-desktop-image{
         display: none;
-      }
-      .promotion-wrapper .promotion-title{
-        margin-bottom: 0px;
-        margin-top: 10px;
       }
       .promotion-mobile-image{
-        display: none;
+        display: block;
+      }
+      .promotion-content{
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid gray;
       }
       .promotion-link{
-        margin-top: 20px;
-        display: block;
-        text-decoration: underline;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+  
+  {% for i in collection.metafields.Promotion.number %}
+    {%- assign idx = forloop.index0 -%}
+    <style>
+      .promotion-wrapper-{{ idx }}{
+        color:  {{collection.metafields.Promotion.text_color[idx]}};
+      }
+      .promotion-wrapper-{{ idx }} .promotion-title {
+        font-size: {{collection.metafields.Promotion.title_size[idx]}}px;
+      }
+      .promotion-wrapper-{{ idx }} .promotion-description {
+        font-size: {{collection.metafields.Promotion.description_size[idx]}}px;
+      }
+      .promotion-wrapper-{{ idx }} .promotion-link {
+        font-size: {{collection.metafields.Promotion.link_size[idx]}}px;
       }
       @media (max-width: 575px){
-        .promotion-desktop-image{
-          display: none;
+        .promotion-wrapper-{{ idx }} .promotion-title {
+          font-size: {{collection.metafields.Promotion.mobile_title_size[idx]}}px;
         }
-        .promotion-mobile-image{
-          display: block;
+        .promotion-wrapper-{{ idx }} .promotion-description {
+          font-size: {{collection.metafields.Promotion.mobile_description_size[idx]}}px;
         }
-        .promotion-content{
-          padding-bottom: 20px;
-          margin-bottom: 30px;
-          border-bottom: 1px solid gray;
-        }
-        .promotion-link{
-          margin-top: 15px;
-          margin-bottom: 5px;
+        .promotion-wrapper-{{ idx }} .promotion-link {
+          font-size: {{collection.metafields.Promotion.mobile_link_size[idx]}}px;
         }
       }
     </style>
-    
-    {% for i in collection.metafields.Promotion.number %}
-      {%- assign idx = forloop.index0 -%}
-      <style>
-        .promotion-wrapper-{{ idx }}{
-          color:  {{collection.metafields.Promotion.text_color[idx]}};
-        }
-        .promotion-wrapper-{{ idx }} .promotion-title {
-          font-size: {{collection.metafields.Promotion.title_size[idx]}}px;
-        }
-        .promotion-wrapper-{{ idx }} .promotion-description {
-          font-size: {{collection.metafields.Promotion.description_size[idx]}}px;
-        }
-        .promotion-wrapper-{{ idx }} .promotion-link {
-          font-size: {{collection.metafields.Promotion.link_size[idx]}}px;
-        }
-        @media (max-width: 575px){
-          .promotion-wrapper-{{ idx }} .promotion-title {
-            font-size: {{collection.metafields.Promotion.mobile_title_size[idx]}}px;
-          }
-          .promotion-wrapper-{{ idx }} .promotion-description {
-            font-size: {{collection.metafields.Promotion.mobile_description_size[idx]}}px;
-          }
-          .promotion-wrapper-{{ idx }} .promotion-link {
-            font-size: {{collection.metafields.Promotion.mobile_link_size[idx]}}px;
-          }
-        }
-      </style>
 
-      <div class="promotion-wrapper-{{ idx }} promotion-wrapper col-12 col-sm-4" data-index="{{ collection.metafields.Promotion.number[idx] }}">
-          <div class="promotion-content">
-            <a href="{{collection.metafields.Promotion.url[idx]}}">
-            <div class="promotion-image-wrapper">
-              <img class="promotion-desktop-image" src="{{ collection.metafields.Promotion.desktop_image[idx] }}">
-              <img class="promotion-mobile-image" src="{{ collection.metafields.Promotion.mobile_image[idx] }}">
-            </div>
-            </a>
-            <div class="promotion-content-wrapper">
-              {%- if collection.metafields.Promotion.title[idx] != blank -%}
-                <h2 class="promotion-title">
-                  {{ collection.metafields.Promotion.title[idx] }}
-                </h2>
-              {%- endif -%}
-              {%- if collection.metafields.Promotion.description[idx] != blank -%}
-                <p class="promotion-description">
-                  {{ collection.metafields.Promotion.description[idx]}}
-                </p>
-              {%- endif -%}
-              {%- if {{collection.metafields.Promotion.link_url[idx]}} != blank and collection.metafields.Promotion.link_text[idx] -%}
-                <a href="{{collection.metafields.Promotion.link_url[idx]}}" class="promotion-link">{{ collection.metafields.Promotion.link_text[idx] }} </a>
-              {%- endif -%}
-            </div>
+    <div class="promotion-wrapper-{{ idx }} promotion-wrapper col-12 col-sm-4" data-index="{{ collection.metafields.Promotion.number[idx] }}">
+        <div class="promotion-content">
+          <a href="{{collection.metafields.Promotion.link_url[idx]}}">
+          <div class="promotion-image-wrapper">
+            <img class="promotion-desktop-image" src="{{ collection.metafields.Promotion.desktop_image[idx] }}">
+            <img class="promotion-mobile-image" src="{{ collection.metafields.Promotion.mobile_image[idx] }}">
           </div>
-      </div>
-    {% endfor %}
-  {%- endif -%}
+          </a>
+          <div class="promotion-content-wrapper">
+            {%- if collection.metafields.Promotion.title[idx] != blank -%}
+              <h2 class="promotion-title">
+                {{ collection.metafields.Promotion.title[idx] }}
+              </h2>
+            {%- endif -%}
+            {%- if collection.metafields.Promotion.description[idx] != blank -%}
+              <p class="promotion-description">
+                {{ collection.metafields.Promotion.description[idx]}}
+              </p>
+            {%- endif -%}
+            {%- if {{collection.metafields.Promotion.link_url[idx]}} != blank and collection.metafields.Promotion.link_text[idx] -%}
+              <a href="{{collection.metafields.Promotion.link_url[idx]}}" class="promotion-link">{{ collection.metafields.Promotion.link_text[idx] }} </a>
+            {%- endif -%}
+          </div>
+        </div>
+    </div>
+  {% endfor %}
+{%- endif -%}
 {% endpaginate %}

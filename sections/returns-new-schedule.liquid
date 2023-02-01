@@ -1,0 +1,135 @@
+
+<div class="container">
+  <h3 class="returns-new-title2">{{ section.settings.title }}</h3>
+  {% for block in section.blocks %}
+    {% assign set = block.settings %}
+    <div class="returns-new-schedule">
+      <div class="row">
+        <div class="col-md-6 {% if set.text_pos == "right" %}order-md-last{% endif %}">
+          <div class="{% if set.text_pos == "right" %} pl-md-3 {% else %} pr-md-3 {% endif %}">
+            <div class="returns-new-schedule__info">
+              <div>
+                <div class="returns-new-schedule__dd-open" data-open-dd>
+                  {% if set.title %}
+                    <h4 class="returns-new-schedule__title">{{ set.title }}</h4>
+                  {% endif %}
+                  {% if set.date %}
+                    <div class="returns-new-schedule__date">{{ set.date }}</div>
+                  {% endif %}
+                  {% if set.label != blank %}
+                    <div class="returns-new-schedule__label">{{ set.label }}</div>
+                  {% endif %}
+                  {% if set.text %}
+                    <div class="returns-new-schedule__text">{{ set.text }}</div>
+                  {% endif %}
+                </div>
+                {% if set.dropdown %}
+                  <div class="returns-new-schedule__dropdown" data-dd>{{ set.dropdown }}</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 {% if set.text_pos == "right" %}order-md-first{% endif %}">
+          <div class="{% if set.text_pos == "right" %} pr-md-3 {% else %} pl-md-3 {% endif %}">
+            {% if set.image != blank %}
+              <img height="auto" width="{{ set.image.width }}" loading="lazy" class="lazyload" src="{{ set.image | img_url: 'master' }}" alt="{{ set.title }}">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  {% if section.settings.btn_text %}
+    <div class="text-center mt-5 pt-md-5">
+      <a href="{{ section.settings.btn_url }}" class="btn btn-border">{{ section.settings.btn_text }}</a>
+    </div>
+  {% endif %}
+</div>
+
+
+<script>
+$(document).ready(function () {
+  $('[data-open-dd]').click(function() {
+    $(this).next('[data-dd]').slideToggle();
+    $(this).toggleClass('is-open')
+  })
+});
+</script>
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Full Events Schedule"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "RSVP Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button Url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "date",
+          "label": "Date"
+        },
+        {
+          "type": "textarea",
+          "id": "label",
+          "label": "Label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "richtext",
+          "id": "dropdown",
+          "label": "Dropdown Text"
+        },
+        {
+          "type": "select",
+          "id": "text_pos",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

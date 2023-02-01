@@ -1,4 +1,5 @@
 {%- assign set = section.settings -%}
+{% render 'section-settings', section: section %}
 <div class="image-text-blocks">
   <div class="container">
     <div class="row">
@@ -11,12 +12,12 @@
           #shopify-section-{{ section.id }} .image-text-block__image {
             height: {{ set.image_height_tablet }}px;
           }
-        } 
+        }
         @media only screen and (max-width: 767px) {
           #shopify-section-{{ section.id }} .image-text-block__image {
             height: {{ set.image_height_mobile }}px;
           }
-        } 
+        }
       {% endstyle %}
 
       {%- for block in section.blocks -%}
@@ -73,6 +74,31 @@
     "class": "image-text-blocks-section",
     "tag": "section",
     "settings": [
+      {
+        "type": "range",
+        "id": "ptop",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "default": 40,
+        "step": 10,
+        "label": "Padding Top"
+      },
+      {
+          "type": "range",
+          "id": "pbottom",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Bottom"
+      },
+      {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+      },
       {
         "type": "range",
         "id": "image_height",
@@ -137,7 +163,7 @@
             "label": "Image desktop"
           },
 
-          
+
           {
             "type": "image_picker",
             "id": "image_mobile",

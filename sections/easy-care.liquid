@@ -1,0 +1,66 @@
+{% render 'section-settings', section: section %}
+
+
+
+{% schema %}
+  {
+    "name": "Easy Care",
+    "settings": [
+      {
+        "type": "range",
+        "id": "ptop",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "default": 40,
+        "step": 10,
+        "label": "Padding Top"
+      },
+      {
+          "type": "range",
+          "id": "pbottom",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Bottom"
+      },
+      {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "body",
+        "label": "Body"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Easy Care"
+      }
+    ]
+  }
+{% endschema %}

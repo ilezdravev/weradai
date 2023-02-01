@@ -68,16 +68,15 @@
         "blocks": {
           "3b20102a-6d34-4103-b957-5ae522308cf0": {
             "type": "text",
-            "disabled": true,
             "settings": {
-              "title": "Now Up to £225 OFF sitewide- limited time only",
-              "message_url": "shopify:\/\/collections\/all-products"
+              "title": "THE WINTER SALE IS HERE  — UP TO 60% OFF",
+              "message_url": "shopify:\/\/collections\/the-winter-sale"
             }
           },
           "2883f4f3-415f-43c3-a5d0-1eedc2d03124": {
             "type": "text",
             "settings": {
-              "title": "FREE UK DELIVERIES & EXTENDED RETURNS THRU 9 JAN",
+              "title": "FREE UK DELIVERIES & RETURNS",
               "message_url": "shopify:\/\/pages\/shipping-returns"
             }
           },
@@ -98,10 +97,9 @@
           },
           "e9efe30f-8f87-4b21-946f-b03cfd383f8c": {
             "type": "mobile",
-            "disabled": true,
             "settings": {
-              "title_mobile": "Now Up to £225 OFF sitewide- limited time only",
-              "message_url_mobile": "shopify:\/\/collections\/all-products"
+              "title_mobile": "Now Up to 60% OFF | The Winter Sale NOW ON",
+              "message_url_mobile": "shopify:\/\/collections\/the-winter-sale"
             }
           },
           "8f69523f-cfe2-4b39-9e2a-94b3b6d1979a": {
@@ -231,7 +229,11 @@
           "1563409884480",
           "1563439948583"
         ],
-        "settings": {}
+        "settings": {
+          "ptop": 0,
+          "pbottom": 0,
+          "bg_color": ""
+        }
       },
       "1550056515212": {
         "type": "home-social-feed",
@@ -2824,8 +2826,8 @@
               "text": "<p>Shop our newest arrivals → <\/p>",
               "url": "shopify:\/\/collections\/new-arrivals",
               "btn_text": "",
-              "image": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0377_f7d4130a-68ce-4ad5-b2bc-062b6c924e33.jpg",
-              "image_mobile": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0377_f7d4130a-68ce-4ad5-b2bc-062b6c924e33.jpg"
+              "image": "shopify:\/\/shop_images\/131122_DAI_XMAS4_0273_84dd67a9-0964-4e3f-a12b-bdc084b53617.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/131122_DAI_XMAS4_0273_e47ecc53-9284-405d-897e-a79b77db7b2e.jpg"
             }
           },
           "2fbed4a9-a0e9-44fb-992b-88a9610c28a3": {
@@ -2840,6 +2842,7 @@
           },
           "cdf4d82b-9aae-4b50-878d-f28044022f0d": {
             "type": "block",
+            "disabled": true,
             "settings": {
               "title": "The Archive Sale",
               "text": "<p>Shop last seasons favourites →<\/p>",
@@ -2851,13 +2854,12 @@
           },
           "20b6fa64-ba38-451d-9667-6bd1d56af8c2": {
             "type": "block",
-            "disabled": true,
             "settings": {
-              "title": "Find Your Perfect Fit",
-              "text": "<p>Take the quiz →<\/p>",
-              "url": "shopify:\/\/collections\/trouser-fit-finder",
+              "title": "The Winter Sale",
+              "text": "<p>Styles up to 60% off →<\/p>",
+              "url": "shopify:\/\/collections\/the-winter-sale",
               "btn_text": "",
-              "image": "shopify:\/\/shop_images\/221006_DAI_SH05_466_bd100d75-36cd-4973-b99a-b15c03fb7a19.jpg"
+              "image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif"
             }
           }
         },
@@ -2868,6 +2870,9 @@
           "20b6fa64-ba38-451d-9667-6bd1d56af8c2"
         ],
         "settings": {
+          "ptop": 0,
+          "pbottom": 0,
+          "bg_color": "#f7f7f7",
           "image_height": 500,
           "image_height_tablet": 400,
           "image_height_mobile": 380
@@ -2932,6 +2937,9 @@
           "0b4d2a9a-3205-4ad8-9d30-f049333c81f7"
         ],
         "settings": {
+          "ptop": 0,
+          "pbottom": 0,
+          "bg_color": "",
           "title": "Designed for elegant performance",
           "image_height": 90,
           "image_height_mobile": 60
@@ -3045,7 +3053,11 @@
           "45bbf4da-0d49-4e25-b882-967e55ffd66b",
           "371b220c-e596-4116-a6a6-6ba574b24a61"
         ],
-        "settings": {}
+        "settings": {
+          "ptop": 0,
+          "pbottom": 0,
+          "bg_color": ""
+        }
       },
       "award-announcement": {
         "type": "award-announcement",
@@ -3518,6 +3530,45 @@
               "image6_url": "https:\/\/daiwear.com\/collections\/gifts-under-150"
             }
           },
+          "b98feedc-f09c-4844-bd84-27cfd1bd418d": {
+            "type": "custom",
+            "settings": {
+              "title": "The Winter Sale",
+              "url": "shopify:\/\/collections\/the-winter-sale",
+              "list1_title": "",
+              "link1_list": "by-archive-category",
+              "image1_title": "",
+              "image1_text": "",
+              "image1_url": "",
+              "list2_title": "",
+              "link2_list": "",
+              "image2_title": "",
+              "image2_text": "",
+              "image2_url": "",
+              "list3_title": "",
+              "link3_list": "",
+              "image3_title": "",
+              "image3_text": "",
+              "image3_url": "",
+              "list4_title": "",
+              "link4_list": "",
+              "image4_title": "",
+              "image4_text": "",
+              "image4_url": "",
+              "list5_title": "",
+              "link5_list": "",
+              "image5_image": "shopify:\/\/shop_images\/210913_Dai_Shot_08_234_6ae67d10-9af7-4ae7-bff3-1e41c4dacead.jpg",
+              "image5_title": "Shop All Archive",
+              "image5_text": "Timeless faves, up to 50% off",
+              "image5_url": "shopify:\/\/collections\/the-archive",
+              "list6_title": "",
+              "link6_list": "",
+              "image6_image": "shopify:\/\/shop_images\/220412_Dai_Still_Life_004_046_WEB.jpg",
+              "image6_title": "Archive Trousers",
+              "image6_text": "Last remaining, last chance.",
+              "image6_url": "https:\/\/daiwear.com\/collections\/the-archive?gf_357477=Trousers"
+            }
+          },
           "9517e5fb-0653-4315-99c3-df1bf2b43e9d": {
             "type": "custom",
             "settings": {
@@ -3546,16 +3597,16 @@
               "image4_url": "shopify:\/\/collections\/new-arrivals",
               "list5_title": "",
               "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/131122_DAI_XMAS3_0068_8578c050-6687-474d-938f-2bc0d1fa6aa5.jpg",
+              "image5_image": "shopify:\/\/shop_images\/221006_Dai_SH18_096_00a6218f-2e51-4119-a7ed-1e843bcbb33a.jpg",
               "image5_title": "Luxury Knits",
               "image5_text": "Discover ethically sourced, zero-waste knitwear",
               "image5_url": "shopify:\/\/collections\/knitwear",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/Archive-Sale.jpg",
-              "image6_title": "The Archive Sale",
-              "image6_text": "Shop our last seasons favourites for less",
-              "image6_url": "shopify:\/\/collections\/the-archive"
+              "image6_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image6_title": "Sale Now On",
+              "image6_text": "Our bestselling timeless tailoring up to 60% off*",
+              "image6_url": "shopify:\/\/collections\/the-winter-sale"
             }
           },
           "629d057a-4abe-4a18-8457-91819bcdefb1": {
@@ -3580,13 +3631,13 @@
               "image3_url": "",
               "list4_title": "",
               "link4_list": "",
-              "image4_image": "shopify:\/\/shop_images\/Archive-Sale.jpg",
-              "image4_title": "The Archive Sale",
-              "image4_text": "Shop our last seasons favourites for less",
-              "image4_url": "shopify:\/\/collections\/the-archive",
+              "image4_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image4_title": "Sale Now On",
+              "image4_text": "Our bestselling timeless tailoring up to 60% off*",
+              "image4_url": "shopify:\/\/collections\/the-winter-sale",
               "list5_title": "",
               "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/221006_DAI_SH14_1134_Portrait.jpg",
+              "image5_image": "shopify:\/\/shop_images\/131122_DAI_CORE2_0598_977fb203-4322-4557-9a71-d8c985de0a65.jpg",
               "image5_title": "Power Move™ Family",
               "image5_text": "The original feels-like-yoga bestselling trouser",
               "image5_url": "shopify:\/\/collections\/power-move™",
@@ -3620,7 +3671,7 @@
               "image3_url": "",
               "list4_title": "",
               "link4_list": "",
-              "image4_image": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_4_Core_2_PORTRAIY.jpg",
+              "image4_image": "shopify:\/\/shop_images\/DAI_CORE_5_1_CROP_e568f65f-c295-435e-a30d-83c1c2edc282.jpg",
               "image4_title": "Shirts & Blouses",
               "image4_text": "Elevated classics",
               "image4_url": "shopify:\/\/collections\/shirts",
@@ -3632,10 +3683,10 @@
               "image5_url": "shopify:\/\/collections\/knitwear",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/Archive-Sale.jpg",
-              "image6_title": "The Archive Sale",
-              "image6_text": "Shop our last seasons favourites for less",
-              "image6_url": "shopify:\/\/collections\/the-archive"
+              "image6_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image6_title": "Sale Now On",
+              "image6_text": "Our bestselling timeless tailoring up to 60% off*",
+              "image6_url": "shopify:\/\/collections\/the-winter-sale"
             }
           },
           "65f705cf-67b8-4d54-a610-33408c1d54fe": {
@@ -3660,22 +3711,22 @@
               "image3_url": "",
               "list4_title": "",
               "link4_list": "",
-              "image4_image": "shopify:\/\/shop_images\/131122_DAI_CORE6_1111_Portrait_60006906-df02-457e-a65f-5c412bce1845.jpg",
+              "image4_image": "shopify:\/\/shop_images\/220412_Dai_Still_Life_002_030_WEB_dc62fe27-992e-43bb-845c-ffbf67f401b3.jpg",
               "image4_title": "Classique Blazer",
               "image4_text": "The timeless, everyday blazer",
               "image4_url": "shopify:\/\/collections\/the-classique-blazer",
               "list5_title": "",
               "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/131122_DAI_XMAS1_0193_c93f5dd6-ceff-463c-8529-d7cad947ab5d.jpg",
+              "image5_image": "shopify:\/\/shop_images\/DAI_CORE_4_1.jpg",
               "image5_title": "Trail Blazer™",
               "image5_text": "Our bestselling ultimate power jacket",
               "image5_url": "shopify:\/\/collections\/the-trail-blazer™",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/Archive-Sale.jpg",
-              "image6_title": "The Archive Sale",
-              "image6_text": "Shop our last seasons favourites for less",
-              "image6_url": "shopify:\/\/collections\/the-archive"
+              "image6_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image6_title": "Sale Now On",
+              "image6_text": "Our bestselling timeless tailoring up to 60% off*",
+              "image6_url": "shopify:\/\/collections\/the-winter-sale"
             }
           },
           "d2800bc4-1029-46c9-9e1f-b958ecb1f13f": {
@@ -3706,15 +3757,15 @@
               "image4_url": "shopify:\/\/collections\/circular-cashmere",
               "list5_title": "",
               "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/Archive-Sale.jpg",
-              "image5_title": "The Archive Sale",
-              "image5_text": "Shop our last seasons favourites for less",
-              "image5_url": "shopify:\/\/collections\/the-archive",
+              "image5_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image5_title": "Sale Now On",
+              "image5_text": "Our bestselling timeless tailoring up to 60% off*",
+              "image5_url": "shopify:\/\/collections\/the-winter-sale",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/131122_DAI_XMAS3_0068_92656886-81f2-4e28-991c-e22e9ca3d5ae.jpg",
+              "image6_image": "shopify:\/\/shop_images\/221006_DAI_SH05_504_7353978f-b279-46f8-9c33-d8cd42d530b1.jpg",
               "image6_title": "Shop All Knitwear",
-              "image6_text": "Soft, transeasonal, high-performing",
+              "image6_text": "Now up to 50% off. Limited time only.",
               "image6_url": "shopify:\/\/collections\/knitwear"
             }
           },
@@ -3740,9 +3791,10 @@
               "image3_url": "",
               "list4_title": "",
               "link4_list": "",
-              "image4_title": "",
-              "image4_text": "",
-              "image4_url": "",
+              "image4_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image4_title": "Sale Now On",
+              "image4_text": "Our bestselling timeless tailoring up to 60% off*",
+              "image4_url": "shopify:\/\/collections\/the-winter-sale",
               "list5_title": "",
               "link5_list": "",
               "image5_image": "shopify:\/\/shop_images\/SHOT_1_5_3e6a71e4-faa4-440d-b5ff-bbb453832a36.jpg",
@@ -3751,7 +3803,7 @@
               "image5_url": "shopify:\/\/collections\/jumpsuits",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/HIGH-LINE_DRESS_BLACK_RESHOOT_FL2.jpg",
+              "image6_image": "shopify:\/\/shop_images\/S12_BA_DAI_SL_158_143a42a6-e2a8-45dd-b85a-67a836d20a3e.jpg",
               "image6_title": "Shop All Dresses",
               "image6_text": "From desk to dinner",
               "image6_url": "shopify:\/\/collections\/dresses"
@@ -3779,18 +3831,19 @@
               "image3_url": "",
               "list4_title": "",
               "link4_list": "",
-              "image4_title": "",
-              "image4_text": "",
-              "image4_url": "",
+              "image4_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image4_title": "Sale Now On",
+              "image4_text": "Our bestselling timeless tailoring up to 60% off*",
+              "image4_url": "shopify:\/\/collections\/the-winter-sale",
               "list5_title": "",
               "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/SHOT_11_4.jpg",
+              "image5_image": "shopify:\/\/shop_images\/DAI-LIFESTYLE_SKIRT_3_9d52f01f-f28f-40b5-9b72-f677be007b72.jpg",
               "image5_title": "Ace Skirt",
               "image5_text": "Short, sweet, tailored A-line skirt",
               "image5_url": "shopify:\/\/products\/ace-skirt-shiitake",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/WINTER-STUDIO_SHOT-1_360-JUMPER-_-SKIRT_1-copy_d630dcdf-a9f3-4446-9e19-a7cf9812bf84.jpg",
+              "image6_image": "shopify:\/\/shop_images\/SHOT_11_2_b142d087-acef-4fb1-9e6e-730405bf4a28.jpg",
               "image6_title": "Shop All Skirts",
               "image6_text": "Fashion meets function",
               "image6_url": "shopify:\/\/collections\/skirts"
@@ -3818,19 +3871,19 @@
               "image3_url": "",
               "list4_title": "",
               "link4_list": "",
-              "image4_image": "shopify:\/\/shop_images\/THERMAL-PM_3_a1ef6d3b-3692-4fe3-893f-cfdc82606409.jpg",
+              "image4_image": "shopify:\/\/shop_images\/THERMAL-PM_3_CROP_5c3e8c27-6450-446b-87cd-488daf9acffa.jpg",
               "image4_title": "Rain Or Shine Coat",
               "image4_text": "Our first-ever showerproof coat",
               "image4_url": "https:\/\/daiwear.com\/products\/rain-or-shine-coat-herringbone-grey",
               "list5_title": "",
               "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_14_Core_5219_2bf70a30-142d-489a-b54c-d621b86f494a.jpg",
+              "image5_image": "shopify:\/\/shop_images\/SHOT_10_4_PORTRAIT_e066136c-e25f-43b1-9c5d-e67e7c1807cf.jpg",
               "image5_title": "Waist Not Shacket",
               "image5_text": "The tailored essential disguised as a casual jacket",
               "image5_url": "shopify:\/\/products\/waist-not-shacket-camel",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/221006_DAI_SH01_091_Portrait.jpg",
+              "image6_image": "shopify:\/\/shop_images\/131122_DAI_XMAS4_0341.jpg",
               "image6_title": "Wool Bomber Jacket",
               "image6_text": "Made with 100% natural fibres",
               "image6_url": "shopify:\/\/products\/wool-bomber-jacket"
@@ -3858,21 +3911,21 @@
               "image3_url": "",
               "list4_title": "",
               "link4_list": "",
-              "image4_image": "shopify:\/\/shop_images\/131122_DAI_XMAS3_0068_8578c050-6687-474d-938f-2bc0d1fa6aa5.jpg",
+              "image4_image": "shopify:\/\/shop_images\/360_CASHMERE_5_12775747-43bd-4573-9293-276053012b84.jpg",
               "image4_title": "Luxury Knits",
               "image4_text": "Discover ethically sourced, zero-waste knitwear",
               "image4_url": "shopify:\/\/collections\/knitwear",
               "list5_title": "",
               "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/221006_DAI_SH14_1134_Portrait.jpg",
+              "image5_image": "shopify:\/\/shop_images\/131122_DAI_XMAS1_0171_1338214c-f67c-4121-a5f7-55fb347ff850.jpg",
               "image5_title": "The Perfect Trousers",
               "image5_text": "Discover our bestselling Power Move™ family",
               "image5_url": "shopify:\/\/collections\/power-move™",
               "list6_title": "",
               "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/Archive-Sale.jpg",
-              "image6_title": "The Archive Sale",
-              "image6_text": "Shop our last seasons favourites for less",
+              "image6_image": "shopify:\/\/shop_images\/11_13_Fly_Out_-_Promotional_9de2c991-c345-429e-8563-7391a7c4674e.gif",
+              "image6_title": "Sale Now On",
+              "image6_text": "Our bestselling timeless tailoring up to 60% off*",
               "image6_url": "shopify:\/\/collections\/the-archive"
             }
           },
@@ -3894,45 +3947,6 @@
               "tff_v2_dd_image_three": "shopify:\/\/shop_images\/The_Performance_71387a81-5ea4-4a39-a44a-e5e553be58db.jpg",
               "tff_v2_dd_text_three": "The Performance",
               "tff_v2_dd_url_three": ""
-            }
-          },
-          "b98feedc-f09c-4844-bd84-27cfd1bd418d": {
-            "type": "custom",
-            "settings": {
-              "title": "Archive Sale",
-              "url": "shopify:\/\/collections\/the-archive",
-              "list1_title": "",
-              "link1_list": "by-archive-category",
-              "image1_title": "",
-              "image1_text": "",
-              "image1_url": "",
-              "list2_title": "",
-              "link2_list": "",
-              "image2_title": "",
-              "image2_text": "",
-              "image2_url": "",
-              "list3_title": "",
-              "link3_list": "",
-              "image3_title": "",
-              "image3_text": "",
-              "image3_url": "",
-              "list4_title": "",
-              "link4_list": "",
-              "image4_title": "",
-              "image4_text": "",
-              "image4_url": "",
-              "list5_title": "",
-              "link5_list": "",
-              "image5_image": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_14_Core_5219_a83a965e-a4db-47e6-b8e2-94f7bd1c5d0b.jpg",
-              "image5_title": "Shop All Archive",
-              "image5_text": "Timeless faves, up to 50% off",
-              "image5_url": "shopify:\/\/collections\/the-archive",
-              "list6_title": "",
-              "link6_list": "",
-              "image6_image": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_3_Core_3521_41543b26-4208-4aed-b55c-e2df2559085d.jpg",
-              "image6_title": "Archive Trousers",
-              "image6_text": "Last remaining, last chance.",
-              "image6_url": "https:\/\/daiwear.com\/collections\/the-archive?gf_357477=Trousers"
             }
           },
           "590f2f0d-6e96-4bb2-aa01-69d98852dbb5": {
@@ -3966,6 +3980,7 @@
         },
         "block_order": [
           "dafca8e9-a7e9-4a5d-864c-d7208d546f1a",
+          "b98feedc-f09c-4844-bd84-27cfd1bd418d",
           "9517e5fb-0653-4315-99c3-df1bf2b43e9d",
           "629d057a-4abe-4a18-8457-91819bcdefb1",
           "8a4b3d92-bd67-4814-b6a4-c08cf025d655",
@@ -3976,7 +3991,6 @@
           "eb2104ce-9b39-46eb-89aa-75baa13932d6",
           "507b933f-866b-4bcd-8152-815905f2aa14",
           "571340e0-aafa-4647-9525-52cf7078933b",
-          "b98feedc-f09c-4844-bd84-27cfd1bd418d",
           "590f2f0d-6e96-4bb2-aa01-69d98852dbb5"
         ],
         "settings": {}
@@ -5070,17 +5084,18 @@
       },
       "16381835654296069e": {
         "type": "banner",
+        "disabled": true,
         "settings": {
-          "title": "Easy Elegance 24\/7",
-          "text": "<p>From tailored suits to luxurious plant silk blouses, discover your new  elegance-meets-comfort looks. <\/p>",
-          "btn1_text": "Shop All",
-          "btn1_url": "shopify:\/\/collections\/all-products",
-          "btn2_text": "Shop New Arrivals",
-          "btn2_url": "shopify:\/\/collections\/new-arrivals",
-          "image_left": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0377_HPH_L_856686f9-d4c6-4fee-ab04-b441bd2a3ed0.jpg",
-          "image_right": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0290_HPH_R_6df78b89-7c72-48f2-a875-7ea3a8bce8ae.jpg",
+          "title": "New Suiting Styles Added",
+          "text": "<p><strong>Limited stock. Limited time only. <\/strong>Shop selected high-performing and bestselling tops, jackets, trousers, and more. Now up to <strong>60% off <\/strong>at The Winter Sale <\/p>",
+          "btn1_text": "Shop Sale",
+          "btn1_url": "shopify:\/\/collections\/the-winter-sale",
+          "btn2_text": "",
+          "btn2_url": "",
+          "image_left": "shopify:\/\/shop_images\/221006_DAI_SH14_1223_LANDSCAPE_fa7b5cc5-5273-4868-9ba8-2ec7c4db9f9f.jpg",
+          "image_right": "shopify:\/\/shop_images\/221006_DAI_SH14_1151_f5767470-4279-4b9d-bca1-58d0d4f643e0.jpg",
           "content_style": "light",
-          "image_mobile": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0290_HPH_R_6df78b89-7c72-48f2-a875-7ea3a8bce8ae.jpg"
+          "image_mobile": "shopify:\/\/shop_images\/221006_DAI_SH14_1151_f5767470-4279-4b9d-bca1-58d0d4f643e0.jpg"
         }
       },
       "lookbook-9": {
@@ -5678,22 +5693,6 @@
       "nav-blog-secondary-desktop": {
         "type": "nav-blog-secondary-desktop",
         "settings": {}
-      },
-      "16455257477f1d7244": {
-        "type": "banner",
-        "disabled": true,
-        "settings": {
-          "title": "The Power Move™",
-          "text": "<p>Shop our bestselling, original feels-like-yoga trouser family. <\/p>",
-          "btn1_text": "SHOP POWER MOVE™",
-          "btn1_url": "shopify:\/\/collections\/power-move™",
-          "btn2_text": "SHOP TROUSERS",
-          "btn2_url": "shopify:\/\/collections\/trousers",
-          "image_left": "shopify:\/\/shop_images\/Home_Page_Hero_1.jpg",
-          "image_right": "shopify:\/\/shop_images\/Home_Page_Hero.jpg",
-          "content_style": "light",
-          "image_mobile": "shopify:\/\/shop_images\/Home_Page_Hero.jpg"
-        }
       },
       "the-apartment-intro": {
         "type": "the-apartment-intro",
@@ -7595,21 +7594,21 @@
             "type": "slide",
             "settings": {
               "disabled": false,
-              "image_desktop": "shopify:\/\/shop_images\/UK_Homepage.jpg",
+              "image_desktop": "shopify:\/\/shop_images\/11_13_Homepage_b0c237df-2d62-4c77-a6b8-ea97618ffc9e.gif",
               "desktop_img_position_vertical": 100,
               "desktop_overlay_color": "#000000",
               "desktop_overlay_color_opacity": 0,
-              "image_mobile": "shopify:\/\/shop_images\/UK_Mobile_80fc8f24-5198-48e4-aa72-766524d0ce1b.jpg",
+              "image_mobile": "shopify:\/\/shop_images\/the_WINTER_SALE_STYLES_NOW_UP_TO_60_OFF_2.png",
               "mobile_overlay_color": "#000000",
               "mobile_overlay_color_opacity": 0,
-              "title": "",
+              "title": "<br><br><br>",
               "subtitle": "",
               "extra_description": "",
-              "button_text": "SHOP ALL",
-              "button_link": "shopify:\/\/collections\/all-products",
+              "button_text": "SHOP SALE",
+              "button_link": "shopify:\/\/collections\/the-winter-sale",
               "button_text_two": "",
               "button_link_two": "",
-              "small_print": "<p>Promo runs until January 3, 2023, 11:59 PM GMT. Exclusions apply. <\/p>",
+              "small_print": "<p>     <\/p><p>       <\/p><p>     <\/p>",
               "text_color": "light",
               "text_color_mob": "light",
               "halign_desktop": "justify-content-center"
@@ -8034,7 +8033,7 @@
               "text": "<p>Shop our latest innovations from the FLOW collection → <\/p>",
               "url": "shopify:\/\/collections\/for-life-or-work",
               "btn_text": "",
-              "image": "shopify:\/\/shop_images\/221006_DAI_SH04_364_R.jpg",
+              "image": "shopify:\/\/shop_images\/DAI_CORE_8_3.jpg",
               "image_mobile": "shopify:\/\/shop_images\/221006_DAI_SH04_364_R.jpg"
             }
           },
@@ -8079,6 +8078,9 @@
           "43d9d61e-db4f-4402-add4-8938ee558b1b"
         ],
         "settings": {
+          "ptop": 40,
+          "pbottom": 40,
+          "bg_color": "",
           "image_height": 400,
           "image_height_tablet": 400,
           "image_height_mobile": 400
@@ -10374,7 +10376,11 @@
           "65441a80-0a29-4119-acd8-057ba11e7b92",
           "88569c85-abdc-496d-bb00-af848ab8b2ad"
         ],
-        "settings": {}
+        "settings": {
+          "ptop": 40,
+          "pbottom": 40,
+          "bg_color": "#f7f7f7"
+        }
       },
       "70edee1a-3a6f-410c-b8d5-8ab8e6b251fc": {
         "type": "tailored-performance",
@@ -10382,7 +10388,7 @@
           "88636002-5663-4556-a253-0aa3d2419ad1": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_2_Core_3_44571c17-9595-452b-9518-0be114dd627e.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/131122_DAI_CORE2_0598_1bfcb7ee-ab4b-4371-bfad-7cab90a70d47.jpg",
               "tailored_title": "<p>Trousers →<\/p>",
               "tailored_url": "shopify:\/\/collections\/trousers"
             }
@@ -10390,7 +10396,7 @@
           "4de24850-06a6-4da9-a398-84a7391ffa69": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_4_Core_2_PORTRAIY_e43a5a91-0a26-40e9-bf41-096efe6dc472.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/DAI_CORE_5_1_CROP.jpg",
               "tailored_title": "<p>Tops →<\/p>",
               "tailored_url": "shopify:\/\/collections\/tops"
             }
@@ -10398,7 +10404,7 @@
           "11493151-8b4c-4d0d-a959-1d8868ffea88": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_9_Core_4346_458bd0bb-aecc-4b58-b357-88c96c00ba9a.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/DAI_CORE_4_3_Portrait.jpg",
               "tailored_title": "<p>Blazers →<\/p>",
               "tailored_url": "shopify:\/\/collections\/jackets"
             }
@@ -10406,7 +10412,7 @@
           "54aae50c-2912-4b63-9893-b80ba4948972": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_8_Core_Product_4229_ca037b64-f885-4ef1-a5d1-1e6ef4375ff6.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/360_CASHMERE_6.jpg",
               "tailored_title": "<p>Knitwear →<\/p>",
               "tailored_url": "shopify:\/\/collections\/knitwear"
             }
@@ -10414,7 +10420,7 @@
           "e8e48ab8-7a20-49b5-b9c2-67d3186e863c": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_14_Core_5219_a83a965e-a4db-47e6-b8e2-94f7bd1c5d0b.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/THERMAL-PM_3_d1833044-584e-4884-8908-32c4c46da83b.jpg",
               "tailored_title": "<p>Jackets →<\/p>",
               "tailored_url": "shopify:\/\/collections\/outerwear"
             }
@@ -10422,7 +10428,7 @@
           "06b424dd-ba73-4733-8d8c-5c59d839ef2c": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_6_Core_1_79c4df04-8d47-406b-ab4c-f9e31772023f.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/DAI_CORE_7_3_portrait_2.jpg",
               "tailored_title": "<p>Denim →<\/p>",
               "tailored_url": "shopify:\/\/collections\/performance-denim"
             }
@@ -10430,15 +10436,15 @@
           "158190cf-cbed-479b-b9b2-cbee402a316c": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_3_Core_3521_41543b26-4208-4aed-b55c-e2df2559085d.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/DAI_CORE_6_1.jpg",
               "tailored_title": "<p>FLOW →<\/p>",
-              "tailored_url": "shopify:\/\/collections\/flow-for-life-or-work"
+              "tailored_url": "shopify:\/\/collections\/for-life-or-work"
             }
           },
           "eb3233ba-8fcb-4765-82df-992de1f7ddf7": {
             "type": "text",
             "settings": {
-              "tailored_img": "shopify:\/\/shop_images\/2022_02_02_DAI_Shot_14_Core_5255.jpg",
+              "tailored_img": "shopify:\/\/shop_images\/DAI_CORE_3_3_Portrait.jpg",
               "tailored_title": "<p>Eco Luxe →<\/p>",
               "tailored_url": "shopify:\/\/collections\/eco-luxe-essentials"
             }
@@ -10759,46 +10765,231 @@
           "giveaway2": "shopify:\/\/shop_images\/DAI_2021XMasParty-7.jpg"
         }
       },
-      "6d568361-dfd2-4c7b-ae80-73634287f945": {
-        "type": "banner",
-        "disabled": true,
+      "shipping-new-intro": {
+        "type": "shipping-new-intro",
         "settings": {
-          "title": "For Life Or Work — Now at 20% Off",
-          "text": "<p>Shop our latest workleisure innovation that's designed to FLOW (For Life Or Work) — now at 20% Off. Use code <span style=\"text-decoration:underline\"><strong>FLOW20<\/strong><\/span> on checkout.<\/p>",
-          "btn1_text": "Shop FLOW",
-          "btn1_url": "shopify:\/\/collections\/for-life-or-work",
-          "btn2_text": "Shop Trousers",
-          "btn2_url": "shopify:\/\/collections\/trousers",
-          "image_left": "shopify:\/\/shop_images\/221006_DAI_SH05_460_L_4e35e1d9-f8d6-44e2-8442-03a02f5a04be.jpg",
-          "image_right": "shopify:\/\/shop_images\/221006_DAI_SH04_364_R.jpg",
-          "content_style": "light",
-          "image_mobile": "shopify:\/\/shop_images\/221006_DAI_SH05_460_L.jpg"
+          "title": "SHIPPING",
+          "title2": "",
+          "color": "#000"
         }
       },
-      "cf6faac2-05e0-4a7e-b85a-094ae6ee0a46": {
-        "type": "banner",
-        "disabled": true,
+      "shipping-new-blocks": {
+        "type": "shipping-new-blocks",
+        "blocks": {
+          "a4a6ec2c-330b-4284-b03b-6b58fa8ef96e": {
+            "type": "block",
+            "settings": {
+              "title": "DELIVERY",
+              "text": "<p><strong>UK<\/strong><\/p><p><strong>STANDARD UK DELIVERY <\/strong><\/p><ul><li>We offer FREE Royal Mail Tracked Delivery with an estimated delivery of 2-4 working days.<\/li><\/ul><p><strong>EXPRESS NEXT DAY UK DELIVERY <\/strong><\/p><p><em>(For orders placed before 12PM GMT) <\/em><\/p><ul><li>For all orders over £250 we offer FREE Next Day DPD delivery. <\/li><li>For all orders under £250 we offer Next Day DPD delivery at a flat rate of £10.  <\/li><\/ul><p> <\/p><p><strong>REST OF WORLD- TRACKED & SIGNED DELIVERY<\/strong><\/p><p><strong>EUROPE (EU & Non-EU)<\/strong>:<\/p><ul><li>For all orders over £250 we offer FREE DHL Economy GoGreen Shipping with an estimated delivery of 4-6 working days. <\/li><li>For all orders under £250 we offer DHL Express GoGreen Shipping with an estimated delivery of 4-6 working days for a flat rate of £20. <\/li><\/ul><p><strong>Australia, New Zealand, Canada, Hong Kong, Singapore, Japan<\/strong><\/p><ul><li>DHL Express GoGreen Shipping with an estimated delivery of 3-7 working days at a flat fee of £25. <\/li><\/ul><p><strong>India, Israel, Malaysia, Taiwan, United Arab Emirates, Cayman Islands, Puerto Rico<\/strong><\/p><ul><li>DHL Express GoGreen Shipping with an estimated delivery of 3-7 working days at a flat fee of £35. <\/li><\/ul><p><strong>US<\/strong><\/p><ul><li>We offer FREE US shipping on total order values above $350 via DHL Express GoGreen Shipping with an estimated delivery of 3-5 working days. <\/li><li>For orders below $350, we offer a flat shipping rate of $20.<\/li><\/ul><p><strong><br\/>Any applicable import customs duty and taxes will be billed to the customer.<\/strong><br\/>Not seeing your country? Email us at <a href=\"mailto:experience@daiwear.com?Subject=Hello%20Da\" target=\"_blank\">experience@daiwear.com<\/a>.<br\/><br\/><\/p>",
+              "btn_text": "",
+              "btn_url": "",
+              "text_pos": "left",
+              "custom": "",
+              "image": "shopify:\/\/shop_images\/221006_DAI_SH14_1151_f5767470-4279-4b9d-bca1-58d0d4f643e0.jpg",
+              "calendly_url": "",
+              "calendly_btn_text": ""
+            }
+          },
+          "93fe0122-a7a8-4560-bd42-4e4adc44eaba": {
+            "type": "block",
+            "settings": {
+              "title": "TAXES AND DUTIES OUTSIDE THE UK",
+              "text": "<p><em><strong>Brexit update for EU customers: <\/strong><\/em><em>As of Jan 1, 2021, non UK customers may be asked to pay duty, taxes, and customs fees before they can receive their shipments. Dai is not responsible for local import duties and taxes, please consult your local customs office for more information. <\/em><\/p><p><\/p><p>As of Jan 1, 2021, non UK customers may be asked to pay duty, taxes, and customs fees before they can receive their shipments. Dai is not responsible for local import duties and taxes, please consult your local customs office for more information. <\/p><p>To compensate for this inconvenience we do offer our customer the possibility to refund 20% UK VAT included in all GBP retail prices upon proof of local VAT payment. Please contact us directly at <a href=\"mailto:experience@daiwear.com?Subject=Hello%20Da\" target=\"_blank\"><strong>experience@daiwear.com<\/strong><\/a><strong> <\/strong>and we will happily assist you with this refund.<\/p>",
+              "btn_text": "",
+              "btn_url": "",
+              "text_pos": "right",
+              "custom": "",
+              "image": "shopify:\/\/shop_images\/221006_DAI_SH14_1223_LANDSCAPE_fa7b5cc5-5273-4868-9ba8-2ec7c4db9f9f.jpg",
+              "calendly_url": "",
+              "calendly_btn_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "a4a6ec2c-330b-4284-b03b-6b58fa8ef96e",
+          "93fe0122-a7a8-4560-bd42-4e4adc44eaba"
+        ],
         "settings": {
-          "title": "Monday 2nd January 2023",
-          "text": "<p>Just landed, the latest in comfort-empowered performance<\/p>",
-          "btn1_text": "New Arrivals",
-          "btn1_url": "shopify:\/\/collections\/new-arrivals",
-          "btn2_text": "Shop Trousers",
-          "btn2_url": "shopify:\/\/collections\/trousers",
-          "image_left": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0377_HPH_L.jpg",
-          "image_right": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0290_HPH_R.jpg",
-          "content_style": "light",
-          "image_mobile": "shopify:\/\/shop_images\/131122_DAI_XMAS2_0290_HPH_R_6df78b89-7c72-48f2-a875-7ea3a8bce8ae.jpg"
+          "title": ""
+        }
+      },
+      "shipping-new-schedule": {
+        "type": "shipping-new-schedule",
+        "settings": {
+          "title": "",
+          "btn_text": "CONTACT US",
+          "btn_url": "shopify:\/\/pages\/contact-us"
+        }
+      },
+      "returns-new-intro": {
+        "type": "returns-new-intro",
+        "settings": {
+          "title": "Return and Exchange",
+          "title2": "<p style=\"text-align:left;\"> All purchases may be returned within 28 days of the signature of receipt. Items must be unworn, unwashed, undamaged with all original tags attached. \nWe offer free returns within the UK, for returns outside of the UK, we are not able to provide complimentary return shipping. The return shipping cost is equal to the outbound shipping cost for your country as per the shipping costs above, and will be deducted from your total refund amount.<br>\n<br>\nFREE Exchange for UK. On all exchanges, the return must be returned within 14 days of the delivery date. Items must be unworn, unwashed, and undamaged with all original tags attached.<\/p>",
+          "color": "#000000"
+        }
+      },
+      "returns-new-blocks": {
+        "type": "returns-new-blocks",
+        "blocks": {
+          "861052b2-6c89-463d-b3b3-0106d910d922": {
+            "type": "block",
+            "settings": {
+              "title": "Return or Exchange your orders in a few steps",
+              "text": "<p>1. Open the Returns Portal & enter your Order Number + email address.<\/p><p>2. Select the item(s) you would like to return & select if you would like to Return, Exchange for other sizes\/colours or Exchange for a gift card.<\/p><p>4. Download the QR code or label for use in any Royal Mail (UK) or USPS or DHL Service Point (Rest of the World).<\/p><p>5. Drop it off at your nearest Drop Off Point shown from the portal.<\/p><p><\/p><p>Once we receive and verify your returned items your new replacements will automatically be sent out to you, it’s as easy as that.<\/p>",
+              "btn_text": "START RETURN PROCESS",
+              "btn_url": "",
+              "text_pos": "left",
+              "custom": "",
+              "image": "shopify:\/\/shop_images\/221006_Dai_SH18_221.jpg",
+              "calendly_url": "",
+              "calendly_btn_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "861052b2-6c89-463d-b3b3-0106d910d922"
+        ],
+        "settings": {
+          "title": "<h2>Easy Returns<\/h2>"
+        }
+      },
+      "returns-new-schedule": {
+        "type": "returns-new-schedule",
+        "blocks": {
+          "9f9754b4-7866-428f-a90e-c80538eb55e4": {
+            "type": "block",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/221006_Dai_SH18_207_34f63b1f-ce4f-49ad-a45b-4738769f8088.jpg",
+              "title": "",
+              "date": "",
+              "label": "",
+              "text": "<p>Alternatively, you can return your order in our<strong> <\/strong><a href=\"https:\/\/daiwear.com\/pages\/our-store\"><span style=\"text-decoration:underline\"><strong>flagship store<\/strong><\/span><\/a><strong> <\/strong>located in 35-37 Monmouth Street, London.<\/p><p>Once your return has arrived, <em>please allow <\/em><em><strong>14 working days<\/strong><\/em><em> for your refund<\/em> to be processed. We’ll send you an email once the refund is on its way. Please note that refunds will be made to the original method of payment.<\/p><p><em>Reach out to us at experience@daiwear.com if you have any questions.<\/em><\/p><p><\/p><p><strong>What if my items arrive damaged or incorrect?<\/strong><\/p><p>We inspect each of our products to meet the highest quality standards before shipping. If you receive a damaged or incorrect item due to a manufacturing fault, please contact experience@daiwear.com with your order number and description and photos of the damaged item. We’ll be sure to look after you.<\/p>",
+              "dropdown": "",
+              "text_pos": "right"
+            }
+          }
+        },
+        "block_order": [
+          "9f9754b4-7866-428f-a90e-c80538eb55e4"
+        ],
+        "settings": {
+          "title": "",
+          "btn_text": "CONTACT US",
+          "btn_url": "shopify:\/\/pages\/contact-us"
+        }
+      },
+      "5611f45b-ebfd-48f4-ad13-f6a6abee80cf": {
+        "type": "promotional-banner",
+        "settings": {
+          "bg_color": "#000000",
+          "text_color": "#e4cbc0",
+          "eyebrow": "the",
+          "title": "WINTER SALE",
+          "subtitle": "Up to 60% OFF",
+          "btn_text": "Shop Sale",
+          "btn_link": "shopify:\/\/collections"
+        }
+      },
+      "499c5097-dc38-409b-96f7-3fde2fc256d4": {
+        "type": "perfect-fit",
+        "blocks": {
+          "bf27afca-338c-4413-b17e-dd409312a41c": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Artboard_1_4db15096-17d0-4f67-84c0-fdeab3648cde_1.png"
+            }
+          },
+          "ef69a7b7-7c5e-4cc0-a0a5-796db5f05557": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/New_Project_86795d00-7e8f-49a8-b153-dafefd8f7507.png"
+            }
+          },
+          "03efa5b1-4887-47c8-84e2-fb17de375f88": {
+            "type": "icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/New_Project_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "bf27afca-338c-4413-b17e-dd409312a41c",
+          "ef69a7b7-7c5e-4cc0-a0a5-796db5f05557",
+          "03efa5b1-4887-47c8-84e2-fb17de375f88"
+        ],
+        "settings": {
+          "ptop": 40,
+          "pbottom": 40,
+          "bg_color": "#e6c8be",
+          "title": "Find your Perfect Fit",
+          "subtitle": "Did you know that 9 out of 10 women don’t know their body shape?",
+          "body": "At Dai, we make trousers that fit. For women by women, so let’s find you the perfect fit in under 60 seconds.",
+          "btn_text": "FIND MY PERFECT FIT",
+          "btn_link": "#",
+          "image": "shopify:\/\/shop_images\/TFF_-_Mobile.png",
+          "review_content": "“The days that I wear Dai, are the days I feel the most confident and the most myself.”",
+          "reviewer": "LYDIA"
+        }
+      },
+      "b2d72be6-8c3c-4b7e-ad5e-6c5d8b6ffe76": {
+        "type": "index-reviews",
+        "blocks": {
+          "2d34ccc8-8fca-4a5f-ab4b-b54e1d161d04": {
+            "type": "review",
+            "settings": {
+              "title": "Excellent quality, highly wearable",
+              "content": "Anything I buy from Dai is such good quality and something you can wear again and again. Easy to care for and great options to build your capsule wardrobe.",
+              "author": "SUZETTE"
+            }
+          },
+          "b3165728-0f9c-4135-aa87-eaf7d725b7a0": {
+            "type": "review",
+            "settings": {
+              "title": "Dai is a wonderful brand",
+              "content": "Dai is a wonderful brand. The trousers last forever and are so easy to wash, no ironing. I also love their knitwear.",
+              "author": "ANNABEL"
+            }
+          },
+          "310b719a-7843-4caf-a308-82c8826ae33a": {
+            "type": "review",
+            "settings": {
+              "title": "Worth every penny!",
+              "content": "I bought two pairs of the classic power move trousers after a lot of hesitation about the price. And I can joyfully confirm they live up to the hype! It almost makes you tear up - finally a pair of trousers that really fits and adapts to your body.",
+              "author": "BARBORA"
+            }
+          },
+          "b6d90c19-cb75-47d2-bff1-d10bc51683a3": {
+            "type": "review",
+            "settings": {
+              "title": "Dai is a wonderful brand",
+              "content": "Dai is a wonderful brand. The trousers last forever and are so easy to wash, no ironing. I also love their knitwear.",
+              "author": "ANNABEL"
+            }
+          }
+        },
+        "block_order": [
+          "2d34ccc8-8fca-4a5f-ab4b-b54e1d161d04",
+          "b3165728-0f9c-4135-aa87-eaf7d725b7a0",
+          "310b719a-7843-4caf-a308-82c8826ae33a",
+          "b6d90c19-cb75-47d2-bff1-d10bc51683a3"
+        ],
+        "settings": {
+          "ptop": 40,
+          "pbottom": 40,
+          "bg_color": "#f7f7f7",
+          "title": "What our Dai’namic Community is saying"
         }
       }
     },
     "content_for_index": [
-      "6d568361-dfd2-4c7b-ae80-73634287f945",
+      "5611f45b-ebfd-48f4-ad13-f6a6abee80cf",
       "16381835654296069e",
       "165468277004ddd160",
-      "cf6faac2-05e0-4a7e-b85a-094ae6ee0a46",
-      "16455257477f1d7244",
       "70ddd295-fe93-4d0e-a255-8bace1e897b8",
+      "499c5097-dc38-409b-96f7-3fde2fc256d4",
+      "1617105148eed30c56",
+      "b2d72be6-8c3c-4b7e-ad5e-6c5d8b6ffe76",
       "1617131206e1f3c15e",
       "1550017518046",
       "16170495574ae28140",
@@ -10806,7 +10997,6 @@
       "70edee1a-3a6f-410c-b8d5-8ab8e6b251fc",
       "1659703271f105e432",
       "16171300242dc2d55c",
-      "1617105148eed30c56",
       "166066707503830d75",
       "1550056515212"
     ],
@@ -10815,13 +11005,6 @@
         "type": "shopify:\/\/apps\/helpcenter-faq-chat-helpdesk\/blocks\/widget-embed\/96ba30fd-9f2c-45e4-a753-8a1399d9a0d9",
         "disabled": false,
         "settings": {}
-      },
-      "10605408327587305396": {
-        "type": "shopify:\/\/apps\/easygift-auto-add-to-cart\/blocks\/app-embed\/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
-        "disabled": true,
-        "settings": {
-          "version": "v3"
-        }
       },
       "15849993549880743979": {
         "type": "shopify:\/\/apps\/free-gifts-buy-x-get-y\/blocks\/app-embeded\/58ed8460-f12d-44c1-87aa-ec47351b5fd7",

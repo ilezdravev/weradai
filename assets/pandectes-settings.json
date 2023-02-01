@@ -5,7 +5,7 @@
     "primaryLocale": "en",
     "adminMode": false
   },
-  "tsPublished": 1673349533,
+  "tsPublished": 1674225952,
   "declaration": {
     "showPurpose": false,
     "showProvider": false,
@@ -23,7 +23,7 @@
         "en": "We respect your privacy"
       },
       "consentText": {
-        "en": "This website uses cookies to ensure you get the best experience."
+        "en": "We use first- and third-party cookies including other tracking technologies from third party publishers to give you the full functionality of our website."
       },
       "dismissButtonText": {
         "en": "Ok"

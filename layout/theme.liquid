@@ -93,6 +93,8 @@
   <script src="{{ 'slick.min.js' | asset_url }}"></script>
   <script src="{{ 'jquery.zoom.min.js' | asset_url }}"></script>
   <script src="{{ 'aos.js' | asset_url }}"></script>
+  <script src="{{ 'custom.js' | asset_url }}"></script>
+
   {% if shop.domain == 'us.daiwear.com' %}
     <script src="{{ 'instafeed.min.js' | asset_url }}"></script>
   {% endif %}
@@ -216,6 +218,7 @@
          src="https://px.ads.linkedin.com/collect/?pid=4033140&fmt=gif" />
   </noscript>
   <!-- End Linkedin Conversion Tracker -->  
+
 
 {% comment %}Wishlist Feature {% endcomment %}
     {% include 'swymSnippet' %}
@@ -527,7 +530,7 @@
     </script>
   
   {% comment %}Wishlist Feature {% endcomment %}
-  <script src="{{ 'custom.js' | asset_url }}"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var lazyloadImages;    

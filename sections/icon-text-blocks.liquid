@@ -1,4 +1,5 @@
 {%- assign set = section.settings -%}
+{% render 'section-settings', section: section %}
 <div class="icon-text-blocks">
   <div class="container">
     {%- if set.title != blank -%}
@@ -14,7 +15,7 @@
           #shopify-section-{{ section.id }} .icon-text-block__icon {
             height: {{ set.image_height_mobile }}px;
           }
-        } 
+        }
       {% endstyle %}
 
       {%- for block in section.blocks -%}
@@ -53,6 +54,31 @@
     "class": "icon-text-blocks-section",
     "tag": "section",
     "settings": [
+      {
+          "type": "range",
+          "id": "ptop",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Top"
+      },
+      {
+          "type": "range",
+          "id": "pbottom",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Bottom"
+      },
+      {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+      },
       {
         "type": "text",
         "id": "title",

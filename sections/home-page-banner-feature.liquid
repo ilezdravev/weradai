@@ -1,3 +1,5 @@
+{% render 'section-settings', section: section %}
+
 <div class="home-page-banner-section">
     <div class="container" data-slider-container>
         <div class="home-page-banner-items" data-home-page-banner-slider>
@@ -7,16 +9,41 @@
                     <a class="home-page-banner-span" href="{{ block.settings.home_page_banner_feature_url }}">
                         <span class="home-page-banner-item-title">{{ block.settings.home_page_banner_feature_title }}<img data-src="https://cdn.shopify.com/s/files/1/0225/7023/8016/files/right-arrow.png?v=1665663122" loading="lazy" class="lazyload" height="20" width="20" /></span></a>
                 </div>
-            {% endfor %}               
+            {% endfor %}
         </div>
     </div>
-</div>    
+</div>
 {% schema %}
 {
     "name": "Home Page Banner",
     "class": "home-page-banner-feature-section",
   	"tag": "section",
     "settings": [
+        {
+            "type": "range",
+            "id": "ptop",
+            "min": 0,
+            "max": 100,
+            "unit": "px",
+            "default": 40,
+            "step": 10,
+            "label": "Padding Top"
+        },
+        {
+            "type": "range",
+            "id": "pbottom",
+            "min": 0,
+            "max": 100,
+            "unit": "px",
+            "default": 40,
+            "step": 10,
+            "label": "Padding Bottom"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color"
+        },
         {
             "type": "image_picker",
             "id": "home_page_banner_arrow_icon",
@@ -32,12 +59,12 @@
                     "type": "image_picker",
                     "id": "home_page_banner_feature_img",
                     "label": "Home Page Banner Feature Image"
-                },                
+                },
                 {
                     "id": "home_page_banner_feature_title",
                     "type": "text",
                     "label": "Home Page Banner Feature Title"
-                }, 
+                },
                 {
                     "id": "home_page_banner_feature_url",
                     "type": "url",
@@ -45,7 +72,7 @@
                 }
             ]
         }
-    ], 
+    ],
     "presets": [
     {
         "name": "Home Page Banner",

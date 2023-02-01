@@ -1,0 +1,125 @@
+{% render 'section-settings', section: section %}
+
+<div class="perfect-fit">
+  <div class="perfect-fit-content container">
+    <div class="text-wrap">
+      <div class="title">{{ section.settings.title }}</div>
+      <div class="subtitle">{{ section.settings.subtitle }}</div>
+      <div class="body">{{ section.settings.body }}</div>
+      <a href="{{ section.settings.btn_link }}" class="btn btn-border">{{ section.settings.btn_text }}</a>
+    </div>
+    <div class="image-wrap">
+      <img src="{{ section.settings.image | img_url: '400x' }}" alt="perfect fit image">
+    </div>
+    <div class="review-wrap">
+      <div class="stars">
+        <img src="{{ 'star.png' | asset_url }}">
+        <img src="{{ 'star.png' | asset_url }}">
+        <img src="{{ 'star.png' | asset_url }}">
+        <img src="{{ 'star.png' | asset_url }}">
+        <img src="{{ 'star.png' | asset_url }}">
+      </div>
+      <div class="review-text">{{ section.settings.review_content }}</div>
+      <div class="reviewer">-{{- section.settings.reviewer -}}</div>
+      <div class="as-seen">
+        <div class="as-seen-label">As Seen In</div>
+        <div class="as-seen-icons-wrap">
+          {% for block in section.blocks %}
+            <img src="{{ block.settings.icon | img_url: '400x' }}" alt="{{ block.settings.icon.alt }}">
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Find Your Perfect Fit",
+    "settings": [
+      {
+          "type": "range",
+          "id": "ptop",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Top"
+      },
+      {
+          "type": "range",
+          "id": "pbottom",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Bottom"
+      },
+      {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "body",
+        "label": "Body Text"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "review_content",
+        "label": "Review Content"
+      },
+      {
+        "type": "text",
+        "id": "reviewer",
+        "label": "Reviewer"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Icon",
+        "type": "icon",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Find Your Perfect Fit"
+      }
+    ]
+  }
+{% endschema %}

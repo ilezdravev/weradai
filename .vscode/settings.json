@@ -1,0 +1,4 @@
+{
+    "liquid.format.enable": true,
+    "liquid.settings.target": "workspace"
+}

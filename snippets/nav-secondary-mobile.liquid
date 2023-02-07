@@ -1,0 +1,34 @@
+{% assign set = section.settings %}
+
+<div data-section-id="{{ section.id }}" class="" data-section-type="">
+    <div class="container">
+        <nav class="n">
+            <ul class="m-level-1">
+                {% for block in section.blocks %}
+                    {%- assign isActive = false -%}
+                    {%- if request.path == block.settings.url -%}
+                        {%- assign isActive = true -%}
+                    {%- endif -%}
+                    {% if block.type == 'tff_v2_dropdown' %}
+                        <li class=" tff-v2__menu" data-trigger="parent" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+                          <a href="{{ block.settings.tff_v2_menu_url }}" class="nav__link m-level-1 m-icon tff-v2__dropdown">{{ block.settings.tff_v2_menu_title }}</a>
+                          {% render 'mobile-nav-dropdown', block: block %}
+                      </li>
+                    {% elsif block.type == 'custom' %}
+                        <li class="" data-trigger="parent" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+                            <a href="{{ block.settings.url }}" class="nav__link m-level-1 m-icon">{{ block.settings.title }}</a>
+                            {% render 'mobile-nav-dropdown-cols', block: block %}
+                        </li>
+                    {% comment %} {% elsif block.type == 'link' %} {% endcomment %}
+                        <li class="" data-trigger {{ block.shopify_attributes }}>
+                            <a class="nav__link m-level-1" href="{{ block.settings.url }}">
+                                {% comment %} {{ block.settings.title }} {% endcomment %}
+                                
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>

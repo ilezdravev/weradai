@@ -1,0 +1,301 @@
+{% assign set = section.settings %}
+
+<style>
+    #shopify-section-{{ section.id }}{
+      
+    }
+   
+</style>
+
+
+<div class="nav-secondary-menu-mobile">
+   <div class="wrapper">
+        <div class="menu-header">
+            <h1 class="title">{{ section.settings.title }}</h1>
+            <a class="login-btn" href="{{ section.settings.login_url}}">LOGIN</a>
+        </div>
+        <div class="menu-wrap">
+            <nav class="nav-menu">
+                <ul class="menu-bar">
+                    {% for block in section.blocks %}
+                        {%- assign isActive = false -%}
+                        {%- if request.path == block.settings.url -%}
+                            {%- assign isActive = true -%}
+                        {%- endif -%}
+                        {% if block.type == 'links_text_blocks' %}
+                            <li class="nav__item m-level-1 m-dropdown" data-trigger="parent" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+                                <a style="color: {{ block.settings.color }}"href="{{ block.settings.url }}" class="nav__link m-level-1 m-icon" >{{ block.settings.title }}</a>
+                                {% render 'mobile-nav-dropdown', block: block %}
+                            </li>
+                        {% elsif block.type == 'tff_v2_dropdown' %}
+                            <li class="nav__item m-level-1 m-dropdown tff-v2__menu" data-trigger="parent" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+                                <a style="color: {{ block.settings.color }}"href="{{ block.settings.tff_v2_menu_url }}" class="nav__link m-level-1 m-icon tff-v2__dropdown">{{ block.settings.tff_v2_menu_title }}</a>
+                            </li>
+                        {% elsif block.type == 'custom' %}
+                            <li class="nav__item m-level-1 m-dropdown" style="color:{{ block.sttings.color }}" data-trigger="parent" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+                                <span  class="nav__link m-level-1 m-icon">{{ block.settings.title }} 
+                                <i class="menu-icon">{% render "icon-down-arrow" %}</i></span>
+                                {% render 'mobile-nav-dropdown-cols', block: block , parent_title:  block.settings.title %}
+                            </li>
+                        {% elsif block.type == 'link' %}
+                        <li class="nav__item active" style="background-color: {{ block.settings.bg_color }}" {{ block.shopify_attributes }}>
+                            <a class="nav__link m-level-1 m-icon" style="color:{{ block.settings.color }}" href="{{ block.settings.url }}">
+                                {{ block.settings.title }}
+                            </a>
+                        </li>
+                            <li class="nav__item m-level-1" data-trigger {{ block.shopify_attributes }}>
+                               
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </ul>
+            </nav>    
+        </div>
+        {% render 'nav-mobile-footer' ,link : section.settings.link , img : section.settings.image%}
+    </div>
+    <div class="menu-hide"></div>
+</div>
+{% schema %}
+
+{
+    "name": "MobileSecondaryNavigation",
+    "settings": [
+        {
+            "type":"text",
+            "id": "title",
+            "label":"Title"
+        },
+        {
+            "type":"url",
+            "id":"login_url",
+            "label":"Login URl"
+        },
+        {
+            "type":"image_picker",
+            "id":"image",
+            "label":"image"
+        },
+        {
+            "type":"link_list",
+            "id":"link",
+            "label":"Footer Link"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "custom",
+            "name": "1/6 - Links & Images",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Link Text"
+                }, {
+                    "type": "url",
+                    "id": "url",
+                    "label": "Link URL"
+                }, {
+                    "type":"color",
+                    "id":"color",
+                    "label":"Font Color"
+                },{
+                    "type": "header",
+                    "content": "Col #1"
+                }, {
+                    "type": "text",
+                    "id": "list1_title",
+                    "label": "Title"
+                }, {
+                    "type": "link_list",
+                    "id": "link1_list",
+                    "label": "Menu"
+                }, {
+                    "type": "image_picker",
+                    "id": "image1_image",
+                    "label": "Photo"
+                }, {
+                    "type": "text",
+                    "id": "image1_title",
+                    "label": "Title"
+                }, {
+                    "type": "text",
+                    "id": "image1_text",
+                    "label": "Description"
+                }, {
+                    "type": "url",
+                    "id": "image1_url",
+                    "label": "URL"
+                }, {
+                    "type": "header",
+                    "content": "Col #2"
+                }, {
+                    "type": "text",
+                    "id": "list2_title",
+                    "label": "Title"
+                }, {
+                    "type": "link_list",
+                    "id": "link2_list",
+                    "label": "Menu"
+                }, {
+                    "type": "image_picker",
+                    "id": "image2_image",
+                    "label": "Photo"
+                }, {
+                    "type": "text",
+                    "id": "image2_title",
+                    "label": "Title"
+                }, {
+                    "type": "text",
+                    "id": "image2_text",
+                    "label": "Description"
+                }, {
+                    "type": "url",
+                    "id": "image2_url",
+                    "label": "URL"
+                }, {
+                    "type": "header",
+                    "content": "Col #3"
+                }, {
+                    "type": "text",
+                    "id": "list3_title",
+                    "label": "Title"
+                }, {
+                    "type": "link_list",
+                    "id": "link3_list",
+                    "label": "Menu"
+                }, {
+                    "type": "image_picker",
+                    "id": "image3_image",
+                    "label": "Photo"
+                }, {
+                    "type": "text",
+                    "id": "image3_title",
+                    "label": "Title"
+                }, {
+                    "type": "text",
+                    "id": "image3_text",
+                    "label": "Description"
+                }, {
+                    "type": "url",
+                    "id": "image3_url",
+                    "label": "URL"
+                }, {
+                    "type": "header",
+                    "content": "Col #4"
+                }, {
+                    "type": "text",
+                    "id": "list4_title",
+                    "label": "Title"
+                }, {
+                    "type": "link_list",
+                    "id": "link4_list",
+                    "label": "Menu"
+                }, {
+                    "type": "image_picker",
+                    "id": "image4_image",
+                    "label": "Photo"
+                }, {
+                    "type": "text",
+                    "id": "image4_title",
+                    "label": "Title"
+                }, {
+                    "type": "text",
+                    "id": "image4_text",
+                    "label": "Description"
+                }, {
+                    "type": "url",
+                    "id": "image4_url",
+                    "label": "URL"
+                }, {
+                    "type": "header",
+                    "content": "Col #5"
+                }, {
+                    "type": "text",
+                    "id": "list5_title",
+                    "label": "Title"
+                }, {
+                    "type": "link_list",
+                    "id": "link5_list",
+                    "label": "Menu"
+                }, {
+                    "type": "image_picker",
+                    "id": "image5_image",
+                    "label": "Photo"
+                }, {
+                    "type": "text",
+                    "id": "image5_title",
+                    "label": "Title"
+                }, {
+                    "type": "text",
+                    "id": "image5_text",
+                    "label": "Description"
+                }, {
+                    "type": "url",
+                    "id": "image5_url",
+                    "label": "URL"
+                }, {
+                    "type": "header",
+                    "content": "Col #6"
+                }, {
+                    "type": "text",
+                    "id": "list6_title",
+                    "label": "Title"
+                }, {
+                    "type": "link_list",
+                    "id": "link6_list",
+                    "label": "Menu"
+                }, {
+                    "type": "image_picker",
+                    "id": "image6_image",
+                    "label": "Photo"
+                }, {
+                    "type": "text",
+                    "id": "image6_title",
+                    "label": "Title"
+                }, {
+                    "type": "text",
+                    "id": "image6_text",
+                    "label": "Description"
+                }, {
+                    "type": "url",
+                    "id": "image6_url",
+                    "label": "URL"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_text",
+                    "label": "Button text"
+                }, {
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button url"
+                }
+            ]
+        },{
+            "type": "link",
+            "name": "Regular Link",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Link Text"
+                }, {
+                    "type": "url",
+                    "id": "url",
+                    "label": "Link URL"
+                },{
+                    "type":"color",
+                    "id":"bg_color",
+                    "label":"Background color"
+                }, {
+                    "type":"color",
+                    "id":"color",
+                    "label":"Font color"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}

@@ -1,0 +1,25 @@
+<div class="menu-footer">
+    <div class="footer-menu">
+        <div class="">
+            <ul class="footer-links">
+                {% for link in linklists[link].links %}
+                  <li class="nav__item " {{ block.shopify_attributes }}>
+                  {% if link.links != blank %} 
+                    <span class="nav__link m-icon {% if link.links != blank %} is_submenu{% endif %}">{{ link.title }}</span>
+                    {% else %}
+                    <a href="{{ link.url }}"  class="nav__link m-icon">{{ link.title }}</a>
+                  {% endif %}
+                    <ul class="footer-link">
+                      {% for link in link.links %}
+                        <li class="link-item">
+                          <a href="{{ link.url }}">{{ link.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                {% endfor %}
+            </ul>
+          </div>
+    </div>
+    <div class="image-wrap"><img src="{{ img | img_url : '500x'}}"></div>
+</div>

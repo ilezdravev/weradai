@@ -1,3 +1,4 @@
+{% render 'section-settings', section: section %}
 <div class="social-footer">
   <div class="container">
     <div class="row align-items-center">
@@ -24,6 +25,31 @@
   {
     "name": "Social & Newsletter",
     "settings": [
+      {
+        "type": "range",
+        "id": "ptop",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "default": 40,
+        "step": 10,
+        "label": "Padding Top"
+      },
+      {
+          "type": "range",
+          "id": "pbottom",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Bottom"
+      },
+      {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+      },
       {
         "type": "text",
         "id": "title",

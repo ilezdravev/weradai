@@ -30,6 +30,18 @@
         </div>
       </div>
     </div>
+    <div class="mobile-body container">
+      <div class="body">{{ section.settings.body }}</div>
+      <a href="{{ section.settings.btn_link }}" class="btn btn-border">{{ section.settings.btn_text }}</a>
+      <div class="as-seen">
+        <div class="as-seen-label">As Seen In</div>
+        <div class="as-seen-icons-wrap">
+          {% for block in section.blocks %}
+            <img src="{{ block.settings.icon | img_url: '400x' }}" alt="{{ block.settings.icon.alt }}">
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 <!--===== MOBILE NAV =====-->
 <div class="mobile-menu-wrapper hidden-lg">
-  <input type="checkbox" id="check" data-mobile-menu-open />
-  <label id="icon" for="check">
+  {% comment %} <input type="checkbox" id="mobile-menu-show-btn" /> {% endcomment %}
+  <label id="mobile-menu-show-btn" for="check">
     <!--  icon    -->
       <div class="hamburger-menu">
         <div class="bar1"></div>
@@ -110,10 +110,7 @@
           <a class="currency-convertor">{%- render 'bold-currency-picker-mount', openDirection: 'up' -%}</a>
         </div>
       </div>
-
     </div>
-
-    
   </div>
 </div>
 <!-- end of mob menu -->

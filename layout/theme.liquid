@@ -94,6 +94,7 @@
   <script src="{{ 'jquery.zoom.min.js' | asset_url }}"></script>
   <script src="{{ 'aos.js' | asset_url }}"></script>
   <script src="{{ 'custom.js' | asset_url }}"></script>
+  
 
   {% if shop.domain == 'us.daiwear.com' %}
     <script src="{{ 'instafeed.min.js' | asset_url }}"></script>
@@ -165,6 +166,7 @@
       {% endif %}
     </header>
   {% endif %}
+  {% section 'nav-secondary-mobile' %}
   {% comment %} END of Disable for Pop Up Store Trouser Fit Finder {% endcomment %}
 
   <main role="main" id="MainContent" {% if template == 'index' or template contains 'collection' %}class="page-padding-reduced"{% endif %}>

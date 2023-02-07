@@ -1,3 +1,5 @@
+
+{% render 'section-settings', section: section %}
 <div class="our-stylist-blocks-section">
     <div class="row flex-column align-items-center">
         <h1 class="container our-stylist-title md-my-3 my-5">{{ section.settings.our_stylist_title_text }}</h1>
@@ -23,6 +25,31 @@
   "class": "our-stylist-blocks-section",
   "tag": "section",
   "settings": [
+    {
+        "type": "range",
+        "id": "ptop",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "default": 40,
+        "step": 10,
+        "label": "Padding Top"
+    },
+    {
+        "type": "range",
+        "id": "pbottom",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "default": 40,
+        "step": 10,
+        "label": "Padding Bottom"
+    },
+    {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color"
+    },
     {
         "type": "text",
         "id": "our_stylist_title_text",

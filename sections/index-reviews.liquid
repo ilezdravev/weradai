@@ -2,22 +2,27 @@
 
 <div class="custom-reviews container">
   <div class="title">{{ section.settings.title }}</div>
-  <div class="review-items">
-    {% for block in section.blocks %}
-      <div class="review-item">
-        <div class="stars">
-          <img src="{{ 'star.png' | asset_url }}">
-          <img src="{{ 'star.png' | asset_url }}">
-          <img src="{{ 'star.png' | asset_url }}">
-          <img src="{{ 'star.png' | asset_url }}">
-          <img src="{{ 'star.png' | asset_url }}">
+  <div class='slide-container'>
+    <button class="slide-btn slide-left"><img src="{{"left.png" | asset_url }}"/></button>
+    <div class="review-items">
+      {% for block in section.blocks %}
+        <div class="review-item">
+          <div class="stars">
+            <img src="{{ 'star.png' | asset_url }}">
+            <img src="{{ 'star.png' | asset_url }}">
+            <img src="{{ 'star.png' | asset_url }}">
+            <img src="{{ 'star.png' | asset_url }}">
+            <img src="{{ 'star.png' | asset_url }}">
+          </div>
+          <div class="review-title">{{ block.settings.title }}</div>
+          <div class="review-content">{{ block.settings.content }}</div>
+          <div class="review-author">-{{ block.settings.author }}</div>
         </div>
-        <div class="review-title">{{ block.settings.title }}</div>
-        <div class="review-content">{{ block.settings.content }}</div>
-        <div class="review-author">-{{ block.settings.author }}</div>
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
+    <button class="slide-btn slide-right"><img src="{{"right.png" | asset_url }}"/></button>
   </div>
+  
 </div>
 
 {% schema %}

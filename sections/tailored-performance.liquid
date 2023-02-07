@@ -1,3 +1,4 @@
+{% render 'section-settings', section: section %}
 {%- assign set = section.settings -%}
 <div class="tailored-performance-section">
     <div class="container" {%- if set.tailored_text_position == 'right' -%} style="flex-direction: row-reverse;text-align: right;" {%- endif -%}>
@@ -31,6 +32,31 @@
     "class": "tailored-performance-feature-section",
   	"tag": "section",
     "settings": [
+        {
+            "type": "range",
+            "id": "ptop",
+            "min": 0,
+            "max": 100,
+            "unit": "px",
+            "default": 40,
+            "step": 10,
+            "label": "Padding Top"
+          },
+          {
+              "type": "range",
+              "id": "pbottom",
+              "min": 0,
+              "max": 100,
+              "unit": "px",
+              "default": 40,
+              "step": 10,
+              "label": "Padding Bottom"
+          },
+          {
+              "type": "color",
+              "id": "bg_color",
+              "label": "Background Color"
+          },
         {
             "type": "text",
             "id": "tailored_performance_title",

@@ -18,6 +18,53 @@ function changePromotion(){
  $(document).ready(function(){
     $('.custom-reviews .review-items').slick({
         infinite: true,
-      slidesToShow: 3
+        slidesToShow: 3,
+        arrows: false,
+        responsive: [
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 1,
+                dots: true
+              }
+            }
+          ]
      })
+
+    $('.slide-btn').on('click',function(){
+        console.log($(this));
+        if($(this).hasClass('slide-left')){
+            $('.custom-reviews .review-items').slick('slickPrev');
+        }else{
+            $('.custom-reviews .review-items').slick('slickNext');
+        }
+    })
+    $('.m-dropdown').on('click',function(e){
+        $(this).find('.mobile-nav-dropdown').addClass('show');
+    })({bubble: false });
+   
  })
+
+/// mobile-nav-menu
+$(document).on('click','.drop-menu-title',function(){
+    document.querySelector('.mobile-nav-dropdown.show').classList.remove('show');
+})
+$(document).on('click','.menu-hide',function(){
+    document.querySelector('.nav-secondary-menu-mobile').classList.remove('active');
+    $('html').removeClass('noscroll');
+})
+$(document).on('click','#mobile-menu-show-btn',function(){
+    document.querySelector('.nav-secondary-menu-mobile').classList.add('active');
+    $('html').addClass('noscroll');
+
+})
+$(document).on('click','.is_submenu',function(){
+    if(!$(this).hasClass('is_open')){
+        $(document).find('.is_submenu.is_open').next().slideToggle();
+        $(document).find('.is_submenu.is_open').removeClass('is_open');
+    }
+    $(this).toggleClass('is_open');
+    $(this).next().slideToggle();
+})
+//// 
+

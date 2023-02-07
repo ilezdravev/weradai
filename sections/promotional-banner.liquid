@@ -1,3 +1,4 @@
+{% render 'section-settings', section: section %}
 <div class="promotional-banner" style="background-color: {{ section.settings.bg_color }};">
   <div class="banner-content" style="color: {{ section.settings.text_color }};">
     <div class="eyebrow">{{ section.settings.eyebrow }}</div>
@@ -10,6 +11,26 @@
   {
     "name": "Promotional Banner",
     "settings": [
+      {
+        "type": "range",
+        "id": "ptop",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "default": 40,
+        "step": 10,
+        "label": "Padding Top"
+      },
+      {
+          "type": "range",
+          "id": "pbottom",
+          "min": 0,
+          "max": 100,
+          "unit": "px",
+          "default": 40,
+          "step": 10,
+          "label": "Padding Bottom"
+      },
       {
         "type": "color",
         "id": "bg_color",

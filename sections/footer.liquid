@@ -33,23 +33,43 @@
       <div class="col-sm-12 col-md-2">
         {%- assign footer_linklist_one = section.settings.footer_linklist_one -%}
         {% if linklists[footer_linklist_one].links.size > 0 %}
-        <h3>{{ linklists[footer_linklist_one].title }}</h3>
-          <ul class="footer-links">
-            {% for link in linklists[footer_linklist_one].links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
+          <div class='hide--mobile'>
+            <h3>{{ linklists[footer_linklist_one].title }}</h3>
+            <ul class="footer-links" >
+              {% for link in linklists[footer_linklist_one].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class='hide--desktop'>
+            <h3 footer-accordion>{{ linklists[footer_linklist_one].title }} {% render 'black-arrow-down' %}</span></h3>
+            <ul class="footer-links drop-menu" >
+              {% for link in linklists[footer_linklist_one].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
         {% endif %}
       </div>
       <div class="col-sm-12 col-md-2">
         {%- assign footer_linklist_two = section.settings.footer_linklist_two -%}
         {% if linklists[footer_linklist_two].links.size > 0 %}
-        <h3>{{ linklists[footer_linklist_two].title }}</h3>
-          <ul class="footer-links">
-            {% for link in linklists[footer_linklist_two].links %}
-              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
+          <div class="hide--mobile">
+            <h3>{{ linklists[footer_linklist_two].title }}</h3>
+            <ul class="footer-links">
+              {% for link in linklists[footer_linklist_two].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class='hide--desktop'>
+            <h3 footer-accordion>{{ linklists[footer_linklist_two].title }}{% render 'black-arrow-down' %}</h3>
+            <ul class="footer-links drop-menu">
+              {% for link in linklists[footer_linklist_two].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
         {% endif %}
       </div>
       <div class="col-sm-12 col-md-3 order-first order-lg-last newsletter-block">

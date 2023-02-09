@@ -2,16 +2,23 @@
 <style>
   #shopify-section-{{ section.id }} #easy-care{
     display: flex;
+    position: relative;
+    flex-direction: row-reverse;
+  }
+  #shopify-section-{{ section.id }} .wrapper{
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   #shopify-section-{{ section.id }} .content-wrap{
     width: 40%
   }
   #shopify-section-{{ section.id }} .text-wrap{
     max-width: 450px;
-    margin-left: auto;
-    padding-left: 20px;
     padding-right: 40px;
   }
   #shopify-section-{{ section.id }} .title{
@@ -34,14 +41,13 @@
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 1.36px;
-    padding: 15px 22px;
+    padding: 15px 22px; 
     border: 2px solid;
     display: inline-block;
   }
   #shopify-section-{{ section.id }} .image-wrap{
     display: flex;
     width: 60%;
-    flex-grow: 1;
   }
   #shopify-section-{{ section.id }} img{
     width: 100%;
@@ -63,12 +69,31 @@
     }
   
   }
+  @media (max-width: 1000px){
+    #shopify-section-{{ section.id }} .title{
+      font-size: 30px;
+    }
+    #shopify-section-{{ section.id }} .desc{
+      font-size: 14px;
+      margin: 20px 0px;
+    }
+    #shopify-section-{{ section.id }} .button{
+      padding: 5px 10px;
+      font-size: 11px;
+    }
+  
+  }
   @media (max-width: 768px){
 
     #shopify-section-{{ section.id }} #easy-care{
+      display: flex;
       flex-wrap: wrap;
       flex-direction: column-reverse;
       gap: 20px;
+    }
+    #shopify-section-{{ section.id }} .wrapper{
+      position: initial;
+      transform: unset;
     }
     #shopify-section-{{ section.id }} .content-wrap{
       width: 100%;
@@ -76,7 +101,7 @@
       padding-bottom: 40px;
     }
     #shopify-section-{{ section.id }} .text-wrap{
-      max-width: 300px;
+      max-width: 400px;
       padding: 0px 20px;
       margin: auto;
     }
@@ -91,7 +116,7 @@
       font-size: 12px;
     }
     #shopify-section-{{ section.id }} .button{
-      padding: 6px 10px;
+      padding: 10px;
       font-size: 12px
     }
     #shopify-section-{{ section.id }} .mobile-image{
@@ -106,17 +131,19 @@
   }
 </style>
 <section id="easy-care">
-  <div class="content-wrap">
-    <div class="text-wrap">
-      <div class="title">{{ section.settings.title }}</div>
-      <div class="desc">{{ section.settings.body }}</div>
-      <a href="{{ section.settings.btn_link }}"class="button">{{ section.settings.btn_text }}</a>
+  <div class="container wrapper">
+    <div class="content-wrap">
+      <div class="text-wrap">
+        <div class="title">{{ section.settings.title }}</div>
+        <div class="desc">{{ section.settings.body }}</div>
+        <a href="{{ section.settings.btn_link }}"class="button">{{ section.settings.btn_text }}</a>
+      </div>
     </div>
   </div>
   <div class="image-wrap">
     <img class="desktop-image" src="{{ section.settings.image | img_url:"2000x"}}" alt=""/>
     <img class="mobile-image" src="{{ section.settings.mobile_image | img_url:"2000x"}}" alt=""/>    
-  </div>
+  </div> 
 </section>
 
 {% schema %}

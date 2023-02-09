@@ -11,7 +11,9 @@
 <div class="nav-secondary-menu-mobile">
    <div class="wrapper">
         <div class="menu-header">
-            <h1 class="title">{{ section.settings.title }}</h1>
+            <a href="/" itemprop="url" class="mobile-menu-logo">
+                <img src="{{ section.settings.logo | img_url : "500x"}}" alt="">
+            </a>
             <a class="login-btn" href="{{ section.settings.login_url}}">LOGIN</a>
         </div>
         <div class="menu-wrap">
@@ -51,17 +53,18 @@
         </div>
         {% render 'nav-mobile-footer' ,link : section.settings.link , img : section.settings.image%}
     </div>
-    <div class="menu-hide"></div>
 </div>
+<div class="menu-hide"></div>
+
 {% schema %}
 
 {
     "name": "MobileSecondaryNavigation",
     "settings": [
         {
-            "type":"text",
-            "id": "title",
-            "label":"Title"
+            "type":"image_picker",
+            "id":"logo",
+            "label":"Logo"
         },
         {
             "type":"url",

@@ -11077,7 +11077,7 @@
           "528552d3-66ae-4f3a-b571-74f850c6a710": {
             "type": "link",
             "settings": {
-              "title": "Trouser Fit Fonder",
+              "title": "Trouser Fit Finder",
               "url": "shopify:\/\/collections\/trouser-fit-finder",
               "bg_color": "#e7c8be",
               "color": ""
@@ -11537,8 +11537,8 @@
           "fc494272-f9ed-4ffb-87a7-0eb773acf081"
         ],
         "settings": {
-          "title": "DAI",
-          "login_url": "#",
+          "logo": "shopify:\/\/shop_images\/DAI_Logo_Black.webp",
+          "login_url": "\/account\/login",
           "image": "shopify:\/\/shop_images\/2018-B-Corp-Logo-Black-S-Edited.webp",
           "link": "mobile-footer-menu"
         }

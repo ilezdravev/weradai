@@ -1,6 +1,8 @@
 <nav class="mobile-nav-dropdown" data-dropdown-parent id="{{ block.id }}">
   <div class="menu-header">
-      <h1 class="title">{{ section.settings.title }}</h1>
+      <a href="/" itemprop="url" class="mobile-menu-logo">
+        <img src="{{ section.settings.logo | img_url : "500x"}}" alt="">
+      </a>
       <a class="login-btn" href="{{ section.settings.login_url}}">LOGIN</a>
   </div>
   <div class="nav__item drop-menu-title">

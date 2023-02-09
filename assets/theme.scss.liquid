@@ -7818,12 +7818,19 @@ $slick-opacity-not-active: 0.25 !default;
     max-width: 150px;
   }
   @include media(small) {
-    display: block;
+    display: none;
     img {
       display: block;
       margin: 0 auto;
     }
   }
+} 
+.testimonial-logos-container.mobile {
+  display: none;
+  @include media(small){
+    display:block;
+  }
+
 }
 .testimonials-list {
   margin-bottom: 40px;
@@ -14163,6 +14170,26 @@ h3.club-welcome-title{
     margin: 10px 0 0;
   }
 }
+@media (max-width: 567px){
+  .icon-text-blocks{
+    padding: 0px;
+  }
+  .icon-text-block__title{
+    font-size: 8px;
+  }
+  .icon-text-block__icon{
+    max-width: 45px;
+    margin: auto;
+  }
+  .icon-text-block__text p{
+    font-size: 10px;
+    margin: 0px;
+  }
+  .icon-text-blocks .col{
+    margin-bottom: 20px;
+  }
+ 
+}
 .clone {
     display: none;
 }
@@ -18338,25 +18365,30 @@ a.swym-wishlist.mobile {
 
   .title {
     font-family: 'Playfair Display';
-    font-size: 50px;
+    font-size: 38px;
   }
 
   .subtitle {
     margin-top: 12px;
-    font-size: 30px;
+    font-size: 23px;
     letter-spacing: 0.45px;
-    line-height: 35px;
     font-weight: normal;
+    max-width: 95%;
+    line-height:1.3em;
+    margin-left: auto;
   }
 
   .body {
     margin-top: 15px;
-    font-size: 24px;
+    font-size: 19px;
     letter-spacing: 0.36px;
     font-weight: 300;
     margin-bottom: 36px;
   }
-
+  .find-fit-btn{
+    padding: 16px;
+    font-size: 20px;  
+  }
   .stars {
     display: flex;
     gap: 10px;
@@ -18367,10 +18399,11 @@ a.swym-wishlist.mobile {
   }
 
   .review-text {
-    font-size: 26px;
+    font-size: 20px;
     letter-spacing: 0.65px;
-    line-height: 35px;
+    line-height:1.3em;
     margin-top: 15px;
+
   }
 
   .reviewer {
@@ -18395,19 +18428,19 @@ a.swym-wishlist.mobile {
     gap: 12px;
     justify-content: space-between;
     img{
-      height: 17px;
-      aspect-ratio: auto;
-      max-width: unset;
+      max-width: 36%;
+    }
+    img:last-child{
+      max-width: 20%
     }
   }
-
   .text-wrap {
     width: 38%;
     text-align: right;
   }
-
   .image-wrap {
     width: 24%;
+    padding: 0px 20px
   }
   .review-wrap {
     width: 38%;
@@ -18422,12 +18455,41 @@ a.swym-wishlist.mobile {
     display: none;
   }
 }
+@media (max-width: 1200px){
+  .perfect-fit-content{
+    .title{
+      font-size:31px
+    }
+    .subtitle {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+    .body{
+      font-size: 15px;
+    }
+    .find-fit-btn{
+      font-size :15px;
+      padding:10px;
+    }
+    .review-text{
+      font-size: 16px;
+      margin-top: 8px;
+    }
+    .reviewer{
+      font-size:  18px;
+    }
+    .as-seen-label{
+      margin-top:24px;
+    }
+    .as-seen-icons-wrap {
+      margin-top: 8px;
+    }
+  }
+}
 @media (max-width: 1000px){
   .perfect-fit-content{
-    .as-seen-icons-wrap {
-      img{
-        height: 14px;
-      }
+    .body{
+      margin-bottom:20px;
     }
   }
 }
@@ -18527,8 +18589,6 @@ a.swym-wishlist.mobile {
         justify-content:center;
         margin-top: 7px;
         img{
-          height: 15px;
-          aspect-ratio: auto;
         }
       }
     }
@@ -18543,7 +18603,7 @@ a.swym-wishlist.mobile {
   }
   .title {
     font-family: 'Playfair Display';
-    font-size: 35px;
+    font-size: 30px;
     letter-spacing: -0.88px;
     line-height: 47px;
   }
@@ -18567,25 +18627,24 @@ a.swym-wishlist.mobile {
   }
 
   .review-item .stars img {
-    width: 28px;
+    width: 21px;
   }
 
   .review-title {
-    margin-top: 18px;
+    margin-top: 10px;
     padding-bottom: 10px;
-    font-size: 26px;
+    font-size: 18px;
     border-bottom: 1px solid;
     font-weight: normal;
   }
   .review-content, .review-author {
     margin-top: 10px;
-    font-size: 22px;
+    font-size: 15px;
     letter-spacing: 0.55px;
-    line-height: 1;
+    line-height: 1.2em;
   }
   .review-content {
-    min-height: 160px;
-    margin-bottom: 20px;
+    min-height: 140px;
   }
   .slide-btn{
     width: 45px;
@@ -18629,7 +18688,16 @@ a.swym-wishlist.mobile {
   }
   
 }
-
+.menu-hide{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background: #00000075;
+  z-index: 15;
+  display: none;
+}
 
 ////nav-secondary-menu-mobile
 
@@ -18638,25 +18706,20 @@ a.swym-wishlist.mobile {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  max-width: 400px;
   z-index: 20;
   height: 100vh;
   transform: translateX(-100%);
   transition: all .4s ease;
-  .menu-hide{
-    flex-grow: 1;
-    background-color:#00000059;
-  }
   .menu-header{
     display: flex;
     justify-content: space-between;
     padding: 10px 26px;
     align-items: center;
   }
-  .title{
-    margin: 0px;
-    font-size: 70px;
-    font-weight: 400;
+  .mobile-menu-logo{
+    max-width: 90px;
+    display: flex 
   }
   .login-btn{
     padding: 10px 20px;
@@ -18691,6 +18754,9 @@ a.swym-wishlist.mobile {
     background: white;
     height: 100vh;
     overflow-y: scroll;
+    .image-link__image{
+      padding-top: 70% !important
+    }
   }
   .footer-links li{
     list-style: none;
@@ -18797,12 +18863,18 @@ a.swym-wishlist.mobile {
   }
 }
 
+@media (min-width: 991px){
+  .menu-hide.show{
+    display: none !important
+  }
+}
 @media (max-width:990px){
   .nav-secondary-menu-mobile.active{
     transform: translateX(0);
     transition: all .4s ease;
   }  
 }
+
 
 /// prmotion
 
@@ -18816,10 +18888,48 @@ a.swym-wishlist.mobile {
     color: #FFFFFF;
   }
 }
-@media (max-width: 567px){
-  .nav-secondary-menu-mobile{
-    .wrapper,.mobile-nav-dropdown{
-      width: 80%;
-    }
+.drop-menu{
+  display:none;
+}
+[footer-accordion] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  svg{
+    width: 15px;
+    height:15px;
   }
 }
+@media (max-width: 567px){
+  .nav-secondary-menu-mobile{
+      width: 80%;
+  }
+  .custom-reviews .review-item{
+    margin: unset;
+  }
+  // .custom-reviews .review-title{
+  //   font-size: 13px;
+  // }
+  // .custom-reviews .review-content{
+  //   font-size: 9px;
+    
+  // }
+  // .custom-reviews .review-items{
+  //   margin:25px auto 0px;
+  // }
+  // .custom-reviews .slick-dots li button{
+  //   height: 0px;
+  //   width: 15px;
+  // }
+  // .custom-reviews .review-author{
+  //   margin-top: 20px;
+  // }
+  // .slick-dots li button:before{
+  //   width: 10px;
+  //   height: 10px;
+  // }
+  // .custom-reviews .review-author{
+  //   font-size: 9px;
+  // }
+} 

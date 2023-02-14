@@ -1,11 +1,11 @@
 {
   "store": {
     "plan": "plus",
-    "theme": "TFF + Wishlist + Customer (02-01-2023)",
+    "theme": "[Dev] TFF + Wishlist + Customer (02-01-2023)",
     "primaryLocale": "en",
     "adminMode": false
   },
-  "tsPublished": 1674225952,
+  "tsPublished": 1676312512,
   "declaration": {
     "showPurpose": false,
     "showProvider": false,
@@ -290,7 +290,7 @@
       "imprintHref": "\/",
       "close": "&#10005;",
       "target": "",
-      "logo": "<img class=\"cc-banner-logo\" height=\"40\" width=\"40\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0225\/7023\/8016\/t\/206\/assets\/pandectes-logo.png?v=1673348713\" alt=\"Dai\" \/>"
+      "logo": "<img class=\"cc-banner-logo\" height=\"40\" width=\"40\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0225\/7023\/8016\/t\/214\/assets\/pandectes-logo.png?v=1675346248\" alt=\"Dai\" \/>"
     },
     "window": "<div role=\"dialog\" aria-live=\"polite\" aria-label=\"cookieconsent\" aria-describedby=\"cookieconsent:desc\" id=\"pandectes-banner\" class=\"cc-window-wrapper cc-bottom-wrapper\"><div class=\"pd-cookie-banner-window cc-window {{classes}}\"><!--googleoff: all-->{{children}}<!--googleon: all--><\/div><\/div>",
     "compliance": {
@@ -305,7 +305,7 @@
     "revokable": true,
     "animateRevokable": false,
     "revokableReset": false,
-    "revokableLogoUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0225\/7023\/8016\/t\/206\/assets\/pandectes-reopen-logo.png?v=1673348714",
+    "revokableLogoUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0225\/7023\/8016\/t\/214\/assets\/pandectes-reopen-logo.png?v=1675346248",
     "revokablePlacement": "bottom-left",
     "revokableMarginHorizontal": 15,
     "revokableMarginVertical": 15,

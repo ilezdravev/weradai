@@ -1,0 +1,138 @@
+
+<div class="container">
+  <h3 class="london-store-title">{{ section.settings.title }}</h3>
+  {% for block in section.blocks %}
+    {% assign set = block.settings %}
+    <div class="london-store-block" {{ block.shopify_attributes }}>
+      <div class="row">
+        <div class="col-md-6 {% if set.text_pos == "right" %}order-md-last{% endif %}">
+          <div class="{% if set.text_pos == "right" %} pl-md-3 {% else %} pr-md-3 {% endif %}" style="height: 100%">
+            <div class="london-store-block__info">
+              <div>
+                {% if set.title %}
+                  <h4 class="london-store-block__title">{{ set.title }}</h4>
+                {% endif %}
+                {% if set.text %}
+                  <div class="london-store-block__text">{{ set.text }}</div>
+                {% endif %}
+                {% if set.btn_text != blank %}
+                  <a href="{{ set.btn_url }}" class="btn btn-border">{{ set.btn_text }}</a>
+                {% endif %}
+
+                {% if set.calendly_url != blank %}
+                <!-- Calendly link widget begin -->
+                  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                  <a class="btn btn-border" href="" onclick="Calendly.initPopupWidget({url: '{{ set.calendly_url }}'});return false;">{{ set.calendly_btn_text }}</a>
+                <!-- Calendly link widget end -->
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 {% if set.text_pos == "right" %}order-md-first{% endif %}">
+          <div class="{% if set.text_pos == "right" %} pr-md-3 {% else %} pl-md-3 {% endif %}">
+            {% if set.custom != blank %}
+              <div class="london-store-block__custom">{{ set.custom }}</div>
+            {% elsif set.image != blank %}
+              <img loading="lazy" class="lazyload" src="{{ set.image | img_url: 'master' }}" alt="{{ set.title }}">
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% comment %} OLD POP UP
+<div class="cd-popup" role="alert" id="book-appointment-popup">
+    <div class="cd-popup-container square-popup">
+        <div class="popup-content">
+            <iframe src="https://calendly.com/daiwear/online-stylist-consult" width="100%" height="650" frameborder="0" id="book_showroom"></iframe>
+        </div>
+        <a href="#book-appointment-popup" class="cd-popup-close img-replace">Close</a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+{% endcomment %}
+
+{% schema %}
+{
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our global series of pop-up concept spaces is here."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button Url"
+        },
+        {
+          "type": "select",
+          "id": "text_pos",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "id": "custom",
+          "label": "Custom Code",
+          "info": "Can be used for Iframe for map, for example"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Calendly Button"
+        },
+        {
+          "type": "textarea",
+          "id": "calendly_url",
+          "label": "Calendly URL",
+          "info": "Copy your calendly link (e.g. https://calendly.com/daiwear/studio-appointment) and paste here"
+        },
+        {
+          "type": "text",
+          "id": "calendly_btn_text",
+          "label": "Calendly Button Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

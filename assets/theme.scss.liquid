@@ -18589,6 +18589,7 @@ a.swym-wishlist.mobile {
         justify-content:center;
         margin-top: 7px;
         img{
+          height: 16px;
         }
       }
     }
@@ -18654,40 +18655,7 @@ a.swym-wishlist.mobile {
   }
 }
 
-@media (max-width: 777px){
-  .custom-reviews{
-    .slide-btn{
-      display: none;
-    }
-    .title{
-      font-size: 27px;
-      line-height: 1.2em;
-    }
-    .review-title{
-      font-size: 17px;
-      text-align: center
-    }
-    .review-item .stars {
-      justify-content: center;
-    }
-    .review-content{
-      font-size: 14px;
-      min-height: max-content;
-    }
-    .review-author{
-      font-size: 14px;
-    }
-  }
-  .slick-dots li button:before{
-    width: 15px;
-    height: 15px;
-    border:1px solid black
-  }
-  .slick-dots li.slick-active button:before{
-    background-color:#bfbfbf;
-  }
-  
-}
+
 .menu-hide{
   position: fixed;
   width: 100%;
@@ -18714,7 +18682,7 @@ a.swym-wishlist.mobile {
   .menu-header{
     display: flex;
     justify-content: space-between;
-    padding: 10px 26px;
+    padding: 25px 26px;
     align-items: center;
   }
   .mobile-menu-logo{
@@ -18864,18 +18832,101 @@ a.swym-wishlist.mobile {
 }
 
 @media (min-width: 991px){
+ 
   .menu-hide.show{
     display: none !important
   }
 }
-@media (max-width:990px){
+@media (max-width:1200px){
   .nav-secondary-menu-mobile.active{
     transform: translateX(0);
     transition: all .4s ease;
   }  
+  .custom-reviews {
+    .review-title{
+      font-size: 13px;
+    }
+    .review-content{
+      font-size: 11px;
+      min-height: 100px;
+    }
+    .review-author{
+      font-size: 12px
+    }
+    .stars{
+      gap: 7px;
+      .img {
+        width: 15px;
+      }
+    }
+  }
 }
 
+@media (max-width:1200px){
+  .nav-secondary-menu-mobile.active{
+    transform: translateX(0);
+    transition: all .4s ease;
+  }  
+  .custom-reviews {
+    .review-title{
+      font-size: 13px;
+    }
+    .slide-btn{
+      width: 37px;
+      height: 37px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .review-content{
+      font-size: 11px;
+      min-height: 100px;
+    }
+    .review-author{
+      font-size: 12px
+    }
+    .custom-reviews .review-item .stars img{
+        width: 15px;
+    }
+  }
+}
+@media (max-width: 777px){
 
+  .custom-reviews{
+    .slide-btn{
+      display: none;
+    }
+    .title{
+      font-size: 27px;
+      line-height: 1.2em;
+    }
+    .review-title{
+      font-size: 19px;
+      text-align: center
+    }
+    .review-item .stars {
+      justify-content: center;
+      img{
+        width: 20px;
+      }
+    }
+    .review-content{
+      font-size: 14px;
+    }
+    .review-author{
+      font-size: 14px;
+    }
+  }
+  .slick-dots li button:before{
+    width: 15px;
+    height: 15px;
+    border:1px solid black
+  }
+  .slick-dots li.slick-active button:before{
+    background-color:#bfbfbf;
+  }
+  
+}
 /// prmotion
 
 .promotional{
@@ -18895,7 +18946,8 @@ a.swym-wishlist.mobile {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 3px;
+  cursor:pointer;
   svg{
     width: 15px;
     height:15px;
